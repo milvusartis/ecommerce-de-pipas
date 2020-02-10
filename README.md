@@ -15,7 +15,7 @@ Projeto Integrador do curso Desenvolvedor Web Full Stack - Digital House e RD
 
 ## Lista de Tarefas
 
-- [x] Sprint 1 - 10/01/2020 - Entrega de Wireframes [Visualizar Protótipo](https://marvelapp.com/5i622g4)
+- [x] Sprint 1 - 10/01/2020 - Entrega de Wireframes no Marvelapp - [Visualizar Protótipo](https://marvelapp.com/5i622g4)
 - [ ] Sprint 2 - 
 - [ ] Sprint 3 - 
 - [ ] Sprint 4 -
