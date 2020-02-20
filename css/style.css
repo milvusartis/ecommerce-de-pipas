@@ -1,0 +1,41 @@
+
+
+footer{
+    display: flex;;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    justify-content: center;  
+}
+
+/* Cores de background */
+.bg-dark-grey{
+    background: #36393A;
+}
+.bg-light-grey{
+    background: #E0E2E5;
+}
+.bg-yellow{
+    background: #FCBA1C;
+}
+.bg-green{
+    background: #9ACA4C;
+}
+.bg-red{
+    background: #EA4A6F;
+}
+.bg-blue{
+    background: #54C3D5;
+}
+
+/* cores de fontes */
+.color-dark{
+    color: #FFFFFF;
+}
+
+.color-light{
+    color: #36393A;
+}
+
+
