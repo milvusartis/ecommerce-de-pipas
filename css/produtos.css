@@ -1,7 +1,11 @@
+#pai{
+    background-color: rgb(105, 105, 105);
+}
 .frete{
     display: flex;
     justify-content: center;
     padding: 10px;
+    background-color: rgb(105,105,105);
 
 }
 #produtos{
@@ -9,6 +13,10 @@
     justify-content: center;
     justify-content: space-around;
     margin-left: 10px;
+}
+#categoria{
+    padding-left: 20px;
+    
 }
 
 
