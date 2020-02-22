@@ -1,3 +1,14 @@
-.card{
-    border-style: solid;
+.frete{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
 }
+#produtos{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin-left: 10px;
+}
+
+
