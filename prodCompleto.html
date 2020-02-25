@@ -43,13 +43,13 @@
                     <div class="form-group mt-5 mb-2 p-2 border border-dark">
                         <label for="enderecoUsuario">Informe seu CEP para calcular o frete</label>
                         <div class="input-group">
-                            <input class="form-control col-4" type="text" name="enderecoUsuario" 
-                            placeholder="00000-000" id="enderecoUsuario">                            
+                            <input class="form-control col-4" type="text" name="cepUsuario" 
+                            placeholder="00000-000" id="cepUsuario"  onkeypress="mascara(this,cep)" onkeyup="mascara(this,cep)">                            
                             <div class="input-group-append">
-                                <button type="submit" class="btn btn-success">Comprar</button>
+                                <button type="submit" class="btn btn-success" id="btnFrete">Calcular Frete</button>
                             </div>
                         </div>
-                        <p class="mt-2 mb-2"title="Valor do Frete" id="vFrete">Valor do Frete:R$5,00</p>
+                        <p class="mt-2 mb-2"title="Valor do Frete" id="vFrete">Valor do Frete:</p>
                     </div>
                 </div>
                 <div class="col-12 border border-dark">
