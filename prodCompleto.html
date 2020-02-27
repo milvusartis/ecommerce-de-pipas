@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="css/prodCompleto.css">
+    <title>Descrição do Produto</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark text-light">
+            HEADER
+        </nav> 
+    </header>
+    <main>
+        <section class="container">
+            <div class="row ">
+                <div class="col-sm-12 col-md-5">
+                    <img src="image/img-mockup-menor.png" class="img-fluid mt-2 mb-2"alt="imagemProduto" title="imagemProduto">
+                </div>
+                <div class="col-sm-12 col-md-7">
+                    <div class="p-2">
+                        <h3 title="Nome do Produto" class="mt-2 mb-2">
+                            Pipa para Festival
+                        </h3>
+                        <h5 title="Preço do Produto" class="mt-2 mb-2">
+                            R$ 20,00
+                        </h5>
+                        <p title="Quantidade disponivel" class="mt-2 mb-2">
+                            5 unidades restante
+                        </p>
+                        <div class="mt-2 mb-2">
+                            <button type="submit" id="btnMenos">-</button>
+                            <input type="number" class="col-2 col-lg-2" name="qtdProduto" id="qtdProduto" value="1">
+                            <button type="submit" id="btnMais">+</button>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg col-sm-12 col-md-6 mt-2">Comprar</button>    
+                    </div>
+                    <div class="form-group mt-5 mb-2 p-2 border border-dark">
+                        <label for="enderecoUsuario">Informe seu CEP para calcular o frete</label>
+                        <div class="input-group">
+                            <input class="form-control col-4" type="text" name="cepUsuario" 
+                            placeholder="00000-000" id="cepUsuario"  onkeypress="mascara(this,cep)" onkeyup="mascara(this,cep)">                            
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-success" id="btnFrete">Calcular Frete</button>
+                            </div>
+                        </div>
+                        <p class="mt-2 mb-2"title="Valor do Frete" id="vFrete">Valor do Frete:</p>
+                    </div>
+                </div>
+                <div class="col-12 border border-dark">
+                    <h3 title="Nome do Produto" class="mt-2 mb-2">
+                        Pipa para Festival
+                    </h3>
+                    <p title="Descrição do Produto" class="mt-2 mb-2">
+                        Lorem ipsum adipiscing sed ligula vivamus litora conubia scelerisque, 
+                        malesuada platea suscipit dolor blandit est dictum metus, tortor praesent 
+                        nulla malesuada conubia aptent ullamcorper. velit nisl nostra gravida felis 
+                        in porttitor massa pellentesque aliquam mollis aliquam, maecenas accumsan 
+                        ante magna turpis venenatis aliquam sem tincidunt ad praesent posuere, 
+                        proin dui turpis iaculis cras rhoncus maecenas sem convallis suspendisse.
+                         praesent sodales orci mattis orci sem nisi posuere ut eleifend himenaeos 
+                         varius id, consequat fringilla quis ligula est quam lorem molestie aenean 
+                         hac. tempor dapibus turpis curabitur justo per blandit purus ante aenean, 
+                         sodales nisl nisi diam blandit eu iaculis aliquam dui, sed a venenatis orci 
+                         tempus sapien nam purus. 
+                    </p>
+                </div>
+            </div>
+        </section>
+        <nav class="navbar navbar-dark bg-secondary text-light mt-2 mb-2">
+            Você tambem pode gostar
+        </nav>
+        <section class="container">
+            <div class="row">
+                <div class="col-sm-5 col-md-3 carde">
+                    <a href="#">
+                        <img src="image/img-mockup-menor-2.png" class="mt-2 mb-2 img-fluid"alt="imagemProduto" 
+                        title="imagemProduto">
+                        <h5 title="Titulo Produto 1">Pipa Linda!</h5>
+                    </a>
+                </div>
+                <div class="col-sm-5 col-md-3 carde">
+                    <a href="#">
+                        <img src="image/img-mockup-menor-2.png" class="mt-2 mb-2 img-fluid"alt="imagemProduto" 
+                        title="imagemProduto">
+                        <h5 title="Titulo Produto 1">Pipa Bonita!</h5>
+                    </a>
+                </div>
+                <div class="col-sm-5 col-md-3 carde">
+                    <a href="#">
+                        <img src="image/img-mockup-menor-2.png" class="mt-2 mb-2 img-fluid"alt="imagemProduto" 
+                        title="imagemProduto">
+                        <h5 title="Titulo Produto 1">Pipa Formosa!</h5>
+                    </a>
+                </div>
+                <div class="col-sm-5 col-md-3 carde">
+                    <a href="#">
+                        <img src="image/img-mockup-menor-2.png" class="mt-2 mb-2 img-fluid"alt="imagemProduto" 
+                        title="imagemProduto">
+                        <h5 title="Titulo Produto 1">Pipa Maravilhosa!</h5>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav class="navbar navbar-dark bg-dark text-light">
+            FOOTER
+        </nav>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+    crossorigin="anonymous"></script>
+    <script src="js/prodCompleto.js"></script>
+</body>
+</html>
