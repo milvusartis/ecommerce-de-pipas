@@ -27,11 +27,16 @@
 
 /* FIM HEADER */
 
+.container{
+    margin-top: 13%;
+}
+
+
 
 /* INICIO FOOTER */
 footer {
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     bottom: 0;
     padding: 20px;
     justify-content: center;
