@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
 .divider-text {
     position: relative;
     text-align: center;
@@ -27,4 +29,9 @@
 .btn-twitter {
     background-color: #42AEEC;
     color: #fff;
+}
+
+
+.cardCorpo{
+    margin-right: 100px;
 }
