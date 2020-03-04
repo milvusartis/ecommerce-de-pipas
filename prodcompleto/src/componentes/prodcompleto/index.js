@@ -41,7 +41,7 @@ class ProdCompleto extends Component {
         }
     }
 
-    handleInputChange(event){
+    mudaInput(event){
         event.value=this.state.numero;
     }
 
@@ -93,29 +93,50 @@ render() {
             <Container>
                 <Row>
                     <Col sm="12" md="5">
-                        <img src={fotoMaior} className="img-fluid mt-2 mb-2" alt="imagemProduto" title="imagemProduto" />
+                        <img src={fotoMaior} 
+                        className="img-fluid mt-2 mb-2" 
+                        alt="imagemProduto" 
+                        title="imagemProduto"/>
                     </Col>
                     <Col sm="12" md="7">
                         <div className="p-2">
-                            <h3 title="Nome do Produto" className="mt-2 mb-2">
+                            <h3 title="Nome do Produto" 
+                            className="mt-2 mb-2">
                                 Pipa para Festival
                             </h3>
-                            <h5 title="Preço do Produto" className="mt-2 mb-2">
+                            <h5 title="Preço do Produto" 
+                            className="mt-2 mb-2">
                                 R$ 20,00
                             </h5>
-                            <p title="Quantidade disponivel" className="mt-2 mb-2">
+                            <p title="Quantidade disponivel" 
+                            className="mt-2 mb-2">
                                 5 unidades restante
                             </p>
                             <Row className="mt-2 mb-2 p-2">
-                                <Button onClick={this.subtrai}>-</Button>
-                                <Input type="number" className="col-2" name="qtdProduto"
-                                value={this.state.numero} onChange={this.handleInputChange} onInput={this.validaQtd}/>
-                                <Button onClick={this.soma}>+</Button>
+                                <Button onClick={this.subtrai}>
+                                    -
+                                </Button>
+                                <Input 
+                                type="number" 
+                                className="col-2" 
+                                name="qtdProduto"
+                                value={this.state.numero} 
+                                onChange={this.mudaInput} 
+                                onInput={this.validaQtd}/>
+                                <Button onClick={this.soma}>
+                                    +
+                                </Button>
                             </Row>
-                            <Button color="success" className="btn-lg col-sm-12 col-md-6 mt-2">Comprar</Button>
+                            <Button 
+                            color="success" 
+                            className="btn-lg col-sm-12 col-md-6 mt-2">
+                                Comprar
+                            </Button>
                         </div>
                         <FormGroup className="mt-5 mb-2 p-2 border border-dark">
-                            <Label for="enderecoUsuario">Informe seu CEP para calcular o frete</Label>
+                            <Label for="enderecoUsuario">
+                                Informe seu CEP para calcular o frete
+                            </Label>
                             <InputGroup>
                                 <Input type="text" name="cepUsuario" placeholder="00000-000" maxLength="9"
                                 /*onKeyPress={this.mascara(this,cep)} onkeyUp={this.mascara(this,cep)}*/ className="col-4"></Input>
