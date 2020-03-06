@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import "./Styles.css";
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
+import InputMask from "react-input-mask";
 
 
 import {
@@ -9,9 +12,30 @@ import {
     Form,
     FormGroup,
     Input,
-    Row
-} from 'reactstrap';
+    Row,
+    FormText
 
+} from 'reactstrap';
+ 
+
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    form.addEventListener('submit', function(event) {
+    if (form.checkValidity() === false) {
+    event.preventDefault();
+    event.stopPropagation();
+    }
+    form.classList.add('was-validated');
+    }, false);
+    });
+    }, false);
+    })();
 
 class Login extends Component {
 
@@ -19,62 +43,59 @@ class Login extends Component {
         return ( 
             <>
 
-<Container>
+        <Container>
         
         <Card className="bg-light">
             <Row className="cardCorpo">
-                <div className="card-body col-sm-6" style={{marginRight: 120}}>
+                <div className="card-body col-sm-4" style={{marginRight: 120}}>
                     <h4 className="card-title mt-3 text-center">Cadastro</h4>
                     <p className="text-center">Se registre aqui para comprar nossas pipas</p>
                     <p>
-                        <a href className="btn btn-block btn-twitter"> <i className="fab fa-twitter"></i> &#xA0; Login via
-                            Twitter</a>
-                        <a href className="btn btn-block btn-facebook"> <i className="fab fa-facebook-f"></i> &#xA0; Login via
-                            facebook</a>
                     </p>
                     <p className="divider-text">
-                        <span className="bg-light">OU</span>
+                        <span className="bg-light">Ou</span>
                     </p>
-                    <Form>
+                    <Form className="needs-validation" novalidate>
                         <FormGroup className="input-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text"> <i className="fa fa-user"></i> </span>
                             </div>
-                            <Input name placeholder="Nome completo" type="text"></Input>
+                            <InputMask className="input-group-text bg-white" placeholder="Nome completo"class="form-control" id="validationCustom01"required></InputMask>
+                        </FormGroup>
+                        <FormGroup className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text"> <i className="fa fa-user"></i> </span>
+                            </div>
+                            <InputMask className="input-group-text bg-white" placeholder="Nome de Usuario" mask="********" id="validationCustom02"required></InputMask>
+                            <FormText>*Seu nome de usuario precisa ter 8 caracteres Alfa numericos apenas.</FormText>
                         </FormGroup>
                         <FormGroup className="input-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text"> <i className="fa fa-envelope"></i> </span>
                             </div>
-                            <Input name placeholder="Email " type="email"></Input>
+                            <InputMask className="input-group-text bg-white" placeholder="Email" type="email" required></InputMask>
                         </FormGroup>
                         <FormGroup className="input-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text"> <i className="fa fa-phone"></i> </span>
                             </div>
-                            <select className="custom-select" style={{maxWidth: 70}}>
-                                <option selected>+11</option>
-                                <option value="1">+19</option>
-                                <option value="2">+21</option>
-                                <option value="3">+12</option>
-                            </select>
-                            <Input name placeholder="Telefone" type="text"></Input>
+                            <InputMask className="input-group-text bg-white" placeholder="Telefone" mask="+55(99)99999-9999"class="form-control" id="validationCustom03"required></InputMask>
                         </FormGroup>
                         <FormGroup className="input-group">
                             <FormGroup className="input-group">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text"> <i className="fa fa-lock"></i> </span>
                                 </div>
-                                <Input placeholder="Coloque sua senha" type="password"></Input>
+                                <InputMask className="input-group-text bg-white" placeholder="Coloque sua senha" type="password"class="form-control" id="validationCustom04"required></InputMask>
                             </FormGroup>
                             <FormGroup className="input-group">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text"> <i className="fa fa-lock"></i> </span>
                                 </div>
-                                <Input placeholder="Repita sua senha" type="password"></Input>
-                            </FormGroup>
+                                <InputMask className="input-group-text bg-white" placeholder="Repita sua senha" type="password"class="form-control" id="validationCustom04"required></InputMask>
+                            </FormGroup>                                
                         <FormGroup>
-                                <Button color="primary" block> Criar conta. </Button>
+                                <Button color="primary" > Criar conta. </Button>
                         </FormGroup>
                         <p className="text-center"> Ja e cadastrado? Efetue o login ao lado </p>
                     </FormGroup>
@@ -86,34 +107,31 @@ class Login extends Component {
                             <h3>Entrar </h3>
                         </div>
                         <div className="card-body"/>
-                            <Form>
+                            <Form style={{marginLeft:20}}>
                                 <FormGroup className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="fas fa-user"></i></span>
                                     </div>
-                                    <Input type="text" placeholder="Usuario"></Input>
+                                    <InputMask className="input-group-text bg-white" type="text" placeholder="Usuario"></InputMask>
                                 </FormGroup>
                                 <FormGroup className="input-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                     </div>
-                                    <Input type="password" placeholder="Senha"></Input>
+                                    <InputMask className="input-group-text bg-white" type="password" placeholder="Senha"></InputMask>
                                 </FormGroup>
-                                <Row className="align-items-center remember">
-                                    <Input type="checkbox"></Input>Lembrar meus dados
-                                </Row>
-
-                                <FormGroup>
-                                    <input type="submit" value="Login" className="btn float-right login_btn"/>
+                                <FormGroup style={{marginLeft:30}}>
+                               <Input type="checkbox"> </Input> Lembrar meus dados
                                 </FormGroup>
+                                <Button color="primary" type="submit"style={{marginLeft:100}}> Login </Button>
                             </Form>
                         </div>
 
-                            <p className="divider-text">
-                                <span className="bg-light">OU</span>
-                      </p>
+                            <p className="divider-text"style={{marginLeft:20}}>
+                                <span className="bg-light" >OU </span>
+                            </p>
                             <div>
-                               <p>Nao tem uma conta?
+                               <p style={{marginLeft:40}}>Nao tem uma conta?
                                Cadastre-se ao lado</p>
                             </div>
                             <div className="d-flex justify-content-center">
