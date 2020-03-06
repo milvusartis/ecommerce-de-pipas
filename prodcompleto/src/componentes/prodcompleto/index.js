@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./prodcompleto.css";
 import fotoMaior from "./img-mockup-menor.png";
 import fotoMenor from "./img-mockup-menor-2.png";
+import InputMask from "react-input-mask";
 import {
     Container,
     Row,
@@ -15,77 +16,67 @@ import {
 } from 'reactstrap'
 
 class ProdCompleto extends Component {
+    
     state={
-        numero:1
-    };
+        numero:1,
+        cep:"",
+        valorFrete:"Valor do Frete: "
+    }
 
-    validaQtd =()=> {
-        if ( this.state.numero<0) {
+    validarQtd=()=>{
+        if (this.state.numero<0) {
             this.setState({numero:0})
         }
         if (this.state.numero>5) {
             this.setState({numero:5})
         }
     }
-    subtrai=()=>{
+
+    subtrair=()=>{
         if (this.state.numero>0&&this.state.numero<=5) {
             this.setState({numero:this.state.numero-1})
             console.log(this.state.numero)
 
         }
     }
-    soma=()=>{
+
+    somar=()=>{
         if (this.state.numero>=0&&this.state.numero<5){
             this.setState({numero:this.state.numero+1})
             console.log(this.state.numero)
         }
     }
 
-    mudaInput(event){
+    gerenciarValorNumero=(event)=>{
         event.value=this.state.numero;
     }
 
-    // addEventListener=()=>{
-    //     validarCampo(inputCEP, 9);
-    // }
+    gerenciarValorCep=(event)=>{
+        this.setState({cep:event.target.value})
+    }
 
-    // validarCampo=(input,i)=>{
-    //     if (input.value.length >= i) {
-    //         input.value = input.value.substring(0, i);
-    //     }
-    // }
-
-    // mascara=(el, masc)=>{
-    //     el.value=masc(el.value);
-    // };
-    // soNumeros=(d)=>{
-    //     return d.replace(/\D/g, "");
-    // };
-    // cep=(d)=>{
-    //     d=soNumeros(d);
-    //     d=d.replace(/^(\d{5})(\d)/, "$1-$2");
-    //     return d;
-    // };
-    // addEventListener = () => {
-    //     let cep = inputCEP.value.replace([/[-]+/g, '']);
-    //     let a = "https://viacep.com.br/ws/" + cep + "/json";
-    //     let resposta = fetch(a);
-    //         .then((resposta) => {
-    //             return resposta.json();
-    //         })
-    //         .then((json) => {
-    //             if (json.erro == true) {
-    //             }
-    //             else {
-    //                 if (json.uf == "SP") {
-    //                     vFrete.innerText = "Valor do Frete:R$4,00";
-    //                 }
-    //                 else {
-    //                     vFrete.innerText = "Valor do Frete:R$8,00";
-    //                 }
-    //             }
-    //         })
-    // }
+    enviarCep=()=>{
+        if(this.state.cep.replace(/-/,"").length===8){
+            fetch("https://viacep.com.br/ws/"+this.state.cep.replace(/-/,"")+"/json")
+            .then(resposta=>resposta.json())
+            .then(
+            (json)=>{
+            if(json.erro===true){
+                this.setState({valorFrete:"Valor do Frete: "})
+            }
+            else{
+                if(json.uf==="SP"){
+                    this.setState({valorFrete:"Valor do Frete:R$4,00"})
+                }
+                else{
+                    this.setState({valorFrete:"Valor do Frete:R$8,00"})
+                }
+            }
+        })
+        }else{
+            this.setState({valorFrete:"Valor do Frete: "})
+        }
+    }
 
 render() {
     return (
@@ -113,7 +104,7 @@ render() {
                                 5 unidades restante
                             </p>
                             <Row className="mt-2 mb-2 p-2">
-                                <Button onClick={this.subtrai}>
+                                <Button onClick={this.subtrair}>
                                     -
                                 </Button>
                                 <Input 
@@ -121,9 +112,9 @@ render() {
                                 className="col-2" 
                                 name="qtdProduto"
                                 value={this.state.numero} 
-                                onChange={this.mudaInput} 
-                                onInput={this.validaQtd}/>
-                                <Button onClick={this.soma}>
+                                onChange={this.gerenciarValorNumero} 
+                                onInput={this.validarQtd}/>
+                                <Button onClick={this.somar}>
                                     +
                                 </Button>
                             </Row>
@@ -134,15 +125,30 @@ render() {
                             </Button>
                         </div>
                         <FormGroup className="mt-5 mb-2 p-2 border border-dark">
-                            <Label for="enderecoUsuario">
+                            <Label>
                                 Informe seu CEP para calcular o frete
                             </Label>
                             <InputGroup>
-                                <Input type="text" name="cepUsuario" placeholder="00000-000" maxLength="9"
-                                /*onKeyPress={this.mascara(this,cep)} onkeyUp={this.mascara(this,cep)}*/ className="col-4"></Input>
-                                <Button id="btnFrete" color="success">Calcular Frete</Button>
+{/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
+                                <InputMask
+                                placeholder="00000-000" 
+                                mask="99999-999" 
+                                className="col-7 col-md-4"
+                                //value={this.state.cep}
+                                onChange={this.gerenciarValorCep}
+                                maskPlaceholder={null}
+                                />
+{/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
+                                <Button
+                                color="success"
+                                onClick={this.enviarCep}>
+                                    Calcular Frete
+                                    </Button>
                             </InputGroup>
-                            <p className="mt-2 mb-2" title="Valor do Frete" id="vFrete">Valor do Frete:</p>
+                            <p className="mt-2 mb-2" 
+                            title="Valor do Frete">
+                                {this.state.valorFrete}
+                            </p>
                         </FormGroup>
                     </Col>
                     <Col sm="12" /*border border-dark"*/>
@@ -172,25 +178,37 @@ render() {
                 <Row>
                     <Col sm="5" md="3" className="carde">
                         <div>
-                            <img src={fotoMenor} className="mt-2 mb-2 img-fluid" alt="imagemProduto" title="imagemProduto" />
+                            <img src={fotoMenor} 
+                            className="mt-2 mb-2 img-fluid" 
+                            alt="imagemProduto" 
+                            title="imagemProduto" />
                             <h5 title="Titulo Produto 1">Pipa Linda!</h5>
                         </div>
                     </Col>
                     <Col sm="5" md="3" className="carde">
                         <div>
-                            <img src={fotoMenor} className="mt-2 mb-2 img-fluid" alt="imagemProduto" title="imagemProduto" />
+                            <img src={fotoMenor} 
+                            className="mt-2 mb-2 img-fluid" 
+                            alt="imagemProduto" 
+                            title="imagemProduto" />
                             <h5 title="Titulo Produto 1">Pipa Bonita!</h5>
                         </div>
                     </Col>
                     <Col sm="5" md="3" className="carde">
                         <div>
-                            <img src={fotoMenor} className="mt-2 mb-2 img-fluid" alt="imagemProduto" title="imagemProduto" />
+                            <img src={fotoMenor} 
+                            className="mt-2 mb-2 img-fluid" 
+                            alt="imagemProduto" 
+                            title="imagemProduto" />
                             <h5 title="Titulo Produto 1">Pipa Formosa!</h5>
                         </div>
                     </Col>
                     <Col sm="5" md="3" className="carde">
                         <div>
-                            <img src={fotoMenor} className="mt-2 mb-2 img-fluid" alt="imagemProduto" title="imagemProduto" />
+                            <img src={fotoMenor} 
+                            className="mt-2 mb-2 img-fluid" 
+                            alt="imagemProduto" 
+                            title="imagemProduto" />
                             <h5 title="Titulo Produto 1">Pipa Maravilhosa!</h5>
                         </div>
                     </Col>
