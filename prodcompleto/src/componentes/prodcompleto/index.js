@@ -20,7 +20,7 @@ class ProdCompleto extends Component {
     state={
         numero:1,
         cep:"",
-        valorFrete:"Valor do Frete: "
+        valorFrete:" "
     }
 
     validarQtd=()=>{
@@ -62,19 +62,19 @@ class ProdCompleto extends Component {
             .then(
             (json)=>{
             if(json.erro===true){
-                this.setState({valorFrete:"Valor do Frete: "})
+                this.setState({valorFrete:" "})
             }
             else{
                 if(json.uf==="SP"){
-                    this.setState({valorFrete:"Valor do Frete:R$4,00"})
+                    this.setState({valorFrete:"R$4,00"})
                 }
                 else{
-                    this.setState({valorFrete:"Valor do Frete:R$8,00"})
+                    this.setState({valorFrete:"R$8,00"})
                 }
             }
         })
         }else{
-            this.setState({valorFrete:"Valor do Frete: "})
+            this.setState({valorFrete:" "})
         }
     }
 
@@ -147,7 +147,7 @@ render() {
                             </InputGroup>
                             <p className="mt-2 mb-2" 
                             title="Valor do Frete">
-                                {this.state.valorFrete}
+                                Valor do Frete: {this.state.valorFrete}
                             </p>
                         </FormGroup>
                     </Col>
