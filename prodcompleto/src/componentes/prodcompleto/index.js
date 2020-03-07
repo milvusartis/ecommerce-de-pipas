@@ -18,63 +18,97 @@ import {
 class ProdCompleto extends Component {
     
     state={
-        numero:1,
+        productName:"Pipa para Festival",
+        productImage:fotoMaior,
+        productDescription:
+        `Lorem ipsum adipiscing sed ligula vivamus litora conubia scelerisque,
+        malesuada platea suscipit dolor blandit est dictum metus, tortor praesent
+        nulla malesuada conubia aptent ullamcorper. velit nisl nostra gravida felis
+        in porttitor massa pellentesque aliquam mollis aliquam, maecenas accumsan
+        ante magna turpis venenatis aliquam sem tincidunt ad praesent posuere,
+        proin dui turpis iaculis cras rhoncus maecenas sem convallis suspendisse.
+        praesent sodales orci mattis orci sem nisi posuere ut eleifend himenaeos
+        varius id, consequat fringilla quis ligula est quam lorem molestie aenean
+        hac. tempor dapibus turpis curabitur justo per blandit purus ante aenean,
+        sodales nisl nisi diam blandit eu iaculis aliquam dui, sed a venenatis orci
+        tempus sapien nam purus.`,
+        productValeu:20.00,
+        maxNumber:5,
+        number:1,
         cep:"",
-        valorFrete:" "
+        deliveryCost:" ",
+        recommendedProducts:[
+        {
+            title:"Pipa Linda!",
+            image:fotoMenor
+        },
+        {
+            title:"Pipa Bonita!",
+            image:fotoMenor
+        },
+        {
+            title:"Pipa Formosa!",
+            image:fotoMenor
+        },
+        {
+            title:"Pipa Maravilhosa!",
+            image:fotoMenor
+        }   
+        ]
     }
 
-    validarQtd=()=>{
-        if (this.state.numero<0) {
-            this.setState({numero:0})
+    validateInput=()=>{
+        if (this.state.number<0) {
+            this.setState({number:0})
         }
-        if (this.state.numero>5) {
-            this.setState({numero:5})
+        if (this.state.number>5) {
+            this.setState({number:5})
         }
     }
 
-    subtrair=()=>{
-        if (this.state.numero>0&&this.state.numero<=5) {
-            this.setState({numero:this.state.numero-1})
-            console.log(this.state.numero)
+    decrement=()=>{
+        if (this.state.number>0&&this.state.number<=5) {
+            this.setState({number:this.state.number-1})
+            console.log(this.state.number)
 
         }
     }
 
-    somar=()=>{
-        if (this.state.numero>=0&&this.state.numero<5){
-            this.setState({numero:this.state.numero+1})
-            console.log(this.state.numero)
+    increment=()=>{
+        if (this.state.number>=0&&this.state.number<5){
+            this.setState({number:this.state.number+1})
+            console.log(this.state.number)
         }
     }
 
-    gerenciarValorNumero=(event)=>{
-        event.value=this.state.numero;
+    handleNumberValeu=(event)=>{
+        event.value=this.state.number;
     }
 
-    gerenciarValorCep=(event)=>{
+    handleCepValeu=(event)=>{
         this.setState({cep:event.target.value})
     }
 
-    enviarCep=()=>{
+    sendCep=()=>{
         if(this.state.cep.replace(/-/,"").length===8){
             fetch("https://viacep.com.br/ws/"+this.state.cep.replace(/-/,"")+"/json")
-            .then(resposta=>resposta.json())
+            .then(response=>response.json())
             .then(
             (json)=>{
             if(json.erro===true){
-                this.setState({valorFrete:" "})
+                this.setState({deliveryCost:" "})
             }
             else{
                 if(json.uf==="SP"){
-                    this.setState({valorFrete:"R$4,00"})
+                    this.setState({deliveryCost:"R$4,00"})
                 }
                 else{
-                    this.setState({valorFrete:"R$8,00"})
+                    this.setState({deliveryCost:"R$8,00"})
                 }
             }
         })
         }else{
-            this.setState({valorFrete:" "})
+            this.setState({deliveryCost:" "})
         }
     }
 
@@ -84,7 +118,7 @@ render() {
             <Container>
                 <Row>
                     <Col sm="12" md="5">
-                        <img src={fotoMaior} 
+                        <img src={this.state.productImage} 
                         className="img-fluid mt-2 mb-2" 
                         alt="imagemProduto" 
                         title="imagemProduto"/>
@@ -93,28 +127,27 @@ render() {
                         <div className="p-2">
                             <h3 title="Nome do Produto" 
                             className="mt-2 mb-2">
-                                Pipa para Festival
+                                {this.state.productName}
                             </h3>
                             <h5 title="Preço do Produto" 
                             className="mt-2 mb-2">
-                                R$ 20,00
+                                R$ {this.state.productValeu}
                             </h5>
                             <p title="Quantidade disponivel" 
                             className="mt-2 mb-2">
-                                5 unidades restante
+                                {this.state.maxNumber} unidades restante
                             </p>
                             <Row className="mt-2 mb-2 p-2">
-                                <Button onClick={this.subtrair}>
+                                <Button onClick={this.decrement}>
                                     -
                                 </Button>
                                 <Input 
                                 type="number" 
-                                className="col-2" 
-                                name="qtdProduto"
-                                value={this.state.numero} 
-                                onChange={this.gerenciarValorNumero} 
-                                onInput={this.validarQtd}/>
-                                <Button onClick={this.somar}>
+                                className="col-2"
+                                value={this.state.number} 
+                                onChange={this.handleNumberValeu} 
+                                onInput={this.validateInput}/>
+                                <Button onClick={this.increment}>
                                     +
                                 </Button>
                             </Row>
@@ -135,38 +168,28 @@ render() {
                                 mask="99999-999" 
                                 className="col-7 col-md-4"
                                 //value={this.state.cep}
-                                onChange={this.gerenciarValorCep}
+                                onChange={this.handleCepValeu}
                                 maskPlaceholder={null}
                                 />
 {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
                                 <Button
                                 color="success"
-                                onClick={this.enviarCep}>
+                                onClick={this.sendCep}>
                                     Calcular Frete
                                     </Button>
                             </InputGroup>
                             <p className="mt-2 mb-2" 
                             title="Valor do Frete">
-                                Valor do Frete: {this.state.valorFrete}
+                                Valor do Frete: {this.state.deliveryCost}
                             </p>
                         </FormGroup>
                     </Col>
                     <Col sm="12" /*border border-dark"*/>
                         <h3 title="Nome do Produto" className="mt-2 mb-2">
-                            Pipa para Festival
+                            {this.state.productName}
                         </h3>
                         <p title="Descrição do Produto" className="mt-2 mb-2">
-                            Lorem ipsum adipiscing sed ligula vivamus litora conubia scelerisque,
-                            malesuada platea suscipit dolor blandit est dictum metus, tortor praesent
-                            nulla malesuada conubia aptent ullamcorper. velit nisl nostra gravida felis
-                            in porttitor massa pellentesque aliquam mollis aliquam, maecenas accumsan
-                            ante magna turpis venenatis aliquam sem tincidunt ad praesent posuere,
-                            proin dui turpis iaculis cras rhoncus maecenas sem convallis suspendisse.
-                            praesent sodales orci mattis orci sem nisi posuere ut eleifend himenaeos
-                            varius id, consequat fringilla quis ligula est quam lorem molestie aenean
-                            hac. tempor dapibus turpis curabitur justo per blandit purus ante aenean,
-                            sodales nisl nisi diam blandit eu iaculis aliquam dui, sed a venenatis orci
-                            tempus sapien nam purus.
+                            {this.state.productDescription}
                         </p>
                     </Col>
                 </Row>
@@ -176,40 +199,40 @@ render() {
             </Navbar>
             <Container>
                 <Row>
-                    <Col sm="5" md="3" className="carde">
+                    <Col sm="5" md="3">
                         <div>
-                            <img src={fotoMenor} 
+                            <img src={this.state.recommendedProducts[0].image} 
                             className="mt-2 mb-2 img-fluid" 
                             alt="imagemProduto" 
                             title="imagemProduto" />
-                            <h5 title="Titulo Produto 1">Pipa Linda!</h5>
+                            <h5 title="Titulo Produto 1">{this.state.recommendedProducts[0].title}</h5>
                         </div>
                     </Col>
-                    <Col sm="5" md="3" className="carde">
+                    <Col sm="5" md="3">
                         <div>
-                            <img src={fotoMenor} 
+                            <img src={this.state.recommendedProducts[1].image} 
                             className="mt-2 mb-2 img-fluid" 
                             alt="imagemProduto" 
                             title="imagemProduto" />
-                            <h5 title="Titulo Produto 1">Pipa Bonita!</h5>
+                            <h5 title="Titulo Produto 2">{this.state.recommendedProducts[1].title}</h5>
                         </div>
                     </Col>
-                    <Col sm="5" md="3" className="carde">
+                    <Col sm="5" md="3">
                         <div>
-                            <img src={fotoMenor} 
+                            <img src={this.state.recommendedProducts[2].image} 
                             className="mt-2 mb-2 img-fluid" 
                             alt="imagemProduto" 
                             title="imagemProduto" />
-                            <h5 title="Titulo Produto 1">Pipa Formosa!</h5>
+                            <h5 title="Titulo Produto 3">{this.state.recommendedProducts[2].title}</h5>
                         </div>
                     </Col>
-                    <Col sm="5" md="3" className="carde">
+                    <Col sm="5" md="3">
                         <div>
-                            <img src={fotoMenor} 
+                            <img src={this.state.recommendedProducts[3].image} 
                             className="mt-2 mb-2 img-fluid" 
                             alt="imagemProduto" 
                             title="imagemProduto" />
-                            <h5 title="Titulo Produto 1">Pipa Maravilhosa!</h5>
+                            <h5 title="Titulo Produto 4">{this.state.recommendedProducts[3].title}</h5>
                         </div>
                     </Col>
                 </Row>
