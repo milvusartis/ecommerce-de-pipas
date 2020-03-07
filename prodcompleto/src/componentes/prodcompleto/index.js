@@ -61,8 +61,8 @@ class ProdCompleto extends Component {
         if (this.state.number<0) {
             this.setState({number:0})
         }
-        if (this.state.number>5) {
-            this.setState({number:5})
+        if (this.state.number>this.state.maxNumber) {
+            this.setState({number:this.state.maxNumber})
         }
     }
 
