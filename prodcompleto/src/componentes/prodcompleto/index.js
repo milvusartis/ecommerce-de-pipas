@@ -40,19 +40,23 @@ class ProdCompleto extends Component {
         recommendedProducts:[
         {
             title:"Pipa Linda!",
-            image:fotoMenor
+            image:fotoMenor,
+            value:20.00
         },
         {
             title:"Pipa Bonita!",
-            image:fotoMenor
+            image:fotoMenor,
+            value:20.00
         },
         {
             title:"Pipa Formosa!",
-            image:fotoMenor
+            image:fotoMenor,
+            value:20.00
         },
         {
             title:"Pipa Maravilhosa!",
-            image:fotoMenor
+            image:fotoMenor,
+            value:20.00
         }   
         ]
     }
@@ -206,6 +210,7 @@ render() {
                             alt="imagemProduto" 
                             title="imagemProduto" />
                             <h5 title="Titulo Produto 1">{this.state.recommendedProducts[0].title}</h5>
+                            <label>R${this.state.recommendedProducts[0].value}</label>
                         </div>
                     </Col>
                     <Col sm="5" md="3">
@@ -215,6 +220,7 @@ render() {
                             alt="imagemProduto" 
                             title="imagemProduto" />
                             <h5 title="Titulo Produto 2">{this.state.recommendedProducts[1].title}</h5>
+                            <label>R${this.state.recommendedProducts[1].value}</label>
                         </div>
                     </Col>
                     <Col sm="5" md="3">
@@ -224,6 +230,7 @@ render() {
                             alt="imagemProduto" 
                             title="imagemProduto" />
                             <h5 title="Titulo Produto 3">{this.state.recommendedProducts[2].title}</h5>
+                            <label>R${this.state.recommendedProducts[2].value}</label>
                         </div>
                     </Col>
                     <Col sm="5" md="3">
@@ -233,6 +240,7 @@ render() {
                             alt="imagemProduto" 
                             title="imagemProduto" />
                             <h5 title="Titulo Produto 4">{this.state.recommendedProducts[3].title}</h5>
+                            <label>R${this.state.recommendedProducts[3].value}</label>
                         </div>
                     </Col>
                 </Row>
