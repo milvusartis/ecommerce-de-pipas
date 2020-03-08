@@ -80,7 +80,7 @@ class Contato extends Component {
         const assunto = form.children[0].children[4].children[1];
         const mensagem = form.children[0].children[5].children[1];
 
-        if(nomeCompleto.value.length > 0 && email.value.length > 0 && email.className == "form-control is-valid" && telefone.value.length > 0 && telefone.className == "form-control is-valid" && assunto.value.length > 0 && mensagem.value.length > 0) {
+        if(nomeCompleto.value.length > 0 && email.value.length > 0 && email.className === "form-control is-valid" && telefone.value.length > 0 && telefone.className === "form-control is-valid" && assunto.value.length > 0 && mensagem.value.length > 0) {
             this.handleShow();
         } else {
             alert("Preencha corretamente todos os campos para enviar esta mensagem.");
