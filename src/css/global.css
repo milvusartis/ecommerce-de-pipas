@@ -5,13 +5,14 @@
     font-family: Arial;
 }
 
-html, body, #root {
-    height: 100%;
+html, body, main, #root {
+    height: 100vh;
+    background-color: #f8f8f8;
 }
 
 #root {
     /* display: flex;
     justify-content: center;
     align-items: center; */
-    background-color: #f8f8f8;
+    
 }
