@@ -80,7 +80,7 @@ const Header = () => {
                                         <NavLink href="/components/">Produtos</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components/">Contato</NavLink>
+                                        <NavLink href="/contato">Contato</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
