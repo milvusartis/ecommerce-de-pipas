@@ -55,7 +55,7 @@ const Header = () => {
                         </Col>
 
                         <Col className="login" sm="12" md="2" lg="2">
-                            <Link to={`/`}>Logar
+                            <Link to={`/`}>Entrar
                             <span><MdPerson /></span>
                             </Link>
                         </Col>
