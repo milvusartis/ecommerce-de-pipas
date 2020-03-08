@@ -1,0 +1,129 @@
+header#main-header{
+    width: 100%;
+    height: 60px;
+    background: #000;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+
+/* INICIO HEADER */
+
+.topo {
+    padding: 20px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.search {
+    flex-flow: row nowrap;
+}
+
+.search div {
+    cursor: pointer;
+}
+
+
+.login a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cart i {
+    color: #fff;
+}
+
+/* FIM HEADER */
+
+
+
+/* INICIO UTILIDADES */
+
+/* Cores de background */
+.bg-dark-grey {
+    background: #36393A;
+}
+
+.bg-light-grey {
+    background: #E0E2E5;
+}
+
+.bg-yellow {
+    background: #FCBA1C;
+}
+
+.bg-green {
+    background: #9ACA4C;
+}
+
+.bg-red {
+    background: #EA4A6F;
+}
+
+.bg-blue {
+    background: #54C3D5;
+}
+.bg-dark-grey {
+    background: #36393A;
+}
+
+.bg-light-grey {
+    background: #E0E2E5;
+}
+
+.bg-yellow {
+    background: #FCBA1C;
+}
+
+.bg-green {
+    background: #9ACA4C;
+}
+
+.bg-red {
+    background: #EA4A6F;
+}
+
+.bg-blue {
+    background: #54C3D5;
+}
+
+/* cores de fontes */
+.color-dark * {
+    color: #FFFFFF;
+}
+
+.color-light * {
+    color: #36393A;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 767.98px) {
+
+    .topo {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .search {
+        display: flex;
+        flex-flow: row nowrap;
+        /* background-color: red; */
+        order: +2;
+    }
+
+    .login {
+        order: +1;
+    }
+
+}

@@ -10,8 +10,8 @@ html, body, #root {
 }
 
 #root {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-color: #f8f8f8;
 }
