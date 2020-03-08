@@ -5,17 +5,6 @@ import {
     Container,
     Row,
     Col,
-    InputGroup,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    NavbarBrand,
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    Nav,
-    NavItem,
-    NavLink,
     Breadcrumb,
     BreadcrumbItem,
 
@@ -66,12 +55,7 @@ const Footer = () => {
                             <h6><Link to="mailto: milvusartis@gmail.com">milvusartis@gmail.com</Link></h6>
                         </Col>
                     </Row>
-
-
-
-
                 </Container>
-
             </footer>
             {/* FIM FOOTER */}
         </>
