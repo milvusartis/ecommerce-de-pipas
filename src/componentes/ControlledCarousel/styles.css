@@ -1,0 +1,12 @@
+.my-Carousel {
+    max-width: 100vw;
+    height:50vh;
+    background: #999;
+    display: flex;
+    justify-content: center;
+}
+
+.my-CarouselImage {
+    height:50vh;    
+    
+}
