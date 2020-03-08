@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ControlledCarousel from '../../componentes/ControlledCarousel';
-import MyCarousel from '../../componentes/MyCarrousel';
+import CarouselResponive from '../CarrouselResponive';
 // import './styles.css';
 
 export default class Main extends Component {
@@ -9,7 +9,7 @@ export default class Main extends Component {
         return (
             <main>
                 {/* <ControlledCarousel/> */}
-                <MyCarousel/>
+                <CarouselResponive/>
             </main>
         );
     }
