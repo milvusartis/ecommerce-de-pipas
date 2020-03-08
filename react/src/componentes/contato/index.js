@@ -92,10 +92,8 @@ class Contato extends Component {
                                 name="email"
                                 placeholder="Digite seu email"
                                 onBlur={this.valEmail}
-
+                                required="required"
                                 //className="form-control"
-                                //required="required"
-                                //id="email"
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -108,10 +106,8 @@ class Contato extends Component {
                                 placeholder="Digite seu telefone"
                                 onKeyUp={this.valTelefone1}
                                 onBlur={this.valTelefone2}
-
+                                required="required"
                                 //className="form-control"
-                                //required="required"
-                                //id="telefone"
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -121,10 +117,8 @@ class Contato extends Component {
                                 <Input
                                 type="select"
                                 name="assunto"
-
+                                required="required"
                                 //className="form-control"
-                                //required="required"
-                                //id="assunto"
                                 >
                                     <option value=""
                                     disabled selected>
@@ -151,11 +145,8 @@ class Contato extends Component {
                                 rows="4"
                                 maxLength="200"
                                 placeholder="Escreva sua mensagem aqui"
-                                
-                                
+                                required="required"
                                 //className="form-control"
-                                //required="required"
-                                //id="mensagem"
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -163,9 +154,8 @@ class Contato extends Component {
                                 type="submit"
                                 name="botao"        
                                 className="btn-success"
-
-                                //required="required"
-                                //id="botao"
+                                required="required"
+                                //className="form-control"
                                 >
                                     Enviar
                                 </Button>
