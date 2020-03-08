@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import './styles.css';
 import logo from "./image/kite.svg"
 import { Link } from "react-router-dom";
 
 import {
-    Container, 
-    Row, 
+    Container,
+    Row,
     Col,
     InputGroup,
     Input,
@@ -22,6 +21,8 @@ import {
 } from 'reactstrap';
 import { MdSearch, MdPerson, MdShoppingCart } from 'react-icons/md';
 
+import './styles.css';
+
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -32,16 +33,16 @@ const Header = () => {
             <header>
                 {/* INICIO TOPO */}
                 {/* Para Merge */}
-                <div className="fixed-top">
-                    <div className="topo bg-dark color-dark">
-                        <div className="logo">
+                <Container fluid={true}>
+                    <Row className="topo bg-dark-grey color-dark">
+                        <Col className="logo" sm="12" md="3" lg="3">
                             <NavbarBrand href="/">
-                                <img src={logo} alt="Milvus Artis"/>
+                                <img src={logo} alt="Milvus Artis" />
                                 Milvus Artis
                                 </NavbarBrand>
-                        </div>
+                        </Col>
 
-                        <div className="search col-md-4 my-1">
+                        <Col className="search" sm="12" md="6" lg="6">
                             <InputGroup>
                                 <Input placeholder="Busque por produtos" />
                                 <InputGroupAddon addonType="append">
@@ -51,40 +52,48 @@ const Header = () => {
 
                                 </InputGroupAddon>
                             </InputGroup>
-                        </div>
+                        </Col>
 
-                        <div className="login">
-                            <Link to={`/`}>Entre ou cadastre-se
+                        <Col className="login" sm="12" md="2" lg="2">
+                            <Link to={`/`}>Logar
                             <span><MdPerson /></span>
                             </Link>
-                        </div>
+                        </Col>
 
 
-                        <div className="cart">
+                        <Col className="cart" sm="12" md="1" lg="1">
                             <span>1 Item</span>
-                            <MdShoppingCart />
-                        </div>
-                    </div>
-                    {/* BARRA DE NAVEGAÇÃO */}
+                            <span><MdShoppingCart /></span>
+                        </Col>
 
-                    <Navbar color="light" light expand="md">
-                        <NavbarToggler onClick={toggle} />
-                        <Collapse isOpen={isOpen} navbar>
-                            <Nav className="mr-auto" navbar>
-                                <NavItem active>
-                                    <NavLink href="/components/">Home</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="/components/">Produtos</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="/components/">Contato</NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </Navbar>
+                    </Row>
+                    <Row>
 
-                </div>
+                        <Navbar color="light" light expand="md">
+                            <NavbarToggler onClick={toggle} />
+                            <Collapse isOpen={isOpen} navbar>
+                                <Nav className="mr-auto" navbar>
+                                    <NavItem active>
+                                        <NavLink href="/components/">Home</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/components/">Produtos</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/components/">Contato</NavLink>
+                                    </NavItem>
+                                </Nav>
+                            </Collapse>
+                        </Navbar>
+
+                    </Row>
+
+                </Container>
+                {/* BARRA DE NAVEGAÇÃO */}
+
+
+
+
                 {/* FINAL TOPO */}
             </header>
         </>

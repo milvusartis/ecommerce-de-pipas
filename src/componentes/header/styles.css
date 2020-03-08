@@ -1,24 +1,17 @@
-header#main-header{
-    width: 100%;
-    height: 60px;
-    background: #000;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
-}
-
-
 /* INICIO HEADER */
 
 .topo {
     padding: 20px;
+    font-weight: bold;
+    font-size: 18px;
     display: flex;
-    flex-flow: row nowrap;
+    /* flex-flow: row nowrap; */
     justify-content: space-around;
+
+    align-items: center;
+    flex-wrap: nowrap;
 }
+
 
 .search {
     flex-flow: row nowrap;
@@ -68,6 +61,7 @@ header#main-header{
 .bg-blue {
     background: #54C3D5;
 }
+
 .bg-dark-grey {
     background: #36393A;
 }
@@ -109,21 +103,31 @@ header#main-header{
     .topo {
         padding: 20px;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
     }
 
-    .search {
+    .login {
         display: flex;
-        flex-flow: row nowrap;
-        /* background-color: red; */
-        order: +2;
+        justify-content: center;
+        ;
     }
 
-    .login {
+    .search {
+        display: flex;
+
+        /* flex-flow: row nowrap; */
+        /* background-color: red; */
         order: +1;
     }
+
+    .cart {
+        display: flex;
+        justify-content: center;
+        order: +1;
+
+    }
+
 
 }
