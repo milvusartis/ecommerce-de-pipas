@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "./image/kite.svg"
+import { ReactComponent as Logo } from "./image/kite.svg"
 import { Link } from "react-router-dom";
 
 import {
@@ -37,7 +37,7 @@ const Header = () => {
                     <Row className="topo bg-dark-grey color-dark">
                         <Col className="logo" sm="12" md="3" lg="3">
                             <NavbarBrand href="/">
-                                <img src={logo} alt="Milvus Artis" />
+                                <Logo title="Milvus Artis"/>
                                 Milvus Artis
                                 </NavbarBrand>
                         </Col>
