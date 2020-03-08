@@ -5,9 +5,13 @@
     font-family: Arial;
 }
 
-html, body, main, #root {
-    height: 100vh;
+html, body, #root {
+    height: 100%;
     background-color: #f8f8f8;
+}
+
+main{
+    height: 90%;
 }
 
 #root {
