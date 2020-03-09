@@ -4,7 +4,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import InputMask from "react-input-mask";
 
-
 import {
     Button,
     Card,
@@ -17,8 +16,6 @@ import {
 
 } from 'reactstrap';
  
-
-
 (function() {
     'use strict';
     window.addEventListener('load', function() {
@@ -41,10 +38,8 @@ class Login extends Component {
 
     render() {
         return ( 
-            <>
-
-        <Container>
-        
+         <>
+        <Container>  
         <Card className="bg-light">
             <Row className="cardCorpo">
                 <div className="card-body col-sm-4" style={{marginRight: 120}}>
@@ -126,7 +121,6 @@ class Login extends Component {
                                 </FormGroup>
                             </Form>
                         </div>
-
                             <p className="divider-text"style={{marginLeft:20}}>
                                 <span className="bg-light" >OU </span>
                             </p>
@@ -136,24 +130,13 @@ class Login extends Component {
                             </div>
                             <div className="d-flex justify-content-center">
                                 <a>Esqueceu a senha</a>
-                            
                             </div>
-                      
-                    </div>
-
-                
-                </Row>
-</Card>
-        </Container>
-
-
-
-
-
-            
+                        </div>           
+                    </Row>
+                </Card>
+            </Container>          
             </>
         )
     }
 }
-
 export default Login;
