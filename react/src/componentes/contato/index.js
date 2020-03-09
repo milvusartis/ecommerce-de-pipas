@@ -33,7 +33,7 @@ class Contato extends Component {
     render() {
         return (
             <>
-                <Container>                
+                <Container>                 
                     <AvForm
                     id="contato"
                     className="d-flex justify-content-center p-2 mt-5">  
