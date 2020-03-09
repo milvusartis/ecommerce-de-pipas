@@ -78,7 +78,7 @@ class Contato extends Component {
                                     placeholder="Digite seu telefone"
                                     required="required"
                                     className="form-control"
-                                    mask="+55 (99) 99999-9999"
+                                    mask="+55 (99) 9999-9999"
                                     onChange={this.onChange}
                                     >
                                 </InputMask>
