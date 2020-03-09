@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./prodcompleto.css";
+import "./ProdCompleto.css";
 import fotoMaior from "./img-mockup-menor.png";
 import fotoMenor from "./img-mockup-menor-2.png";
 import InputMask from "react-input-mask";
@@ -71,7 +71,7 @@ class ProdCompleto extends Component {
     }
 
     decrement=()=>{
-        if (this.state.number>0&&this.state.number<=5) {
+        if (this.state.number>0&&this.state.number<=this.state.maxNumber) {
             this.setState({number:this.state.number-1})
             console.log(this.state.number)
 
@@ -79,7 +79,7 @@ class ProdCompleto extends Component {
     }
 
     increment=()=>{
-        if (this.state.number>=0&&this.state.number<5){
+        if (this.state.number>=0&&this.state.number<this.state.maxNumber){
             this.setState({number:this.state.number+1})
             console.log(this.state.number)
         }
@@ -197,8 +197,7 @@ render() {
                         </p>
                     </Col>
                 </Row>
-            </Container>
-            <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
+                <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
                 Voce tambem pode gostar
             </Navbar>
             <Container>
@@ -245,6 +244,8 @@ render() {
                     </Col>
                 </Row>
             </Container>
+            </Container>
+            
         </>
     )
 }
