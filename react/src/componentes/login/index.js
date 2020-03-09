@@ -50,8 +50,6 @@ class Login extends Component {
                 <div className="card-body col-sm-4" style={{marginRight: 120}}>
                     <h4 className="card-title mt-3 text-center">Cadastro</h4>
                     <p className="text-center">Se registre aqui para comprar nossas pipas</p>
-                    <p>
-                    </p>
                     <p className="divider-text">
                         <span className="bg-light">Ou</span>
                     </p>
@@ -95,7 +93,7 @@ class Login extends Component {
                                 <InputMask className="input-group-text bg-white" placeholder="Repita sua senha" type="password"class="form-control" id="validationCustom04"required></InputMask>
                             </FormGroup>                                
                         <FormGroup>
-                                <Button color="primary" > Criar conta. </Button>
+                                <Button color="success" > Criar conta. </Button>
                         </FormGroup>
                         <p className="text-center"> Ja e cadastrado? Efetue o login ao lado </p>
                     </FormGroup>
@@ -106,7 +104,7 @@ class Login extends Component {
                         <div className="card-title mt-3 text-center">
                             <h3>Entrar </h3>
                         </div>
-                        <div className="card-body"/>
+                        <div className="card-body"></div>
                             <Form style={{marginLeft:20}}>
                                 <FormGroup className="input-group">
                                     <div className="input-group-prepend">
@@ -123,7 +121,9 @@ class Login extends Component {
                                 <FormGroup style={{marginLeft:30}}>
                                <Input type="checkbox"> </Input> Lembrar meus dados
                                 </FormGroup>
-                                <Button color="primary" type="submit"style={{marginLeft:100}}> Login </Button>
+                                <FormGroup>
+                                <Button color="success" type="submit"style={{marginLeft:100}}> Login </Button>
+                                </FormGroup>
                             </Form>
                         </div>
 
