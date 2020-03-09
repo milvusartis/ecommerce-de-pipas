@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './contato.css';
+import './Contato.css';
 import {
     Container,
     Col,

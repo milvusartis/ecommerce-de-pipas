@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Contato from './componentes/contato';
+import Contato from './componentes/contato/Contato';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './css/global.css';
 
