@@ -9,14 +9,3 @@ html, body, #root {
     height: 100%;
     background-color: #f8f8f8;
 }
-
-main{
-    height: 90%;
-}
-
-#root {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    
-}
