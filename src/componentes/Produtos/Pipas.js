@@ -62,7 +62,7 @@ import {
 
           <Col className=" cardPipas mb-3 mt-3"  xs="12" md="4">
             <Card>
-              <CardImg top width="100%"  src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/pipa-raia-grande-50x50-c-10-unidades/m/0.png?v=" alt="Card image cap" />
+              <CardImg top width="100%" height="270px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/pipa-raia-grande-50x50-c-10-unidades/m/0.png?v=" alt="Card image cap" />
               <CardBody>
                 <CardTitle>Peixinho personagens</CardTitle>
                 <CardSubtitle>R$ 1,50 uni ou R$20,00 pacote com 15 unidades</CardSubtitle>

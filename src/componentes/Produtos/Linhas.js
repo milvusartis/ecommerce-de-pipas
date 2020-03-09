@@ -22,7 +22,7 @@ import {
                 <Row>
             <Col className=" cardLinhas mb-3 mt-3" xs="12" md="4">
           <Card>
-            <CardImg top width="100%" height="320px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/linha-30-530-metros-unidade/m/0.png?v=" alt="Card image cap" />
+            <CardImg top width="100%" height="344px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/linha-30-530-metros-unidade/m/0.png?v=" alt="Card image cap" />
             <CardBody>
               <CardTitle>Linha 400 Jardas</CardTitle>
               <CardSubtitle>R$4,00</CardSubtitle>

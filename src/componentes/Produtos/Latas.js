@@ -24,7 +24,7 @@ class Latas extends Component {
               <Row>
             <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
-              <CardImg top width="100%" height="320px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/carretilha-madeira-vazada-28-cm-homem-aranha/m/0.jpg?v=" alt="Card image cap" />
+              <CardImg top width="100%" height="344px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/carretilha-madeira-vazada-28-cm-homem-aranha/m/0.jpg?v=" alt="Card image cap" />
               <CardBody>
                 <CardTitle>Carretilha homem-aranha</CardTitle>
                 <CardSubtitle>R$ 20,00</CardSubtitle>
@@ -48,7 +48,7 @@ class Latas extends Component {
 
           <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
-              <CardImg top width="100%" height="320px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/mini-carretilha-acrilica-15-cm-linha-10-2000-jardas/m/0.png?v=7" alt="Card image cap" />
+              <CardImg top width="100%" height="344px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/mini-carretilha-acrilica-15-cm-linha-10-2000-jardas/m/0.png?v=7" alt="Card image cap" />
               <CardBody>
                 <CardTitle>Carretilha acrilica </CardTitle>
                 <CardSubtitle>R$ 12,00</CardSubtitle>
@@ -84,7 +84,7 @@ class Latas extends Component {
 
           <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
-              <CardImg top width="100%" height="320px" src="https://cdn.awsli.com.br/600x450/526/526018/produto/19655088/64e80051e8.jpg" alt="Card image cap" />
+              <CardImg top width="100%" height="295px" src="https://cdn.awsli.com.br/600x450/526/526018/produto/19655088/64e80051e8.jpg" alt="Card image cap" />
               <CardBody>
                 <CardTitle>Lata de linha redonda pequena</CardTitle>
                 <CardSubtitle>R$ 5,00</CardSubtitle>
