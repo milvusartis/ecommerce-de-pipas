@@ -22,8 +22,8 @@ const Footer = () => {
                     <Row sm="12" md="12" lg="12">
                         <Col>
                             <Breadcrumb>
-                                <BreadcrumbItem active>Home</BreadcrumbItem>
-                                <BreadcrumbItem active><a href="#">Contato</a></BreadcrumbItem>
+                                <BreadcrumbItem active><a href="http://localhost:3000/">Home</a></BreadcrumbItem>
+                                <BreadcrumbItem active><a href="http://localhost:3000/contato">Contato</a></BreadcrumbItem>
                             </Breadcrumb>
                         </Col>
                     </Row>

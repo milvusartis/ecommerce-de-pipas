@@ -55,7 +55,7 @@ const Header = () => {
                         </Col>
 
                         <Col className="login" sm="12" md="2" lg="2">
-                            <Link to={`/`}>Entrar
+                            <Link to={`/login`}>Entrar
                             <span><MdPerson /></span>
                             </Link>
                         </Col>
@@ -74,13 +74,13 @@ const Header = () => {
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="mr-auto" navbar>
                                     <NavItem active>
-                                        <NavLink href="/components/">Home</NavLink>
+                                        <NavLink href="/">Home</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components/">Produtos</NavLink>
+                                        <NavLink href="/produtos">Produtos</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components">Contato</NavLink>
+                                        <NavLink href="/contato">Contato</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>

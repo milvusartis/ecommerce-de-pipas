@@ -13,7 +13,6 @@ import {
     Input,
     Row,
     FormText
-
 } from 'reactstrap';
  
 (function() {
@@ -39,10 +38,11 @@ class Login extends Component {
     render() {
         return ( 
          <>
+ 
         <Container>  
         <Card className="bg-light">
             <Row className="cardCorpo">
-                <div className="card-body col-sm-4" style={{marginRight: 120}}>
+                <div className="card-body col-sm-4" style={{marginRight: 130, paddingLeft: 50}}>
                     <h4 className="card-title mt-3 text-center">Cadastro</h4>
                     <p className="text-center">Se registre aqui para comprar nossas pipas</p>
                     <p className="divider-text">
@@ -59,7 +59,7 @@ class Login extends Component {
                             <div className="input-group-prepend">
                                 <span className="input-group-text"> <i className="fa fa-user"></i> </span>
                             </div>
-                            <InputMask className="input-group-text bg-white" placeholder="Nome de Usuario" mask="********" id="validationCustom02"required></InputMask>
+                            <InputMask className="input-group-text bg-white" placeholder="Nome de Usuario" type="text" mask="********" id="validationCustom02"required></InputMask>
                             <FormText>*Seu nome de usuario precisa ter 8 caracteres Alfa numericos apenas.</FormText>
                         </FormGroup>
                         <FormGroup className="input-group">
