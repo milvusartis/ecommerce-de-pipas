@@ -127,7 +127,7 @@ class Contato extends Component {
                                 <Button
                                 type="submit"
                                 name="botao"        
-                                className="btn-success"
+                                color="success"
                                 required="required"
                                 //className="form-control"
                                 >

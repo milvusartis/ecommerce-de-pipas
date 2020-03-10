@@ -142,16 +142,16 @@ render() {
                                 {this.state.maxNumber} unidades restante
                             </p>
                             <Row className="mt-2 mb-2 p-2">
-                                <Button onClick={this.decrement}>
+                                <Button color ="success"onClick={this.decrement}>
                                     -
                                 </Button>
                                 <Input 
                                 type="number" 
-                                className="col-2"
+                                className="col-2 mt-2"
                                 value={this.state.number} 
                                 onChange={this.handleNumberValeu} 
                                 onInput={this.validateInput}/>
-                                <Button onClick={this.increment}>
+                                <Button color="success" onClick={this.increment}>
                                     +
                                 </Button>
                             </Row>

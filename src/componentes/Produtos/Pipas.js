@@ -28,7 +28,7 @@ import {
                 <CardTitle>Pipa personagens</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
            
@@ -41,7 +41,7 @@ import {
                 <CardTitle>Pipa bico de ouro</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success" color="success">Comprar</Button>
+                <Button color="success" href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             
@@ -55,7 +55,7 @@ import {
                 <CardTitle>Pipa colorido</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -67,7 +67,7 @@ import {
                 <CardTitle>Peixinho personagens</CardTitle>
                 <CardSubtitle>R$ 1,50 uni ou R$20,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>
@@ -79,7 +79,7 @@ import {
                 <CardTitle>Peixinho personagens</CardTitle>
                 <CardSubtitle>R$ 1,50 uni ou R$20,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>
@@ -91,7 +91,7 @@ import {
                 <CardTitle>Peixinho colorido</CardTitle>
                 <CardSubtitle>R$ 1,00 uni ou R$12,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>

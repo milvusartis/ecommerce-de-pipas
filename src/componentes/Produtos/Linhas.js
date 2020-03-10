@@ -27,7 +27,7 @@ import {
               <CardTitle>Linha 400 Jardas</CardTitle>
               <CardSubtitle>R$4,00</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
          </Col>
@@ -39,7 +39,7 @@ import {
               <CardTitle>Linha Corrente Carretel 500 Jardas</CardTitle>
               <CardSubtitle>R$ 5,50</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>        
           </Col>
@@ -51,7 +51,7 @@ import {
               <CardTitle>Linha De Pipa 12000 Jardas Colorida</CardTitle>
               <CardSubtitle>R$ 10,00</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
         </Col>
@@ -63,7 +63,7 @@ import {
               <CardTitle>Card title</CardTitle>
               <CardSubtitle>Card subtitle</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
          </Col>
@@ -75,7 +75,7 @@ import {
               <CardTitle>Card title</CardTitle>
               <CardSubtitle>Card subtitle</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
          </Col>
@@ -87,7 +87,7 @@ import {
               <CardTitle>Card title</CardTitle>
               <CardSubtitle>Card subtitle</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
          </Col>

@@ -28,7 +28,7 @@ class Produtos extends Component {
                 <CardTitle>Pipa personagens</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success" href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>  
           </Col>
@@ -40,7 +40,7 @@ class Produtos extends Component {
                 <CardTitle>Pipa bico de ouro</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success" color="success">Comprar</Button>
+                <Button color="success" href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>
@@ -52,7 +52,7 @@ class Produtos extends Component {
                 <CardTitle>Pipa colorido</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -64,7 +64,7 @@ class Produtos extends Component {
               <CardTitle>Linha 400 Jardas</CardTitle>
               <CardSubtitle>R$4,00</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
          </Col>
@@ -76,7 +76,7 @@ class Produtos extends Component {
               <CardTitle>Linha Corrente Carretel 500 Jardas</CardTitle>
               <CardSubtitle>R$ 5,50</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>        
           </Col>
@@ -88,7 +88,7 @@ class Produtos extends Component {
               <CardTitle>Linha De Pipa 12000 Jardas Colorida</CardTitle>
               <CardSubtitle>R$ 10,00</CardSubtitle>
               <CardText></CardText>
-              <Button color="success">Comprar</Button>
+              <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
             </CardBody>
           </Card>
         </Col>
@@ -100,7 +100,7 @@ class Produtos extends Component {
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>      
           </Col>
@@ -112,7 +112,7 @@ class Produtos extends Component {
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -124,7 +124,7 @@ class Produtos extends Component {
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
