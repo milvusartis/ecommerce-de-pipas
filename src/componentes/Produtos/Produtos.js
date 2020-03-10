@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Produtos.css';
 
 import {
     Card, Button, CardImg, CardTitle, CardText,
@@ -11,13 +12,12 @@ class Produtos extends Component {
     render() {
         return (
             <>
-            <Container className="mt-4 d-flex flex-row" sm="12" md="6">
-
-              <ListGroup className="col-3 categorias mt-3">
-                <ListGroupItem tag="a" href="http://localhost:3000/" action color="success">Categorias</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/pipas" action>Pipas</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/linhas" action>Linhas</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/latas" action>Latas</ListGroupItem> 
+            <Container className=" d-flex flex-row" sm="12" md="6">
+              <ListGroup className="col-3  mt-3" >
+                <ListGroupItem  id="categoria1"tag="a" href="http://localhost:3000/produtos" action color="success">Categorias</ListGroupItem>
+                <ListGroupItem  id="categoria2" tag="a" href="http://localhost:3000/pipas" action>Pipas</ListGroupItem>
+                <ListGroupItem  id="categoria3"tag="a" href="http://localhost:3000/linhas" action>Linhas</ListGroupItem>
+                <ListGroupItem  id="categoria4"tag="a" href="http://localhost:3000/latas" action>Latas</ListGroupItem> 
               </ListGroup>
               <Row>
 
@@ -92,25 +92,24 @@ class Produtos extends Component {
             </CardBody>
           </Card>
         </Col>
-
-          <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
+        <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
-              <CardImg top width="100%" height="320px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/carretilha-madeira-vazada-28-cm-homem-aranha/m/0.jpg?v=" alt="Card image cap" />
+              <CardImg top width="100%" height="344px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/carretilha-madeira-vazada-28-cm-homem-aranha/m/0.jpg?v=" alt="Card image cap" />
               <CardBody>
-                <CardTitle>Card title</CardTitle>
-                <CardSubtitle>Card subtitle</CardSubtitle>
+                <CardTitle>Carretilha homem-aranha</CardTitle>
+                <CardSubtitle>R$ 20,00</CardSubtitle>
                 <CardText></CardText>
                 <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
-            </Card>      
+            </Card>   
           </Col>
 
           <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
               <CardImg top width="100%" height="320px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/_781/m/1.png?v=0" alt="Card image cap" />
               <CardBody>
-                <CardTitle>Card title</CardTitle>
-                <CardSubtitle>Card subtitle</CardSubtitle>
+                <CardTitle>Carretilha acrilica roda de carro</CardTitle>
+                <CardSubtitle>R$ 15,00</CardSubtitle>
                 <CardText></CardText>
                 <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
@@ -119,10 +118,10 @@ class Produtos extends Component {
 
           <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
-              <CardImg top width="100%" height="320px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/mini-carretilha-acrilica-15-cm-linha-10-2000-jardas/m/0.png?v=7" alt="Card image cap" />
+              <CardImg top width="100%" height="344px" src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/produtos/mini-carretilha-acrilica-15-cm-linha-10-2000-jardas/m/0.png?v=7" alt="Card image cap" />
               <CardBody>
-                <CardTitle>Card title</CardTitle>
-                <CardSubtitle>Card subtitle</CardSubtitle>
+                <CardTitle>Carretilha acrilica </CardTitle>
+                <CardSubtitle>R$ 12,00</CardSubtitle>
                 <CardText></CardText>
                 <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>

@@ -69,7 +69,7 @@ const Header = () => {
                     </Row>
                     <Row>
 
-                        <Navbar color="light" light expand="md">
+                        <Navbar className="mt-3 mb-3" color="light" light expand="md">
                             <NavbarToggler onClick={toggle} />
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="mr-auto" navbar>

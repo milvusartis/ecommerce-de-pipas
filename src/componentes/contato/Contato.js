@@ -49,7 +49,7 @@ class Contato extends Component {
                 <Container>                 
                     <AvForm
                     id="contato"
-                    className="d-flex justify-content-center p-2 mt-5">  
+                    className="d-flex justify-content-center p-2">  
                         <Col lg="6" md="9" sm="12">
                             <FormGroup>
                                 <Navbar className="bg-success text-light">

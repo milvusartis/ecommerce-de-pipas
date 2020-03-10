@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router} from 'react-router-dom';
+import './Produtos.css';
 import {
     Card, Button, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody,Col,Container,Row,ListGroup, ListGroupItem 
@@ -10,14 +10,15 @@ import {
     render() {
         return (
             <>
-             <Container className="mt-4 d-flex flex-row" sm="12" md="6">
+             <Container className="d-flex flex-row" sm="12" md="6">
 
-            <ListGroup className="col-3 categorias mt-3">
-            <ListGroupItem tag="a" href="http://localhost:300/" action color="success">Categorias</ListGroupItem>
-            <ListGroupItem tag="a" href="http://localhost:3000/pipas" action>Pipas</ListGroupItem>
-            <ListGroupItem tag="a" href="http://localhost:3000/linhas" action>Linhas</ListGroupItem>
-            <ListGroupItem tag="a" href="http://localhost:3000/latas" action>Latas</ListGroupItem> 
-            </ListGroup>
+             <ListGroup className="col-3 mt-3" >
+                <ListGroupItem  id="categoria1"tag="a" href="http://localhost:3000/produtos" action color="success">Categorias</ListGroupItem>
+                <ListGroupItem  id="categoria2" tag="a" href="http://localhost:3000/pipas" action>Pipas</ListGroupItem>
+                <ListGroupItem  id="categoria3"tag="a" href="http://localhost:3000/linhas" action>Linhas</ListGroupItem>
+                <ListGroupItem  id="categoria4"tag="a" href="http://localhost:3000/latas" action>Latas</ListGroupItem> 
+              </ListGroup>
+         
 
                 <Row>
             <Col className=" cardLinhas mb-3 mt-3" xs="12" md="4">
