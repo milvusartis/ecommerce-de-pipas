@@ -30,6 +30,19 @@ class Contato extends Component {
         }
     }
 
+    onClick = e => {
+        const telefone = e.target.parentElement.parentElement.children[3].children[1];
+        const label = telefone.parentElement.children[0];
+ 
+        if(telefone.value.match(/_/) || telefone.value.length === 0) {
+            telefone.setAttribute('class', 'form-control is-invalid');
+            label.setAttribute('class', 'invalida');
+        } else {
+            telefone.setAttribute('class', 'form-control');
+            label.setAttribute('class', 'valida');  
+        }
+    }
+
     render() {
         return (
             <>
@@ -129,6 +142,7 @@ class Contato extends Component {
                                 name="botao"        
                                 color="success"
                                 required="required"
+                                onClick={this.onClick}
                                 //className="form-control"
                                 >
                                     Enviar
