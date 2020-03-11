@@ -11,7 +11,6 @@
     "create-react-context": "^0.3.0",
     "material-input": "^1.1.6",
     "mdbootstrap": "^4.14.0",
-    "mdbreact": "^4.25.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-dropdown": "^1.6.4",
