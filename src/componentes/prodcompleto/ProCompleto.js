@@ -197,7 +197,7 @@ render() {
                         </p>
                     </Col>
                 </Row>
-                <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
+                <Navbar className="navbar-dark bg-success text-light mt-2 mb-2">
                 Voce tambem pode gostar
             </Navbar>
             <Container>

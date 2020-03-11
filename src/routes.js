@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route} from "react-router-dom"
+import {BrowserRouter, Switch, Route, Router} from "react-router-dom"
 import Produtos from './componentes/Produtos/Produtos';
 import Pipas from './componentes/Produtos/Pipas';
 import Linhas from './componentes/Produtos/Linhas';
@@ -10,6 +10,7 @@ import Login from './componentes/login/Cadastro';
 import Contato from './componentes/contato/Contato';
 import Header from './componentes/header';
 import Footer from './componentes/footer';
+import Carrinho from './componentes/carrinho/Carrinho';
 
 
 
@@ -30,7 +31,7 @@ export default class Routes extends Component {
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
-          
+          <Route path="/carrinho" component={Carrinho}/>
 
         </Switch>
 
