@@ -10,7 +10,7 @@ import Login from './componentes/login/Cadastro';
 import Contato from './componentes/contato/Contato';
 import Header from './componentes/header';
 import Footer from './componentes/footer';
-import Carrinho from './componentes/carrinho/Carrinho';
+import Checkout from './componentes/Checkout/checkout'
 
 
 
@@ -32,11 +32,13 @@ export default class Routes extends Component {
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
           <Route path="/carrinho" component={Carrinho}/>
+         <Route path="/checkout" component={Checkout}/>
 
         </Switch>
-
         <Footer/>
+        
         </BrowserRouter>
+        
     )
     
   }
