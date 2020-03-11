@@ -156,7 +156,7 @@ render() {
                                 </Button>
                             </Row>
                             <Button href="http://localhost:3000/checkout"
-                            color="success" 
+                            color="danger" 
                             className="btn-lg col-sm-12 col-md-6 mt-2">
                                 Comprar
                             </Button>

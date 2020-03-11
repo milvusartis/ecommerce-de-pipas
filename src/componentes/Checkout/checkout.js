@@ -9,81 +9,73 @@ class Checkout extends Component {
   
     render() {
         return (
-            <> <Container className="mt-5" id="checkout"xs="12" md="8">
-                <Form>
-                <Row>
+            <>
+            <Container id="checkout"xs="12" md="8">
+                <Form>  
+                    <Row> 
                     <Col xs="12" md="4">
-                    <FormGroup>
-                        <Label >Numero do cartão</Label>
-                        <Input  type="number" name="cartao" id="cartao" placeholder="Numero do cartão" />
-                    </FormGroup>
+                        <h3>Dados de pagamento</h3>
+                        <FormGroup>
+                            <Label >Numero do cartão</Label>
+                            <Input  type="number" name="cartao" id="cartao" placeholder="Numero do cartão" />
+                        </FormGroup>
+                            <FormGroup>
+                                <Label>Nome do cartão</Label>
+                                <Input  type="text" name="nomeCarto" id="nomeCarto" placeholder="Nome impresso no cartão" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Código de segurança</Label>
+                                <Input  type="number" name="ccv" id="ccv"placeholder="CCV"/>
+                            </FormGroup>  
+                            <FormGroup >
+                                <Label >Data de validade</Label>
+                                <Input  type="date" name="dataValiade" id="dataValidade"placeholder="Data"/>
+                            </FormGroup>    
                     </Col>
                     <Col xs="12" md="4">
-                    <FormGroup>
-                        <Label>Nome do cartão</Label>
-                        <Input  type="text" name="nomeCarto" id="nomeCarto" placeholder="Nome impresso no cartão" />
-                    </FormGroup>
+                        <h3>Dados da entrega</h3>
+                        <FormGroup>
+                            <Label >Nome do destinatadio</Label>
+                            <Input  type="text" name="nomeEntrega" id="nomeEntrega" placeholder="Nome" />
+                        </FormGroup>
+                            <FormGroup>
+                                <Label>Endereço de entrega</Label>
+                                <Input  type="text" name="enderecoEntrega" id="enderecoEntrega" placeholder="Endereço" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Numero</Label>
+                                <Input  type="number" name="numero" id="ccv"placeholder="numero"/>
+                            </FormGroup>  
+                            <FormGroup >
+                                <Label >Bairro</Label>
+                                <Input  type="text" name="bairro" id="bairro"placeholder="Bairro"/>
+                            </FormGroup>   
+
                     </Col>
-                    <Col xs="12" md="2" >
-                    <FormGroup>
-                        <Label>Código de segurança</Label>
-                        <Input  type="number" name="ccv" id="ccv"placeholder="CCV"/>
-                    </FormGroup>  
-                    </Col>
-                    <Col xs="12" md="2" >
-                    <FormGroup >
-                        <Label >Data de validade</Label>
-                        <Input  type="date" name="dataValiade" id="dataValidade"placeholder="Data"/>
-                    </FormGroup>  
-                    </Col>
-                </Row>
-                <FormGroup>
-                    <Label>Nome do destinatario </Label>
-                    <Input  type="text" name="nomeDestinatario" id="nomeDestinatario" placeholder="Nome"/>
-                </FormGroup>
-                <Row>
-                <Col xs="12" md="8">
-                <FormGroup>
-                    <Label>Endereço de entrega</Label>
-                    <Input  type="text" name="endereco" id="endereco" placeholder="Nome da rua"/>
-                </FormGroup>
-                </Col>
-                <Col xs="6" md="2">
-                    <FormGroup>
-                        <Label for="exampleZip">Numero</Label>
-                        <Input  type="number" name="numeroCasa" id="numeroCasa" placeholder="Numero"/>
-                    </FormGroup>  
-                    </Col>
-                    <Col xs="6" md="2">
-                    <FormGroup>
-                        <Label>Complemento</Label>
-                        <Input  type="text" name="complemento" id="complemento"placeholder="Complemento"/>
-                    </FormGroup>  
-                    </Col>
-                </Row>
-                <Row>
                     <Col xs="12" md="4">
-                    <FormGroup>
-                        <Label for="exampleCity">Bairro</Label>
-                        <Input  type="text" name="bairro" id="bairro"placeholder="Bairro"/>
-                    </FormGroup>
+                        <h3>Resumo da compra</h3>
+                        <FormGroup>
+                            <Label >Nome do destinatadio</Label>
+                            <Input  type="text" name="nomeEntrega" id="nomeEntrega" placeholder="Nome" />
+                        </FormGroup>
+                            <FormGroup>
+                                <Label>Endereço de entrega</Label>
+                                <Input  type="text" name="enderecoEntrega" id="enderecoEntrega" placeholder="Endereço" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Numero</Label>
+                                <Input  type="number" name="numero" id="ccv"placeholder="numero"/>
+                            </FormGroup>  
+                            <FormGroup >
+                                <Label >Bairro</Label>
+                                <Input  type="text" name="bairro" id="bairro"placeholder="Bairro"/>
+                            </FormGroup>   
                     </Col>
-                    <Col xs="6" md="2">
-                    <FormGroup>
-                        <Label>Cidade</Label>
-                        <Input  type="text" name="cidade" id="cidade"placeholder="Cidade"/>
-                    </FormGroup>
-                    </Col>
-                    <Col xs="6" md="2">
-                    <FormGroup>
-                        <Label>Estado</Label>
-                        <Input  type="text" name="estado" id="estado"placeholder="Estado"/>
-                    </FormGroup>  
-                    </Col>
-                </Row>
-               
-                <Button color="success">Finalizar Compra</Button>
+                    </Row>
                 </Form>
+                    
+
+                <Button color="success">Finalizar Compra</Button>
                 </Container>
     </>
         );
