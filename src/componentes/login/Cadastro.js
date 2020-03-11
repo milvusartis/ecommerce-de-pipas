@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import "./Cadastro.css";
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import InputMask from "react-input-mask";
 
 import {
