@@ -12,21 +12,33 @@ export default class ListaDeProdutos extends Component {
 
   state = {
     produtos: []
-}
+  }
 
-constructor(props){
-  super(props); 
-}
+  constructor(props) {
+    super(props);
+  }
 
-listarproduto = async (evento) => {         
-  // alert("Teste")       
-  evento.preventDefault();
+  listarproduto = async (evento) => {
+    // alert("Teste")       
+    evento.preventDefault();
 
-  const produtos = await axios(`http://localhost:8080/ecommerce/produto?descricao=Dorflex`);
-  this.setState({ produtos: [produtos.data, ...this.state.produtos] });
-  console.log(produtos)    
-  
-}
+    const produtos = await axios(`http://localhost:8080/ecommerce/produto?descricao=Dorflex`);
+    this.setState({ produtos: [produtos.data, ...this.state.produtos] });
+    console.log(produtos)
+
+  }
+
+  listarProdutos() {
+    var lista = []
+    let i;
+    for (i = 0; i < 4; i++) {
+      lista.push(
+      <Col className=" cardPipas mb-3 mt-3" xs="12" md="4">
+        <Produto />
+      </Col>);
+    }
+    return lista;
+  }
 
 
 
@@ -34,20 +46,9 @@ listarproduto = async (evento) => {
   render() {
     return (
       <>
-        <Container className=" d-flex flex-row" sm="12" md="6">
-          <Row>     
-
-            <Col className=" cardPipas mb-3 mt-3" xs="12" md="4"> 
-            <Produto/>
-            </Col>
-            <Col className=" cardPipas mb-3 mt-3" xs="12" md="4"> 
-            <Produto/>
-            </Col>
-            <Col className=" cardPipas mb-3 mt-3" xs="12" md="4"> 
-            <Produto/>
-            </Col>
-            
-
+        <Container>
+          <Row>
+            {this.listarProdutos()}
           </Row>
         </Container>
 
