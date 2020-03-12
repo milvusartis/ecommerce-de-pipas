@@ -1,31 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.cardCorpo{
-    margin-right: 100px;
-    justify-content: space-between;
+#corpo{
+    display: flex;
     justify-content: center;
-
+    text-align: center;
+}
+.cardLogin{
+text-align: center;
+margin-top: 15px;
+margin-right: 100px;
 
 }
+#btnLogin{
+   
+    width: 78%;
+
+}
+#fraseLogin{
+color: red;
+margin-right: 20px;
+
+}
+#btnCadastro{
+    margin-left: 120px;
+}
+

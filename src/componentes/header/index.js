@@ -69,7 +69,7 @@ const Header = () => {
                     </Row>
                     <Row>
 
-                        <Navbar className="mt-2 mb-3" color="light" light expand="md">
+                        <Navbar id="navHome"className="mb-3" light expand="md">
                             <NavbarToggler onClick={toggle} />
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="mr-auto" navbar>
@@ -78,6 +78,15 @@ const Header = () => {
                                     </NavItem>
                                     <NavItem>
                                         <NavLink href="/produtos">Produtos</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/pipas">Pipas</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/linhas">Linhas</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink href="/latas">Latas</NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink href="/contato">Contato</NavLink>
