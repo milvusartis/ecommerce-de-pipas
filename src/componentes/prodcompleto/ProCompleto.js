@@ -37,6 +37,7 @@ class ProdCompleto extends Component {
         number:1,
         cep:"",
         deliveryCost:" ",
+        date:" ",
         recommendedProducts:[
         {
             title:"Pipa Linda!",
@@ -101,18 +102,22 @@ class ProdCompleto extends Component {
             (json)=>{
             if(json.erro===true){
                 this.setState({deliveryCost:" "})
+                this.setState({date:" "})
             }
             else{
                 if(json.uf==="SP"){
                     this.setState({deliveryCost:"R$4,00"})
+                    this.setState({date:"5"})
                 }
                 else{
                     this.setState({deliveryCost:"R$8,00"})
+                    this.setState({date:"10"})
                 }
             }
         })
         }else{
             this.setState({deliveryCost:" "})
+            this.setState({date:" "})
         }
     }
 
@@ -185,6 +190,9 @@ render() {
                             <p className="mt-2 mb-2" 
                             title="Valor do Frete">
                                 Valor do Frete: {this.state.deliveryCost}
+                            </p>
+                            <p className="mt-2 mb-2" >
+                                Prazo de entrega: {this.state.date} dias
                             </p>
                         </FormGroup>
                     </Col>

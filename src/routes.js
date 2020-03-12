@@ -24,7 +24,6 @@ export default class Routes extends Component {
         <BrowserRouter>
                   <Header/>
         <Switch>
-
           <Route path="/" exact component={Home}/>
           <Route path ="/produtos" component={Produtos}/>
           <Route path="/contato" component={Contato}/>
@@ -34,9 +33,7 @@ export default class Routes extends Component {
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
           <Route path="/carrinho" component={Carrinho}/>
-         <Route path="/checkout" component={Checkout}/>
-     
-
+          <Route path="/checkout" component={Checkout}/>
         </Switch>
         <Footer/>
         

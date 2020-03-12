@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Checkout.css'
-import { Col, Row, Button, Form, FormGroup, Label,Container,Input } from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label,Container,Input,} from 'reactstrap';
 
 
 

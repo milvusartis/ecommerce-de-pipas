@@ -74,22 +74,22 @@ const Header = () => {
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="mr-auto" navbar>
                                     <NavItem active>
-                                        <NavLink href="/">Home</NavLink>
+                                        <NavLink className="btn bg-yellow " href="/">Home</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/produtos">Produtos</NavLink>
+                                        <NavLink className="btn bg-green " href="/produtos">Produtos</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/pipas">Pipas</NavLink>
+                                        <NavLink className="btn bg-red " href="/pipas">Pipas</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/linhas">Linhas</NavLink>
+                                        <NavLink className="btn bg-blue " href="/linhas">Linhas</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/latas">Latas</NavLink>
+                                        <NavLink className="btn bg-yellow " href="/latas">Latas</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/contato">Contato</NavLink>
+                                        <NavLink className="btn bg-light-grey "  href="/contato">Contato</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>
