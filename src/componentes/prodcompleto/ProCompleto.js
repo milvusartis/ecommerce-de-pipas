@@ -133,7 +133,7 @@ render() {
                             className="mt-2 mb-2">
                                 {this.state.productName}
                             </h3>
-                            <h5 title="Preço do Produto" 
+                            <h5 id="precoProduto" title="Preço do Produto" 
                             className="mt-2 mb-2">
                                 R$ {this.state.productValeu}
                             </h5>
@@ -142,22 +142,22 @@ render() {
                                 {this.state.maxNumber} unidades restante
                             </p>
                             <Row className="mt-2 mb-2 p-2">
-                                <Button color ="success"onClick={this.decrement}>
+                                <Button id="btnMenos"color ="success"onClick={this.decrement}>
                                     -
                                 </Button>
-                                <Input 
+                                <Input id="quantidade"
                                 type="number" 
-                                className="col-2 mt-2"
+                                className="col-2"
                                 value={this.state.number} 
                                 onChange={this.handleNumberValeu} 
                                 onInput={this.validateInput}/>
-                                <Button color="success" onClick={this.increment}>
+                                <Button id="btnMais" color="success" onClick={this.increment}>
                                     +
                                 </Button>
                             </Row>
                             <Button href="http://localhost:3000/checkout"
                             color="danger" 
-                            className="btn-lg col-sm-12 col-md-6 mt-2">
+                            className="btn-lg col-sm-12 col-md-6 mt-5">
                                 Comprar
                             </Button>
                         </div>

@@ -10,7 +10,7 @@ class Checkout extends Component {
     render() {
         return (
             <>
-            <Container id="checkout"xs="12" md="8">
+            <Container id="checkout">
                 <Form>  
                     <Row> 
                     <Col xs="12" md="4">

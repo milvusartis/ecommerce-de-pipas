@@ -7,3 +7,22 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+#precoProduto{
+  color: black;
+  font-family: cursive;
+  font-size: 30px;
+}
+#quantidade{
+  text-align: center;
+  height: 30px;
+  margin-top: 10px;
+
+}
+#btnMenos{
+  height: 30px;
+  margin-top: 10px;
+}
+#btnMais{
+  height: 30px;
+  margin-top: 9px;
+}

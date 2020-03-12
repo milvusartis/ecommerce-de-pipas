@@ -11,6 +11,7 @@ import Contato from './componentes/contato/Contato';
 import Header from './componentes/header';
 import Footer from './componentes/footer';
 import Checkout from './componentes/Checkout/checkout'
+import Carrinho from './componentes/carrinho/Carrinho'
 
 
 

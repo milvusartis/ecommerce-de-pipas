@@ -40,7 +40,7 @@ class Login extends Component {
         <Container>  
         <Card className="bg-light">
             <Row className="cardCorpo">
-                <div className="card-body col-sm-4" style={{marginRight: 130, paddingLeft: 50}}>
+                <div className="card-body col-sm-4">
                     <h4 className="card-title mt-3 text-center">Cadastro</h4>
                     <p className="text-center">Se registre aqui para comprar nossas pipas</p>
                     <p className="divider-text">

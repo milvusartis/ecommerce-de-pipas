@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import "./Carrinho.css";
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
+
 
 
 
 import {
-    Button,
-    Card,
     Container,
     Row,
-    Table
 } from 'reactstrap';
  
 
