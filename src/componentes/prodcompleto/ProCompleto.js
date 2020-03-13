@@ -17,12 +17,21 @@ import {
 
 import api from '../../services/api';
 import ListaDeProdutos from '../ListaDeProdutos';
+import Axios from 'axios';
 
 class ProdCompleto extends Component {
 
     state = {
 
-        produto: {},
+        produto: 
+            {
+                "idProduto": 1,
+                "nome": "Pipa Grande Colorida",
+                "descricao": "Pipa elegante",
+                "imagem": "https://img.pngio.com/kites-png-vector-psd-and-clipart-with-transparent-background-pipa-png-260_412.png",
+                "valorUnitario": 40.5,
+                "disponibilidade": false
+            },        
 
         maxNumber: 5,//->quantidade de itens disponivel
         number: 1,//////////////////////////
@@ -54,19 +63,43 @@ class ProdCompleto extends Component {
     }
 
     async componentDidMount() {
-        this.load(); 
+        this.load();
     }
 
 
     load = async () => {
 
         const { id } = this.props.match.params;
-
-        const response = await api.get(`/produto/${id}`);
-
-        console.log(response)
-
-        this.setState({ produto: response.data });
+      
+      
+        const response = await api.get(`/produto/${id}`).then((response) => {
+            this.setState({ produto: response.data });
+            // Success 🎉
+            console.log(response);
+        })
+        .catch((error) => {
+            // Error 😨
+            if (error.response) {
+                /*
+                 * The request was made and the server responded with a
+                 * status code that falls out of the range of 2xx
+                 */
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                /*
+                 * The request was made but no response was received, `error.request`
+                 * is an instance of XMLHttpRequest in the browser and an instance
+                 * of http.ClientRequest in Node.js
+                 */
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request and triggered an Error
+                console.log('Error', error.message);
+            }
+            console.log(error.config);
+        });
 
 
     }
@@ -129,7 +162,7 @@ class ProdCompleto extends Component {
         }
     }
 
-  
+
 
     render() {
         const { produto } = this.state;

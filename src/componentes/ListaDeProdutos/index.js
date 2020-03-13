@@ -14,7 +14,36 @@ import api from '../../services/api';
 export default class ListaDeProdutos extends Component {
 
   state = {
-    produtos: [],
+    produtos: 
+       [
+        {
+            "idProduto": 1,
+            "nome": "Pipa Grande Colorida",
+            "descricao": "Pipa colorida",
+            "imagem": "https://imagensemoldes.com.br/wp-content/uploads/2017/12/Imagem-Pipa-em-png-e-pdf-edit%C3%A1vel.png",
+            "valorUnitario": 40.5,
+            "disponibilidade": false
+        },
+        {
+            "idProduto": 2,
+            "nome": "Pipa Media Colorida",
+            "descricao": "Pipa Beneficente",
+            "imagem": "https://s3.amazonaws.com/sample-login/companies/avatars/000/004/570/original/pipa.png",
+            "valorUnitario": 45.5,
+            "disponibilidade": true
+        },
+        {
+            "idProduto": 33,
+            "nome": "Pipa Capucheta",
+            "descricao": "Pipa estilizada",
+            "imagem": "https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Summer-Vacation-PNG/Kite_Transparent_PNG_Clip_Art.png",
+            "valorUnitario": 50.0,
+            "disponibilidade": true
+        },
+       
+    ]
+
+    ,
   };
 
   async componentDidMount() {
@@ -22,12 +51,41 @@ export default class ListaDeProdutos extends Component {
   }
 
 
-  carregarProdutos = async () => {
-    const response = await api.get(`/produto`);
+  carregarProdutos = async () => {  
+   
 
-    console.log(response);
 
-    this.setState({ produtos: response.data });
+    const response = await api.get(`/produto`).then((response) => {
+      this.setState({ produtos: response.data });
+      // Success 🎉
+      console.log(response);
+  })
+  .catch((error) => {
+      console.log("Ahhhhhhhhhhhhhhhhhhhhhhhh ISAAAA");
+      // Error 😨
+      if (error.response) {
+          /*
+           * The request was made and the server responded with a
+           * status code that falls out of the range of 2xx
+           */
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+      } else if (error.request) {
+          /*
+           * The request was made but no response was received, `error.request`
+           * is an instance of XMLHttpRequest in the browser and an instance
+           * of http.ClientRequest in Node.js
+           */
+          console.log(error.request);
+      } else {
+          // Something happened in setting up the request and triggered an Error
+          console.log('Error', error.message);
+      }
+      console.log(error.config);
+  });
+
+
   }
 
 
