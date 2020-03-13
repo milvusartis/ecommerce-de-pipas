@@ -9,6 +9,7 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
+
 }
 
 
@@ -24,6 +25,11 @@
 .login a {
     text-decoration: none;
     font-weight: bold;
+}
+#navHome{
+    background-color: white;
+    width: 100vw;
+    margin-top: 5px;
 }
 
 
