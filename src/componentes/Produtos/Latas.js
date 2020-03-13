@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import './Produtos.css';
 import {
     Card, Button, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody,Col, Row, Container,ListGroup, ListGroupItem 
@@ -12,15 +12,7 @@ class Latas extends Component {
         return (
             <>
             
-            <Container className="mt-4 d-flex flex-row" sm="12" md="6">
-                
-              <ListGroup className="col-3 categorias mt-3">
-                <ListGroupItem tag="a" href="http://localhost:3000/" action color="success">Categorias</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/pipas" action>Pipas</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/linhas" action>Linhas</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/latas" action>Latas</ListGroupItem> 
-              </ListGroup>
-
+            <Container className=" d-flex flex-row" sm="12" md="6">
               <Row>
             <Col className=" cardLatas mb-3 mt-3" xs="12" md="4">
             <Card>
@@ -29,7 +21,7 @@ class Latas extends Component {
                 <CardTitle>Carretilha homem-aranha</CardTitle>
                 <CardSubtitle>R$ 20,00</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>   
           </Col>
@@ -41,7 +33,7 @@ class Latas extends Component {
                 <CardTitle>Carretilha acrilica roda de carro</CardTitle>
                 <CardSubtitle>R$ 15,00</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -53,7 +45,7 @@ class Latas extends Component {
                 <CardTitle>Carretilha acrilica </CardTitle>
                 <CardSubtitle>R$ 12,00</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -65,7 +57,7 @@ class Latas extends Component {
                 <CardTitle>Lata de linha oval</CardTitle>
                 <CardSubtitle>R$ 6,50</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -77,7 +69,7 @@ class Latas extends Component {
                 <CardTitle>Lata de linha redonda colorida</CardTitle>
                 <CardSubtitle>R$ 8,00</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -89,7 +81,7 @@ class Latas extends Component {
                 <CardTitle>Lata de linha redonda pequena</CardTitle>
                 <CardSubtitle>R$ 5,00</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>

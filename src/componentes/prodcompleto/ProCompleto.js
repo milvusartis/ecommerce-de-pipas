@@ -37,6 +37,7 @@ class ProdCompleto extends Component {
         number:1,
         cep:"",
         deliveryCost:" ",
+        date:" ",
         recommendedProducts:[
         {
             title:"Pipa Linda!",
@@ -101,18 +102,22 @@ class ProdCompleto extends Component {
             (json)=>{
             if(json.erro===true){
                 this.setState({deliveryCost:" "})
+                this.setState({date:" "})
             }
             else{
                 if(json.uf==="SP"){
                     this.setState({deliveryCost:"R$4,00"})
+                    this.setState({date:"5"})
                 }
                 else{
                     this.setState({deliveryCost:"R$8,00"})
+                    this.setState({date:"10"})
                 }
             }
         })
         }else{
             this.setState({deliveryCost:" "})
+            this.setState({date:" "})
         }
     }
 
@@ -133,7 +138,7 @@ render() {
                             className="mt-2 mb-2">
                                 {this.state.productName}
                             </h3>
-                            <h5 title="Preço do Produto" 
+                            <h5 id="precoProduto" title="Preço do Produto" 
                             className="mt-2 mb-2">
                                 R$ {this.state.productValeu}
                             </h5>
@@ -142,22 +147,22 @@ render() {
                                 {this.state.maxNumber} unidades restante
                             </p>
                             <Row className="mt-2 mb-2 p-2">
-                                <Button onClick={this.decrement}>
+                                <Button id="btnMenos"color ="success"onClick={this.decrement}>
                                     -
                                 </Button>
-                                <Input 
+                                <Input id="quantidade"
                                 type="number" 
                                 className="col-2"
                                 value={this.state.number} 
                                 onChange={this.handleNumberValeu} 
                                 onInput={this.validateInput}/>
-                                <Button onClick={this.increment}>
+                                <Button id="btnMais" color="success" onClick={this.increment}>
                                     +
                                 </Button>
                             </Row>
-                            <Button 
-                            color="success" 
-                            className="btn-lg col-sm-12 col-md-6 mt-2">
+                            <Button href="http://localhost:3000/checkout"
+                            color="danger" 
+                            className="btn-lg col-sm-12 col-md-6 mt-5">
                                 Comprar
                             </Button>
                         </div>
@@ -186,6 +191,9 @@ render() {
                             title="Valor do Frete">
                                 Valor do Frete: {this.state.deliveryCost}
                             </p>
+                            <p className="mt-2 mb-2" >
+                                Prazo de entrega: {this.state.date} dias
+                            </p>
                         </FormGroup>
                     </Col>
                     <Col sm="12" /*border border-dark"*/>
@@ -197,7 +205,7 @@ render() {
                         </p>
                     </Col>
                 </Row>
-                <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
+                <Navbar className="navbar-dark bg-success text-light mt-2 mb-2">
                 Voce tambem pode gostar
             </Navbar>
             <Container>

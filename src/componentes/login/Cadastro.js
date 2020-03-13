@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import "./Cadastro.css";
-import '@fortawesome/fontawesome-free/css/all.min.css'; 
-import 'mdbreact/dist/css/mdb.css';
 import InputMask from "react-input-mask";
+
 
 import {
     Button,
@@ -12,8 +11,8 @@ import {
     FormGroup,
     Input,
     Row,
-    FormText
-
+    FormText,
+    Col
 } from 'reactstrap';
  
 (function() {
@@ -39,34 +38,70 @@ class Login extends Component {
     render() {
         return ( 
          <>
+
         <Container>  
-        <Card className="bg-light">
-            <Row className="cardCorpo">
-                <div className="card-body col-sm-4" style={{marginRight: 120}}>
-                    <h4 className="card-title mt-3 text-center">Cadastro</h4>
-                    <p className="text-center">Se registre aqui para comprar nossas pipas</p>
-                    <p className="divider-text">
-                        <span className="bg-light">Ou</span>
-                    </p>
-                    <Form className="needs-validation" novalidate>
-                        <FormGroup className="input-group">
+            <Card className="bg-light">
+             <Row id="corpo">
+             <div className="cardLogin" >
+                    <div className="cardCorpo">
+                        <div className="card-title mt-3 text-center">
+                            <h3>Entrar </h3>
+                        </div>
+                        <div className="card-body">
+                            <Form>
+                                <Col sm="12">
+                                <FormGroup className="input-group">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i className="fas fa-user"></i></span>
+                                    </div>
+                                    <InputMask className="input-group-text bg-white" type="text" placeholder="Usuario"class="form-control"></InputMask>
+                                </FormGroup>
+                                <FormGroup className="input-group">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i className="fa fa-key"></i></span>
+                                    </div>
+                                    <InputMask className="input-group-text bg-white" type="password" placeholder="Senha"class="form-control"></InputMask>
+                                </FormGroup>
+                                <FormGroup>
+                                <Button id="btnLogin"color="success" type="submit"> Login </Button>
+                                </FormGroup>
+                                </Col>
+                            </Form>
+                        </div>
+                        </div>
+                            <p className="divider-text">
+                                <span className="bg-light" >OU </span>
+                            </p>
+                            <div>
+                               <p id="fraseLogin">Nao tem uma conta?
+                               Cadastre-se ao lado</p>
+                            </div>
+                        </div> 
+                 <div className="card-body col-sm-4">
+                        <h4 className="card-title mt-3 text-center">Cadastro</h4>
+                            <p className="text-center">Se registre aqui para comprar nossas pipas</p>
+                            <p className="divider-text">
+                                <span className="bg-light">Ou</span>
+                            </p>
+                            <Form className="needs-validation" novalidate>
+                                <FormGroup className="input-group">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i class="fa fa-user" aria-hidden="true"></i>  </span>
+                                    </div>
+                                <InputMask className="input-group-text bg-white" placeholder="Nome completo"class="form-control" id="validationCustom01"required></InputMask>
+                            </FormGroup>
+                        <FormGroup className="input-group"novalidate>
                             <div className="input-group-prepend">
                                 <span className="input-group-text"> <i className="fa fa-user"></i> </span>
                             </div>
-                            <InputMask className="input-group-text bg-white" placeholder="Nome completo"class="form-control" id="validationCustom01"required></InputMask>
-                        </FormGroup>
-                        <FormGroup className="input-group">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text"> <i className="fa fa-user"></i> </span>
-                            </div>
-                            <InputMask className="input-group-text bg-white" placeholder="Nome de Usuario" mask="********" id="validationCustom02"required></InputMask>
+                            <InputMask className="input-group-text bg-white" placeholder="Nome de Usuario"class="form-control" type="text" mask="********" id="validationCustom02"required></InputMask>
                             <FormText>*Seu nome de usuario precisa ter 8 caracteres Alfa numericos apenas.</FormText>
                         </FormGroup>
                         <FormGroup className="input-group">
                             <div className="input-group-prepend">
                                 <span className="input-group-text"> <i className="fa fa-envelope"></i> </span>
                             </div>
-                            <InputMask className="input-group-text bg-white" placeholder="Email" type="email" required></InputMask>
+                            <InputMask className="input-group-text bg-white" placeholder="Email" class="form-control" type="email" required></InputMask>
                         </FormGroup>
                         <FormGroup className="input-group">
                             <div className="input-group-prepend">
@@ -88,50 +123,12 @@ class Login extends Component {
                                 <InputMask className="input-group-text bg-white" placeholder="Repita sua senha" type="password"class="form-control" id="validationCustom04"required></InputMask>
                             </FormGroup>                                
                         <FormGroup>
-                                <Button color="success" > Criar conta. </Button>
+                                <Button id="btnCadastro" color="success" > Criar conta. </Button>
                         </FormGroup>
                         <p className="text-center"> Ja e cadastrado? Efetue o login ao lado </p>
                     </FormGroup>
                 </Form>
                 </div>
-                <div className="cardLogin" style={{paddingTop: 20}}>
-                    <div className="cardCorpo">
-                        <div className="card-title mt-3 text-center">
-                            <h3>Entrar </h3>
-                        </div>
-                        <div className="card-body"></div>
-                            <Form style={{marginLeft:20}}>
-                                <FormGroup className="input-group">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-user"></i></span>
-                                    </div>
-                                    <InputMask className="input-group-text bg-white" type="text" placeholder="Usuario"></InputMask>
-                                </FormGroup>
-                                <FormGroup className="input-group">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-key"></i></span>
-                                    </div>
-                                    <InputMask className="input-group-text bg-white" type="password" placeholder="Senha"></InputMask>
-                                </FormGroup>
-                                <FormGroup style={{marginLeft:30}}>
-                               <Input type="checkbox"> </Input> Lembrar meus dados
-                                </FormGroup>
-                                <FormGroup>
-                                <Button color="success" type="submit"style={{marginLeft:100}}> Login </Button>
-                                </FormGroup>
-                            </Form>
-                        </div>
-                            <p className="divider-text"style={{marginLeft:20}}>
-                                <span className="bg-light" >OU </span>
-                            </p>
-                            <div>
-                               <p style={{marginLeft:40}}>Nao tem uma conta?
-                               Cadastre-se ao lado</p>
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <a>Esqueceu a senha</a>
-                            </div>
-                        </div>           
                     </Row>
                 </Card>
             </Container>          

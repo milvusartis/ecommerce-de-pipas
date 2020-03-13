@@ -6,7 +6,7 @@ import "./styles.css"
 export default class CarouselResponsive extends Component {
     render() {
         return (
-            <Carousel className="carousel" autoPlay={true} showThumbs={false} transitionTime={10} infiniteLoop={true} width="80%" showStatus={false}>
+            <Carousel className="carousel mb-2" autoPlay={true} showThumbs={false} transitionTime={10} infiniteLoop={true} width="80%" showStatus={false}>
                 <div>
                     <img src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/uploads/BANNER-PAPEL-DE-SEDA-RECORTE-012020.png" />
                     {/* <p className="legend">Legend 1</p> */}

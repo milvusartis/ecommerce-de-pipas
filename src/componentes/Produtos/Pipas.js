@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router} from 'react-router-dom';
+import './Produtos.css';
 import {
     Card, Button, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody,Col,Container,Row,ListGroup, ListGroupItem 
@@ -11,14 +11,7 @@ import {
         return (
             <>
             
-            <Container className="mt-4 d-flex flex-row" sm="12" md="6">
-            <ListGroup className="col-3 categorias mt-3">
-                <ListGroupItem tag="a" href="http://localhost:3000/" action color="success">Categorias</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/pipas" action>Pipas</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/linhas" action>Linhas</ListGroupItem>
-                <ListGroupItem tag="a" href="http://localhost:3000/latas" action>Latas</ListGroupItem> 
-              </ListGroup>
-
+            <Container className=" d-flex flex-row" sm="12" md="6">
               <Row>
             
             <Col className=" cardPipas mb-3 mt-3"  xs="12" md="4">
@@ -28,7 +21,7 @@ import {
                 <CardTitle>Pipa personagens</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
            
@@ -41,7 +34,7 @@ import {
                 <CardTitle>Pipa bico de ouro</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success" color="success">Comprar</Button>
+                <Button color="success" href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             
@@ -55,7 +48,7 @@ import {
                 <CardTitle>Pipa colorido</CardTitle>
                 <CardSubtitle>R$ 2,00 uni ou R$25,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -67,7 +60,7 @@ import {
                 <CardTitle>Peixinho personagens</CardTitle>
                 <CardSubtitle>R$ 1,50 uni ou R$20,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>
@@ -79,7 +72,7 @@ import {
                 <CardTitle>Peixinho personagens</CardTitle>
                 <CardSubtitle>R$ 1,50 uni ou R$20,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>
@@ -91,7 +84,7 @@ import {
                 <CardTitle>Peixinho colorido</CardTitle>
                 <CardSubtitle>R$ 1,00 uni ou R$12,00 pacote com 15 unidades</CardSubtitle>
                 <CardText></CardText>
-                <Button color="success">Comprar</Button>
+                <Button color="success"href="http://localhost:3000/produtocompleto">Comprar</Button>
               </CardBody>
             </Card>
             </Col>
