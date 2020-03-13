@@ -28,6 +28,7 @@ export default class Routes extends Component {
           <Route path="/contato" component={Contato}/>
           <Route path="/login"  component={Login}/>
           <Route path="/produto/:id"  component={ProdCompleto}/>
+          {/* <Route path="/produto"  component={ProdCompleto}/> */}
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
