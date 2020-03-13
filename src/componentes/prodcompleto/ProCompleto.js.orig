@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import "./ProdCompleto.css";
+import fotoMaior from "./img-mockup-menor.png";
+import fotoMenor from "./img-mockup-menor-2.png";
 import InputMask from "react-input-mask";
 import {
     Container,
@@ -15,6 +17,7 @@ import {
 
 import api from '../../services/api';
 import ListaDeProdutos from '../ListaDeProdutos';
+import Axios from 'axios';
 
 class ProdCompleto extends Component {
 
@@ -35,7 +38,28 @@ class ProdCompleto extends Component {
         cep: "",////////////////////////////
         deliveryCost: " ",//////////////////
 
-        recommendedProducts: []
+        recommendedProducts: [
+            {
+                title: "Pipa Linda!",
+                image: fotoMenor,
+                value: 20.00
+            },
+            {
+                title: "Pipa Bonita!",
+                image: fotoMenor,
+                value: 20.00
+            },
+            {
+                title: "Pipa Formosa!",
+                image: fotoMenor,
+                value: 20.00
+            },
+            {
+                title: "Pipa Maravilhosa!",
+                image: fotoMenor,
+                value: 20.00
+            }
+        ]
     }
 
     async componentDidMount() {
@@ -47,12 +71,11 @@ class ProdCompleto extends Component {
 
         const { id } = this.props.match.params;
       
-        // const response = 
       
-        await api.get(`/produto/${id}`).then((response) => {
+        const response = await api.get(`/produto/${id}`).then((response) => {
             this.setState({ produto: response.data });
             // Success 🎉
-            // console.log(response);
+            console.log(response);
         })
         .catch((error) => {
             // Error 😨
