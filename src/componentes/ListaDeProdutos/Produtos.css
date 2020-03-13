@@ -1,15 +1,11 @@
-#categoria1{
- border-radius: 10px;
- background-color: #16e739e3;
- border-style: none;
- margin-top: 10px;
+.btnComprar{
+ width: 100px;
+ margin: 10px 15px;
+ align-self: center;
 }
-#categoria2{    
-    border-radius: 10px;
-}
-#categoria3{    
-    border-radius: 10px;
-}
-#categoria4{    
-    border-radius: 10px;
+.preco{
+    font-family: cursive;
+    color: red;
+    margin-top: 10px;
+    font-size: 30px;
 }

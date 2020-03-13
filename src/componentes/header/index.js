@@ -37,11 +37,11 @@ const Header = () => {
                     <Row className="topo bg-dark-grey color-dark">
                         <Col className="logo" sm="12" md="3" lg="3">
                             <NavbarBrand href="/">
-                                <Logo className="logo" title="Milvus Artis"/>
+                            <Logo className="logo" title="Milvus Artis"/>
                                 </NavbarBrand>
                         </Col>
 
-                        <Col className="search" sm="12" md="6" lg="6">
+                        <Col className="search" sm="12" md="4" lg="4">
                             <InputGroup>
                                 <Input placeholder="Busque por produtos" />
                                 <InputGroupAddon addonType="append">

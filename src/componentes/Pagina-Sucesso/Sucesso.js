@@ -21,7 +21,7 @@ render(){
         <hr className="my-2" />
         <p>Prazo de entrega:</p>
         </p>
-        <Button color="success">Finalizar</Button> 
+        <Button href="/"color="success">Finalizar</Button> 
       </Jumbotron>
     </div>
 </Container>

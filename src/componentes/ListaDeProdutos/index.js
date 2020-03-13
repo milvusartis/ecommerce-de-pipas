@@ -103,10 +103,10 @@ export default class ListaDeProdutos extends Component {
             <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
             <CardBody>
               <CardTitle>{produto.nome}</CardTitle>
-              <CardSubtitle>R$ {produto.valorUnitario} unidade</CardSubtitle>
+              <CardSubtitle className="preco">R$ {produto.valorUnitario} unidade</CardSubtitle>
               <CardText></CardText>
-              <Link className="btn btn-success" to={`/produto/${produto.idProduto}`}>Comprar</Link>
             </CardBody>
+            <Link className="btn btn-success btnComprar" to={`/produto/${produto.idProduto}`}>Comprar</Link>
           </Card>
 
         </Col>);

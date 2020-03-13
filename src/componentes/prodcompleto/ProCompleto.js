@@ -133,11 +133,15 @@ class ProdCompleto extends Component {
                                 this.setState({ deliveryCost: "R$4,00" })
                                 this.setState({ date: "3" })
                                 this.setState({ day: "dias" })
+
+                                return json;
                             }
                             else {
                                 this.setState({ deliveryCost: "R$8,00" })
                                 this.setState({ date: "6" })
                                 this.setState({ day: "dias" })
+
+                                return json;
                             }
                         }
                     })
@@ -146,6 +150,8 @@ class ProdCompleto extends Component {
             this.setState({ date: " " })
             this.setState({ day: " " })
         }
+
+    
     }
 
 

@@ -15,6 +15,7 @@
 
 .search {
     flex-flow: row nowrap;
+    margin-left: 100px;
 }
 
 .search div {
@@ -31,7 +32,9 @@
     width: 100vw;
     margin-top: 5px;
 }
-
+.logo{
+    width: 300px;
+}
 
 
 
@@ -113,7 +116,7 @@
 
 /* RESPONSIVO */
 
-@media (max-width: 767.98px) {
+@media (max-width: 900px) {
 
     .topo {
         padding: 20px;
@@ -126,11 +129,12 @@
     .login {
         display: flex;
         justify-content: center;
-        ;
+       
     }
 
     .search {
         display: flex;
+      
 
         /* flex-flow: row nowrap; */
         /* background-color: red; */

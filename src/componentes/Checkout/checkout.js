@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './Checkout.css'
-import { Col, Row, Button, Form, FormGroup, Label,Container,Input,} from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup, Label,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
 
 
 
 class Checkout extends Component {
-  
+
     render() {
         return (
             <>
@@ -14,7 +14,7 @@ class Checkout extends Component {
                 <Form>  
                     <Row> 
                     <Col xs="12" md="4">
-                        <h3>Dados de pagamento</h3>
+                        <h3 className="titulos">Dados de pagamento</h3>
                         <FormGroup>
                             <Label >Numero do cartão</Label>
                             <Input  type="number" name="cartao" id="cartao" placeholder="Numero do cartão" />
@@ -33,7 +33,7 @@ class Checkout extends Component {
                             </FormGroup>    
                     </Col>
                     <Col xs="12" md="4">
-                        <h3>Dados da entrega</h3>
+                        <h3 className="titulos">Dados da entrega</h3>
                         <FormGroup>
                             <Label >Nome do destinatadio</Label>
                             <Input  type="text" name="nomeEntrega" id="nomeEntrega" placeholder="Nome" />
@@ -53,30 +53,19 @@ class Checkout extends Component {
 
                     </Col>
                     <Col xs="12" md="4">
-                        <div>
-                        <h3>Resumo da compra</h3>
-                        <FormGroup>
-                            <p>nome do produto</p>
-                        </FormGroup>
-                            <FormGroup>
-                                 <p>valor dos itens</p>
-                            </FormGroup>
-                            <FormGroup>
-                               <p>valor do frete</p>
-                            </FormGroup>  
-                            <FormGroup >
-                                <p>prazo de entrega</p>
-                            </FormGroup>  
-                            <FormGroup >
-                                <p>valor total</p>
-                            </FormGroup>
-                            </div> 
+                     <ListGroup>
+                         <h3 className="titulos">Resumo da compra</h3>
+                        <ListGroupItem className="listaResumo">Produto:</ListGroupItem>
+                        <ListGroupItem className="listaResumo">Valor:</ListGroupItem>
+                        <ListGroupItem className="listaResumo">Frete:</ListGroupItem>
+                        <ListGroupItem className="listaResumo">Prazo de entrega:</ListGroupItem>
+                        <ListGroupItem className="listaResumo">Valor total:</ListGroupItem>
+                      </ListGroup>
+                      <Button href="/sucesso" className="btnFinalizar"color="success">Finalizar Compra</Button>
                     </Col>
                     </Row>
                 </Form>
                     
-
-                <Button color="success">Finalizar Compra</Button>
                 </Container>
     </>
         );
