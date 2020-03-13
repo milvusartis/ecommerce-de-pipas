@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Produtos.css';
 import {
     Card, Button, CardImg, CardTitle, CardText,
-    CardSubtitle, CardBody,Col,Container,Row,ListGroup, ListGroupItem 
+    CardSubtitle, CardBody,Col,Container,Row, 
   } from 'reactstrap';
 
   class Linhas extends Component {

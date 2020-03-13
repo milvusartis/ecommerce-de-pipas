@@ -53,15 +53,14 @@ export default class ListaDeProdutos extends Component {
 
   carregarProdutos = async () => {  
    
+    // const response = 
 
-
-    const response = await api.get(`/produto`).then((response) => {
+    await api.get(`/produto`).then((response) => {
       this.setState({ produtos: response.data });
       // Success 🎉
-      console.log(response);
+      // console.log(response);
   })
   .catch((error) => {
-      console.log("Ahhhhhhhhhhhhhhhhhhhhhhhh ISAAAA");
       // Error 😨
       if (error.response) {
           /*
@@ -121,7 +120,7 @@ export default class ListaDeProdutos extends Component {
 
 
   render() {
-    const { produtos } = this.state;
+    // const { produtos } = this.state;
     return (
       <>
         <Container>
