@@ -29,7 +29,8 @@ class ProdCompleto extends Component {
                 "valorUnitario": 40.5,
                 "disponibilidade": false
             },        
-
+        date:" ",
+        day:" ",
         maxNumber: 5,//->quantidade de itens disponivel
         number: 1,//////////////////////////
         cep: "",////////////////////////////
@@ -124,18 +125,26 @@ class ProdCompleto extends Component {
                     (json) => {
                         if (json.erro === true) {
                             this.setState({ deliveryCost: " " })
+                            this.setState({ date: " " })
+                            this.setState({ day: " " })
                         }
                         else {
                             if (json.uf === "SP") {
                                 this.setState({ deliveryCost: "R$4,00" })
+                                this.setState({ date: "3" })
+                                this.setState({ day: "dias" })
                             }
                             else {
                                 this.setState({ deliveryCost: "R$8,00" })
+                                this.setState({ date: "6" })
+                                this.setState({ day: "dias" })
                             }
                         }
                     })
         } else {
             this.setState({ deliveryCost: " " })
+            this.setState({ date: " " })
+            this.setState({ day: " " })
         }
     }
 
@@ -159,8 +168,8 @@ class ProdCompleto extends Component {
                                     className="mt-2 mb-2">
                                     {produto.nome}
                                 </h3>
-                                <h5 title="Preço do Produto"
-                                    className="mt-2 mb-2">
+                                <h5  title="Preço do Produto"
+                                    className="mt-2 mb-2 precoProduto">
                                     R$ {produto.valorUnitario}
                                 </h5>
                                 {/* <p title="Quantidade disponivel" 
@@ -168,21 +177,21 @@ class ProdCompleto extends Component {
                                 {this.state.maxNumber} unidades restante
                             </p> */}
                                 <Row className="mt-2 mb-2 p-2">
-                                    <Button color="success" onClick={this.decrement}>
+                                    <Button className="btnMenos" color="success" onClick={this.decrement}>
                                         -
                                 </Button>
                                     <Input
                                         type="number"
-                                        className="col-2 mt-2"
+                                        className="col-2 mt-2 quantidade"
                                         value={this.state.number}
                                         onChange={this.handleNumberValeu}
                                         onInput={this.validateInput} />
-                                    <Button color="success" onClick={this.increment}>
+                                    <Button className="btnMais"color="success" onClick={this.increment}>
                                         +
                                 </Button>
                                 </Row>
                                 <Button href="http://localhost:3000/checkout"
-                                    color="success"
+                                    color="danger"
                                     className="btn-lg col-sm-12 col-md-6 mt-2">
                                     Comprar
                             </Button>
@@ -211,6 +220,9 @@ class ProdCompleto extends Component {
                                 <p className="mt-2 mb-2"
                                     title="Valor do Frete">
                                     Valor do Frete: {this.state.deliveryCost}
+                                </p>
+                                <p className="mt-2 mb-2">
+                                    Prazo de Entrega: {this.state.date} {this.state.day}
                                 </p>
                             </FormGroup>
                         </Col>
