@@ -73,23 +73,23 @@ const Header = () => {
                             <NavbarToggler onClick={toggle} />
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="mr-auto" navbar>
-                                    <NavItem active>
-                                        <NavLink className="btn bg-yellow " href="/">Home</NavLink>
+                                    <NavItem active >
+                                        <NavLink  className="btn bg-yellow btnMargin" href="/">Home</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="btn bg-green " href="/produtos">Produtos</NavLink>
+                                        <NavLink  className="btn bg-green btnMargin" href="/produtos">Produtos</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="btn bg-red " href="/pipas">Pipas</NavLink>
+                                        <NavLink  className="btn bg-red btnMargin" href="/pipas">Pipas</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="btn bg-blue " href="/linhas">Linhas</NavLink>
+                                        <NavLink  className="btn bg-blue btnMargin " href="/linhas">Linhas</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="btn bg-yellow " href="/latas">Latas</NavLink>
+                                        <NavLink  className="btn bg-yellow btnMargin " href="/latas">Latas</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink className="btn bg-light-grey "  href="/contato">Contato</NavLink>
+                                        <NavLink  className="btn bg-red btnMargin "  href="/contato">Contato</NavLink>
                                     </NavItem>
                                 </Nav>
                             </Collapse>

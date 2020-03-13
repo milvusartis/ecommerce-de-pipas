@@ -97,6 +97,17 @@
     color: #36393A;
 }
 
+.btnMargin{
+    margin-right: 140px;
+    width: 100px;
+    
+}
+
+.btnMargin:hover {
+    opacity: 0.7;
+}
+
+
 
 /* RESPONSIVO */
 

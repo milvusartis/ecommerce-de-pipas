@@ -53,23 +53,24 @@ class Checkout extends Component {
 
                     </Col>
                     <Col xs="12" md="4">
+                        <div>
                         <h3>Resumo da compra</h3>
                         <FormGroup>
-                            <Label >Nome do destinatadio</Label>
-                            <Input  type="text" name="nomeEntrega" id="nomeEntrega" placeholder="Nome" />
+                            <p>nome do produto</p>
                         </FormGroup>
                             <FormGroup>
-                                <Label>Endereço de entrega</Label>
-                                <Input  type="text" name="enderecoEntrega" id="enderecoEntrega" placeholder="Endereço" />
+                                 <p>valor dos itens</p>
                             </FormGroup>
                             <FormGroup>
-                                <Label>Numero</Label>
-                                <Input  type="number" name="numero" id="ccv"placeholder="numero"/>
+                               <p>valor do frete</p>
                             </FormGroup>  
                             <FormGroup >
-                                <Label >Bairro</Label>
-                                <Input  type="text" name="bairro" id="bairro"placeholder="Bairro"/>
-                            </FormGroup>   
+                                <p>prazo de entrega</p>
+                            </FormGroup>  
+                            <FormGroup >
+                                <p>valor total</p>
+                            </FormGroup>
+                            </div> 
                     </Col>
                     </Row>
                 </Form>

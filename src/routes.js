@@ -12,6 +12,7 @@ import Header from './componentes/header';
 import Footer from './componentes/footer';
 import Checkout from './componentes/Checkout/checkout';
 import Carrinho from './componentes/carrinho/Carrinho';
+import Sucesso from './componentes/Pagina-Sucesso/Sucesso';
 
 
 
@@ -34,6 +35,7 @@ export default class Routes extends Component {
           <Route path="/latas" component={Latas}/>
           <Route path="/carrinho" component={Carrinho}/>
           <Route path="/checkout" component={Checkout}/>
+          <Route path="/sucesso" component={Sucesso}/>
         </Switch>
         <Footer/>
         
