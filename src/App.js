@@ -1,11 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import './css/global.css';
-import Routes from './routes';
 
+import Routes from './routes';
+import store from './store';
 class App extends Component {
   render() {
-    return <Routes />;
+    return (
+      <Provider store={store}>
+        <Routes />;
+      </Provider>
+    );
   }
 }
 

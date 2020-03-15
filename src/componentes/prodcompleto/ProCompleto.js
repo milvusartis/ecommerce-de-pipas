@@ -236,7 +236,7 @@ class ProdCompleto extends Component {
                                     Comprar
                                 </Button> */}
                                 <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
-                                    <Link>Comprar</Link>
+                                    <Link to="/carrinho">Comprar</Link>
                                 </div>
 
                             </div>
