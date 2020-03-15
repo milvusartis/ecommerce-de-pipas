@@ -16,71 +16,98 @@ import {
 import api from '../../services/api';
 import ListaDeProdutos from '../ListaDeProdutos';
 
+
+
 class ProdCompleto extends Component {
 
-    state = {
-
-        produto: 
-            {
-                "idProduto": 1,
-                "nome": "Pipa Grande Colorida",
-                "descricao": "Pipa elegante",
-                "imagem": "https://img.pngio.com/kites-png-vector-psd-and-clipart-with-transparent-background-pipa-png-260_412.png",
-                "valorUnitario": 40.5,
-                "disponibilidade": false
-            },        
-        date:" ",
-        day:" ",
-        maxNumber: 5,//->quantidade de itens disponivel
-        number: 1,//////////////////////////
-        cep: "",////////////////////////////
-        deliveryCost: " ",//////////////////
-
-        recommendedProducts: []
-    }
-
-    async componentDidMount() {
-        this.load();
-    }
 
 
-    load = async () => {
 
-        const { id } = this.props.match.params;
+    constructor(props) {
+        super(props)
+        // const{url} = this.props.match.url
+        // const{pathname} = this.props.location.pathname
+        const produto = props.location.state.produto;
+
+
+        this.state = {
+            produto: produto,
+            date: " ",
+            day: " ",
+            maxNumber: 5,//->quantidade de itens disponivel
+            number: 1,//////////////////////////
+            cep: "",////////////////////////////
+            deliveryCost: " ",//////////////////
+
+        };
       
-        // const response = 
-      
-        await api.get(`/produto/${id}`).then((response) => {
-            this.setState({ produto: response.data });
-            // Success 🎉
-            // console.log(response);
-        })
-        .catch((error) => {
-            // Error 😨
-            if (error.response) {
-                /*
-                 * The request was made and the server responded with a
-                 * status code that falls out of the range of 2xx
-                 */
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            } else if (error.request) {
-                /*
-                 * The request was made but no response was received, `error.request`
-                 * is an instance of XMLHttpRequest in the browser and an instance
-                 * of http.ClientRequest in Node.js
-                 */
-                console.log(error.request);
-            } else {
-                // Something happened in setting up the request and triggered an Error
-                console.log('Error', error.message);
-            }
-            console.log(error.config);
-        });
 
 
     }
+
+    // state = {
+
+    //     produto:
+    //     {
+    //         "codigo": 1,
+    //         "nome": "Pipa Grande Colorida",
+    //         "descricao": "Pipa elegante",
+    //         "imagem": "https://img.pngio.com/kites-png-vector-psd-and-clipart-with-transparent-background-pipa-png-260_412.png",
+    //         "valor": 40.5,
+    //         "disponibilidade": false
+    //     },
+    //     date: " ",
+    //     day: " ",
+    //     maxNumber: 5,//->quantidade de itens disponivel
+    //     number: 1,//////////////////////////
+    //     cep: "",////////////////////////////
+    //     deliveryCost: " ",//////////////////
+
+    //     recommendedProducts: []
+    // }
+
+    // async componentDidMount() {
+    //     this.load();
+    // }
+
+
+    // load = async () => {
+
+    //     const { id } = this.props.match.params;
+
+    //     // const response = 
+
+    //     await api.get(`/produto/${id}`).then((response) => {
+    //         this.setState({ produto: response.data });
+    //         // Success 🎉
+    //         // console.log(response);
+    //     })
+    //         .catch((error) => {
+    //             // Error 😨
+    //             if (error.response) {
+    //                 /*
+    //                  * The request was made and the server responded with a
+    //                  * status code that falls out of the range of 2xx
+    //                  */
+    //                 console.log(error.response.data);
+    //                 console.log(error.response.status);
+    //                 console.log(error.response.headers);
+    //             } else if (error.request) {
+    //                 /*
+    //                  * The request was made but no response was received, `error.request`
+    //                  * is an instance of XMLHttpRequest in the browser and an instance
+    //                  * of http.ClientRequest in Node.js
+    //                  */
+    //                 console.log(error.request);
+    //             } else {
+    //                 // Something happened in setting up the request and triggered an Error
+    //                 console.log('Error', error.message);
+    //             }
+    //             console.log(error.config);
+    //         });
+
+
+    // }
 
 
 
@@ -151,7 +178,11 @@ class ProdCompleto extends Component {
             this.setState({ day: " " })
         }
 
-    
+
+    }
+
+    formataMoeda = (valor) => {
+        return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
 
@@ -174,9 +205,9 @@ class ProdCompleto extends Component {
                                     className="mt-2 mb-2">
                                     {produto.nome}
                                 </h3>
-                                <h5  title="Preço do Produto"
+                                <h5 title="Preço do Produto"
                                     className="mt-2 mb-2 precoProduto">
-                                    R$ {produto.valorUnitario}
+                                    {this.formataMoeda(produto.valor)}
                                 </h5>
                                 {/* <p title="Quantidade disponivel" 
                             className="mt-2 mb-2">
@@ -192,7 +223,7 @@ class ProdCompleto extends Component {
                                         value={this.state.number}
                                         onChange={this.handleNumberValeu}
                                         onInput={this.validateInput} />
-                                    <Button className="btnMais"color="success" onClick={this.increment}>
+                                    <Button className="btnMais" color="success" onClick={this.increment}>
                                         +
                                 </Button>
                                 </Row>

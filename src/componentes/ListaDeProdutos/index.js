@@ -17,28 +17,40 @@ export default class ListaDeProdutos extends Component {
     produtos: 
        [
         {
-            "idProduto": 1,
+            "codigo": 1,
             "nome": "Pipa Grande Colorida",
             "descricao": "Pipa colorida",
             "imagem": "https://imagensemoldes.com.br/wp-content/uploads/2017/12/Imagem-Pipa-em-png-e-pdf-edit%C3%A1vel.png",
-            "valorUnitario": 40.5,
-            "disponibilidade": false
+            "valor": 40.5,
+            "disponibilidade": false,
+            "categoria": {
+              "codigo": 1,
+              "descricao": "Linha"
+          }            
         },
         {
-            "idProduto": 2,
+            "codigo": 2,
             "nome": "Pipa Media Colorida",
             "descricao": "Pipa Beneficente",
             "imagem": "https://s3.amazonaws.com/sample-login/companies/avatars/000/004/570/original/pipa.png",
-            "valorUnitario": 45.5,
-            "disponibilidade": true
+            "valor": 45.5,
+            "disponibilidade": true,
+            "categoria": {
+              "codigo": 2,
+              "descricao": "Lata"
+          }
         },
         {
-            "idProduto": 33,
+            "codigo": 33,
             "nome": "Pipa Capucheta",
             "descricao": "Pipa estilizada",
             "imagem": "https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Summer-Vacation-PNG/Kite_Transparent_PNG_Clip_Art.png",
-            "valorUnitario": 50.0,
-            "disponibilidade": true
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+              "codigo": 65,
+              "descricao": "Pipa"
+          }
         },
        
     ]
@@ -87,6 +99,9 @@ export default class ListaDeProdutos extends Component {
 
   }
 
+  formataMoeda = (valor) => {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
 
 
   montaCardProdutos = () => {
@@ -99,15 +114,22 @@ export default class ListaDeProdutos extends Component {
       retorno.push(
 
         <Col className=" cardPipas mb-3 mt-3" xs="12" md="4">
-          <Card key={produto.idProduto}>
+           <Link className="" to={{
+             pathname:`/produto`,
+             state: {
+               produto: produto
+             }
+           }}>
+          <Card key={produto.codigo}>
             <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
             <CardBody>
               <CardTitle>{produto.nome}</CardTitle>
-              <CardSubtitle className="preco">R$ {produto.valorUnitario} unidade</CardSubtitle>
+              <CardSubtitle className="preco">{this.formataMoeda(produto.valor)} </CardSubtitle>
               <CardText></CardText>
             </CardBody>
-            <Link className="btn btn-success btnComprar" to={`/produto/${produto.idProduto}`}>Comprar</Link>
+        
           </Card>
+          </Link>
 
         </Col>);
     });
