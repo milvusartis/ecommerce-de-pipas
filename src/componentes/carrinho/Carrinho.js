@@ -55,7 +55,7 @@ class Carrinho extends Component {
 								<ListGroupItem className="listaResumo">Frete:</ListGroupItem>
 								<ListGroupItem className="listaResumo">Valor total:</ListGroupItem>
 							</ListGroup>
-								<Button  className="btnFinalizar"color="danger">Finalizar Compra</Button>
+								<Button  href="/checkout"className="btnFinalizar"color="danger">Finalizar Compra</Button>
 							</Col>
 						
 				</Row>
