@@ -15,6 +15,7 @@ import {
 
 import api from '../../services/api';
 import ListaDeProdutos from '../ListaDeProdutos';
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,6 +28,7 @@ class ProdCompleto extends Component {
         super(props)
         // const{url} = this.props.match.url
         // const{pathname} = this.props.location.pathname
+        console.log(props)
         const produto = props.location.state.produto;
 
 
@@ -40,7 +42,7 @@ class ProdCompleto extends Component {
             deliveryCost: " ",//////////////////
 
         };
-      
+
 
 
     }
@@ -227,11 +229,16 @@ class ProdCompleto extends Component {
                                         +
                                 </Button>
                                 </Row>
-                                <Button href="/carrinho"
+
+                                {/* <Button to="/carrinho"
                                     color="danger"
                                     className="btn-lg col-sm-12 col-md-6 mt-2">
                                     Comprar
-                            </Button>
+                                </Button> */}
+                                <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
+                                    <Link>Comprar</Link>
+                                </div>
+
                             </div>
                             <FormGroup className="mt-5 mb-2 p-2 border border-dark">
                                 <Label>
@@ -272,11 +279,11 @@ class ProdCompleto extends Component {
                             </p>
                         </Col>
                     </Row>
-                    <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
+                    {/* <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
                         Voce tambem pode gostar
-            </Navbar>
+            </Navbar> */}
 
-                    <ListaDeProdutos />
+                    {/* <ListaDeProdutos /> */}
 
                 </Container>
 

@@ -1,28 +1,67 @@
-.carde{
-    width: 180px;
+.carde {
+  width: 180px;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-.precoProduto{
+
+.precoProduto {
   color: black;
   font-family: cursive;
   font-size: 30px;
 }
-.quantidade{
+
+.quantidade {
   text-align: center;
   height: 30px;
   margin-top: 10px;
 
 }
-.btnMenos{
+
+.btnMenos {
   height: 30px;
   margin-top: 10px;
 }
-.btnMais{
+
+.btnMais {
   height: 30px;
   margin-top: 9px;
+}
+
+.btn-comprar{
+  /* margin: 8px 0px 0px; */
+  padding: .5rem 1rem;
+  width: 100%;
+  display: flex;  
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+}
+.btn-comprar a {
+  text-decoration: none;
+  width: 100%;
+  
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;  
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: .3rem;   
+  padding: 8px 16px; 
+  border: 1px solid transparent;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+ 
+
+}
+
+
+.btn-comprar a:hover {
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+
 }

@@ -113,7 +113,7 @@ export default class ListaDeProdutos extends Component {
     produtos.forEach((produto, indice) => {
       retorno.push(
 
-        <Col className=" cardPipas mb-3 mt-3" xs="12" md="4">
+        <Col className="cardPipas mb-3 mt-3" xs="12" md="4">
            <Link className="" to={{
              pathname:`/produto`,
              state: {
