@@ -97,13 +97,13 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
 );
 
 export default connect(state => ({
-    produto: state.produto,
-    number: state.number,
-    cep:state.cep,
-    deliveryCost: state.deliveryCost,
-    date: state.date,
-    day: state.day,
-    nome: state.nome,
+    produto: state.produto.produto,
+    number: state.produto.number,
+    cep:state.produto.cep,
+    deliveryCost: state.produto.deliveryCost,
+    date: state.produto.date,
+    day: state.produto.day,
+    nome: state.produto.nome,
     descricao: state.descricao,
 
 }))(ProdutoCompleto);

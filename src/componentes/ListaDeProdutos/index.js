@@ -49,4 +49,4 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
   </>
 
 );
-export default connect(state => ({ produtos: state.produtos, produtoAtivo: state.produtoAtivo}))(ListaDeProdutos);
+export default connect(state => ({ produtos: state.produto.produtos, produtoAtivo: state.produto.produtoAtivo}))(ListaDeProdutos);
