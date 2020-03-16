@@ -10,15 +10,16 @@ import {
 
 import { Link } from "react-router-dom";
 
-function mudaProduto(produto) {
+function mudaProduto(produto, produtoAtivo) {
   return {
     type: 'MUDAR_PRODUTO_EXIBIDO',
     produto,
+    produtoAtivo,
   };
 
 }
 
-const ListaDeProdutos = ({ produtos, dispatch }) => (
+const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
   <>
     <Container>
       <Row>
@@ -33,7 +34,7 @@ const ListaDeProdutos = ({ produtos, dispatch }) => (
                   <CardTitle>{produto.nome}</CardTitle>
                   <CardSubtitle className="preco">{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </CardSubtitle>
                   <CardText></CardText>
-                  <Button onClick={() => dispatch(mudaProduto(produto))}>Visualizar Produto</Button>
+                  <Button onClick={() => dispatch(mudaProduto(produto, produtoAtivo))}>Visualizar Produto</Button>
                 </CardBody>
               </Card>
              
@@ -48,4 +49,4 @@ const ListaDeProdutos = ({ produtos, dispatch }) => (
   </>
 
 );
-export default connect(state => ({ produtos: state.produtos }))(ListaDeProdutos);
+export default connect(state => ({ produtos: state.produtos, produtoAtivo: state.produtoAtivo}))(ListaDeProdutos);

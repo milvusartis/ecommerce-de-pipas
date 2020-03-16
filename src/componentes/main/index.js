@@ -17,4 +17,5 @@ const Main = ({ produtoAtivo }) => (
     </>
 );
 
-export default connect(state => ({ produtoAtivo: state.others.produtoAtivo }))(Main);
+export default connect(state => ({ produtoAtivo: state.produtoAtivo}))(Main);
+

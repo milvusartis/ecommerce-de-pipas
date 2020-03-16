@@ -50,25 +50,25 @@ const INITIAL_STATE = {
         "valor": 40.5,
         "disponibilidade": false,
     },
-    others: {
+   
         date: {},
         day: {},
         maxNumber: 5,//->quantidade de itens disponivel
         number: 1,//////////////////////////
         cep: {},////////////////////////////
         deliveryCost: {},//////////////////
-        produtoAtivo: false,
-
+        produtoAtivo: true,
         recommendedProducts: []
-
-    }
+   
 
 };
 
 
 function reducer(state = INITIAL_STATE, action) {
+    console.log(state);
     if (action.type === 'MUDAR_PRODUTO_EXIBIDO') {
-        return { ...state, produto: action.produto }
+       
+        return { ...state, produto: action.produto, produtoAtivo: !action.produtoAtivo }
 
     }
     return state;

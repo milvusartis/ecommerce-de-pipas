@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const ProdutoCompleto = ({produto, others}) => (
+const ProdutoCompleto = ({produto, number, deliveryCost,date, day, nome, descricao}) => (
     <>
         <Container>
             <Row>
@@ -51,13 +51,13 @@ const ProdutoCompleto = ({produto, others}) => (
 
 
                         <Row className="mt-2 mb-2 p-2">
-                            <Button className="btnMenos" color="success" onClick={this.decrement}>
+                            {/* <Button className="btnMenos" color="success" onClick={this.decrement}>
                                 -
-                    </Button>
+                    </Button> */}
                             <Input
                                 type="number"
                                 className="col-2 mt-2 quantidade"
-                                value={others.number}
+                                value={number}
                                 // onChange={this.handleNumberValeu}
                                 // onInput={this.validateInput} 
                                 />
@@ -102,19 +102,19 @@ const ProdutoCompleto = ({produto, others}) => (
                         </InputGroup>
                         <p className="mt-2 mb-2"
                             title="Valor do Frete">
-                            Valor do Frete: {others.deliveryCost}
+                            Valor do Frete: {deliveryCost}
                         </p>
                         <p className="mt-2 mb-2">
-                            Prazo de Entrega: {others.date} {others.day}
+                            Prazo de Entrega: {date} {day}
                         </p>
                     </FormGroup>
                 </Col>
                 <Col sm="12" /*border border-dark"*/>
                     <h3 title="nome do Produto" className="mt-2 mb-2">
-                        {others.nome}
+                        {nome}
                     </h3>
                     <p title="Descrição do Produto" className="mt-2 mb-2">
-                        {others.descricao}
+                        {descricao}
                     </p>
                 </Col>
             </Row>
@@ -133,8 +133,14 @@ const ProdutoCompleto = ({produto, others}) => (
 );
 
 export default connect(state=>({
-    produto:state.produto, 
-    others:state.others,
+    produto:state.produto,
+    number:state.number,
+    deliveryCost:state.deliveryCost,
+    date:state.date,
+    day:state.day,
+    nome:state.nome,
+    descricao:state.descricao,
+
 })) (ProdutoCompleto);
 
 
