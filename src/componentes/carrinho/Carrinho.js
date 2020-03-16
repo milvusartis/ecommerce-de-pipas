@@ -36,8 +36,7 @@ const Carrinho = (produtos, dispatch) => (
 							<h1>{produto.nome}</h1>
 			
 						</div>
-							
-					
+												
 
 						
 
@@ -47,20 +46,8 @@ const Carrinho = (produtos, dispatch) => (
 
           </Col>
 
-
-
-
-
 				</Row>
-				<Row>	
-					{produtos.map(produto => (
-									<p>{produto.nome}</p>
-										// <p>{number}</p>
-										// <p>{date} Dias</p>
-										// <p>{produto.valor}</p> 
-
-					))};
-				</Row>
+				
 					
 					<Row className="mt-2 mb-2 p-2 qnt">
                           
@@ -84,7 +71,7 @@ const Carrinho = (produtos, dispatch) => (
 );
 
 export default connect(state => ({
-    produtos: state.produto.produto,
+    produtos: state.produtos,
 }))(Carrinho) ;
 
 
