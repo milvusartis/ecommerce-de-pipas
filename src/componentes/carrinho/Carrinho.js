@@ -12,7 +12,7 @@ import {
 	Input
 } from 'reactstrap';
 
-const Carrinho = (produtos, dispatch) => (
+const Carrinho = (novoproduto, dispatch) => (
 	<>
 
 <Container>
@@ -26,25 +26,11 @@ const Carrinho = (produtos, dispatch) => (
 					<p>Preço</p>
 
 
-
-					<Col className="cardPipas mb-3 mt-3" xs="12" md="4">
-         
-					{produtos.map(produto => (
-							
-						<div key={produto.codigo}>	
-
-							<h1>{produto.nome}</h1>
-			
+					<Col className="cardPipas mb-3 mt-3" xs="12" md="4">			
+						<div key={novoproduto.codigo}>	
+							<h1>{novoproduto.nome}</h1>			
 						</div>
-												
-
-						
-
-							))}
-             
-           
-
-          </Col>
+					</Col>
 
 				</Row>
 				
@@ -71,7 +57,7 @@ const Carrinho = (produtos, dispatch) => (
 );
 
 export default connect(state => ({
-    produtos: state.produtos,
+    novoproduto: state.carrinho.novoproduto,
 }))(Carrinho) ;
 
 

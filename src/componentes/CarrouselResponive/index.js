@@ -8,17 +8,23 @@ export default class CarouselResponsive extends Component {
         return (
             <Carousel className="carousel mb-2" autoPlay={true} showThumbs={false} transitionTime={10} infiniteLoop={true} width="80%" showStatus={false}>
                 <div>
-                    <img src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/uploads/BANNER-PAPEL-DE-SEDA-RECORTE-012020.png" />
+                    <img src="https://i.ibb.co/6P1w6Tp/1.png" />
                     {/* <p className="legend">Legend 1</p> */}
                 </div>
                 <div>
-                    <img src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/uploads/BANNER-LAPIS-50-012020.png" />
+                    <img src="https://i.ibb.co/2qvvbZn/2.png" />
                     {/* <p className="legend">Legend 2</p> */}
                 </div>
                 <div>
-                    <img src="https://cdn.ecvol.com/s/www.becodaspipas.com.br/uploads/BANNER-LINHA-100-AERO-012020.png" />
+                    <img src="https://i.ibb.co/yQ2M9Kd/3.png" />
                     {/* <p className="legend">Legend 3</p> */}
                 </div>
+                <div>
+                    <img src="https://i.ibb.co/dDxXwnD/4.png" />
+                    {/* <p className="legend">Legend 3</p> */}
+                </div>
+
+               
             </Carousel>
         );
     }

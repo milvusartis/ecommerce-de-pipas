@@ -25,7 +25,7 @@ import * as CarrinhoActions from "../../store/actions/carrinho";
 
 
 
-const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, dispatch }) => (
+const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, novoproduto, dispatch }) => (
     <>
         <Container>
             <Row>
@@ -97,6 +97,8 @@ export default connect(state => ({
     day: state.produto.day,
     nome: state.produto.nome,
     descricao: state.descricao,
+    novoproduto: state.carrinho.novoproduto
+   
 
 }))(ProdutoCompleto);
 

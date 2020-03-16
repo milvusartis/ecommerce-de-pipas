@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route,} from "react-router-dom"
+import {BrowserRouter, Switch, Route, Redirect,} from "react-router-dom"
 import Produtos from './componentes/Produtos/Produtos';
 import Pipas from './componentes/Produtos/Pipas';
 import Linhas from './componentes/Produtos/Linhas';
@@ -34,7 +34,7 @@ export default class Routes extends Component {
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
-          <Route path="/carrinho" component={Carrinho}/>
+          <Redirect path="/carrinho" component={Carrinho}/>
           <Route path="/checkout" component={Checkout}/>
           <Route path="/sucesso" component={Sucesso}/>
         </Switch>

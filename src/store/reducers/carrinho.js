@@ -1,14 +1,14 @@
 const INITIAL_STATE = {
-    produto: {}
+    novoproduto: {}
 };
    
 
 
 export default function pedido(state = INITIAL_STATE, action) {
-    console.log("Adicionei aqui"+ action);
+    console.log(action.produto);
     console.log(action.type);
     if (action.type === 'ADD_TO_CART') {       
-        return { ...state, produto: action.produto}
+        return { ...state, novoproduto : action.produto}
     }
 
 return state;
