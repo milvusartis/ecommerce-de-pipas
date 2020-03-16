@@ -54,6 +54,7 @@ const INITIAL_STATE = {
     number: 1,//////////////////////////
     cep: {},////////////////////////////
     deliveryCost: {},//////////////////
+    total:{},
     cidade:{},
     estado:{},
     produtoAtivo: true,   
