@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const ProdutoCompleto = ({produto}) => (
+const ProdutoCompleto = ({produto, others}) => (
     <>
         <Container>
             <Row>
@@ -42,12 +42,14 @@ const ProdutoCompleto = ({produto}) => (
                         </h3>
                         <h5 title="Preço do Produto"
                             className="mt-2 mb-2 precoProduto">
-                            {this.formataMoeda(produto.valor)}
+                            {produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
                         {/* <p title="Quantidade disponivel" 
                 className="mt-2 mb-2">
                     {this.state.maxNumber} unidades restante
                 </p> */}
+
+
                         <Row className="mt-2 mb-2 p-2">
                             <Button className="btnMenos" color="success" onClick={this.decrement}>
                                 -
@@ -55,10 +57,13 @@ const ProdutoCompleto = ({produto}) => (
                             <Input
                                 type="number"
                                 className="col-2 mt-2 quantidade"
-                                value={this.state.number}
-                                onChange={this.handleNumberValeu}
-                                onInput={this.validateInput} />
-                            <Button className="btnMais" color="success" onClick={this.increment}>
+                                value={others.number}
+                                // onChange={this.handleNumberValeu}
+                                // onInput={this.validateInput} 
+                                />
+                            <Button className="btnMais" color="success"
+                            // onClick={this.increment}
+                            >
                                 +
                     </Button>
                         </Row>
@@ -83,35 +88,38 @@ const ProdutoCompleto = ({produto}) => (
                                 placeholder="00000-000"
                                 mask="99999-999"
                                 className="col-7 col-md-4"
-                                //value={this.state.cep}
-                                onChange={this.handleCepValeu}
+                              
+                                // onChange={this.handleCepValeu}
                                 maskPlaceholder={null}
                             />
                             {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
                             <Button
                                 color="success"
-                                onClick={this.sendCep}>
+                                // onClick={this.sendCep}
+                                >
                                 Calcular Frete
                         </Button>
                         </InputGroup>
                         <p className="mt-2 mb-2"
                             title="Valor do Frete">
-                            Valor do Frete: {this.state.deliveryCost}
+                            Valor do Frete: {others.deliveryCost}
                         </p>
                         <p className="mt-2 mb-2">
-                            Prazo de Entrega: {this.state.date} {this.state.day}
+                            Prazo de Entrega: {others.date} {others.day}
                         </p>
                     </FormGroup>
                 </Col>
                 <Col sm="12" /*border border-dark"*/>
                     <h3 title="nome do Produto" className="mt-2 mb-2">
-                        {this.state.nome}
+                        {others.nome}
                     </h3>
                     <p title="Descrição do Produto" className="mt-2 mb-2">
-                        {this.state.descricao}
+                        {others.descricao}
                     </p>
                 </Col>
             </Row>
+
+            
             {/* <Navbar className="navbar-dark bg-secondary text-light mt-2 mb-2">
             Voce tambem pode gostar
             </Navbar> */}
@@ -124,4 +132,9 @@ const ProdutoCompleto = ({produto}) => (
 
 );
 
-export default connect(state=>({produto:state.produto})) (ProdutoCompleto);
+export default connect(state=>({
+    produto:state.produto, 
+    others:state.others,
+})) (ProdutoCompleto);
+
+

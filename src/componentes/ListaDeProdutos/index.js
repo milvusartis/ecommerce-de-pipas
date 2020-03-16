@@ -26,7 +26,7 @@ const ListaDeProdutos = ({ produtos, dispatch }) => (
 
           <Col className="cardPipas mb-3 mt-3" xs="12" md="4">
             {/* <Link href="#" className=""  > */}
-            <div>
+            
               <Card key={produto.codigo}>
                 <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
                 <CardBody>
@@ -36,7 +36,7 @@ const ListaDeProdutos = ({ produtos, dispatch }) => (
                   <Button onClick={() => dispatch(mudaProduto(produto))}>Visualizar Produto</Button>
                 </CardBody>
               </Card>
-              </div>
+             
             {/* </Link> */}
 
           </Col>
