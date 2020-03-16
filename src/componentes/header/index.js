@@ -62,7 +62,7 @@ const Header = () => {
 
                         <Col className="cart" sm="12" md="1" lg="1">
                             <span>1 Item</span>
-                            <span><MdShoppingCart /></span>
+                            <span><Link to="/carrinho"><MdShoppingCart /></Link></span>
                         </Col>
 
                     </Row>
