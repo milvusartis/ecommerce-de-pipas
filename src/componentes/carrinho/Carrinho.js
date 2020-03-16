@@ -34,6 +34,7 @@ const Carrinho = (novoproduto, dispatch) => (
 
 				</Row>
 				
+				
 					
 					<Row className="mt-2 mb-2 p-2 qnt">
                           

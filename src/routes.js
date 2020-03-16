@@ -34,7 +34,7 @@ export default class Routes extends Component {
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
-          <Redirect path="/carrinho" component={Carrinho}/>
+          <Route path="/carrinho" component={Carrinho}/>
           <Route path="/checkout" component={Checkout}/>
           <Route path="/sucesso" component={Sucesso}/>
         </Switch>

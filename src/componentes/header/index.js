@@ -41,7 +41,7 @@ const Header = () => {
                                 </NavbarBrand>
                         </Col>
 
-                        <Col className="search" sm="12" md="4" lg="4">
+                        {/* <Col className="search" sm="12" md="4" lg="4">
                             <InputGroup>
                                 <Input placeholder="Busque por produtos" />
                                 <InputGroupAddon addonType="append">
@@ -51,17 +51,12 @@ const Header = () => {
 
                                 </InputGroupAddon>
                             </InputGroup>
-                        </Col>
+                        </Col> */}
 
-                        <Col className="login" sm="12" md="2" lg="2">
-                            <Link to={`/login`}>Entrar
-                            <span><MdPerson /></span>
-                            </Link>
-                        </Col>
-
+                     
 
                         <Col className="cart" sm="12" md="1" lg="1">
-                            <span>1 Item</span>
+                            <span></span>
                             <span><Link to="/carrinho"><MdShoppingCart /></Link></span>
                         </Col>
 

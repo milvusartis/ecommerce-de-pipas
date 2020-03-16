@@ -24,7 +24,8 @@ const Footer = () => {
                         <Col>
                             <Breadcrumb>
                                 <BreadcrumbItem active><a href="http://localhost:3000/">Home</a></BreadcrumbItem>
-                                <BreadcrumbItem active><a href="http://localhost:3000/contato">Contato</a></BreadcrumbItem>
+                                <BreadcrumbItem active><a href="http://localhost:3000/login">Login</a></BreadcrumbItem>
+                                
                             </Breadcrumb>
                         </Col>
                     </Row>
@@ -55,6 +56,7 @@ const Footer = () => {
                             <h4 className="title" >Email comercial:</h4>
                             <h6><Link to="mailto: milvusartis@gmail.com">milvusartis@gmail.com</Link></h6>
                         </Col>
+                        
                     </Row>
                 </Container>
             </footer>
