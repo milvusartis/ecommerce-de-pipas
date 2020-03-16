@@ -3,19 +3,15 @@ import Main from '../../componentes/main';
 import CarouselResponive from '../../componentes/CarrouselResponive';
 import ListaDeProdutos from '../../componentes/ListaDeProdutos';
 import { connect } from 'react-redux';
+import ProdutoCompleto from '../../componentes/ProdutoCompleto';
 
-// import { Container } from './styles';
+const mudaComponente = (produtoAtivo) => produtoAtivo ? <ProdutoCompleto/> : <CarouselResponive/> ;
 
-const mudaComponente = (produtoAtivo) =>  produtoAtivo ? <CarouselResponive/> : <ListaDeProdutos/>;
+const Home = ({ produtoAtivo }) => (  <>
+    {mudaComponente(produtoAtivo)}
+    <ListaDeProdutos />
+  </>
 
-
-
-const Home = ({ produtoAtivo }) => (
-  <>
-  {mudaComponente(produtoAtivo)}
-
-  </> 
-   
-  );
+);
 
 export default connect(state => ({ produtoAtivo: state.others.produtoAtivo }))(Home);
