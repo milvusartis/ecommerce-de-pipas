@@ -51,26 +51,30 @@ const INITIAL_STATE = {
         "disponibilidade": false,
     },
    
-        date: {},
-        day: {},
-        maxNumber: 5,//->quantidade de itens disponivel
-        number: 1,//////////////////////////
-        cep: {},////////////////////////////
-        deliveryCost: {},//////////////////
-        produtoAtivo: true,
-        recommendedProducts: []
-   
+    date: {},
+    day: {},
+    maxNumber: 5,//->quantidade de itens disponivel
+    number: 1,//////////////////////////
+    cep: {},////////////////////////////
+    deliveryCost: {},//////////////////
+    cidade:{},
+    estado:{},
+    produtoAtivo: true,   
 
 };
 
 
 function reducer(state = INITIAL_STATE, action) {
-    console.log(state);
-    if (action.type === 'MUDAR_PRODUTO_EXIBIDO') {
-       
+    console.log(action);
+    if (action.type === 'MUDAR_PRODUTO_EXIBIDO') {       
         return { ...state, produto: action.produto, produtoAtivo: !action.produtoAtivo }
+    }else if ( action.type ==='INCREMENTAR_QUANTIDADE'){
+            console.log("AUMENTEIIIIIII")
+    }else if ( action.type ==='DECREMENTAR_QUANTIDADE'){
+        console.log("DECREMENTEI")
+}
 
-    }
+
     return state;
 }
 
