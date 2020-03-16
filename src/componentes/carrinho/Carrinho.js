@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import "./Carrinho.css";
-
-
-
+import { connect } from 'react-redux';
 
 import {
     Container,
@@ -13,39 +11,60 @@ import {
 	Button,
 	Input
 } from 'reactstrap';
-class Carrinho extends Component {
 
+const Carrinho = (produtos, dispatch) => (
+	<>
 
-
-
-
-    render() {
-        return ( 
-        <>
-		<Container>
+<Container>
 			<Row>
 				
 			<Col>
-					<Row>
+				<Row>
 					<p>Produto</p>
 					<p>Quantidade</p>
 					<p>Entrega</p>
 					<p>Preço</p>
-					</Row>
-					<hr className="my-2" />
+
+
+
+					<Col className="cardPipas mb-3 mt-3" xs="12" md="4">
+         
+					{produtos.map(produto => (
+							
+						<div key={produto.codigo}>	
+
+							<h1>{produto.nome}</h1>
+			
+						</div>
+							
+					
+
+						
+
+							))}
+             
+           
+
+          </Col>
+
+
+
+
+
+				</Row>
+				<Row>	
+					{produtos.map(produto => (
+									<p>{produto.nome}</p>
+										// <p>{number}</p>
+										// <p>{date} Dias</p>
+										// <p>{produto.valor}</p> 
+
+					))};
+				</Row>
 					
 					<Row className="mt-2 mb-2 p-2 qnt">
-                          <Button className="btnMenos" color="success" onClick={this.decrement}>
-                                        -
-                                </Button>
-                                    <Input
-                                        type="number"
-                                        className="col-2 mt-2 quantidade"
-                                        value="0"/>
-                            <Button className="btnMais"color="success" onClick={this.increment}>
-                                        +
-                                </Button>
-                                </Row>
+                          
+                    </Row>
 							</Col>
 						<Col xs="12" md="4">
 							<ListGroup>
@@ -60,11 +79,12 @@ class Carrinho extends Component {
 						
 				</Row>
 		</Container>
-       
-        </>
-        )
-    }
-}
-export default Carrinho;
+
+	</>
+);
+
+export default connect(state => ({
+    produtos: state.produto.produto,
+}))(Carrinho) ;
 
 
