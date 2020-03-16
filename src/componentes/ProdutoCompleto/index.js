@@ -61,17 +61,13 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
 
 
                         <Row className="mt-2 mb-2 p-2">          
-                                <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrement(number))}>
-                                    -
-                                </Button>
+                                <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrement(number))}>-</Button>
                                 <Input
                                     type="number"
                                     className="col-2 mt-2 quantidade"
                                     value={number}
                                 />
-                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.increment(number))}>
-                                    +
-                                </Button>
+                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.increment(number))}>+</Button>
                         </Row>
            
                         <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
