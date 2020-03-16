@@ -5,38 +5,123 @@ const INITIAL_STATE = {
             "codigo": 1,
             "nome": "Pipa Grande Colorida",
             "descricao": "Pipa colorida",
-            "imagem": "https://imagensemoldes.com.br/wp-content/uploads/2017/12/Imagem-Pipa-em-png-e-pdf-edit%C3%A1vel.png",
+            "imagem": "https://i.ibb.co/SvxNRNy/pipa-box.png",
             "valor": 40.5,
             "disponibilidade": false,
             "categoria": {
                 "codigo": 1,
-                "descricao": "Linha"
+                "descricao": "Pipa"
             }
         },
         {
             "codigo": 2,
             "nome": "Pipa Media Colorida",
             "descricao": "Pipa Beneficente",
-            "imagem": "https://s3.amazonaws.com/sample-login/companies/avatars/000/004/570/original/pipa.png",
+            "imagem": "https://i.ibb.co/rsvK81S/pipa-flex.png",
             "valor": 45.5,
             "disponibilidade": true,
             "categoria": {
-                "codigo": 2,
-                "descricao": "Lata"
+                "codigo": 1,
+                "descricao": "Pipa"
             }
         },
         {
             "codigo": 33,
             "nome": "Pipa Capucheta",
             "descricao": "Pipa estilizada",
-            "imagem": "https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Summer-Vacation-PNG/Kite_Transparent_PNG_Clip_Art.png",
+            "imagem": "https://i.ibb.co/xsGBZVK/pipa-neon.png",
             "valor": 50.0,
             "disponibilidade": true,
             "categoria": {
-                "codigo": 65,
+                "codigo": 1,
                 "descricao": "Pipa"
             }
         },
+        {
+            "codigo": 35,
+            "nome": "Pipa Capucheta",
+            "descricao": "Pipa estilizada",
+            "imagem": "https://i.ibb.co/Db0Z0SM/pipa-rocket.png",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo": 1,
+                "descricao": "Pipa"
+            }
+        },
+        {
+            "codigo": 36,
+            "nome": "Papel de Seda",
+            "descricao": "Pipa estilizada",
+            "imagem": "https://i.ibb.co/gm89jkL/papeldeseda.png",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo": 2,
+                "descricao": "Papel"
+            }
+        },
+        {
+            "codigo": 37,
+            "nome": "Mini Carretilha",
+            "descricao": "Carretilha",
+            "imagem": "https://i.ibb.co/QjgpzmJ/minicarretilha.png",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo":3,
+                "descricao": "Carretilha"
+            }
+        },
+        {
+            "codigo": 38,
+            "nome": "Carretilha com linha",
+            "descricao": "Carretilha",
+            "imagem": "https://i.ibb.co/h1GkxYP/carretilhacomlinha.png",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo": 3,
+                "descricao": "Carretilha"
+            }
+        },
+        {
+            "codigo": 39,
+            "nome": "Linha",
+            "descricao": "Linha",
+            "imagem": "https://i.ibb.co/3Y906L3/linha10.png",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo":4,
+                "descricao": "Linha"
+            }
+        },
+        {
+            "codigo": 40,
+            "nome": "Linha colorida",
+            "descricao": "Linha colorida",
+            "imagem": "https://i.ibb.co/C2gh325/linhacolorida.png",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo": 4,
+                "descricao": "Linha"
+            }
+        },
+        {
+            "codigo": 41,
+            "nome": "Pipa Capucheta",
+            "descricao": "Pipa estilizada",
+            "imagem": "https://i.ibb.co/gjR085c/cola-PVA.pngg",
+            "valor": 50.0,
+            "disponibilidade": true,
+            "categoria": {
+                "codigo": 5,
+                "descricao": "Cola"
+            }
+        },
+
     ],
     produto:
     {
