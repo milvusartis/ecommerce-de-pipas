@@ -27,7 +27,7 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
                   <CardTitle>{produto.nome}</CardTitle>
                   <CardSubtitle className="preco">{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </CardSubtitle>
                   <CardText></CardText>
-                  <Button onClick={() => dispatch(ProdutoActions.mudaProduto(produto, produtoAtivo))}>Visualizar Produto</Button>
+                  <Button color="success" onClick={() => dispatch(ProdutoActions.mudaProduto(produto, produtoAtivo))}>Visualizar Produto</Button>
                 </CardBody>
               </Card>
              
