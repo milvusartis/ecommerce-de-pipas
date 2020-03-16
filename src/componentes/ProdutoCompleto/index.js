@@ -73,15 +73,10 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                                     +
                                 </Button>
                         </Row>
-
-                   
+           
                         <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
                             <Link to="/carrinho">Comprar</Link>
                         </div>
-
-                       
-
-
 
                     </div>
 
