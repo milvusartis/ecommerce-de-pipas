@@ -37,4 +37,4 @@ const ListaDeProdutos = ({ produtos }) => (
   </>
 
 );
-export default connect(state => ({ produtos: state }))(ListaDeProdutos);
+export default connect(state => ({ produtos: state.produtos }))(ListaDeProdutos);
