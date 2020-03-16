@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import ProdCompleto from './componentes/prodcompleto/ProCompleto';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './css/global.css';
+import Routes from './routes';
 
 class App extends Component {
   render() {
-    return < ProdCompleto />
+    return <Routes />;
   }
 }
 
