@@ -10,14 +10,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-function mudaProduto(produto, produtoAtivo) {
-  return {
-    type: 'MUDAR_PRODUTO_EXIBIDO',
-    produto,
-    produtoAtivo,
-  };
-
-}
+import * as ProdutoActions from '../../store/actions/produto'
 
 const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
   <>
@@ -34,7 +27,7 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
                   <CardTitle>{produto.nome}</CardTitle>
                   <CardSubtitle className="preco">{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </CardSubtitle>
                   <CardText></CardText>
-                  <Button onClick={() => dispatch(mudaProduto(produto, produtoAtivo))}>Visualizar Produto</Button>
+                  <Button onClick={() => dispatch(ProdutoActions.mudaProduto(produto, produtoAtivo))}>Visualizar Produto</Button>
                 </CardBody>
               </Card>
              

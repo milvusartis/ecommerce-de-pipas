@@ -20,7 +20,7 @@ import ListaDeProdutos from '../ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
 
-
+import * as ProdutoActions from "../../store/actions/produto";
 
 
 
@@ -61,7 +61,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
 
 
                         <Row className="mt-2 mb-2 p-2">          
-                                <Button className="btnMenos" color="success" onClick={()=>dispatch(decrement(number))}>
+                                <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrement(number))}>
                                     -
                                 </Button>
                                 <Input
@@ -69,7 +69,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                                     className="col-2 mt-2 quantidade"
                                     value={number}
                                 />
-                                <Button className="btnMais" color="success" onClick={()=>dispatch(increment(number))}>
+                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.increment(number))}>
                                     +
                                 </Button>
                         </Row>
@@ -112,31 +112,12 @@ export default connect(state => ({
 
 
 
-function decrement(number) {
-    return {
-      type: 'DECREMENTAR_QUANTIDADE',
-      number
-    };
-  
-  }
-
-
-  function increment (number) {
-
-    return{
-        type: "INCREMENTAR_QUANTIDADE",
-        number
-    }
-   
-}
-
-
 
 const Contador = (number, dispatch) => (
    
    <>
 
-        <Button className="btnMenos" color="success" onClick={()=>dispatch(decrement(number))}>
+        <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrement(number))}>
             -
         </Button>
         <Input
@@ -144,7 +125,7 @@ const Contador = (number, dispatch) => (
             className="col-2 mt-2 quantidade"
             value={number}
          />
-        <Button className="btnMais" color="success" onClick={()=>dispatch(increment(number))}>
+        <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.increment(number))}>
             +
         </Button>
     </>
