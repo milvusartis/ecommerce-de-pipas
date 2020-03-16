@@ -19,7 +19,7 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
         {produtos.map(produto => (
 
           <Col className="cardPipas mb-3 mt-3" xs="12" md="4">
-            {/* <Link href="#" className=""  > */}
+            <Link onClick={() => dispatch(ProdutoActions.mudaProduto(produto, produtoAtivo))} className=""  >
             
               <Card key={produto.codigo}>
                 <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
@@ -31,7 +31,7 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
                 </CardBody>
               </Card>
              
-            {/* </Link> */}
+            </Link>
 
           </Col>
 
