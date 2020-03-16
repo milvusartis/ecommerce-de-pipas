@@ -65,14 +65,27 @@ const INITIAL_STATE = {
 
 
 function reducer(state = INITIAL_STATE, action) {
-    console.log(action);
     if (action.type === 'MUDAR_PRODUTO_EXIBIDO') {       
         return { ...state, produto: action.produto, produtoAtivo: !action.produtoAtivo }
     }else if ( action.type ==='INCREMENTAR_QUANTIDADE'){
-            console.log("AUMENTEIIIIIII")
+
+       if(action.number > state.maxNumber-1) {
+            return { ...state, number: state.maxNumber }
+        }else{
+            return { ...state, number: action.number+1 }
+        }      
+       
     }else if ( action.type ==='DECREMENTAR_QUANTIDADE'){
-        console.log("DECREMENTEI")
-}
+       
+        if (action.number - 1 < 0) {
+            return { ...state, number: 0 }
+        }else{
+            return { ...state, number: action.number-1 }
+        }
+
+
+
+    }
 
 
     return state;
