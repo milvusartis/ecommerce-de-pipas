@@ -7,11 +7,11 @@ import Latas from './components/Produtos/Latas';
 import Home from './pages/home/page-home';
 import ProdCompleto from './components/ProdutoCompleto';
 import Login from './components/login/Cadastro';
-import Contato from './components/contato/Contato';
+import Contato from './components/Contato/Contato';
 import Header from './components/header';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import Checkout from './components/Checkout/checkout';
-import Carrinho from './components/carrinho/Carrinho';
+import Carrinho from './components/Carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
 
 
