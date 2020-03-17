@@ -1,18 +1,18 @@
 import {ProductActionsTypes} from './actions-type';
 
-export function diminuirQuantidade(number) {
+export function decrementQuantity(number) {
     return {
-      type: ProductActionsTypes.INCREASE_QUANTITY,
+      type: ProductActionsTypes.DECREMENT_QUANTITY,
       number
     };
   
   }
 
 
-  export function aumentarQuantidade (number) {
+  export function increaseQuantity (number) {
 
     return{
-        type: ProductActionsTypes.INCREMENTAR_QUANTIDADE,
+        type: ProductActionsTypes.INCREASE_QUANTITY,
         number
     }
    
