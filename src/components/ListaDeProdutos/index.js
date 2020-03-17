@@ -19,7 +19,7 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
         {produtos.map(produto => (
 
           <Col className="cardPipas mb-3 mt-3" xs="12" md="4">
-            <Link onClick={() => dispatch(ProductAction.mudaProdutoVisivel(produto, produtoAtivo))} className=""  >
+            <Link onClick={() => dispatch(ProductAction.changeDisplayedProduct(produto, produtoAtivo))} className=""  >
             
               <Card key={produto.codigo}>
                 <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
@@ -27,7 +27,7 @@ const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
                   <CardTitle>{produto.nome}</CardTitle>
                   <CardSubtitle className="preco">{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </CardSubtitle>
                   <CardText></CardText>
-                  <Button color="success" onClick={() => dispatch(ProductAction.mudaProdutoVisivel(produto, produtoAtivo))}>Visualizar Produto</Button>
+                  <Button color="success" onClick={() => dispatch(ProductAction.changeDisplayedProduct(produto, produtoAtivo))}>Visualizar Produto</Button>
                 </CardBody>
               </Card>
              
