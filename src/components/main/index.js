@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-// import { ProdutoCompleto } from "../componentes/ProdutoCompleto";
+// import { ProdutoCompleto } from "../components/ProdutoCompleto";
 
 // import { Container } from './styles';
 

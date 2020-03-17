@@ -19,19 +19,17 @@ const Carrinho = (novoproduto, dispatch) => (
 			<Row>
 				
 			<Col>
-				<Row>
+			<Row>
 					<p>Produto</p>
 					<p>Quantidade</p>
 					<p>Entrega</p>
 					<p>Preço</p>
-
-
-					<Col className="cardPipas mb-3 mt-3" xs="12" md="4">			
-						<div key={novoproduto.codigo}>	
-							<h1>{novoproduto.nome}</h1>			
-						</div>
-					</Col>
-
+				</Row>
+				<Row>
+					{/* <p>Pipa Colorida</p>
+					<p>5 unidades</p>
+					<p>16/03/2020</p>
+					<p>RS 50,00</p> */}
 				</Row>
 				
 					
