@@ -1,3 +1,5 @@
+import { CartActionsType } from "../actions/actions-type";
+
 const INITIAL_STATE = {
     novoproduto: {}
 };
@@ -7,7 +9,7 @@ const INITIAL_STATE = {
 export default function pedido(state = INITIAL_STATE, action) {
     console.log(action.produto);
     console.log(action.type);
-    if (action.type === 'ADD_TO_CART') {       
+    if (action.type === CartActionsType.ADD_TO_CART) {       
         return { ...state, novoproduto : action.produto}
     }
 

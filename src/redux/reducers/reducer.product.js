@@ -151,7 +151,7 @@ const INITIAL_STATE = {
 
 
 export default function produto(state = INITIAL_STATE, action) {
-    if (action.type === ProductActionsTypes.MUDAR_PRODUTO_EXIBIDO) {       
+    if (action.type === ProductActionsTypes.CHANGE_DISPLAY_PRODUCT) {       
         return { ...state, produto: action.produto, produtoAtivo: false }
     }else if ( action.type === ProductActionsTypes.INCREMENTAR_QUANTIDADE){
 

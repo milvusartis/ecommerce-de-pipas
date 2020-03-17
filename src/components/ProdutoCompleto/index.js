@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
 
 
 import * as ProdutoActions from "../../redux/actions/action.product";
-import * as CarrinhoActions from "../../redux/actions/action.cart";
+import * as CartActions from "../../redux/actions/action.cart";
 
 
 
@@ -72,7 +72,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         </Row>
            
                         <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
-                            <Link to="/carrinho " onClick={()=>dispatch(CarrinhoActions.addToCart(produto))}>Comprar</Link>
+                            <Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>
                         </div>
 
                     </div>

@@ -1,5 +1,5 @@
 export const ProductActionsTypes = {
-    MUDAR_PRODUTO_EXIBIDO: 'MUDAR_PRODUTO_EXIBIDO',
+    CHANGE_DISPLAY_PRODUCT: 'CHANGE_DISPLAY_PRODUCT',
 }
 
 export const CartActionsType = {
