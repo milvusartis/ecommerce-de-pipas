@@ -10,7 +10,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import * as ProdutoActions from '../../redux/actions/produto'
+import * as ProdutoActions from '../../redux/actions/action.product'
 
 const ListaDeProdutos = ({ produtos, produtoAtivo, dispatch }) => (
   <>

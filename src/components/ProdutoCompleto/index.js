@@ -20,8 +20,8 @@ import ListaDeProdutos from '../ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
 
-import * as ProdutoActions from "../../redux/actions/produto";
-import * as CarrinhoActions from "../../redux/actions/carrinho";
+import * as ProdutoActions from "../../redux/actions/action.product";
+import * as CarrinhoActions from "../../redux/actions/action.cart";
 
 
 
