@@ -11,7 +11,7 @@ import {
 
 } from 'reactstrap';
 
-import './styles.css';
+import './Footer.css';
 
 const Footer = () => {
 

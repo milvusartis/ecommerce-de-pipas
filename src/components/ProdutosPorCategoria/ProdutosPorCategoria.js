@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Produtos.css';
-import ListaDeProdutos from '../ListaDeProdutos';
+import './ProdutosPorCategoria.css';
+import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 
 
 class Produtos extends Component {

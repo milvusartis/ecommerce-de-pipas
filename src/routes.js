@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route, Redirect,} from "react-router-dom"
-import Produtos from './components/Produtos/Produtos';
-import Pipas from './components/Produtos/Pipas';
-import Linhas from './components/Produtos/Linhas';
-import Latas from './components/Produtos/Latas';
+import Produtos from './components/ProdutosPorCategoria/ProdutosPorCategoria';
+import Pipas from './components/ProdutosPorCategoria/Pipas';
+import Linhas from './components/ProdutosPorCategoria/Linhas';
+import Latas from './components/ProdutosPorCategoria/Latas';
 import Home from './pages/home/page-home';
-import ProdCompleto from './components/ProdutoCompleto';
+import ProdCompleto from './components/ProdutoCompleto/ProdutoCompleto';
 import Login from './components/Cadastro/Cadastro';
 import Contato from './components/Contato/Contato';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Checkout from './components/Checkout/checkout';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Checkout from './components/Checkout/Checkout';
 import Carrinho from './components/Carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
 

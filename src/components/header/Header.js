@@ -21,7 +21,7 @@ import {
 } from 'reactstrap';
 import { MdSearch, MdPerson, MdShoppingCart } from 'react-icons/md';
 
-import './styles.css';
+import './Header.css';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);

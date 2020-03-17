@@ -7,7 +7,7 @@ import {
   CarouselCaption,
 } from 'reactstrap';
 
-import "./styles.css"
+import "./ControlledCarousel.css"
 
 const items = [
   {

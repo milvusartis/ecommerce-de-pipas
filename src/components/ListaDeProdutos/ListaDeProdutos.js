@@ -1,5 +1,5 @@
 import React from 'react';
-import './Produtos.css';
+import './ListaDeProdutos.css';
 import { connect } from 'react-redux';
 
 import {

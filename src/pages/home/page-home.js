@@ -1,8 +1,8 @@
 import React from 'react';
-import CarouselResponive from '../../components/CarrouselResponive';
-import ListaDeProdutos from '../../components/ListaDeProdutos';
+import CarouselResponive from '../../components/CarrouselResponive/CarrouselResponive';
+import ListaDeProdutos from '../../components/ListaDeProdutos/ListaDeProdutos';
 import { connect } from 'react-redux';
-import ProdutoCompleto from '../../components/ProdutoCompleto';
+import ProdutoCompleto from '../../components/ProdutoCompleto/ProdutoCompleto';
 
 // const mudaComponente = (produtoAtivo) => produtoAtivo ? <ProdutoCompleto/> : <CarouselResponive/> ;
 

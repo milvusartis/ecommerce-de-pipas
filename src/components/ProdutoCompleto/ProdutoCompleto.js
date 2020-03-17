@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import "./ProdCompleto.css";
+import "./ProdutoCompleto.css";
 import InputMask from "react-input-mask";
 import {
     Container,
@@ -16,7 +16,7 @@ import {
 } from 'reactstrap'
 
 import api from '../../services/api-service';
-import ListaDeProdutos from '../ListaDeProdutos';
+import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
 
