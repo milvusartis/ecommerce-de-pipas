@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './css/global.css';
 
 import Routes from './routes';
-import store from './store';
+import store from './redux/store';
 class App extends Component {
   render() {
     return (
