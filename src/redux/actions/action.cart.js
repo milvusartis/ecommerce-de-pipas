@@ -1,4 +1,4 @@
-import { CartActionsType } from "./actions-type";
+import { CartActionsType} from "./actions-type";
 
 export function addToCart(produto) {
     return {
