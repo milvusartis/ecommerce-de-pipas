@@ -71,7 +71,7 @@ const INITIAL_STATE = {
             "valor": 50.0,
             "disponibilidade": true,
             "categoria": {
-                "codigo":3,
+                "codigo": 3,
                 "descricao": "Carretilha"
             }
         },
@@ -95,7 +95,7 @@ const INITIAL_STATE = {
             "valor": 50.0,
             "disponibilidade": true,
             "categoria": {
-                "codigo":4,
+                "codigo": 4,
                 "descricao": "Linha"
             }
         },
@@ -134,41 +134,40 @@ const INITIAL_STATE = {
         "valor": 40.5,
         "disponibilidade": false,
     },
-   
+
     date: {},
     day: {},
     maxNumber: 5,//->quantidade de itens disponivel
     number: 1,//////////////////////////
     cep: {},////////////////////////////
     deliveryCost: {},//////////////////
-    total:{},
-    cidade:{},
-    estado:{},
-    produtoAtivo: true,   
+    total: {},
+    cidade: {},
+    estado: {},
+    produtoAtivo: true,
 
 };
 
 
 
 export default function produto(state = INITIAL_STATE, action) {
-    if (action.type === ProductActionsTypes.CHANGE_DISPLAYED_PRODUCT) {       
-        return { ...state, produto: action.produto, produtoAtivo: false }
-    }else if ( action.type === ProductActionsTypes.INCREMENT_QUANTITY){
 
-       if(action.number > state.maxNumber-1) {
-            return { ...state, number: state.maxNumber }
-        }else{
-            return { ...state, number: action.number+1 }
-        }      
-       
-    }else if ( action.type === ProductActionsTypes.DECREMENT_QUANTITY){
-       
-        if (action.number - 2 < 0) {
-            return { ...state, number: 1 }
-        }else{
-            return { ...state, number: action.number-1 }
-        }
-
+    switch (action.type) {
+        case ProductActionsTypes.CHANGE_DISPLAYED_PRODUCT:
+            return { ...state, produto: action.produto, produtoAtivo: false }
+        case ProductActionsTypes.INCREMENT_QUANTITY:
+            if (action.number > state.maxNumber - 1) {
+                return { ...state, number: state.maxNumber }
+            } else {
+                return { ...state, number: action.number + 1 }
+            }
+        case ProductActionsTypes.DECREMENT_QUANTITY:
+            if (action.number - 2 < 0) {
+                return { ...state, number: 1 }
+            } else {
+                return { ...state, number: action.number - 1 }
+            }
+        default:
+            return state;
     }
-    return state;
 }

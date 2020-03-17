@@ -2,7 +2,6 @@ export const ProductActionsTypes = {
     CHANGE_DISPLAYED_PRODUCT: 'CHANGE_DISPLAYED_PRODUCT',
     INCREMENT_QUANTITY: 'INCREMENT_QUANTITY',
     DECREMENT_QUANTITY: 'DECREMENT_QUANTITY'
-
 }
 
 export const CartActionsType = {
