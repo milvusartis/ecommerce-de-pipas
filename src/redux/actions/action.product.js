@@ -1,6 +1,8 @@
+import {ProductActionsTypes} from './actions-type';
+
 export function decrement(number) {
     return {
-      type: 'DECREMENTAR_QUANTIDADE',
+      type: ProductActionsTypes.DECREMENTAR_QUANTIDADE,
       number
     };
   
@@ -10,14 +12,14 @@ export function decrement(number) {
   export function increment (number) {
 
     return{
-        type: "INCREMENTAR_QUANTIDADE",
+        type: ProductActionsTypes.INCREMENTAR_QUANTIDADE,
         number
     }
    
 }
 
 
-export function mudaProduto(produto, produtoAtivo) {
+export function mudaProdutoVisivel(produto, produtoAtivo) {
     return {
       type: 'MUDAR_PRODUTO_EXIBIDO',
       produto,

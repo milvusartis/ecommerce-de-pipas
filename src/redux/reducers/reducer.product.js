@@ -1,3 +1,5 @@
+import { ProductActionsTypes } from "../actions/actions-type";
+
 const INITIAL_STATE = {
 
     produtos: [
@@ -149,9 +151,9 @@ const INITIAL_STATE = {
 
 
 export default function produto(state = INITIAL_STATE, action) {
-    if (action.type === 'MUDAR_PRODUTO_EXIBIDO') {       
+    if (action.type === ProductActionsTypes.MUDAR_PRODUTO_EXIBIDO) {       
         return { ...state, produto: action.produto, produtoAtivo: false }
-    }else if ( action.type ==='INCREMENTAR_QUANTIDADE'){
+    }else if ( action.type === ProductActionsTypes.INCREMENTAR_QUANTIDADE){
 
        if(action.number > state.maxNumber-1) {
             return { ...state, number: state.maxNumber }
@@ -159,7 +161,7 @@ export default function produto(state = INITIAL_STATE, action) {
             return { ...state, number: action.number+1 }
         }      
        
-    }else if ( action.type ==='DECREMENTAR_QUANTIDADE'){
+    }else if ( action.type === ProductActionsTypes.DECREMENTAR_QUANTIDADE){
        
         if (action.number - 2 < 0) {
             return { ...state, number: 1 }
