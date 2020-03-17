@@ -12,7 +12,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Checkout from './components/Checkout/checkout';
 import Carrinho from './components/carrinho/Carrinho';
-import Sucesso from './pages/sucesso/sucesso';
+import Sucesso from './pages/sucesso/Sucesso';
 
 
 

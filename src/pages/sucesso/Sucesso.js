@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Jumbotron, Button,Container, } from 'reactstrap';
-import './successo.css';
+import './Sucesso.css';
 
 
 class Sucesso extends Component{
