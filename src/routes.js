@@ -5,7 +5,7 @@ import Pipas from './components/ProdutosPorCategoria/Pipas';
 import Linhas from './components/ProdutosPorCategoria/Linhas';
 import Latas from './components/ProdutosPorCategoria/Latas';
 import Home from './pages/home/page-home';
-import ProdCompleto from './components/ProdutoCompleto/ProdutoCompleto';
+import ProdCompleto from './components/ExibirProduto/ProdutoCompleto';
 import Login from './components/Cadastro/Cadastro';
 import Contato from './components/Contato/Contato';
 import Header from './components/Header/Header';
