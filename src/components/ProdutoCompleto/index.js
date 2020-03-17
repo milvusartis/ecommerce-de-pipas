@@ -68,7 +68,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                                     className="col-2 mt-2 quantidade"
                                     value={number}
                                 />
-                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.increaseQuantity(number))}>+</Button>
+                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>+</Button>
                         </Row>
            
                         <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
@@ -119,7 +119,7 @@ const Contador = (number, dispatch) => (
             className="col-2 mt-2 quantidade"
             value={number}
          />
-        <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.increaseQuantity(number))}>
+        <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>
             +
         </Button>
     </>

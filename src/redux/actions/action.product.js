@@ -9,10 +9,10 @@ export function decrementQuantity(number) {
   }
 
 
-  export function increaseQuantity (number) {
+  export function incrementQuantity (number) {
 
     return{
-        type: ProductActionsTypes.INCREASE_QUANTITY,
+        type: ProductActionsTypes.INCREMENT_QUANTITY,
         number
     }
    

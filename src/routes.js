@@ -4,7 +4,7 @@ import Produtos from './components/Produtos/Produtos';
 import Pipas from './components/Produtos/Pipas';
 import Linhas from './components/Produtos/Linhas';
 import Latas from './components/Produtos/Latas';
-import Home from './pages/home/home';
+import Home from './pages/home/page-home';
 import ProdCompleto from './components/ProdutoCompleto';
 import Login from './components/login/Cadastro';
 import Contato from './components/contato/Contato';
@@ -12,7 +12,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import Checkout from './components/Checkout/checkout';
 import Carrinho from './components/carrinho/Carrinho';
-import Sucesso from './pages/sucesso/Sucesso';
+import Sucesso from './pages/sucesso/page-sucesso';
 
 
 

@@ -153,7 +153,7 @@ const INITIAL_STATE = {
 export default function produto(state = INITIAL_STATE, action) {
     if (action.type === ProductActionsTypes.CHANGE_DISPLAYED_PRODUCT) {       
         return { ...state, produto: action.produto, produtoAtivo: false }
-    }else if ( action.type === ProductActionsTypes.INCREMENTAR_QUANTIDADE){
+    }else if ( action.type === ProductActionsTypes.INCREMENT_QUANTITY){
 
        if(action.number > state.maxNumber-1) {
             return { ...state, number: state.maxNumber }
@@ -161,7 +161,7 @@ export default function produto(state = INITIAL_STATE, action) {
             return { ...state, number: action.number+1 }
         }      
        
-    }else if ( action.type === ProductActionsTypes.INCREASE_QUANTITY){
+    }else if ( action.type === ProductActionsTypes.DECREMENT_QUANTITY){
        
         if (action.number - 2 < 0) {
             return { ...state, number: 1 }
