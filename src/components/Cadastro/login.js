@@ -5,15 +5,14 @@ import{
     Input,
     Form,
     Container
+    
 }
-from 'reactstrap';
+from 'reactstrap'
 
- class Cadastro extends Component {
+ class login extends Component {
      state ={
          email: '',
-         password: '',
-         nome: '',
-         sobrenome:''
+         senha: ''
 
      }
      handleChange = (e) =>{
@@ -29,24 +28,19 @@ from 'reactstrap';
         return (
             <div className="container d-flex justify-content-center">
                 <Form onSubmit={this.handleSubmit} className="global">
-                    <h5 className="grey-text text-darken-3">Cadastro</h5>
+                    <h5 className="grey-text text-darken-3">Login</h5>
                         <div className="input-field">
                             <label htmlForm="email">Email</label>
                             <Input  placeholder="Email" type="email" id="email" onChange={this.handleChange}/>
                         </div>
                         <div className="input-field">
                             <label htmlForm="senha">Senha</label>
-                            <Input  placeholder="Senha" type="password" id="passwor" onChange={this.handleChange}/>   
+                            <Input  placeholder="Senha" type="senha" id="senha" onChange={this.handleChange}/>   
                         </div>
                         <div className="input-field">
-                            <label htmlForm="email">Nome</label>
-                            <Input  placeholder="Nome" type="text" id="nome" onChange={this.handleChange}/>
-                        </div> <div className="input-field">
-                            <label htmlForm="Sobrenome">sobrenome</label>
-                            <Input  placeholder="Sobrenome" type="Sobrenome" id="sobrenome" onChange={this.handleChange}/>
-                        </div>
-                        <div className="input-field">
-                            <Button className="btn btn-danger mt-3 mb-3">Cadastrar</Button>
+                            <Button className="btn btn-danger mt-3 mb-3 ">Login</Button>
+                            <Button href="/cadastro"className="btn btn-danger mt-3 mb-3 ml-5">Cadastro</Button>
+                            
                         </div>
                  </Form>
             </div>
@@ -56,4 +50,4 @@ from 'reactstrap';
 
 
 
-export default Cadastro
+export default login

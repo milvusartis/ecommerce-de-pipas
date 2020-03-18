@@ -6,7 +6,8 @@ import Linhas from './components/ProdutosPorCategoria/Linhas';
 import Latas from './components/ProdutosPorCategoria/Latas';
 import Home from './pages/home/page-home';
 import ProdCompleto from './components/ExibirProduto/ProdutoCompleto';
-import Login from './components/Cadastro/Cadastro';
+import Login from './components/Cadastro/login';
+import Cadastro from './components/Cadastro/Cadastro'
 import Contato from './components/Contato/Contato';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -29,6 +30,7 @@ export default class Routes extends Component {
           <Route path ="/produtos" component={Produtos}/>
           <Route path="/contato" component={Contato}/>
           <Route path="/login"  component={Login}/>
+          <Route path="/cadastro" component={Cadastro} />
           <Route path="/produto"  component={ProdCompleto}/>
           {/* <Route path="/produto"  component={ProdCompleto}/> */}
           <Route path="/pipas" component ={Pipas}/>

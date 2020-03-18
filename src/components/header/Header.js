@@ -53,7 +53,10 @@ const Header = () => {
                             </InputGroup>
                         </Col> */}
 
-                     
+                        <Col className="cart" sm="12" md="1" lg="1">
+                            <span></span>
+                            <span><Link to="/login">Login</Link></span>
+                        </Col>
 
                         <Col className="cart" sm="12" md="1" lg="1">
                             <span></span>
