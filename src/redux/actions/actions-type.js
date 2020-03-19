@@ -1,8 +1,7 @@
 export const ProductActionsTypes = {
     CHANGE_DISPLAYED_PRODUCT: 'CHANGE_DISPLAYED_PRODUCT',
     INCREMENT_QUANTITY: 'INCREMENT_QUANTITY',
-    DECREMENT_QUANTITY: 'DECREMENT_QUANTITY'
-
+    DECREMENT_QUANTITY: 'DECREMENT_QUANTITY',
 }
 
 export const CartActionsType = {
@@ -13,7 +12,10 @@ export const CartActionsType = {
     ADD_SHIPPING : 'ADD_SHIPPING',
 }
 
-export const MiddlewareType = {
-    LIST_ALL_PRODUCT:'LIST_ALL_PRODUCT',
+export const GithubActionsType = {
+    REQUEST_TODO_LIS : 'REQUEST_TODO_LIST',
+    SUCCESS_TODO_LIST: 'SUCCESS_TODO_LIST',
+    FAILURE_TODO_LIST: 'FAILURE_TODO_LIST',
+
 }
 

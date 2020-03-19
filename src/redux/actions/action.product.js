@@ -27,6 +27,3 @@ export function changeDisplayedProduct(produto, produtoAtivo) {
     };
   
   }
-
-
-e
