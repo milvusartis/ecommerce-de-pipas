@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import { Link } from 'react-router-dom'
 import{
     Button,
     Input,
@@ -17,14 +18,24 @@ from 'reactstrap';
 
      }
      handleChange = (e) =>{
-         this.setState({
+        this.setState({
             [e.target.id]: e.target.value
-         })
+        })
 
-     }
-     handleSubmit = (e) =>{
-        e.preventDefault();
-     }
+    }
+    handleSubmit = (e) => {
+        e.preventDefault(); 
+        const email = e.target.elements.email.value;
+        const password = e.target.elements.password.value;
+        const nome = e.target.elements.nome.value;
+        const sobrenome = e.target.elements.sobrenome.value;
+
+        sessionStorage.setItem ('@milvus/password', password);
+        sessionStorage.setItem('@milvus/email', email);
+        sessionStorage.setItem('@milvus/nome',nome);
+        sessionStorage.setItem('@milvus/sobrenome', sobrenome);
+        window.location.reload();
+      }
     render() {
         return (
             <div className="container d-flex justify-content-center">
@@ -36,7 +47,7 @@ from 'reactstrap';
                         </div>
                         <div className="input-field">
                             <label htmlForm="senha">Senha</label>
-                            <Input  placeholder="Senha" type="password" id="passwor" onChange={this.handleChange}/>   
+                            <Input  placeholder="Senha" type="password" id="password" onChange={this.handleChange}/>   
                         </div>
                         <div className="input-field">
                             <label htmlForm="email">Nome</label>
@@ -46,7 +57,7 @@ from 'reactstrap';
                             <Input  placeholder="Sobrenome" type="Sobrenome" id="sobrenome" onChange={this.handleChange}/>
                         </div>
                         <div className="input-field">
-                            <Button className="btn btn-danger mt-3 mb-3">Cadastrar</Button>
+                            <button className="btn btn-danger mt-3 mb-3">Cadastrar</button>
                         </div>
                  </Form>
             </div>
