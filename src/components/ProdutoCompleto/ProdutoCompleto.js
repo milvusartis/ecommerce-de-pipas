@@ -15,7 +15,6 @@ import {
     Button
 } from 'reactstrap'
 
-import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
 
