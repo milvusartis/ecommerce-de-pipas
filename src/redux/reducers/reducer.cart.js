@@ -6,10 +6,11 @@ const INITIAL_STATE = {
 
 export default function pedido(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case 'ADD_TO_CART':
-            console.log(action.produto)
+        case CartActionsType.ADD_TO_CART:
             return { ...state, novoproduto: action.produto }
         default:
+            console.log("a")
             return state;
     }
+
 }

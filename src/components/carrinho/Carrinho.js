@@ -26,7 +26,7 @@ const Carrinho = (novoproduto, dispatch) => (
 					<p>Preço</p>
 				</Row>
 				<Row>
-					<p>{teste(novoproduto)}</p>
+					<p>{novoproduto.nome}</p>
 					{/* <p>Pipa Colorida</p>
 					<p>5 unidades</p>
 					<p>16/03/2020</p>
@@ -55,9 +55,7 @@ const Carrinho = (novoproduto, dispatch) => (
 
 	</>
 );
-const teste =(produto)=>{
-	console.log(produto)
-}
+
 export default connect(state => ({
     novoproduto: state.carrinho.novoproduto,
 }))(Carrinho) ;
