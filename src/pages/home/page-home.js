@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 
 
 import CarouselResponive from '../../components/CarrouselResponive/CarrouselResponive';
@@ -10,9 +10,7 @@ import ProdutoCompleto from '../../components/ProdutoCompleto/ProdutoCompleto';
 
 class Home extends Component {
   render() {
-
     const { produtoAtivo } = this.props
-
     return (
       <>
         {mudaComponente(produtoAtivo)}
