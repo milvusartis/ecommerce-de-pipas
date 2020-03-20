@@ -28,7 +28,6 @@ class ListaDeProdutos extends Component {
 
 
     render() {
-        console.log(this.props);
         const { produtos, produtoAtivo, changeDisplayedProduct, } = this.props    
         return (
             <>
@@ -36,9 +35,9 @@ class ListaDeProdutos extends Component {
                     <Row>
                         {produtos.map(produto => (
 
-                            <Col className="cardPipas mb-3 mt-3" xs="12" md="4">
-                                <Link onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)} className=""  >
-                                <Card key={produto.codigo}>
+                            <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
+                                <Link to="" onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)} className=""  >
+                                <Card>
                                     <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
                                     <CardBody>
                                         <CardTitle>{produto.nome}</CardTitle>

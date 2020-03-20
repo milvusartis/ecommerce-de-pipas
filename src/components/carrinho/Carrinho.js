@@ -9,7 +9,6 @@ import {
 	ListGroupItem,
 	ListGroup,
 	Button,
-	Input
 } from 'reactstrap';
 
 const Carrinho = (novoproduto, dispatch) => (

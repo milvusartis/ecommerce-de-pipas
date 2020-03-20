@@ -6,7 +6,7 @@ import{
     Alert,
 }
 from 'reactstrap'
-import { Link } from 'react-router-dom'
+
 
  class login extends Component {
      constructor (props){

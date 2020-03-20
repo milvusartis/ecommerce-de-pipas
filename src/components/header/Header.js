@@ -6,10 +6,6 @@ import {
     Container,
     Row,
     Col,
-    InputGroup,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
     NavbarBrand,
     Collapse,
     Navbar,
@@ -19,7 +15,7 @@ import {
     NavLink,
 
 } from 'reactstrap';
-import { MdSearch, MdPerson, MdShoppingCart } from 'react-icons/md';
+import { MdShoppingCart } from 'react-icons/md';
 
 import './Header.css';
 

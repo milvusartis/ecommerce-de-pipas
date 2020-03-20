@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import "./ExibeProduto.css";
 import InputMask from "react-input-mask";
 import {
@@ -8,14 +7,13 @@ import {
     Row,
     Col,
     FormGroup,
-    Navbar,
     Label,
     Input,
     InputGroup,
     Button
 } from 'reactstrap'
 
-import { Link } from 'react-router-dom';
+
 
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";

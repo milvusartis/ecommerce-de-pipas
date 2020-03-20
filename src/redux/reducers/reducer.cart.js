@@ -8,10 +8,9 @@ export default function pedido(state = INITIAL_STATE, action) {
     switch (action.type) {
         case CartActionsType.ADD_TO_CART:
             Object.assign(state.novoproduto,action.produto)
-            console.log(state.novoproduto)
+            // console.log(state.novoproduto)
             return state
         default:
-            console.log("a")
             return state;
     }
 }

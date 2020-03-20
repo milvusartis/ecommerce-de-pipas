@@ -1,4 +1,4 @@
-import {all, takeLatest} from 'redux-saga/effects';
+import {all,} from 'redux-saga/effects';
 
 import { produtosSagas } from "./sagas-lista_produto-middleware";
 

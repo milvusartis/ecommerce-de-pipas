@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom'
+
 import{
-    Button,
     Input,
     Form,
-    Container
 }
 from 'reactstrap';
 

@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 const listaDeProdutosReducer = (state = INITIAL_STATE, action) => {
     const { payload, type } = action
-    const { produtos } = state
+  
     switch (type) {       
         case ListaDeProdutosActionsType.PRODUTOS_GET_ALL:
             return { ...state, produtos: payload}       
