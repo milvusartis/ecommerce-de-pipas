@@ -14,6 +14,8 @@ import Footer from './components/Footer/Footer';
 import Checkout from './components/Checkout/Checkout';
 import Carrinho from './components/Carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
+import PrivateRoute from './auth';
+import Logout from './components/Logout/logout';
 
 
 
@@ -36,9 +38,10 @@ export default class Routes extends Component {
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
-          <Route path="/carrinho" exact component={Carrinho}/>
-          <Route path="/checkout" component={Checkout}/>
+          <Route path="/carrinho" component={Carrinho}/>
+          <PrivateRoute path="/checkout" component={Checkout}/>
           <Route path="/sucesso" component={Sucesso}/>
+          <Route exact path="/logout" component={Logout} />
         </Switch>
         <Footer/>
         

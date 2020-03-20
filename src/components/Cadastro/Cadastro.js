@@ -35,6 +35,7 @@ from 'reactstrap';
         sessionStorage.setItem('@milvus/nome',nome);
         sessionStorage.setItem('@milvus/sobrenome', sobrenome);
         window.location.reload();
+      
       }
     render() {
         return (
