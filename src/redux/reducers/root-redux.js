@@ -1,12 +1,16 @@
 import { combineReducers } from "redux";
 
-import produto from "./reducer.product";
-import carrinho from "./reducer.cart";
-import github from "./reducer.github";
+import produtoReducer from "./reducer.product";
+import carrinhoReducer from "./reducer.cart";
+import githubReducer from "./reducer.github";
+import listaDeProdutosReducer from "./reducer.lista-de-produtos";
+
 
 
 export default combineReducers({
-    produto,
-    carrinho,
-    github,
+    produtoReducer,
+    carrinhoReducer,
+    githubReducer,
+    listaDeProdutosReducer,
+
 });

@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   error: false,
 };
 
-export default function todos(state = INITIAL_STATE, action) {
+export default function githubReducer(state = INITIAL_STATE, action) {
 
   const data = action.payload;
   console.log(data)

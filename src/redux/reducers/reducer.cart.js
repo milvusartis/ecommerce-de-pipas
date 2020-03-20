@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 
 
-export default function pedido(state = INITIAL_STATE, action) {
+export default function carrinhoReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case CartActionsType.ADD_TO_CART:
             return { ...state, novoproduto: action.produto }
