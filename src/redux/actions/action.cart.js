@@ -5,7 +5,4 @@ export function addToCart(produto) {
       type: CartActionsType.ADD_TO_CART,
       produto
     };
-  
-  }
-
-
+}

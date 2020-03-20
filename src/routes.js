@@ -6,7 +6,7 @@ import Linhas from './components/ProdutosPorCategoria/Linhas';
 import Latas from './components/ProdutosPorCategoria/Latas';
 import Home from './pages/home/page-home';
 import ProdCompleto from './components/ExibirProduto/ProdutoCompleto';
-import Login from './components/Cadastro/login';
+import Login from './components/Cadastro/Login';
 import Cadastro from './components/Cadastro/Cadastro'
 import Contato from './components/Contato/Contato';
 import Header from './components/Header/Header';
@@ -26,7 +26,7 @@ export default class Routes extends Component {
   render() {
     return (
         <BrowserRouter>
-                  <Header/>
+        <Header/>
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path ="/produtos" component={Produtos}/>

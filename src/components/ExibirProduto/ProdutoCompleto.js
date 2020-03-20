@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
 import "./ProdutoCompleto.css";
 import InputMask from "react-input-mask";
 import {
@@ -19,11 +19,8 @@ import api from '../../services/api-service';
 import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
-
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";
-
-
 
 const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, novoproduto, dispatch }) => (
     <>
@@ -36,9 +33,6 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         title="imagem" />
                 </Col>
                 <Col sm="12" md="7">
-
-
-
                     <Col sm="12" /*border border-dark"*/>
                         <h3 title="nome do Produto" className="mt-2 mb-2">
                             {nome}
@@ -47,8 +41,6 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                             {descricao}
                         </p>
                     </Col>
-
-
                     <div className="p-2">
                         <h3 title="nome do Produto"
                             className="mt-2 mb-2">
@@ -58,9 +50,6 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                             className="mt-2 mb-2 precoProduto">
                             {produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
-                       
-
-
                         <Row className="mt-2 mb-2 p-2">          
                                 <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrementQuantity(number))}>-</Button>
                                 <Input
@@ -70,22 +59,15 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                                 />
                                 <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>+</Button>
                         </Row>
-           
-                        <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
-                            <Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>
-                        </div>
-
+                        {/*<div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho"/>*/}
+                        {/*<Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>*/}
+                        <Button href="/carrinho" className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto))}>Teste</Button>
+                        {Frete()}
                     </div>
-
                 </Col>
-
-
-
             </Row>
         </Container>
-
     </>
-
 );
 
 export default connect(state => ({
@@ -98,19 +80,10 @@ export default connect(state => ({
     nome: state.produto.nome,
     descricao: state.descricao,
     novoproduto: state.carrinho.novoproduto
-   
-
 }))(ProdutoCompleto);
 
-
-
-
-
-
 const Contador = (number, dispatch) => (
-   
    <>
-
         <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrementQuantity(number))}>
             -
         </Button>
@@ -128,28 +101,27 @@ const Contador = (number, dispatch) => (
 
 const Frete = (cep, deliveryCost, date, day) => (
     <>
-
         <FormGroup className="mt-5 mb-2 p-2 border border-dark">
             <Label>
                 Informe seu CEP para calcular o frete
             </Label>
-        {/* <InputGroup> */}
+        <InputGroup>
         {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
-            {/* <InputMask
+            <InputMask
                 placeholder="00000-000"
                 mask="99999-999"
                 className="col-7 col-md-4"
                 value={cep}
-                onChange={this.handleCepValeu}
+                // onChange={this.handleCepValeu}
                 maskPlaceholder={null}
-                /> */}
+                />
     {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
-            {/* <Button
+            <Button
                 color="success"
-                onClick={this.sendCep}>
+                >{/*onClick={this.sendCep}*/}
                 Calcular Frete
-            </Button> */}
-         {/* </InputGroup> */}
+            </Button>
+         </InputGroup>
                 <p className="mt-2 mb-2"
                     title="Valor do Frete">
                     Valor do Frete: R$ {deliveryCost}
@@ -158,9 +130,7 @@ const Frete = (cep, deliveryCost, date, day) => (
                     Prazo de Entrega: {date} {day}
                 </p>
             </FormGroup>
-
     </>
-
 );
 
 
@@ -168,6 +138,3 @@ const Frete = (cep, deliveryCost, date, day) => (
 const sendCep = (cep) => {
     
 }
-
-
-
