@@ -16,13 +16,6 @@ export const CartActionsType = {
     ADD_SHIPPING: 'ADD_SHIPPING',
 }
 
-export const GithubActionsType = {
-    REQUEST_TODO_LIS: 'REQUEST_TODO_LIST',
-    SUCCESS_TODO_LIST: 'SUCCESS_TODO_LIST',
-    FAILURE_TODO_LIST: 'FAILURE_TODO_LIST',
-}
-
-
 export const ListaDeProdutosActionsType = {
     PRODUTOS_GET_ALL:'PRODUTOS_GET_ALL',
     RODUTOS_REQUEST_GET_ALL:'RODUTOS_REQUEST_GET_ALL',

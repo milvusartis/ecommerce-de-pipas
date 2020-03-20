@@ -15,7 +15,6 @@ import {
     Button
 } from 'reactstrap'
 
-import api from '../../services/api-service-github';
 import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
