@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { bindActionCreators } from 'redux';
 import "./ProdutoCompleto.css";
 import InputMask from "react-input-mask";
 import {
@@ -133,9 +133,8 @@ const Frete = (cep, deliveryCost, date, day) => (
     </>
 );
 
+
+
 const sendCep = (cep) => {
     
 }
-
-
-
