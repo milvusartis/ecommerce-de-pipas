@@ -6,7 +6,7 @@ import Linhas from './components/ProdutosPorCategoria/Linhas';
 import Latas from './components/ProdutosPorCategoria/Latas';
 import Home from './pages/home/page-home';
 import ExibeProduto from './components/ExibeProduto/ExibeProduto';
-import Login from './components/Cadastro/Login';
+import Login from './components/Login/Login';
 import Cadastro from './components/Cadastro/Cadastro'
 import Contato from './components/Contato/Contato';
 import Header from './components/Header/Header';
