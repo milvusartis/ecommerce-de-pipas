@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import "./ProdutoCompleto.css";
+import "./ExibeProduto.css";
 import InputMask from "react-input-mask";
 import {
     Container,
@@ -15,8 +15,6 @@ import {
     Button
 } from 'reactstrap'
 
-import api from '../../services/api-service';
-import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 import { Link } from 'react-router-dom';
 
 import * as ProdutoActions from "../../redux/actions/action.product";
@@ -33,22 +31,26 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         title="imagem" />
                 </Col>
                 <Col sm="12" md="7">
-                    <Col sm="12" /*border border-dark"*/>
+                    {/* <Col sm="12">
                         <h3 title="nome do Produto" className="mt-2 mb-2">
-                            {nome}
+                            {produto.nome}
                         </h3>
                         <p title="Descrição do Produto" className="mt-2 mb-2">
-                            {descricao}
+                            {produto.descricao}
                         </p>
-                    </Col>
+                    </Col> */}
                     <div className="p-2">
                         <h3 title="nome do Produto"
                             className="mt-2 mb-2">
                             {produto.nome}
                         </h3>
+                        <h3 title="nome do Produto"
+                            className="mt-2 mb-2">
+                            {produto.descricao}
+                        </h3>
                         <h5 title="Preço do Produto"
                             className="mt-2 mb-2 precoProduto">
-                            {produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            {produto.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
                         <Row className="mt-2 mb-2 p-2">          
                                 <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrementQuantity(number))}>-</Button>
@@ -71,15 +73,15 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
 );
 
 export default connect(state => ({
-    produto: state.produto.produto,
-    number: state.produto.number,
-    cep:state.produto.cep,
-    deliveryCost: state.produto.deliveryCost,
-    date: state.produto.date,
-    day: state.produto.day,
-    nome: state.produto.nome,
-    descricao: state.descricao,
-    novoproduto: state.carrinho.novoproduto
+    produto: state.produtoReducer.produto,
+    number: state.produtoReducer.number,
+    cep:state.produtoReducer.cep,
+    deliveryCost: state.produtoReducer.deliveryCost,
+    date: state.produtoReducer.date,
+    day: state.produtoReducer.day,
+    nome: state.produtoReducer.nome,
+    // descricao: state.descricao,
+    novoproduto: state.carrinhoReducer.novoproduto
 }))(ProdutoCompleto);
 
 const Contador = (number, dispatch) => (

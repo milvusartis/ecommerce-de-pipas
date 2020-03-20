@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "availity-reactstrap-validation": "^2.6.1",
     "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.4.1",
     "create-react-context": "^0.3.0",
     "mdbootstrap": "^4.14.0",
@@ -25,7 +26,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
     "reactstrap": "^8.4.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   },
   "scripts": {
     "start": "react-scripts start",

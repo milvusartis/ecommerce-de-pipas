@@ -5,7 +5,12 @@ import { connect } from 'react-redux';
 
 import CarouselResponive from '../../components/CarrouselResponive/CarrouselResponive';
 import ListaDeProdutos from '../../components/ListaDeProdutos/ListaDeProdutos';
-import ExibeProduto from '../../components/ExibeProduto/ExibeProduto';
+<<<<<<< HEAD
+import { connect } from 'react-redux';
+import ProdutoCompleto from '../../components/ExibirProduto/ProdutoCompleto';
+=======
+import ProdutoCompleto from '../../components/ProdutoCompleto/ProdutoCompleto';
+>>>>>>> saga
 
 
 class Home extends Component {
@@ -20,7 +25,7 @@ class Home extends Component {
   }
 }
 
-const mudaComponente = (produtoAtivo) => produtoAtivo ? <ExibeProduto /> : <CarouselResponive />;
+const mudaComponente = (produtoAtivo) => produtoAtivo ? <ProdutoCompleto /> : <CarouselResponive />;
 
 const mapStateToProps = state => ({
   produtoAtivo: !state.produtoReducer.produtoAtivo

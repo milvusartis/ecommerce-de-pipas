@@ -27,3 +27,11 @@ export function changeDisplayedProduct(produto, produtoAtivo) {
     };
   
   }
+
+
+  export function requestProductList(text) {
+    return {
+      type: ProductActionsTypes.REQUEST_PRODUCT_LISt,
+    }
+  }
+  
