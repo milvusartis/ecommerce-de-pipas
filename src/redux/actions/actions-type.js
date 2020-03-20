@@ -25,4 +25,5 @@ export const GithubActionsType = {
 
 export const ListaDeProdutosActionsType = {
     GET_ALL: 'GET_ALL',
+    PRODUTOS_REQUEST_GET_ALL:'PRODUTOS_REQUEST_GET_ALL',
 }

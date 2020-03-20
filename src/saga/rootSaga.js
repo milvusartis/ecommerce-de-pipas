@@ -1,10 +1,10 @@
 import {all, takeLatest} from 'redux-saga/effects';
 
-import { getTodoList } from "./sagas-github-middleware";
+import { getAll } from "./sagas-lista_produto-middleware";
 
 export default function* rootSaga(){
     return yield all([
-        takeLatest('REQUEST_TODO_LIST', getTodoList),
+        takeLatest('PRODUTOS_REQUEST_GET_ALL', getAll),
     ])
 }
 

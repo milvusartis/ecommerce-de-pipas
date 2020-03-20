@@ -4,27 +4,29 @@ import './ListaProdutos.css';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import {produtoActions} from '../../redux/actions/action.lista-de-produtos'
+import { produtoActions } from '../../redux/actions/action.lista-de-produtos'
 import { ListaDeProdutosActionsType } from '../../redux/actions/actions-type';
 
 
 
 class ListaProdutos extends Component {
-    state = {
-        produto: {}
+
+    componentDidMount() {
+        const { getAll } = this.props;
+        getAll();
     }
 
-  
 
- 
     render() {
-        const { produto } = this.state;
         console.log(this.props);
+        const { produtos } = this.props
         return (
             <>
-            <h1>Lista de Produtos</h1>
-                {produto.nome}       
-     
+                {produtos.map(produto => (
+                    <div key={produto.codigo}>
+                        <h1>{produto.nome}</h1>
+                    </div>
+                ))}
             </>
         );
     }
@@ -35,12 +37,12 @@ class ListaProdutos extends Component {
 
 
 const mapStateToProps = state => ({
-    produtos: state.produtoReducer.produtos,  
+    produtos: state.produtoReducer.produtos,
 
 });
 
 const mapDispatchToProps = dispatch => ({
-    getAll: () => dispatch (),
+    getAll: () => dispatch(produtoActions.requestGetAll()),
 });
 
 
