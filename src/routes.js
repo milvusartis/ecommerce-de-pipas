@@ -24,7 +24,7 @@ export default class Routes extends Component {
   render() {
     return (
         <BrowserRouter>
-                  <Header/>
+        <Header/>
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path ="/produtos" component={Produtos}/>
@@ -36,7 +36,7 @@ export default class Routes extends Component {
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
-          <Route path="/carrinho" component={Carrinho}/>
+          <Route path="/carrinho" exact component={Carrinho}/>
           <Route path="/checkout" component={Checkout}/>
           <Route path="/sucesso" component={Sucesso}/>
         </Switch>
