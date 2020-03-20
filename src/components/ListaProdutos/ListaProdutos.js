@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './ListaProdutos.css';
 
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { produtoActions } from '../../redux/actions/action.lista-de-produtos'
-import { ListaDeProdutosActionsType } from '../../redux/actions/actions-type';
+import { listaDeProdutoActions } from '../../redux/actions/action.lista-de-produtos'
+// import { ListaDeProdutosActionsType } from '../../redux/actions/actions-type';
 
 
 
@@ -37,14 +37,14 @@ class ListaProdutos extends Component {
 
 
 const mapStateToProps = state => ({
-    produtos: state.produtoReducer.produtos,
+    produtos: state.listaDeProdutosReducer.produtos
+})
 
-});
 
-const mapDispatchToProps = dispatch => ({
-    getAll: () => dispatch(produtoActions.requestGetAll()),
-});
-
+const mapDispatchToProps = dispatch => ({   
+    getAll: () => dispatch(listaDeProdutoActions.requestGetAll()),
+    
+})
 
 export default connect(
     mapStateToProps, mapDispatchToProps

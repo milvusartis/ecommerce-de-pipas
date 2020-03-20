@@ -1,22 +1,19 @@
-import { ProductActionsTypes } from "../actions/actions-type";
+import { ListaDeProdutosActionsType } from "../actions/actions-type";
 
 const INITIAL_STATE = {
+    produtos: []
+}
 
-    produtos: [],
-
-};
-
-
-
-export default function listaDeProdutosReducer(state = INITIAL_STATE, action) {
-      const data = action.payload;
-      console.log(data)
-    const { payload, type } = action;
-
-    switch (type) {
-        case ProductActionsTypes.GET_ALL:
-            return { state, produtos: payload }
+const listaDeProdutosReducer = (state = INITIAL_STATE, action) => {
+    const { payload, type } = action
+    const { produtos } = state
+    switch (type) {       
+        case ListaDeProdutosActionsType.PRODUTOS_GET_ALL:
+            return { ...state, produtos: payload}       
         default:
-            return state;
+            return state
     }
 }
+
+
+export default listaDeProdutosReducer 
