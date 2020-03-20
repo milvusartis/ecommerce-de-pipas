@@ -6,12 +6,12 @@ import Linhas from './components/ProdutosPorCategoria/Linhas';
 import Latas from './components/ProdutosPorCategoria/Latas';
 import Home from './pages/home/page-home';
 import ProdCompleto from './components/ExibirProduto/ProdutoCompleto';
-import Login from './components/Cadastro/login';
+import Login from './components/Cadastro/Login';
 import Cadastro from './components/Cadastro/Cadastro'
 import Contato from './components/Contato/Contato';
-import Header from './components/header/Header';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Checkout from './components/Checkout/checkout';
+import Checkout from './components/Checkout/Checkout';
 import Carrinho from './components/Carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
 

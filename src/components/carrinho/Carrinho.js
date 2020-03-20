@@ -26,6 +26,7 @@ const Carrinho = (novoproduto, dispatch) => (
 					<p>Preço</p>
 				</Row>
 				<Row>
+					
 					{/* <p>Pipa Colorida</p>
 					<p>5 unidades</p>
 					<p>16/03/2020</p>

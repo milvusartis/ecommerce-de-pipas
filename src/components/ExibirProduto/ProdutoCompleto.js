@@ -74,11 +74,15 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         <div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho">
                             <Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>
                         </div>
-
+                        {Frete()}
+                        
+                    
+                
                     </div>
 
                 </Col>
-
+                
+                   
 
 
             </Row>
@@ -133,23 +137,23 @@ const Frete = (cep, deliveryCost, date, day) => (
             <Label>
                 Informe seu CEP para calcular o frete
             </Label>
-        {/* <InputGroup> */}
+        <InputGroup>
         {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
-            {/* <InputMask
+            <InputMask
                 placeholder="00000-000"
                 mask="99999-999"
                 className="col-7 col-md-4"
                 value={cep}
-                onChange={this.handleCepValeu}
+                // onChange={this.handleCepValeu}
                 maskPlaceholder={null}
-                /> */}
+                />
     {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
-            {/* <Button
+            <Button
                 color="success"
-                onClick={this.sendCep}>
+                >{/*onClick={this.sendCep}*/}
                 Calcular Frete
-            </Button> */}
-         {/* </InputGroup> */}
+            </Button>
+         </InputGroup>
                 <p className="mt-2 mb-2"
                     title="Valor do Frete">
                     Valor do Frete: R$ {deliveryCost}
