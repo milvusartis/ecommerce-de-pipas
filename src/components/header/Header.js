@@ -15,7 +15,7 @@ import {
     NavLink,
 
 } from 'reactstrap';
-import { MdShoppingCart } from 'react-icons/md';
+import { MdAccountCircle, MdShoppingCart } from 'react-icons/md';
 
 import './Header.css';
 
@@ -31,7 +31,7 @@ const Header = () => {
                 {/* Para Merge */}
                 <Container fluid={true}>
                     <Row className="topo bg-dark-grey color-dark">
-                        <Col className="logo" sm="12" md="3" lg="3">
+                        <Col className="logo" sm="12" md="8" lg="8">
                             <NavbarBrand href="/">
                             <Logo className="logo" title="Milvus Artis"/>
                                 </NavbarBrand>
@@ -49,23 +49,25 @@ const Header = () => {
                             </InputGroup>
                         </Col> */}
 
-                        <Col className="cart" sm="12" md="1" lg="1">
+                        {/* <Col className="cart" sm="12" md="1" lg="1">
                             <span></span>
                             <span><Link to="/login">Login</Link></span>
-                        </Col>
+                        </Col> */}
 
-                        <Col className="cart" sm="12" md="1" lg="1">
+                        <Col className="cart" sm="12" md="2" lg="2">
                             <span></span>
-                            <span><Link to="/carrinho"><MdShoppingCart /></Link></span>
+                            <span className="icons"><Link title="Olá, faça o seu login" to="/login"><MdAccountCircle/></Link></span>
+                            <span></span>
+                            <span className="icons"><Link to="/carrinho"><MdShoppingCart /></Link></span>
                         </Col>
 
                     </Row>
                     <Row>
 
-                        <Navbar id="navHome"className="mb-3" light expand="md">
+                        <Navbar id="navHome"className="mb-3 navHome" light expand="md">
                             <NavbarToggler onClick={toggle} />
                             <Collapse isOpen={isOpen} navbar>
-                                <Nav className="mr-auto" navbar>
+                                <Nav className="container mr-auto " navbar>
                                     <NavItem active >
                                         <NavLink  className="btn bg-yellow btnMargin" href="/">Home</NavLink>
                                     </NavItem>
