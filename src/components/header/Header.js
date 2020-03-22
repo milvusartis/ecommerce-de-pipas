@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ReactComponent as Logo } from "./image/milvus_logo.svg"
+import { ReactComponent as Logo } from "./image/untitled.svg"
 import { Link } from "react-router-dom";
 
 import './Header.css';
@@ -28,6 +28,7 @@ import { MdAccountCircle, MdShoppingCart, MdSearch } from 'react-icons/md';
 
 
 import Badge from 'react-bootstrap/Badge'
+import FloatingCart from "../FloatingCart/FloatingCart";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -43,32 +44,29 @@ const Header = () => {
                     <Row className="topo">
                         <Col className="logo" sm={12} md={3} lg={3}>
                             <NavbarBrand href="/">
-                                <Logo className="logo" title="Milvus Artis"/>
+                                <Logo className="logo" title="Milvus Artis" />
                             </NavbarBrand>
                         </Col>
-                      
+
                         <Col className="search" sm={12} md={3} lg={5}>
                             <InputGroup>
-                                <Input placeholder="Busque por produtos"/>
+                                <Input placeholder="Busque por produtos" />
                                 <InputGroupAddon addonType="append">
                                     <InputGroupText>
-                                        <MdSearch/>
+                                        <MdSearch />
                                     </InputGroupText>
 
                                 </InputGroupAddon>
                             </InputGroup>
                         </Col>
-                      
+
                         <Col className="target" sm={6} md={3} lg={4}>
-    <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="" className="badge login"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
+                            <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="" className="badge login"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
                             <span class="badge badge-pill badge-light qtd-cart">2</span>
                             <Link to="/carrinho"><Badge pill variant="" className="badge cart"><MdShoppingCart /></Badge>{' '}</Link>
-                        </Col>
+                        </Col>                      
                        
-                        {/* <Col className="cart" sm={6}md={3} lg={1}> */}
-                           
-                            {/* <Link to="/carrinho"><Badge pill variant="danger" className="badge"><MdShoppingCart /></Badge>{' '}</Link> */}
-                        {/* </Col> */}
+                       
 
                     </Row>
 
@@ -103,6 +101,9 @@ const Header = () => {
                     </Row>
 
                 </Container>
+
+
+                <FloatingCart/>
                 {/* BARRA DE NAVEGAÇÃO */}
 
 

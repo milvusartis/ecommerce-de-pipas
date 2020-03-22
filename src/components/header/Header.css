@@ -71,7 +71,7 @@
   color: #54C3D5;
 }
 
-.qtd-cart{
+.target .qtd-cart{
   font-size: small;
   position: absolute;
   top: -2px;
@@ -141,3 +141,8 @@
   
   
   }
+
+
+
+
+
