@@ -46,9 +46,7 @@ const Header = () => {
                                 <Logo className="logo" title="Milvus Artis"/>
                             </NavbarBrand>
                         </Col>
-                        <Col lg={1}>
-                        </Col>
-
+                      
                         <Col className="search" sm={12} md={3} lg={5}>
                             <InputGroup>
                                 <Input placeholder="Busque por produtos"/>
@@ -61,9 +59,9 @@ const Header = () => {
                             </InputGroup>
                         </Col>
                       
-                        <Col className="target" sm={6} md={3} lg={3}>
-                            <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="secondary" className="badge"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
-                            {/* <span class="badge badge-pill badge-light">1</span> */}
+                        <Col className="target" sm={6} md={3} lg={4}>
+                            <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="" className="badge login"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
+                            <span class="badge badge-pill badge-light qtd-cart">2</span>
                             <Link to="/carrinho"><Badge pill variant="" className="badge cart"><MdShoppingCart /></Badge>{' '}</Link>
                         </Col>
                        

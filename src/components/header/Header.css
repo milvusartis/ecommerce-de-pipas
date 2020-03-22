@@ -23,7 +23,7 @@
    
   .search *{
     flex-flow: row nowrap;
-    font-size: x-large;
+    /* font-size: x-large; */
     
   }
   
@@ -47,6 +47,11 @@
   font-weight: bold;
 }
 
+.login{
+  background-color: #6c757d;
+}
+
+
 .cart{
   margin-left: 30px;
   background-color: #54C3D5;
@@ -57,6 +62,15 @@
   background-color: #FFF;
   color: #54C3D5;
 }
+
+.qtd-cart{
+  font-size: small;
+  position: absolute;
+  top: -2px;
+  right: 5px;
+  z-index: 9999;
+  /* display: none;  */
+ }
  
  #navHome{
     background-color: white;
@@ -103,12 +117,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;          
+             
        
     }
   
     .search {
         order: +2;
+        margin-top: 20px;   
     }
   
     .nav-link{
