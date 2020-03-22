@@ -61,7 +61,7 @@ const Header = () => {
                             </InputGroup>
                         </Col>
                       
-                        <Col className="badges" sm={6} md={3} lg={3}>
+                        <Col className="target" sm={6} md={3} lg={3}>
                             <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="secondary" className="badge"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
                             {/* <span class="badge badge-pill badge-light">1</span> */}
                             <Link to="/carrinho"><Badge pill variant="" className="badge cart"><MdShoppingCart /></Badge>{' '}</Link>

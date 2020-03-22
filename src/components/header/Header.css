@@ -36,13 +36,13 @@
   }
    
   
- .badges {
+ .target {
     display: flex;
     justify-content: flex-end;  
     align-items: center;      
 }
 
-.badges a {
+.target a {
   text-decoration: none;
   font-weight: bold;
 }
