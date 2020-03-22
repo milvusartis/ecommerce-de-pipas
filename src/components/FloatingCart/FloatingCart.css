@@ -12,7 +12,7 @@
   }
   
   .main-color-text {
-    color: #28a745;
+    color: #28a745!important;
   }
 
   
@@ -129,6 +129,10 @@
     content: "";
     display: table;
     clear: both;
+  }
+
+  .clearfix .item-name{
+    color: #28A700;
   }
   
   
