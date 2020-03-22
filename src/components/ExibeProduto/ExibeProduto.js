@@ -29,14 +29,6 @@ const ExibeProduto = ({ produto, number, dispatch }) => (
                         title="imagem" />
                 </Col>
                 <Col sm="12" md="7">
-                    {/* <Col sm="12">
-                        <h3 title="nome do Produto" className="mt-2 mb-2">
-                            {produto.nome}
-                        </h3>
-                        <p title="Descrição do Produto" className="mt-2 mb-2">
-                            {produto.descricao}
-                        </p>
-                    </Col> */}
                     <div className="p-2">
                         <h3 title="nome do Produto"
                             className="mt-2 mb-2">
@@ -59,8 +51,6 @@ const ExibeProduto = ({ produto, number, dispatch }) => (
                                 />
                                 <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>+</Button>
                         </Row>
-                        {/*<div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho"/>*/}
-                        {/*<Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>*/}
                         <Button className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto,number))}>Adicionar ao Carrinho</Button>
                         {Frete()}
                     </div>
