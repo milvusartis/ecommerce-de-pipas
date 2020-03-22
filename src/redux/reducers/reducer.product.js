@@ -151,6 +151,7 @@ const INITIAL_STATE = {
 
 
 export default function produto(state = INITIAL_STATE, action) {
+    console.log(action)
 
     switch (action.type) {
         case ProductActionsTypes.CHANGE_DISPLAYED_PRODUCT:

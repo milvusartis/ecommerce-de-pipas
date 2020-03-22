@@ -18,7 +18,7 @@ import {
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";
 
-const ExibeProduto = ({ produto, number, dispatch }) => (
+const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, novoproduto, dispatch }) => (
     <>
         <Container>
             <Row>
@@ -29,6 +29,14 @@ const ExibeProduto = ({ produto, number, dispatch }) => (
                         title="imagem" />
                 </Col>
                 <Col sm="12" md="7">
+                    {/* <Col sm="12">
+                        <h3 title="nome do Produto" className="mt-2 mb-2">
+                            {produto.nome}
+                        </h3>
+                        <p title="Descrição do Produto" className="mt-2 mb-2">
+                            {produto.descricao}
+                        </p>
+                    </Col> */}
                     <div className="p-2">
                         <h3 title="nome do Produto"
                             className="mt-2 mb-2">
@@ -51,6 +59,8 @@ const ExibeProduto = ({ produto, number, dispatch }) => (
                                 />
                                 <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>+</Button>
                         </Row>
+                        {/*<div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho"/>*/}
+                        {/*<Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>*/}
                         <Button className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto,number))}>Adicionar ao Carrinho</Button>
                         {Frete()}
                     </div>
@@ -63,7 +73,14 @@ const ExibeProduto = ({ produto, number, dispatch }) => (
 export default connect(state => ({
     produto: state.produtoReducer.produto,
     number: state.produtoReducer.number,
-}))(ExibeProduto);
+    cep:state.produtoReducer.cep,
+    deliveryCost: state.produtoReducer.deliveryCost,
+    date: state.produtoReducer.date,
+    day: state.produtoReducer.day,
+    nome: state.produtoReducer.nome,
+    // descricao: state.descricao,
+    novoproduto: state.carrinhoReducer.novoproduto
+}))(ProdutoCompleto);
 
 const Contador = (number, dispatch) => (
    <>

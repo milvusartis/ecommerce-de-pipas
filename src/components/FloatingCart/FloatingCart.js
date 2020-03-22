@@ -25,8 +25,8 @@ class FloatingCart extends Component {
 
     
     render() {        
-       const {produtos} =  this.props.produtos
-       console.log(produtos)
+       const {items} =  this.props.items
+       console.log(items)
    
         return (            
             <>
@@ -74,7 +74,7 @@ class FloatingCart extends Component {
 }
 
 const mapStateToProps = state => ({
-    produtos: state.carrinhoReducer.produtos,
+    items: state.carrinhoReducer.items,
 });
 
 const mapDispatchToProps = dispatch =>({
