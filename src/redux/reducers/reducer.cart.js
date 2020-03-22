@@ -1,7 +1,7 @@
 import { CartActionsType } from "../actions/actions-type";
 
 const INITIAL_STATE = {
-    items:  [
+    items: [
         {
             "idProduto": 1,
             "nome": "Pipa Grande Colorida",
@@ -20,12 +20,13 @@ const INITIAL_STATE = {
 };
 
 export default function pedido(state = INITIAL_STATE, action) {
-    console.log(action)
+    const {addedItems} = state;
+    console.log(addedItems.length)
     switch (action.type) {
         case CartActionsType.ADD_TO_CART:
             // Object.assign(state.novoproduto,action.produto)
             // console.log(state.novoproduto)
-            return { ...state, items: action.item }
+            return { ...state, addedItems: [...addedItems, action.item]}
         default:
             return state;
     }

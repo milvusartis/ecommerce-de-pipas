@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -9,47 +9,57 @@ import "./FloatingCart.css";
 class FloatingCart extends Component {
 
     state = {
-        visible:{            
-            visibility: 'hidden'            
+        visible: {
+            visibility: 'hidden'
         }
     }
 
-    componentDidMount(){
-        const {isVisible} = this.props;
+    componentDidMount() {
+        const { isVisible } = this.props;
         console.log("Entrei")
-        isVisible ?  this.setState({visible:{visibility: 'visible'}}): this.setState({visible:{visibility: 'hidden'}})
+        isVisible ? this.setState({ visible: { visibility: 'visible' } }) : this.setState({ visible: { visibility: 'hidden' } })
         // toggleVisivleCart(isVisible);
-       
+
     }
 
 
-    
-    render() {        
-       const {items} =  this.props.items
-       console.log(items)
-   
-        return (            
-            <>
-         
-                    <div class="shopping-cart" style={this.state.visible}>
-                        <div class="shopping-cart-header">
-                            {/* <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span> */}
-                            <span class="badge badge-pill badge-light qtd-cart">2</span>
-                            <div class="shopping-cart-total">
-                                <span class="lighter-text">Total:</span>
-                                <span class="main-color-text">$2,229.97</span>
-                            </div>
-                        </div>
 
-                        <ul class="shopping-cart-items">
+    render() {
+        const { addedItems } = this.props
+        console.log(addedItems)
+
+
+        return (
+            <>
+
+                <div class="shopping-cart" style={this.state.visible}>
+                    <div class="shopping-cart-header">
+                        <span class="badge badge-pill badge-light qtd-cart">2</span>
+                        <div class="shopping-cart-total">
+                            <span class="lighter-text">Total:</span>
+                            <span class="main-color-text">$2,229.97</span>
+                        </div>
+                    </div>
+
+                    <ul class="shopping-cart-items">
+
+                        {addedItems.map(item => (
+
                             <li class="clearfix">
-                                {/* <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" /> */}
-                                <span class="item-name">Sony DSC-RX100M III</span>
-                                <span class="item-price">$849.99</span>
+                                {/* <img src={item.imagem} alt="item1" /> */}
+                                <span class="item-name">{item.nome}</span>
+                                <span class="item-price">{item.valorUnitario}</span>
                                 <span class="item-quantity">Quantidade: 01</span>
                             </li>
 
-                            {/* <li class="clearfix">
+                        ))}
+
+
+
+
+
+
+                        {/* <li class="clearfix">
                                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
                                 <span class="item-name">KS Automatic Mechanic...</span>
                                 <span class="item-price">$1,249.99</span>
@@ -62,11 +72,11 @@ class FloatingCart extends Component {
                                 <span class="item-price">$129.99</span>
                                 <span class="item-quantity">Quantidade: 01</span>
                             </li> */}
-                        </ul>
+                    </ul>
 
-                        <a href="#" class="button">Checkout</a>
-                    </div>
-        
+                    <a href="#" class="button">Checkout</a>
+                </div>
+
 
             </>
         );
@@ -74,10 +84,10 @@ class FloatingCart extends Component {
 }
 
 const mapStateToProps = state => ({
-    items: state.carrinhoReducer.items,
+    addedItems: state.carrinhoReducer.addedItems,
 });
 
-const mapDispatchToProps = dispatch =>({
+const mapDispatchToProps = dispatch => ({
 
 })
 
