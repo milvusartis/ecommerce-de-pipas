@@ -1,48 +1,73 @@
 /* INICIO HEADER */
 .topo {
-
+    background: #36393A;
     padding: 20px;
-    font-weight: bold;
-    font-size: 2rem;
+    /* font-weight: bold;     */
     display: flex;
-    /* flex-flow: row nowrap; */
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    flex-wrap: nowrap; 
-  
+  }
+
+  .logo{
+    width: 25vw;
   }
   
+  .topo a, span {
+    color: #FFF;
+  }
+  .topo a, path:hover{
+    
+    text-decoration: none;
+  }
   
-  
-  .search {
+   
+  .search *{
     flex-flow: row nowrap;
-    margin-left: 100px;
+    font-size: x-large;
+    
   }
   
   .search div {
     cursor: pointer;
   }
-  
-  
-  .login a {
-    text-decoration: none;
-    font-weight: bold;
+
+  .badge{
+    font-size: x-large;
   }
+   
   
-  #navHome{
+ .badges {
+    display: flex;
+    justify-content: flex-end;  
+    align-items: center;      
+}
+
+.badges a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cart{
+  margin-left: 30px;
+  background-color: #54C3D5;
+  color: #FFF;
+}
+
+.cart:hover{
+  background-color: #FFF;
+  color: #54C3D5;
+}
+ 
+ #navHome{
     background-color: white;
     width: 100vw;
     margin-top: 5px;
   }
-  .logo{
-    width: 25vw;
-  }
-  
+ 
   .icons{
     margin-left: 10px;
     margin-right: 10px;
   }
-  
   
   .navHome{
       display: flex;
@@ -52,10 +77,7 @@
   
   .nav-link{
     width: 10vw;
-    /* margin-top: 10px; */
     flex-direction: row;
-    margin-left: 8px;
-    margin-right: 8px;
   }
   
   .nav-link:hover{
@@ -65,57 +87,33 @@
   
   
   
-  .color-dark a:hover{
-    color: #9ACA4C;
-    text-decoration: none;
-  }
-  
-  .color-dark path:hover{
-    color: #9ACA4C;
-  }
-  
   /* RESPONSIVO */
   
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
   
-    .topo {
-        /* padding: 20px; */
+   
+    .logo{
+      width: 70vw;
+      display: flex;
+      justify-content: center;
+     
+    } 
+  
+    .badges {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
-    }
-  
-    .login {
-        display: flex;
-        justify-content: center;
+        margin-bottom: 20px;          
        
     }
   
     .search {
-        display: flex;
-      
-  
-        /* flex-flow: row nowrap; */
-        /* background-color: red; */
-        order: +1;
-    }
-  
-    .cart {
-        display: flex;
-        justify-content: center;
-        order: +1;
-  
+        order: +2;
     }
   
     .nav-link{
       width: 85vw;
       margin-top: 10px;
-      flex-direction: column;
-    }
-  
-    .logo{
-      width: 70vw;
     } 
   
   
