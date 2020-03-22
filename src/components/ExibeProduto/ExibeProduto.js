@@ -61,7 +61,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         </Row>
                         {/*<div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho"/>*/}
                         {/*<Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>*/}
-                        <Button href="/carrinho" className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto))}>Teste</Button>
+                        <Button className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto,number))}>Adicionar ao Carrinho</Button>
                         {Frete()}
                     </div>
                 </Col>

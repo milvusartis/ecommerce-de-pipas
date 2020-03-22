@@ -33,8 +33,9 @@
     z-index: 99999999;
     right: 30px;
     top: 120px;
-    /* display: none; */
   }
+
+  
 
 .shopping-cart .qtd-cart{  
     background-color: #28a745;
