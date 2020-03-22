@@ -18,7 +18,7 @@ import {
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";
 
-const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, novoproduto, dispatch }) => (
+const ExibeProduto = ({ produto, number, dispatch }) => (
     <>
         <Container>
             <Row>
@@ -73,14 +73,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
 export default connect(state => ({
     produto: state.produtoReducer.produto,
     number: state.produtoReducer.number,
-    cep:state.produtoReducer.cep,
-    deliveryCost: state.produtoReducer.deliveryCost,
-    date: state.produtoReducer.date,
-    day: state.produtoReducer.day,
-    nome: state.produtoReducer.nome,
-    // descricao: state.descricao,
-    novoproduto: state.carrinhoReducer.novoproduto
-}))(ProdutoCompleto);
+}))(ExibeProduto);
 
 const Contador = (number, dispatch) => (
    <>
