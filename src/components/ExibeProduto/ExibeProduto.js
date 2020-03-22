@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import "./ExibeProduto.css";
 import InputMask from "react-input-mask";
@@ -18,8 +18,14 @@ import {
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";
 
-const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, novoproduto, dispatch }) => (
-    <>
+
+
+class ExibeProduto extends Component {
+  render() {
+    const {produto, number, addToCart, incrementQuantity, decrementQuantity} = this.props;
+    return (
+
+        <>
         <Container>
             <Row>
                 <Col sm="12" md="5">
@@ -28,15 +34,7 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         alt="imagem"
                         title="imagem" />
                 </Col>
-                <Col sm="12" md="7">
-                    {/* <Col sm="12">
-                        <h3 title="nome do Produto" className="mt-2 mb-2">
-                            {produto.nome}
-                        </h3>
-                        <p title="Descrição do Produto" className="mt-2 mb-2">
-                            {produto.descricao}
-                        </p>
-                    </Col> */}
+                <Col sm="12" md="7">                  
                     <div className="p-2">
                         <h3 title="nome do Produto"
                             className="mt-2 mb-2">
@@ -51,36 +49,53 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                             {produto.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
                         <Row className="mt-2 mb-2 p-2">          
-                                <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrementQuantity(number))}>-</Button>
+                                <Button className="btnMenos" color="success" onClick={()=>decrementQuantity(number)}>-</Button>
                                 <Input
                                     type="number"
                                     className="col-2 mt-2 quantidade"
                                     value={number}
                                 />
-                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>+</Button>
-                        </Row>
-                        {/*<div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho"/>*/}
-                        {/*<Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>*/}
-                        <Button className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto,number))}>Adicionar ao Carrinho</Button>
+                                <Button className="btnMais" color="success" onClick={()=>incrementQuantity(number)}>+</Button>
+                        </Row>    
+                        <Button className="btn-success col-sm-12 col-md-6"onClick={()=>addToCart(produto,number)}>Adicionar ao Carrinho</Button>
                         {Frete()}
                     </div>
                 </Col>
             </Row>
         </Container>
     </>
-);
 
-export default connect(state => ({
+
+
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+
     produto: state.produtoReducer.produto,
     number: state.produtoReducer.number,
-    cep:state.produtoReducer.cep,
-    deliveryCost: state.produtoReducer.deliveryCost,
-    date: state.produtoReducer.date,
-    day: state.produtoReducer.day,
-    nome: state.produtoReducer.nome,
-    // descricao: state.descricao,
-    novoproduto: state.carrinhoReducer.novoproduto
-}))(ProdutoCompleto);
+ 
+});
+
+const mapDispatchToProps = dispatch =>({
+    addToCart: (produto, number) => dispatch(CartActions.addToCart(produto,number)),
+    incrementQuantity: (number)=> dispatch(ProdutoActions.incrementQuantity(number)),
+    decrementQuantity: (number) => dispatch(ProdutoActions.decrementQuantity(number)),
+
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ExibeProduto);
+
+
+
+
+
+
+
 
 const Contador = (number, dispatch) => (
    <>
@@ -138,3 +153,4 @@ const Frete = (cep, deliveryCost, date, day) => (
 const sendCep = (cep) => {
     
 }
+
