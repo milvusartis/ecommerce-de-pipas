@@ -60,7 +60,7 @@ const Header = () => {
                         </Col>
                       
                         <Col className="target" sm={6} md={3} lg={4}>
-                            <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="" className="badge login"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
+    <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="" className="badge login"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
                             <span class="badge badge-pill badge-light qtd-cart">2</span>
                             <Link to="/carrinho"><Badge pill variant="" className="badge cart"><MdShoppingCart /></Badge>{' '}</Link>
                         </Col>

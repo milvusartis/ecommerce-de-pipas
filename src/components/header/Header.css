@@ -51,6 +51,14 @@
   background-color: #6c757d;
 }
 
+.login.logado{
+  background: #9ACA4C;
+}
+
+.login.logado:hover{
+  background: #EA4A6F;
+}
+
 
 .cart{
   margin-left: 30px;
