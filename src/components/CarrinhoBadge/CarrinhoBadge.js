@@ -27,7 +27,12 @@ class CarrinhoBadge extends Component {
     }
  
     onLeave = ()=> {
-        this.setState({ on: false });
+        setTimeout(()=>{
+            this.setState({ on: false });
+        }, 2000);
+
+
+        
     }
  
 
