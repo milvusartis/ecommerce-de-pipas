@@ -19,7 +19,7 @@ const Footer = () => {
         <>
             {/* INICIO FOOTER */}
             <footer>
-                <Container fluid={true} className="footer bg-dark-grey color-dark text-center">
+                <Container fluid={true} className="footer">
                     <Row sm="12" md="12" lg="12">
                         <Col>
                             <Breadcrumb>

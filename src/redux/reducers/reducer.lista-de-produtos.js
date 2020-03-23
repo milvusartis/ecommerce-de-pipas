@@ -1,7 +1,9 @@
 import { ListaDeProdutosActionsType } from "../actions/actions-type";
 
 const INITIAL_STATE = {
-    produtos: []
+    produtos: [
+       
+    ]
 }
 
 const listaDeProdutosReducer = (state = INITIAL_STATE, action) => {

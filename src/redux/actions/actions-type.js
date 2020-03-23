@@ -18,5 +18,5 @@ export const CartActionsType = {
 
 export const ListaDeProdutosActionsType = {
     PRODUTOS_GET_ALL:'PRODUTOS_GET_ALL',
-    RODUTOS_REQUEST_GET_ALL:'RODUTOS_REQUEST_GET_ALL',
+    PRODUTOS_REQUEST_GET_ALL:'PRODUTOS_REQUEST_GET_ALL',
 }

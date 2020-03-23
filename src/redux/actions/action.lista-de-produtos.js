@@ -7,7 +7,7 @@ const listaDeProdutoActions = {
   }),
   requestGetAll: () => ({
       payload: null,
-      type: ListaDeProdutosActionsType.RODUTOS_REQUEST_GET_ALL
+      type: ListaDeProdutosActionsType.PRODUTOS_REQUEST_GET_ALL
   })
 }
 
