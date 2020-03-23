@@ -33,11 +33,11 @@ import CarrinhoBadge from "../CarrinhoBadge/CarrinhoBadge";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isVisible, setIsVisible] = useState(true);
+
 
     const toggle = () => setIsOpen(!isOpen);
 
-    const toggleVisibilityCart = () =>  setIsVisible(!isVisible);
+  
       
 
     return (
@@ -105,9 +105,10 @@ const Header = () => {
                     </Row>
 
                 </Container>
+                {/* <FloatingCart /> */}
 
 
-                <FloatingCart isVisible={isVisible}/>
+            
                 {/* BARRA DE NAVEGAÇÃO */}
 
 

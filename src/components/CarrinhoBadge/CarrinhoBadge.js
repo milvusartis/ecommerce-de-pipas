@@ -6,18 +6,35 @@ import { MdShoppingCart } from 'react-icons/md';
 import Badge from 'react-bootstrap/Badge'
 
 import "./CarrinhoBadge.css";
+import FloatingCart from '../FloatingCart/FloatingCart';
 
 
 
 class CarrinhoBadge extends Component {
+
+    state = {
+        on: false,
+    }
+
+    toggleVisibilityCart = () => {
+        this.setState({
+            on: !this.state.on
+        })
+    }
+
     render() {
         const { quantityItems } = this.props
         return (
             <>
-                {(quantityItems > 0) && (
-                    <span class="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
+                <span className="info">
+                    {(quantityItems > 0) && (
+                        <span class="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
+                    )}
+                    <Link to=""><Badge pill variant="" className="badge cart" onClick={this.toggleVisibilityCart}><MdShoppingCart /></Badge>{' '}</Link>
+                </span>
+                {this.state.on && (
+                    <FloatingCart />
                 )}
-                <Link to=""><Badge pill variant="" className="badge cart" onClick={this.toggleVisibilityCart}><MdShoppingCart /></Badge>{' '}</Link>
             </>
         );
     }
@@ -25,12 +42,13 @@ class CarrinhoBadge extends Component {
 
 const mapStateToProps = state => ({
     quantityItems: state.carrinhoReducer.quantityItems,
-
 });
 
 const mapDispatchToProps = dispatch => ({
-
+    // toggleVisibilityCart: () => toggleVisibilityCart(),
 });
+
+
 
 export default connect(
     mapStateToProps,

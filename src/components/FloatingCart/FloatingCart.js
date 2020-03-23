@@ -8,16 +8,16 @@ import "./FloatingCart.css";
 
 class FloatingCart extends Component {
 
-    state = {
-        visible: {
-            visibility: 'hidden'
-        }
-    }
+    // state = {
+    //     visible: {
+    //         visibility: 'hidden'
+    //     }
+    // }
 
     componentDidMount() {
-        const { isVisible } = this.props;
-        console.log("Entrei")
-        isVisible ? this.setState({ visible: { visibility: 'visible' } }) : this.setState({ visible: { visibility: 'hidden' } })
+        // const { isVisible } = this.props;
+        // console.log("Entrei")
+        // isVisible ? this.setState({ visible: { visibility: 'visible' } }) : this.setState({ visible: { visibility: 'hidden' } })
         // toggleVisivleCart(isVisible);
 
     }
@@ -32,7 +32,8 @@ class FloatingCart extends Component {
         return (
             <>
 
-                <div className="shopping-cart" style={this.state.visible}>
+                {/* <div className="shopping-cart" style={this.state.visible}> */}
+                <div className="shopping-cart">
                     <div className="shopping-cart-header">
                         <span className="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
                         <div className="shopping-cart-total">
