@@ -20,17 +20,20 @@ class Carrinho extends Component {
 				<Row>
 					<div className="col-md-8">
 						<Row className="mt-2">
-						<div className="col-md-3">
-							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100px"/>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							Produto
 						</div>
 						<div className="col-md-3 d-flex justify-content-center align-items-center">
-							{item.nome}
+							Nome
 						</div>
-						<div className="col-md-3 d-flex justify-content-center align-items-center">
-							{item.quantity}
+						<div className="col-md-2 d-flex justify-content-center align-items-center">
+							Quantidade
 						</div>
-						<div className="col-md-3 d-flex justify-content-center align-items-center">
-							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+						<div className="col-md-2 d-flex justify-content-center align-items-center">
+							Valor Unitario
+						</div>
+						<div className="col-md-2 d-flex justify-content-center align-items-center">
+							Total Produto
 						</div>
 						</Row>
 						{addedItems.map(item => (
@@ -41,11 +44,14 @@ class Carrinho extends Component {
 						<div className="col-md-3 d-flex justify-content-center align-items-center">
 							{item.nome}
 						</div>
-						<div className="col-md-3 d-flex justify-content-center align-items-center">
+						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							{item.quantity}
 						</div>
-						<div className="col-md-3 d-flex justify-content-center align-items-center">
+						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+						</div>
+						<div className="col-md-2 d-flex justify-content-center align-items-center">
+							{(item.valorUnitario*item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 						</div>
 						</Row>
 						))}
