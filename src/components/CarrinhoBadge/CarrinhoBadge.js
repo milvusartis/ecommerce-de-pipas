@@ -30,7 +30,7 @@ class CarrinhoBadge extends Component {
        
         setTimeout(() => {
             this.setState({ on: false });
-        }, 3000);      
+        }, 2000);      
 
     }
 
@@ -50,10 +50,10 @@ class CarrinhoBadge extends Component {
                         <span class="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
                     )}
                     {/* <Link to=""><Badge pill variant="" className="badge cart" onClick={this.toggleVisibilityCart}><MdShoppingCart /></Badge>{' '}</Link> */}
-                    <Link to=""><Badge pill variant="" className="badge cart" onMouseOver={(event) => this.onHover(event)} onMouseLeave={(event) => this.onLeave(event)}><MdShoppingCart /></Badge>{' '}</Link>
+                    <Link to=""><Badge pill variant="" className="badge cart" onMouseOver={(event) => this.onHover(event)} ><MdShoppingCart /></Badge>{' '}</Link>
                 </span>
                 {this.state.on && (
-                    <Link to=""  onMouseOver={(event) => this.onHover(event)}>
+                    <Link to=""  onMouseLeave={(event) => this.onLeave(event)}>
                         <FloatingCart />
                     </Link>
 
