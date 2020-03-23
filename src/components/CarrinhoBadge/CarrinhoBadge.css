@@ -1,0 +1,20 @@
+
+.cart{
+    margin-left: 30px;
+    background-color: #54C3D5;
+    color: #FFF;
+  }
+  
+  .cart:hover{
+    background-color: #FFF;
+    color: #54C3D5;
+  }
+  
+  .target .qtd-cart{
+    font-size: small;
+    position: absolute;
+    top: -2px;
+    right: 5px;
+    z-index: 9999;
+    /* display: none;  */
+   }
