@@ -15,7 +15,7 @@ function* getListRequested(){
     }
     
     function* whatchRequestGetList(){
-        yield takeLatest(ListaDeProdutosActionsType.RODUTOS_REQUEST_GET_ALL, getListRequested)
+        yield takeLatest(ListaDeProdutosActionsType.PRODUTOS_REQUEST_GET_ALL, getListRequested)
     }
     
     function* produtosSagas(){

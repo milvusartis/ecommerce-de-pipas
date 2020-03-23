@@ -47,7 +47,7 @@
     padding: 3px 7px;
     text-align: center;
     vertical-align: middle;
-    white-space: nowrap;  
+    white-space: nowrap; 
 
 }
 
@@ -131,6 +131,10 @@
     clear: both;
   }
 
+  .clearfix .item-imagem{
+    width: 70px;
+    height: 70px;
+  }
   .clearfix .item-name{
     color: #28A700;
   }
