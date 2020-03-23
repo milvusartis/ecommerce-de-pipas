@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -26,7 +27,7 @@ class FloatingCart extends Component {
 
     render() {
         const { addedItems, quantityItems, total } = this.props
-        console.log("sou o total" + total)
+      
 
 
         return (
@@ -57,7 +58,7 @@ class FloatingCart extends Component {
 
                     </ul>
 
-                    <a href="#" className="button">Checkout</a>
+                    <Link to="" className="button">Checkout</Link>
                 </div>
 
 

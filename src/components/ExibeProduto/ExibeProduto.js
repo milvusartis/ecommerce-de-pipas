@@ -65,8 +65,6 @@ class ExibeProduto extends Component {
         </Container>
     </>
 
-
-
     );
   }
 }

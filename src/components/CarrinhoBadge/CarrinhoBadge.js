@@ -22,19 +22,24 @@ class CarrinhoBadge extends Component {
         })
     }
 
-    onHover = ()=> {
+    onHover = () => {
         this.setState({ on: true });
     }
- 
-    onLeave = ()=> {
-        setTimeout(()=>{
+
+    onLeave = (event) => {
+       
+        setTimeout(() => {
             this.setState({ on: false });
-        }, 2000);
+        }, 3000);      
 
-
-        
     }
- 
+
+    onEnter = () => {
+      
+        this.setState({ on: true });
+    }
+
+
 
     render() {
         const { quantityItems } = this.props
@@ -45,10 +50,13 @@ class CarrinhoBadge extends Component {
                         <span class="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
                     )}
                     {/* <Link to=""><Badge pill variant="" className="badge cart" onClick={this.toggleVisibilityCart}><MdShoppingCart /></Badge>{' '}</Link> */}
-                    <Link to=""><Badge pill variant="" className="badge cart"   onMouseOver={(event) => this.onHover(event)} onMouseLeave={(event) => this.onLeave(event)}><MdShoppingCart /></Badge>{' '}</Link>
+                    <Link to=""><Badge pill variant="" className="badge cart" onMouseOver={(event) => this.onHover(event)} onMouseLeave={(event) => this.onLeave(event)}><MdShoppingCart /></Badge>{' '}</Link>
                 </span>
                 {this.state.on && (
-                    <FloatingCart />
+                    <Link to=""  onMouseOver={(event) => this.onHover(event)}>
+                        <FloatingCart />
+                    </Link>
+
                 )}
             </>
         );
