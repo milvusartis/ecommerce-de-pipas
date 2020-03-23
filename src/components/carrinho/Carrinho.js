@@ -19,19 +19,33 @@ class Carrinho extends Component {
 			<Container>
 				<Row>
 					<div className="col-md-8">
+						<Row className="mt-2">
+						<div className="col-md-3">
+							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100px"/>
+						</div>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							{item.nome}
+						</div>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							{item.quantity}
+						</div>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+						</div>
+						</Row>
 						{addedItems.map(item => (
 						<Row className="mt-2">
 						<div className="col-md-3">
 							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100px"/>
 						</div>
-						<div className="col-md-3 d-flex justify-content-center">
-							<label>{item.nome}</label>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							{item.nome}
 						</div>
-						<div className="col-md-3 d-flex justify-content-center">
-							<label>{item.quantity}</label>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							{item.quantity}
 						</div>
-						<div className="col-md-3 d-flex justify-content-center">
-							<label>{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</label>
+						<div className="col-md-3 d-flex justify-content-center align-items-center">
+							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 						</div>
 						</Row>
 						))}
