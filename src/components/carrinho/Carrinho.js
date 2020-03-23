@@ -18,7 +18,7 @@ class Carrinho extends Component {
 		<>
 			<Container>
 				<Row>
-					<div className="col-md-8">
+					<div className="col-md-8 bg-light">
 						<Row className="mt-2">
 						<div className="col-md-3 d-flex justify-content-center align-items-center">
 							Produto
@@ -39,7 +39,7 @@ class Carrinho extends Component {
 						{addedItems.map(item => (
 						<Row className="mt-2">
 						<div className="col-md-3">
-							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100px"/>
+							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100%"/>
 						</div>
 						<div className="col-md-3 d-flex justify-content-center align-items-center">
 							{item.nome}
