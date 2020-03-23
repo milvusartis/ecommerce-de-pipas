@@ -16,11 +16,12 @@ const INITIAL_STATE = {
     //     },
     // ],
     addedItems: [],
-    total: 0
+    total: 0,
+    quantityItems:0,
 };
 
 export default function pedido(state = INITIAL_STATE, action) {
-    const { addedItems } = state;
+    const { addedItems, quantityItems } = state;
     console.log(addedItems.length)
     switch (action.type) {
         case CartActionsType.ADD_TO_CART: {
@@ -29,19 +30,22 @@ export default function pedido(state = INITIAL_STATE, action) {
             let existed_item = addedItems.find(item => action.item.idProduto === item.idProduto);
             if (existed_item) 
             {
-                addedItem.quantity += 1
+                addedItem.quantity += 1           
+              
                 return {
                     ...state,
-                    total: state.total + addedItem.valorUnitario
+                    total: state.total + addedItem.valorUnitario,
+                    quantityItems: state.quantityItems + 1,
                 }
             }else{
                 addedItem.quantity = 1;
-                //calculating the total
+                //Calculando a Quantidade de Ítens do Mesmo Produto
                 let newTotal = state.total + addedItem.valorUnitario 
                 return { 
                     ...state,
                     addedItems: [...addedItems, addedItem],
-                    total: newTotal 
+                    total: newTotal ,
+                    quantityItems: state.quantityItems + 1,
                 }
 
             }

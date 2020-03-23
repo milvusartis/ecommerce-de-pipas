@@ -25,7 +25,7 @@ class FloatingCart extends Component {
 
 
     render() {
-        const { addedItems, total } = this.props
+        const { addedItems, quantityItems, total } = this.props
         console.log("sou o total" + total)
 
 
@@ -34,7 +34,7 @@ class FloatingCart extends Component {
 
                 <div className="shopping-cart" style={this.state.visible}>
                     <div className="shopping-cart-header">
-                        <span className="badge badge-pill badge-light qtd-cart">2</span>
+                        <span className="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
                         <div className="shopping-cart-total">
                             <span className="lighter-text">Total:</span>
                             <span className="main-color-text">{total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
@@ -49,7 +49,7 @@ class FloatingCart extends Component {
                                 <img className="item-imagem" src={item.imagem} alt="item1" />
                                 <span className="item-name">{item.nome}</span>
                                 <span className="item-price">{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                                <span className="item-quantity">Quantidade: 01</span>
+                                <span className="item-quantity">Quantidade: {item.quantity}</span>
                             </li>
 
                         ))}
@@ -67,7 +67,8 @@ class FloatingCart extends Component {
 
 const mapStateToProps = state => ({
     addedItems: state.carrinhoReducer.addedItems,
-    total: state.carrinhoReducer.total
+    total: state.carrinhoReducer.total,
+    quantityItems: state.carrinhoReducer.quantityItems,
 });
 
 const mapDispatchToProps = dispatch => ({
