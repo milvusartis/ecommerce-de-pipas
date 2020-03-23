@@ -1,29 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import "./ProdutoCompleto.css";
+import "./ExibeProduto.css";
 import InputMask from "react-input-mask";
 import {
     Container,
     Row,
     Col,
     FormGroup,
-    Navbar,
     Label,
     Input,
     InputGroup,
     Button
 } from 'reactstrap'
 
-import api from '../../services/api-service';
-import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
-import { Link } from 'react-router-dom';
+
 
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";
 
-const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, descricao, novoproduto, dispatch }) => (
-    <>
+
+
+class ExibeProduto extends Component {
+  render() {
+    const {produto, number, addToCart, incrementQuantity, decrementQuantity} = this.props;
+    return (
+
+        <>
         <Container>
             <Row>
                 <Col sm="12" md="5">
@@ -32,55 +34,66 @@ const ProdutoCompleto = ({ produto, number, cep, deliveryCost, date, day, nome, 
                         alt="imagem"
                         title="imagem" />
                 </Col>
-                <Col sm="12" md="7">
-                    <Col sm="12" /*border border-dark"*/>
-                        <h3 title="nome do Produto" className="mt-2 mb-2">
-                            {nome}
-                        </h3>
-                        <p title="Descrição do Produto" className="mt-2 mb-2">
-                            {descricao}
-                        </p>
-                    </Col>
+                <Col sm="12" md="7">                  
                     <div className="p-2">
                         <h3 title="nome do Produto"
                             className="mt-2 mb-2">
                             {produto.nome}
                         </h3>
+                        <h3 title="nome do Produto"
+                            className="mt-2 mb-2">
+                            {produto.descricao}
+                        </h3>
                         <h5 title="Preço do Produto"
                             className="mt-2 mb-2 precoProduto">
-                            {produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            {produto.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
                         <Row className="mt-2 mb-2 p-2">          
-                                <Button className="btnMenos" color="success" onClick={()=>dispatch(ProdutoActions.decrementQuantity(number))}>-</Button>
+                                <Button className="btnMenos" color="success" onClick={()=>decrementQuantity(number)}>-</Button>
                                 <Input
                                     type="number"
                                     className="col-2 mt-2 quantidade"
                                     value={number}
                                 />
-                                <Button className="btnMais" color="success" onClick={()=>dispatch(ProdutoActions.incrementQuantity(number))}>+</Button>
-                        </Row>
-                        {/*<div className="btn-comprar col-sm-12 col-md-6 mt-2" to="/carrinho"/>*/}
-                        {/*<Link to="/carrinho " onClick={()=>dispatch(CartActions.addToCart(produto))}>Comprar</Link>*/}
-                        <Button href="/carrinho" className="btn-success col-sm-12 col-md-6"onClick={()=>dispatch(CartActions.addToCart(produto))}>Teste</Button>
+                                <Button className="btnMais" color="success" onClick={()=>incrementQuantity(number)}>+</Button>
+                        </Row>    
+                        <Button className="btn-success col-sm-12 col-md-6"onClick={()=>addToCart(produto,number)}>Adicionar ao Carrinho</Button>
                         {Frete()}
                     </div>
                 </Col>
             </Row>
         </Container>
     </>
-);
 
-export default connect(state => ({
-    produto: state.produto.produto,
-    number: state.produto.number,
-    cep:state.produto.cep,
-    deliveryCost: state.produto.deliveryCost,
-    date: state.produto.date,
-    day: state.produto.day,
-    nome: state.produto.nome,
-    descricao: state.descricao,
-    novoproduto: state.carrinho.novoproduto
-}))(ProdutoCompleto);
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+
+    produto: state.produtoReducer.produto,
+    number: state.produtoReducer.number,
+ 
+});
+
+const mapDispatchToProps = dispatch =>({
+    addToCart: (produto, number) => dispatch(CartActions.addToCart(produto,number)),
+    incrementQuantity: (number)=> dispatch(ProdutoActions.incrementQuantity(number)),
+    decrementQuantity: (number) => dispatch(ProdutoActions.decrementQuantity(number)),
+
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ExibeProduto);
+
+
+
+
+
+
+
 
 const Contador = (number, dispatch) => (
    <>
@@ -138,3 +151,4 @@ const Frete = (cep, deliveryCost, date, day) => (
 const sendCep = (cep) => {
     
 }
+
