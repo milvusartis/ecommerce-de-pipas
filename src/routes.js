@@ -39,7 +39,7 @@ export default class Routes extends Component {
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
           <Route path="/carrinho" component={Carrinho}/>
-          <PrivateRoute path="/checkout" component={Checkout}/>
+          <Route path="/checkout" component={Checkout}/>
           <Route path="/sucesso" component={Sucesso}/>
           <Route exact path="/logout" component={Logout} />
         </Switch>

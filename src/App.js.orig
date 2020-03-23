@@ -4,11 +4,10 @@ import { Provider } from 'react-redux';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './css/global.css';
 import Routes from './routes';
-
 <<<<<<< HEAD
 =======
 
->>>>>>> saga
+>>>>>>> dev-react
 import store from './store/store';
 class App extends Component {
   render() {
