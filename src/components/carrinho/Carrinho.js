@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./Carrinho.css";
 import { connect } from 'react-redux';
-
 import {
     Container,
 	Row,
@@ -19,7 +18,7 @@ class Carrinho extends Component {
 			<Container>
 				<Row>
 					<div className="col-md-8 bg-light">
-						<Row className="mt-2">
+						{/* <Row className="mt-2">
 						<div className="col-md-3 d-flex justify-content-center align-items-center">
 							Produto
 						</div>
@@ -28,29 +27,29 @@ class Carrinho extends Component {
 						</div>
 						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							Quantidade
-						</div>
+						</div
 						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							Valor Unitario
 						</div>
 						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							Total Produto
 						</div>
-						</Row>
+						</Row> */}
 						{addedItems.map(item => (
 						<Row className="mt-2">
-						<div className="col-md-3">
+						<div className="col-md-3 col-sm-6">
 							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100%"/>
 						</div>
-						<div className="col-md-3 d-flex justify-content-center align-items-center">
+						<div className="col-md-3 col-sm-6 d-flex justify-content-center align-items-center">
 							{item.nome}
 						</div>
-						<div className="col-md-2 d-flex justify-content-center align-items-center">
-							{item.quantity}
+						<div className="col-md-2 col-sm-6 d-flex justify-content-center align-items-center">
+							{item.quantity==1?item.quantity+" Unidade":item.quantity+" Unidades"}
 						</div>
-						<div className="col-md-2 d-flex justify-content-center align-items-center">
+						<div className="col-md-2 col-sm-3 d-flex justify-content-center align-items-center">
 							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 						</div>
-						<div className="col-md-2 d-flex justify-content-center align-items-center">
+						<div className="col-md-2 col-sm-3 d-flex justify-content-center align-items-center">
 							{(item.valorUnitario*item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 						</div>
 						</Row>

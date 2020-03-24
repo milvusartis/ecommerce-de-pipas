@@ -14,6 +14,7 @@ export const CartActionsType = {
     SUB_QUANTITY: 'SUB_QUANTITY',
     ADD_QUANTITY: 'ADD_QUANTITY',
     ADD_SHIPPING: 'ADD_SHIPPING',
+    GET_CEP:'GET_CEP',
 }
 
 export const ListaDeProdutosActionsType = {

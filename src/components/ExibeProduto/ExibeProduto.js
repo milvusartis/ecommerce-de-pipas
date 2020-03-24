@@ -14,9 +14,9 @@ import {
 } from 'reactstrap'
 
 
-
 import * as ProdutoActions from "../../redux/actions/action.product";
 import * as CartActions from "../../redux/actions/action.cart";
+import CalculaFrete from '../CalculaFrete/CalculaFrete';
 
 
 
@@ -58,7 +58,7 @@ class ExibeProduto extends Component {
                                 <Button className="btnMais" color="success" onClick={()=>incrementQuantity(number)}>+</Button>
                         </Row>    
                         <Button className="btn-success col-sm-12 col-md-6"onClick={()=>addToCart(produto,number)}>Adicionar ao Carrinho</Button>
-                        {Frete()}
+                        <CalculaFrete/>
                     </div>
                 </Col>
             </Row>
@@ -126,7 +126,7 @@ const Frete = (cep, deliveryCost, date, day) => (
                 className="col-7 col-md-4"
                 value={cep}
                 // onChange={this.handleCepValeu}
-                maskPlaceholder={null}
+                maskplaceholder={null}
                 />
     {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
             <Button
