@@ -19,22 +19,22 @@ export default function pedido(state = INITIAL_STATE, action) {
             let existed_item = addedItems.find(item => action.item.idProduto === item.idProduto);
             if (existed_item) 
             {
-                addedItem.quantity += 1           
+                addedItem.quantity += action.number           
               
                 return {
                     ...state,
                     total: state.total + addedItem.valorUnitario,
-                    quantityItems: state.quantityItems + 1,
+                    quantityItems: state.quantityItems + action.number,
                 }
             }else{
-                addedItem.quantity = 1;
+                addedItem.quantity = action.number;
                 //Calculando a Quantidade de Ítens do Mesmo Produto
                 let newTotal = state.total + addedItem.valorUnitario 
                 return { 
                     ...state,
                     addedItems: [...addedItems, addedItem],
                     total: newTotal ,
-                    quantityItems: state.quantityItems + 1,
+                    quantityItems: state.quantityItems + addedItem.quantity,
                 }
 
             }
