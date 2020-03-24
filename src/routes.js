@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route,} from "react-router-dom"
 import Produtos from './components/ProdutosPorCategoria/ProdutosPorCategoria';
 import Pipas from './components/ProdutosPorCategoria/Pipas';
