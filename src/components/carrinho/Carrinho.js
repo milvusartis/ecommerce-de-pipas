@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./Carrinho.css";
 import { connect } from 'react-redux';
-
 import {
     Container,
 	Row,
@@ -10,7 +9,7 @@ import {
 	ListGroup,
 	Button,
 } from 'reactstrap';
-
+var frete = 4;
 class Carrinho extends Component {
 	render() {
 		const { addedItems, quantityItems, total } = this.props
@@ -19,7 +18,7 @@ class Carrinho extends Component {
 			<Container>
 				<Row>
 					<div className="col-md-8 bg-light">
-						<Row className="mt-2">
+						{/* <Row className="mt-2">
 						<div className="col-md-3 d-flex justify-content-center align-items-center">
 							Produto
 						</div>
@@ -28,29 +27,29 @@ class Carrinho extends Component {
 						</div>
 						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							Quantidade
-						</div>
+						</div
 						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							Valor Unitario
 						</div>
 						<div className="col-md-2 d-flex justify-content-center align-items-center">
 							Total Produto
 						</div>
-						</Row>
+						</Row> */}
 						{addedItems.map(item => (
 						<Row className="mt-2">
-						<div className="col-md-3">
+						<div className="col-md-3 col-sm-6">
 							<img className="item-imagem" src={item.imagem} alt="item1" width="100%" height="100%"/>
 						</div>
-						<div className="col-md-3 d-flex justify-content-center align-items-center">
+						<div className="col-md-3 col-sm-6 d-flex justify-content-center align-items-center">
 							{item.nome}
 						</div>
-						<div className="col-md-2 d-flex justify-content-center align-items-center">
-							{item.quantity}
+						<div className="col-md-2 col-sm-6 d-flex justify-content-center align-items-center">
+							{item.quantity==1?item.quantity+" Unidade":item.quantity+" Unidades"}
 						</div>
-						<div className="col-md-2 d-flex justify-content-center align-items-center">
+						<div className="col-md-2 col-sm-3 d-flex justify-content-center align-items-center">
 							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 						</div>
-						<div className="col-md-2 d-flex justify-content-center align-items-center">
+						<div className="col-md-2 col-sm-3 d-flex justify-content-center align-items-center">
 							{(item.valorUnitario*item.quantity).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 						</div>
 						</Row>
@@ -59,58 +58,27 @@ class Carrinho extends Component {
 					<Col xs="12" md="4">
 						<ListGroup>
 							<h3 className="titulos">Resumo da compra</h3>
-							<ListGroupItem className="listaResumo">Produto:</ListGroupItem>
-							<ListGroupItem className="listaResumo">Valor:</ListGroupItem>
-							<ListGroupItem className="listaResumo">Frete:</ListGroupItem>
-							<ListGroupItem className="listaResumo">Valor total:</ListGroupItem>
+							<ListGroupItem className="listaResumo">Quantidade de Produto:<br/>{quantityItems}</ListGroupItem>
+							<ListGroupItem className="listaResumo">Valor:<br/>{total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+							<ListGroupItem className="listaResumo">
+								Frete:<br/>{frete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+							</ListGroupItem>
+							<ListGroupItem className="listaResumo">
+								Prazo de Entrega:<br/>{frete*(3/4)} Dias
+							</ListGroupItem>
+							<ListGroupItem className="listaResumo">
+								Valor total:<br/>{(total+frete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+							</ListGroupItem>
 						</ListGroup>
 						<Button  href="/checkout"className="btnFinalizar"color="danger">Finalizar Compra</Button>
 					</Col>		
 				</Row>
-				{/* <Col md="8">
-						<Row>
-						<Col md="2">
-							<div>Produto</div>
-							{addedItems.map(item => (
-								<div>{item.nome}</div>
-							))}
-						</Col>
-						</Row>
-						<Row>
-						<Col md="2">
-							<div>Quantidade</div>
-						</Col>
-						</Row>
-						<Row>
-						<Col md="2">
-							<div>Entrega</div>
-						</Col>
-						</Row>
-						<Row>
-						<Col md="2">
-							<div>Preço</div>
-						</Col>
-						</Row>
-						<Row>
-							{addedItems.map(item => (
-								<>
-								</>
-							))}
-						</Row>
-						<Row className="mt-2 mb-2 p-2 qnt">
-							
-						</Row>
-					</Col> */}
 			</Container>
 		</>
 		)
 	}
 }
 
-// const Carrinho = (novoproduto, dispatch) => (
-	
-	
-// );
 const mapStateToProps = state => ({
     addedItems: state.carrinhoReducer.addedItems,
     total: state.carrinhoReducer.total,

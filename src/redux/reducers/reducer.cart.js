@@ -1,23 +1,12 @@
 import { CartActionsType } from "../actions/actions-type";
 
 const INITIAL_STATE = {
-    // items: [
-    //     {
-    //         "idProduto": 1,
-    //         "nome": "Pipa Grande Colorida",
-    //         "descricao": "Pipa colorida",
-    //         "imagem": "https://i.ibb.co/SvxNRNy/pipa-box.png",
-    //         "valorUnitario": 40.5,
-    //         "disponibilidade": false,
-    //         "categoria": {
-    //             "codigo": 1,
-    //             "descricao": "Pipa"
-    //         }
-    //     },
-    // ],
     addedItems: [],
     total: 0,
     quantityItems:0,
+    cep:0,
+    valorFrete:0,
+    diasEntrega:0,
 };
 
 export default function pedido(state = INITIAL_STATE, action) {
