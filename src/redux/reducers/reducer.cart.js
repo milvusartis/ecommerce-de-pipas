@@ -23,13 +23,13 @@ export default function pedido(state = INITIAL_STATE, action) {
               
                 return {
                     ...state,
-                    total: state.total + addedItem.valorUnitario,
+                    total: state.total + addedItem.valorUnitario*action.number,
                     quantityItems: state.quantityItems + action.number,
                 }
             }else{
                 addedItem.quantity = action.number;
                 //Calculando a Quantidade de Ítens do Mesmo Produto
-                let newTotal = state.total + addedItem.valorUnitario 
+                let newTotal = state.total + addedItem.valorUnitario*addedItem.quantity
                 return { 
                     ...state,
                     addedItems: [...addedItems, addedItem],
