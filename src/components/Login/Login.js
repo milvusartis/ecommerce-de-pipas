@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './styles.css';
 import{
     Button,
     Input,
@@ -45,8 +46,8 @@ from 'reactstrap'
     }
     render() {
         return (
-            <div className="container d-flex justify-content-center">
-                <Form className="global">
+            <div className="container d-flex justify-content-center entrar">
+                <Form className="form" >
                     {
                         this.state.message !== ''?(
                         <Alert color="danger">{this.state.message}</Alert>
