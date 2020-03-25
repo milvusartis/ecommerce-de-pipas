@@ -56,6 +56,27 @@ export default function pedido(state = INITIAL_STATE, action) {
             }
         }
 
+
+        //Somando Quantidade
+        case CartActionsType.ADD_QUANTITY: {
+
+            let addedItem = state.addedItems.find(item=> item.idProduto === action.id)
+            addedItem.quantity += 1 
+            let newTotal = state.total + addedItem.valorUnitario
+            return{
+                ...state,
+                total: newTotal,
+                quantityItems: state.quantityItems + 1,
+            }
+
+           
+
+        }
+
+
+
+
+
         //Reduzindo quantidade 
         case CartActionsType.SUB_QUANTITY: {
 
@@ -82,9 +103,6 @@ export default function pedido(state = INITIAL_STATE, action) {
                     quantityItems: state.quantityItems - 1,
                 }
             }
-
-
-
 
         }
         default:
