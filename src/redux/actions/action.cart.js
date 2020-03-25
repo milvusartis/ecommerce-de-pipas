@@ -2,17 +2,35 @@ import { CartActionsType } from "./actions-type";
 
 const CartActions = {
 
-addToCart: (item, number) => ({
+  addToCart: (item, number) => ({
     type: CartActionsType.ADD_TO_CART,
     item,
     number,
   }),
 
   //remove item action
-removeItem: (id)=>({
-      type: CartActionsType.REMOVE_ITEM,
-      id
+  removeItem: (id) => ({
+    type: CartActionsType.REMOVE_ITEM,
+    id
+  }),
+
+  //add qt action
+  addQuantity: (id) => ({
+    type: CartActionsType.ADD_QUANTITY,
+    id
+  }),
+
+  //subtract qt action
+  subtractQuantity: (id) => ({
+    type: CartActionsType.SUB_QUANTITY,
+    id
   }),
 
 }
+
+
+
 export { CartActions }
+
+
+

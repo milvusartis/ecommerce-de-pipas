@@ -27,7 +27,7 @@ class FloatingCart extends Component {
 
 
     render() {
-        const { addedItems, quantityItems, total, removeItem } = this.props
+        const { addedItems, quantityItems, total, removeItem, addQuantity,  subtractQuantity} = this.props
       
 
 
@@ -53,7 +53,9 @@ class FloatingCart extends Component {
                                 <span className="item-name">{item.nome}</span>
                                 <span className="item-price">{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                                 <span className="item-quantity">Quantidade: {item.quantity}</span>      
-                               <Link className="item-name" onClick={()=>removeItem(item.idProduto)}>Remover</Link>                   
+                               <Link className="item-name" onClick={()=>removeItem(item.idProduto)}>Remover</Link>   
+                               <Link className="item-name" onClick={()=>addQuantity(item.idProduto)}>+</Link>    
+                               <Link className="item-name" onClick={()=>subtractQuantity(item.idProduto)}>-</Link>                    
                             </li>
                         ))}
                     </ul>
@@ -74,8 +76,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     removeItem: (id)=>{dispatch(CartActions.removeItem(id))},
-    // addQuantity: (id)=>{dispatch(CartActions.addQuantity(id))},
-    // subtractQuantity: (id)=>{dispatch(CartActions.subtractQuantity(id))}
+    addQuantity: (id)=>{dispatch(CartActions.addQuantity(id))},
+    subtractQuantity: (id)=>{dispatch(CartActions.subtractQuantity(id))}
 })
 
 
