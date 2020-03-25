@@ -13,7 +13,7 @@ import FloatingCart from '../FloatingCart/FloatingCart';
 class CarrinhoBadge extends Component {
 
     state = {
-        on: false,
+        on: true,
     }
 
     toggleVisibilityCart = () => {
