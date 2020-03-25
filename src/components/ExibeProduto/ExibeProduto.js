@@ -5,7 +5,6 @@ import {
     Container,
     Row,
     Col,
-    Input,
     Button
 } from 'reactstrap'
 
@@ -18,7 +17,7 @@ import ControlaQtd from "../ControlaQtd/ControlaQtd";
 
 class ExibeProduto extends Component {
   render() {
-    const {produto, number, addToCart, incrementQuantity, decrementQuantity} = this.props;
+    const {produto, number, addToCart} = this.props;
     return (
 
         <>
@@ -44,9 +43,9 @@ class ExibeProduto extends Component {
                             className="mt-2 mb-2 precoProduto">
                             {produto.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
-                        {/* <ControlaQtd/> */}
+                        <ControlaQtd/>
                         {/* ---------- Input com botão + e - ------*/}
-                        <Row className="mt-2 mb-2 p-2">          
+                        {/* <Row className="mt-2 mb-2 p-2">          
                                 <Button className="btnMenos" color="success" onClick={()=>decrementQuantity(number)}>-</Button>
                                 <Input
                                     type="number"
@@ -54,7 +53,7 @@ class ExibeProduto extends Component {
                                     value={number}
                                 />
                                 <Button className="btnMais" color="success" onClick={()=>incrementQuantity(number)}>+</Button>
-                        </Row>    
+                        </Row>     */}
                         {/* ---------- Input com botão + e - ------*/}
                         <Button className="btn-success col-sm-12 col-md-6"onClick={()=>addToCart(produto,number)}>Adicionar ao Carrinho</Button>
                         <CalculaFrete/>
