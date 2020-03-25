@@ -1,9 +1,11 @@
-import { CartActionsType} from "./actions-type";
+import { CartActionsType } from "./actions-type";
 
-export function addToCart(item, number) {
-    return {
-      type: CartActionsType.ADD_TO_CART,
-      item,
-      number,
-    };
+const CartActions = {
+
+addToCart: (item, number) => ({
+    type: CartActionsType.ADD_TO_CART,
+    item,
+    number,
+  }),
 }
+export { CartActions }
