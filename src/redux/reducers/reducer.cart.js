@@ -11,7 +11,6 @@ const INITIAL_STATE = {
 
 export default function pedido(state = INITIAL_STATE, action) {
     const { addedItems, quantityItems } = state;
-    console.log(addedItems.length)
     switch (action.type) {
         case CartActionsType.ADD_TO_CART: {
             let addedItem = action.item;
@@ -105,6 +104,8 @@ export default function pedido(state = INITIAL_STATE, action) {
             }
 
         }
+        case CartActionsType.CHANGE_CEP_VALUE:
+            return {...state,cep:action.cep}
         default:
             return state;
     }
