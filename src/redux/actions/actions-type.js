@@ -5,7 +5,7 @@ export const ProductActionsTypes = {
     REQUEST_PRODUCT_LISt: 'REQUEST_TODO_LIST',
     SUCCESS_PRODUCT_LIST: 'SUCCESS_TODO_LIST',
     FAILURE_PRODUCT_LIST: 'FAILURE_TODO_LIST',
-
+    
 }
 
 export const CartActionsType = {
@@ -14,6 +14,8 @@ export const CartActionsType = {
     SUB_QUANTITY: 'SUB_QUANTITY',
     ADD_QUANTITY: 'ADD_QUANTITY',
     ADD_SHIPPING: 'ADD_SHIPPING',
+    GET_CEP:'GET_CEP',
+    CHANGE_CEP_VALUE:'CHANGE_CEP_VALUE',
 }
 
 export const ListaDeProdutosActionsType = {

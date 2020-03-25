@@ -1,4 +1,4 @@
-import React, { useState , Component} from "react";
+import React, { useState } from "react";
 import { ReactComponent as Logo } from "./image/milvus_logo.svg"
 import { Link } from "react-router-dom";
 
