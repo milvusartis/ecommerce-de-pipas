@@ -40,6 +40,11 @@ export default function pedido(state = INITIAL_STATE, action) {
             }
            
         }
+
+        case CartActionsType.REMOVE_ITEM: {
+            console.log("Remover")
+            break;
+        }
         default:
             return state;
     }

@@ -53,9 +53,9 @@ class CarrinhoBadge extends Component {
                     <Link to="/carrinho"><Badge pill variant="" className="badge cart" onMouseOver={(event) => this.onHover(event)} ><MdShoppingCart /></Badge>{' '}</Link>
                 </span>
                 {this.state.on && (
-                    <Link to=""  onMouseLeave={(event) => this.onLeave(event)}>
+                    <span  onMouseLeave={(event) => this.onLeave(event)}>
                         <FloatingCart />
-                    </Link>
+                    </span>
 
                 )}
             </>

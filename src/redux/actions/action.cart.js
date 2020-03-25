@@ -7,5 +7,12 @@ addToCart: (item, number) => ({
     item,
     number,
   }),
+
+  //remove item action
+removeItem: (id)=>({
+      type: CartActionsType.REMOVE_ITEM,
+      id
+  }),
+
 }
 export { CartActions }
