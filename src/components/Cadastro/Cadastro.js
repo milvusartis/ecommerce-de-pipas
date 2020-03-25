@@ -4,6 +4,7 @@ import './style.css';
 import{
     Input,
     Form,
+    Col
 }
 from 'reactstrap';
 
@@ -37,29 +38,29 @@ from 'reactstrap';
       }
     render() {
         return (
-            <div className="container d-flex justify-content-center cadastro">
+            <Col className="container d-flex justify-content-center cadastro" >
                 <Form onSubmit={this.handleSubmit} className="form">
                     <h5 className="grey-text text-darken-3">Cadastro</h5>
-                        <div className="input-field">
+                        <Col className="input-field">
                             <label htmlForm="email">Email</label>
                             <Input  placeholder="Email" type="email" id="email" onChange={this.handleChange}/>
-                        </div>
-                        <div className="input-field">
+                        </Col>
+                        <Col className="input-field">
                             <label htmlForm="senha">Senha</label>
                             <Input  placeholder="Senha" type="password" id="password" onChange={this.handleChange}/>   
-                        </div>
-                        <div className="input-field">
+                        </Col>
+                        <Col className="input-field">
                             <label htmlForm="email">Nome</label>
                             <Input  placeholder="Nome" type="text" id="nome" onChange={this.handleChange}/>
-                        </div> <div className="input-field">
+                        </Col> <Col className="input-field">
                             <label htmlForm="Sobrenome">sobrenome</label>
                             <Input  placeholder="Sobrenome" type="Sobrenome" id="sobrenome" onChange={this.handleChange}/>
-                        </div>
-                        <div className="input-field">
+                        </Col>
+                        <Col className="input-field">
                             <button className="btn btn-danger mt-3 mb-3">Cadastrar</button>
-                        </div>
+                        </Col>
                  </Form>
-            </div>
+            </Col>
         )
     }
 }

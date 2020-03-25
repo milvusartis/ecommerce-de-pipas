@@ -5,6 +5,7 @@ import{
     Input,
     Form,
     Alert,
+    Col,
 }
 from 'reactstrap'
 
@@ -46,7 +47,7 @@ from 'reactstrap'
     }
     render() {
         return (
-            <div className="container d-flex justify-content-center entrar">
+            <Col className="container d-flex justify-content-center entrar">
                 <Form className="form" >
                     {
                         this.state.message !== ''?(
@@ -55,25 +56,25 @@ from 'reactstrap'
                     }
                     <hr className="my-3"/>
                     <h5 className="grey-text text-darken-3">Login</h5>
-                        <div className="input-field">
+                        <Col className="input-field">
                             <label htmlForm="email">Email</label>
                             <Input  placeholder="Email" type="email" id="email" onChange={e => this.email = e.target.value}/>
-                        </div>
-                        <div className="input-field">
+                        </Col>
+                        <Col className="input-field">
                             <label htmlForm="password">Password</label>
                             <Input  placeholder="Senha" type="password" id="password" onChange={e => this.password = e.target.value}/>   
-                        </div>
-                        <div className="input-field">
+                        </Col>
+                        <Col className="input-field">
                             <Button className="btn btn-danger mt-3 mb-3 " onClick={this.sigIn}>Login</Button>
                             <a href ="/cadastro"className="btn btn-danger mt-3 mb-3 ml-5">Cadastro</a>
-                            <div>
+                            <Col>
                                 <Button to='/logout' color="success">Sair</Button>
-                            </div>
+                            </Col>
                             
                             
-                        </div>
+                        </Col>
                  </Form>
-            </div>
+            </Col>
         )
     }
 }

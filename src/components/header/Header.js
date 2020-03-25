@@ -44,7 +44,7 @@ const Header = () => {
             <header>
                 {/* INICIO TOPO */}
                 {/* Para Merge */}
-                <Container fluid={true}>
+                <Container fluid={true} id="container">
                     <Row className="topo">
                         <Col className="logo" sm={12} md={3} lg={3}>
                             <NavbarBrand href="/">
@@ -52,7 +52,7 @@ const Header = () => {
                             </NavbarBrand>
                         </Col>
 
-                        <Col className="search" sm={12} md={3} lg={5}>
+                        <Col className="search ml-5 " sm={8} md={3} lg={4}>
                             <InputGroup>
                                 <Input placeholder="Busque por produtos" />
                                 <InputGroupAddon addonType="append">
@@ -104,16 +104,7 @@ const Header = () => {
                     </Row>
 
                 </Container>
-                {/* <FloatingCart /> */}
 
-
-            
-                {/* BARRA DE NAVEGAÇÃO */}
-
-
-
-
-                {/* FINAL TOPO */}
             </header>
         </>
     );
