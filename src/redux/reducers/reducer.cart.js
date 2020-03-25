@@ -24,7 +24,7 @@ export default function pedido(state = INITIAL_STATE, action) {
                 return {
                     ...state,
                     total: state.total + addedItem.valorUnitario*action.number,
-                    quantityItems: state.quantityItems + action.number,
+                    quantityItems: quantityItems + action.number,
                 }
             }else{
                 addedItem.quantity = action.number;
@@ -34,7 +34,7 @@ export default function pedido(state = INITIAL_STATE, action) {
                     ...state,
                     addedItems: [...addedItems, addedItem],
                     total: newTotal ,
-                    quantityItems: state.quantityItems + addedItem.quantity,
+                    quantityItems: quantityItems + addedItem.quantity,
                 }
 
             }

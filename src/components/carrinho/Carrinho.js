@@ -44,7 +44,7 @@ class Carrinho extends Component {
 							{item.nome}
 						</div>
 						<div className="col-md-2 col-sm-6 d-flex justify-content-center align-items-center">
-							{item.quantity==1?item.quantity+" Unidade":item.quantity+" Unidades"}
+							{item.quantity===1?item.quantity+" Unidade":item.quantity+" Unidades"}
 						</div>
 						<div className="col-md-2 col-sm-3 d-flex justify-content-center align-items-center">
 							{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
