@@ -134,6 +134,10 @@
     clear: both;
   }
 
+  .item-quantity{
+    padding: 6px;
+  }
+
   .clearfix .item-imagem{
     width: 70px;
     height: 70px;
@@ -141,5 +145,37 @@
   .clearfix .item-name{
     color: #28A700;
   }
+
+  .btn-add-sub{
+    background-color: #FFF;
+    color: #6C6C6C;
+    padding: 0;
+    margin: 0.3rem;
+
+    border: 1px solid #6C6C6C;
+   border-radius: 25px;
+    
+    /* padding: 5px 10px 5px 10px; */
+  }
   
   
+  .btn-add-sub:hover{
+    background-color:  #6C6C6C;
+    color:  #FFF;
+    cursor: pointer;
+   
+  }
+
+  .btn-rem{
+    background-color: #FFF;
+    color: #6C6C6C;
+    margin: 0.3rem;
+
+  }
+  
+  .btn-rem:hover{
+    background-color: #FFF;
+    color: #EA4A6F;
+    cursor: pointer;
+    cursor: pointer;
+  }

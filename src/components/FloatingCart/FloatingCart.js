@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { MdArrowDropUp, MdArrowDropDown , MdClose} from "react-icons/md";
 
-import { bindActionCreators } from 'redux';
-import {CartActions} from "../../redux/actions/action.cart";
+import { CartActions } from "../../redux/actions/action.cart";
 import { connect } from 'react-redux';
 
 import "./FloatingCart.css";
+import { Button } from 'reactstrap';
 
 
 class FloatingCart extends Component {
@@ -27,8 +28,8 @@ class FloatingCart extends Component {
 
 
     render() {
-        const { addedItems, quantityItems, total, removeItem, addQuantity,  subtractQuantity} = this.props
-      
+        const { addedItems, quantityItems, total, removeItem, addQuantity, subtractQuantity } = this.props
+
 
 
         return (
@@ -52,10 +53,10 @@ class FloatingCart extends Component {
                                 <img className="item-imagem" src={item.imagem} alt="item1" />
                                 <span className="item-name">{item.nome}</span>
                                 <span className="item-price">{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-                                <span className="item-quantity">Quantidade: {item.quantity}</span>      
-                               <Link className="item-name" onClick={()=>removeItem(item.idProduto)}>Remover</Link>   
-                               <Link className="item-name" onClick={()=>addQuantity(item.idProduto)}>+</Link>    
-                               <Link className="item-name" onClick={()=>subtractQuantity(item.idProduto)}>-</Link>                    
+                                <span className="btn-add-sub" onClick={() => subtractQuantity(item.idProduto)}><MdArrowDropDown/></span>
+                                <span className="item-quantity">{item.quantity}</span>
+                                <span className="btn-add-sub" onClick={() => addQuantity(item.idProduto)}><MdArrowDropUp/></span>
+                                <span className="btn-rem" onClick={() => removeItem(item.idProduto)}><MdClose/></span>
                             </li>
                         ))}
                     </ul>
@@ -75,9 +76,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    removeItem: (id)=>{dispatch(CartActions.removeItem(id))},
-    addQuantity: (id)=>{dispatch(CartActions.addQuantity(id))},
-    subtractQuantity: (id)=>{dispatch(CartActions.subtractQuantity(id))}
+    removeItem: (id) => { dispatch(CartActions.removeItem(id)) },
+    addQuantity: (id) => { dispatch(CartActions.addQuantity(id)) },
+    subtractQuantity: (id) => { dispatch(CartActions.subtractQuantity(id)) }
 })
 
 
