@@ -44,17 +44,6 @@ class ExibeProduto extends Component {
                             {produto.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                         </h5>
                         <ControlaQtd/>
-                        {/* ---------- Input com botão + e - ------*/}
-                        {/* <Row className="mt-2 mb-2 p-2">          
-                                <Button className="btnMenos" color="success" onClick={()=>decrementQuantity(number)}>-</Button>
-                                <Input
-                                    type="number"
-                                    className="col-2 mt-2 quantidade"
-                                    value={number}
-                                />
-                                <Button className="btnMais" color="success" onClick={()=>incrementQuantity(number)}>+</Button>
-                        </Row>     */}
-                        {/* ---------- Input com botão + e - ------*/}
                         <Button className="btn-success col-sm-12 col-md-6"onClick={()=>addToCart(produto,number)}>Adicionar ao Carrinho</Button>
                         <CalculaFrete/>
                     </div>

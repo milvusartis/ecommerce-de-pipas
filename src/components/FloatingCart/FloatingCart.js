@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import { bindActionCreators } from 'redux';
+//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import "./FloatingCart.css";

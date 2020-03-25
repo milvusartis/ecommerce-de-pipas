@@ -20,6 +20,7 @@ class ControlaQtd extends Component {
             type="number"
              className="col-2 mt-2 quantidade"
             value={number}
+            readOnly
              />
         <Button className="btnMais" color="success" onClick={()=>incrementQuantity(number)}>+</Button>
         </Row>

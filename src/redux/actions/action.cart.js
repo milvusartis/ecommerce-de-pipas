@@ -7,3 +7,10 @@ export function addToCart(item, number) {
       number,
     };
 }
+
+export function changeCepValue(cep){
+  return{
+    type:CartActionsType.CHANGE_CEP_VALUE,
+    cep
+  };
+}
