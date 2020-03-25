@@ -41,9 +41,20 @@ export default function pedido(state = INITIAL_STATE, action) {
            
         }
 
-        case CartActionsType.REMOVE_ITEM: {
-            console.log("Remover")
-            break;
+        //Removendo Todos Os Ítems
+        case CartActionsType.REMOVE_ITEM: {            
+
+            let itemToRemove= state.addedItems.find(item=> action.id === item.idProduto)
+            let new_items = state.addedItems.filter(item=> action.id !== item.idProduto)
+            //calculating the total
+            let newTotal = state.total - (itemToRemove.valorUnitario * itemToRemove.quantity )
+         
+            return{
+                ...state,
+                addedItems: new_items,
+                total: newTotal,
+                quantityItems: state.quantityItems - itemToRemove.quantity,
+            }
         }
         default:
             return state;

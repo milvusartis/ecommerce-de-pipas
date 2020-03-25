@@ -53,7 +53,7 @@ class FloatingCart extends Component {
                                 <span className="item-name">{item.nome}</span>
                                 <span className="item-price">{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
                                 <span className="item-quantity">Quantidade: {item.quantity}</span>      
-                                                      
+                               <Link className="item-name" onClick={()=>removeItem(item.idProduto)}>Remover</Link>                   
                             </li>
                         ))}
                     </ul>
