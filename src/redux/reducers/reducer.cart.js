@@ -3,10 +3,10 @@ import { CartActionsType } from "../actions/actions-type";
 const INITIAL_STATE = {
     addedItems: [],
     total: 0,
-    quantityItems:0,
-    cep:0,
-    valorFrete:0,
-    diasEntrega:0,
+    quantityItems: 0,
+    cep: 0,
+    valorFrete: 0,
+    diasEntrega: 0,
 };
 
 export default function pedido(state = INITIAL_STATE, action) {
@@ -16,32 +16,99 @@ export default function pedido(state = INITIAL_STATE, action) {
             let addedItem = action.item;
             //Verificando se existem ocorrencia no addItems
             let existed_item = addedItems.find(item => action.item.idProduto === item.idProduto);
-            if (existed_item) 
-            {
-                addedItem.quantity += action.number           
-              
+            if (existed_item) {
+                addedItem.quantity += action.number
+
                 return {
                     ...state,
-                    total: state.total + addedItem.valorUnitario*action.number,
-                    quantityItems: quantityItems + action.number,
+                    total: state.total + addedItem.valorUnitario * action.number,
+                    quantityItems: state.quantityItems + action.number,
                 }
-            }else{
+            } else {
                 addedItem.quantity = action.number;
                 //Calculando a Quantidade de Ítens do Mesmo Produto
-                let newTotal = state.total + addedItem.valorUnitario*addedItem.quantity
-                return { 
+                let newTotal = state.total + addedItem.valorUnitario * addedItem.quantity
+                return {
                     ...state,
                     addedItems: [...addedItems, addedItem],
-                    total: newTotal ,
-                    quantityItems: quantityItems + addedItem.quantity,
+                    total: newTotal,
+                    quantityItems: state.quantityItems + addedItem.quantity,
                 }
 
             }
+
+        }
+
+        //Removendo Todos Os Ítems
+        case CartActionsType.REMOVE_ITEM: {
+
+            let itemToRemove = state.addedItems.find(item => action.id === item.idProduto)
+            let new_items = state.addedItems.filter(item => action.id !== item.idProduto)
+            //calculating the total
+            let newTotal = state.total - (itemToRemove.valorUnitario * itemToRemove.quantity)
+
+            return {
+                ...state,
+                addedItems: new_items,
+                total: newTotal,
+                quantityItems: state.quantityItems - itemToRemove.quantity,
+            }
+        }
+
+
+        //Somando Quantidade
+        case CartActionsType.ADD_QUANTITY: {
+
+            let addedItem = state.addedItems.find(item=> item.idProduto === action.id)
+            addedItem.quantity += 1 
+            let newTotal = state.total + addedItem.valorUnitario
+            return{
+                ...state,
+                total: newTotal,
+                quantityItems: state.quantityItems + 1,
+            }
+
            
+
+        }
+
+
+
+
+
+        //Reduzindo quantidade 
+        case CartActionsType.SUB_QUANTITY: {
+
+
+
+            let addedItem = state.addedItems.find(item => item.idProduto === action.id)
+            //if the qt == 0 then it should be removed
+            if (addedItem.quantity === 1) {
+                let new_items = state.addedItems.filter(item => item.idProduto !== action.id)
+                let newTotal = state.total - addedItem.valorUnitario
+                return {
+                    ...state,
+                    addedItems: new_items,
+                    total: newTotal,
+                    quantityItems: state.quantityItems - 1,
+                }
+            }
+            else {
+                addedItem.quantity -= 1
+                let newTotal = state.total - addedItem.valorUnitario
+                return {
+                    ...state,
+                    total: newTotal,
+                    quantityItems: state.quantityItems - 1,
+                }
+            }
+
         }
         case CartActionsType.CHANGE_CEP_VALUE:
             return {...state,cep:action.cep}
         default:
             return state;
     }
+
+
 }

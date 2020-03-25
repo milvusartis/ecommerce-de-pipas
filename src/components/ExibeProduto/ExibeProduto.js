@@ -10,7 +10,7 @@ import {
 
 
 import * as ProdutoActions from "../../redux/actions/action.product";
-import * as CartActions from "../../redux/actions/action.cart";
+import {CartActions} from "../../redux/actions/action.cart";
 import CalculaFrete from '../CalculaFrete/CalculaFrete';
 import ControlaQtd from "../ControlaQtd/ControlaQtd";
 

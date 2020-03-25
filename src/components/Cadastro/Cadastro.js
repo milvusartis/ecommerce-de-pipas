@@ -37,8 +37,8 @@ from 'reactstrap';
       }
     render() {
         return (
-            <div className="container d-flex justify-content-center">
-                <Form onSubmit={this.handleSubmit} className="global">
+            <div className="container d-flex justify-content-center cadastro">
+                <Form onSubmit={this.handleSubmit} className="form">
                     <h5 className="grey-text text-darken-3">Cadastro</h5>
                         <div className="input-field">
                             <label htmlForm="email">Email</label>
