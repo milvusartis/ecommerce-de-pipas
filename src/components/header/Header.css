@@ -2,10 +2,10 @@
 .topo {
     background: #36393A;
     padding: 20px;
-    /* font-weight: bold;     */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+  
   }
 
   .logo{
@@ -19,10 +19,9 @@
     text-decoration: none;
   }
   
-   
   .search *{
     flex-flow: row nowrap;
-    /* font-size: x-large; */
+  
     
   }
   
