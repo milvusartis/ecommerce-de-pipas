@@ -1,5 +1,6 @@
 import { CartActionsType } from "../redux/actions/actions-type";
 import  api  from "../services/api-cep";
+import { takeLatest, call,all } from 'redux-saga/effects';
 
 function* getCepRequested(){
     const response = yield call (api.get, '/');

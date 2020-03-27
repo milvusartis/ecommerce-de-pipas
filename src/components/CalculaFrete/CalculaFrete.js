@@ -43,9 +43,6 @@ class CalculaFrete extends Component{
                 >
                 Calcular Frete
             </Button>
-            <Button onClick={()=>console.log(cep)}>
-                Testar
-            </Button>
          </InputGroup>
                 <p className="mt-2 mb-2"
                     title="Valor do Frete">
