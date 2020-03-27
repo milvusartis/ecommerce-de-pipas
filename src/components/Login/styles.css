@@ -1,21 +1,69 @@
-.form{
-    width: 80vh
-     
+.logon-container{
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.form{
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+
+.logon-container .content {
+    width: 100%;
+    padding: 30px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0 ,0 , 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.entrar{
-    background-color: rgb(243, 242, 242);
+
+.logon-container .content section{
+    width: 100%;
+    max-width: 380px;
+}
+
+.logon-container .content section h1 {
+    margin: 64px 0 32px;
+    font-size: 32px;
+    color: black;
+}
+
+.logon-container .content form{
+    width: 100%;
+    max-width: 450px;
+}
+
+.logon-container .content form input{
+
+    margin-top: 8px;
+}
+
+
+Form Input{
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+}
+
+
+.back-link{
+    display: flex;
+    align-items: center;
+    color: #41414d;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
     
-    
 }
-.entrar{
-    width: 150vh;
-    height: 60vh;
-}
-.entrar{
-    margin-bottom: 10vh;
-    margin-top: 10vh;
+
+.back-link:hover{
+    opacity: 0.8;
 }

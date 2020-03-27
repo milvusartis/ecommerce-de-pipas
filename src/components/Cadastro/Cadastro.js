@@ -1,70 +1,73 @@
-import React, { Component } from 'react';
+import React, { useState} from 'react';
+
+
+import api from '../../services/api';
+
 import './style.css';
+import milvus_logo from '../header/image/milvus_logo.svg';
 
-import{
-    Input,
-    Form,
-    Col
-}
-from 'reactstrap';
+export default function Cadastro() {
+    const [name, setName] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
- class Cadastro extends Component {
-     state ={
-         email: '',
-         password: '',
-         nome: '',
-         sobrenome:''
 
-     }
-     handleChange = (e) =>{
-        this.setState({
-            [e.target.id]: e.target.value
-        })
 
+async function handleRegister(e){
+    e.preventDefault();
+
+    const data = {
+        name,
+        lastname,
+        email,
+        password,
+    };
+
+    try{
+        const response = await  api.post('cliente', data)
+        alert("Cadastro realizado com sucesso");
+    }catch (err){
+        alert('Erro no cadastro, tente novamente.')
     }
-    handleSubmit = (e) => {
-        e.preventDefault(); 
-        const email = e.target.elements.email.value;
-        const password = e.target.elements.password.value;
-        const nome = e.target.elements.nome.value;
-        const sobrenome = e.target.elements.sobrenome.value;
-
-        sessionStorage.setItem ('@milvus/password', password);
-        sessionStorage.setItem('@milvus/email', email);
-        sessionStorage.setItem('@milvus/nome',nome);
-        sessionStorage.setItem('@milvus/sobrenome', sobrenome);
-        window.location.reload();
-      
-      }
-    render() {
-        return (
-            <Col className="container d-flex justify-content-center cadastro" >
-                <Form onSubmit={this.handleSubmit} className="form">
-                    <h5 className="grey-text text-darken-3">Cadastro</h5>
-                        <Col className="input-field">
-                            <label htmlForm="email">Email</label>
-                            <Input  placeholder="Email" type="email" id="email" onChange={this.handleChange}/>
-                        </Col>
-                        <Col className="input-field">
-                            <label htmlForm="senha">Senha</label>
-                            <Input  placeholder="Senha" type="password" id="password" onChange={this.handleChange}/>   
-                        </Col>
-                        <Col className="input-field">
-                            <label htmlForm="email">Nome</label>
-                            <Input  placeholder="Nome" type="text" id="nome" onChange={this.handleChange}/>
-                        </Col> <Col className="input-field">
-                            <label htmlForm="Sobrenome">sobrenome</label>
-                            <Input  placeholder="Sobrenome" type="Sobrenome" id="sobrenome" onChange={this.handleChange}/>
-                        </Col>
-                        <Col className="input-field">
-                            <button className="btn btn-danger mt-3 mb-3">Cadastrar</button>
-                        </Col>
-                 </Form>
-            </Col>
-        )
-    }
+    
 }
 
 
+    return (
+        <div className="register-container">
+            <div className="content">
+                <section>
+                    <img src={milvus_logo} alt="Be The Hero" />
 
-export default Cadastro
+                    <h1>Cadastro</h1>
+                </section>
+                <form onSubmit={handleRegister}>
+                <input type="text"
+                    placeholder="Nome"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    />
+                    <input type="text" 
+                    placeholder="Sobrenome"
+                    value={lastname}
+                    onChange={e => setLastname(e.target.value)}
+                    />
+                    <input type="email" 
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    />
+                    <input 
+                    placeholder="Senha"
+                    type="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    />
+
+                    <button className="button" type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    ) 
+}
