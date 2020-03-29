@@ -5,8 +5,8 @@ const INITIAL_STATE = {
     total: 0,
     quantityItems: 0,
     cep: 0,
-    valorFrete: 0,
-    diasEntrega: 0,
+    valorFrete: '',
+    diasEntrega: '',
 };
 
 export default function pedido(state = INITIAL_STATE, action) {
@@ -106,6 +106,16 @@ export default function pedido(state = INITIAL_STATE, action) {
         }
         case CartActionsType.CHANGE_CEP_VALUE:
             return {...state,cep:action.cep}
+
+        case CartActionsType.CHANCE_FRETE_INFO:
+            return {...state,
+                valorFrete:action.valorFrete,
+                diasEntrega:action.diasEntrega
+            }
+        case CartActionsType.GET_CEP:{
+            console.log("Acionou")
+            return {...state}
+        }
         default:
             return state;
     }

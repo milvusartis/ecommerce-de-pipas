@@ -15,6 +15,20 @@ export function changeCepValue(cep){
   };
 }
 
+export function changeFreteInfo(valorFrete,diasEntrega){
+  return{
+    type:CartActionsType.CHANCE_FRETE_INFO,
+    valorFrete,diasEntrega
+  };
+}
+
+export function getCep(cep){
+  return{
+    type:CartActionsType.GET_CEP,
+    cep
+  };
+}
+
 const CartActions = {
 
   addToCart: (item, number) => ({
