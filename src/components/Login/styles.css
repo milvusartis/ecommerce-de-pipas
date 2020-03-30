@@ -29,7 +29,7 @@
 .logon-container .content section h1 {
     margin: 64px 0 32px;
     font-size: 32px;
-    color: black;
+    color: #6C6C6C;
 }
 
 .logon-container .content form{
@@ -43,14 +43,6 @@
 }
 
 
-Form Input{
-    width: 100%;
-    height: 60px;
-    color: #333;
-    border: 1px solid #dcdce6;
-    border-radius: 8px;
-    padding: 0 24px;
-}
 
 
 .back-link{

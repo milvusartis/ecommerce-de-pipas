@@ -4,7 +4,7 @@ import React, { useState} from 'react';
 import api from '../../services/api';
 
 import './style.css';
-import milvus_logo from '../header/image/milvus_logo.svg';
+
 
 export default function Cadastro() {
     const [name, setName] = useState('');
@@ -38,10 +38,8 @@ async function handleRegister(e){
         <div className="register-container">
             <div className="content">
                 <section>
-                    <img src={milvus_logo} alt="Be The Hero" />
-
-                    <h1>Cadastro</h1>
-                </section>
+                    <h1> Faça seu cadastro</h1>
+            
                 <form onSubmit={handleRegister}>
                 <input type="text"
                     placeholder="Nome"
@@ -67,6 +65,7 @@ async function handleRegister(e){
 
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
+                </section>
             </div>
         </div>
     ) 
