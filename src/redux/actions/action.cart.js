@@ -15,6 +15,20 @@ export function changeCepValue(cep){
   };
 }
 
+export function changeFreteInfo(json){
+  return{
+    type:CartActionsType.CHANCE_FRETE_INFO,
+    payload:json
+  };
+}
+
+export function getCep(cep){
+  return{
+    type:CartActionsType.GET_CEP,
+    cep
+  };
+}
+
 const CartActions = {
 
   addToCart: (item, number) => ({

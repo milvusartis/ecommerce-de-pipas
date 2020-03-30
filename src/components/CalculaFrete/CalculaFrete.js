@@ -1,5 +1,4 @@
 import  React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import InputMask from "react-input-mask";
 import {
@@ -9,6 +8,9 @@ import {
     Button
 } from 'reactstrap'
 import * as CartActions from "../../redux/actions/action.cart";
+
+const dias = "dias";
+
 class CalculaFrete extends Component{
     state={
         cep:''
@@ -17,7 +19,7 @@ class CalculaFrete extends Component{
         this.setState({cep:event.target.value.replace(/\D/g,"")})
     }
     render(){
-        const {cep,changeCepValue} = this.props
+        const {changeCepValue,valorFrete,diasEntrega,getCep} = this.props
         return(
             <>
         <FormGroup className="mt-5 mb-2 p-2 border border-dark">
@@ -35,24 +37,20 @@ class CalculaFrete extends Component{
                 maskPlaceholder={null}
                 onChange={this.handleCepValue}
             />
-    {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
+        {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
             <Button
                 color="success"
-                onClick={()=>{changeCepValue(this.state.cep);console.log(this.state.cep)}}
-            //nesse onClick:usar o change para guardar o valor do cep e subtistuir o console.log pela função de busca do cep
+                onClick={()=>{changeCepValue(this.state.cep);getCep(this.state.cep)}}
                 >
                 Calcular Frete
-            </Button>
-            <Button onClick={()=>console.log(cep)}>
-                Testar
             </Button>
          </InputGroup>
                 <p className="mt-2 mb-2"
                     title="Valor do Frete">
-                    Valor do Frete: R$ 
+                    Valor do Frete: {valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </p>
                 <p className="mt-2 mb-2">
-                    Prazo de Entrega:
+                    Prazo de Entrega: {diasEntrega} {diasEntrega!==''?dias:''}
                 </p>
             </FormGroup>
          </>
@@ -61,13 +59,13 @@ class CalculaFrete extends Component{
 }
 
 const mapStateToProps = state => ({
-    cep:state.carrinhoReducer.cep,
-    //valorFrete:state.carrinhoReducer.valorFrete,
-    //diasEntrega:state.carrinhoReducer.diasEntrega,
+    valorFrete:state.carrinhoReducer.valorFrete,
+    diasEntrega:state.carrinhoReducer.diasEntrega,
 });
 
 const mapDispatchToProps = dispatch =>({
-    changeCepValue:(cep)=>dispatch(CartActions.changeCepValue(cep))
+    changeCepValue:(cep)=>dispatch(CartActions.changeCepValue(cep)),
+    getCep:(cep)=>dispatch(CartActions.getCep(cep))
 });
 
 export default connect(

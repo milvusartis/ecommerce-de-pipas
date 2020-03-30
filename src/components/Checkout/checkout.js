@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import './Checkout.css'
+import './Checkout.css';
+import { connect } from 'react-redux';
 import { Col, Row, Button, Form, FormGroup, Label,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
-
-
-
 class Checkout extends Component {
-
     render() {
+        const { quantityItems, total,valorFrete,diasEntrega} = this.props
         return (
             <>
             <Container id="checkout">
@@ -53,14 +51,21 @@ class Checkout extends Component {
 
                     </Col>
                     <Col xs="12" md="4">
-                     <ListGroup>
-                         <h3 className="titulos">Resumo da compra</h3>
-                        <ListGroupItem className="listaResumo">Produto:</ListGroupItem>
-                        <ListGroupItem className="listaResumo">Valor:</ListGroupItem>
-                        <ListGroupItem className="listaResumo">Frete:</ListGroupItem>
-                        <ListGroupItem className="listaResumo">Prazo de entrega:</ListGroupItem>
-                        <ListGroupItem className="listaResumo">Valor total:</ListGroupItem>
-                      </ListGroup>
+                    <ListGroup>
+							<h3 className="titulos">Resumo da compra</h3>
+							<ListGroupItem className="listaResumo">Quantidade de Produto:<br className="ajusta"/>{quantityItems}</ListGroupItem>
+							
+							<ListGroupItem className="listaResumo">Valor:<br/>{total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+							<ListGroupItem className="listaResumo">
+								Frete:<br/>{valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+							</ListGroupItem>
+							<ListGroupItem className="listaResumo">
+								Prazo de Entrega:<br/>{diasEntrega} Dias
+							</ListGroupItem>
+							<ListGroupItem className="listaResumo">
+								Valor total:<br/>{(total+diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+							</ListGroupItem>
+						</ListGroup>
                       <Button href="/sucesso" className="btnFinalizar"color="success">Finalizar Compra</Button>
                     </Col>
                     </Row>
@@ -72,4 +77,20 @@ class Checkout extends Component {
     }
 }
 
-export default Checkout;
+
+const mapStateToProps = state => ({
+    addedItems: state.carrinhoReducer.addedItems,
+    total: state.carrinhoReducer.total,
+	quantityItems: state.carrinhoReducer.quantityItems,
+	valorFrete:state.carrinhoReducer.valorFrete,
+	diasEntrega:state.carrinhoReducer.diasEntrega,
+});
+
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Checkout);

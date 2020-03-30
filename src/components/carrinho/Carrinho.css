@@ -7,3 +7,38 @@ p{
     width: 300px;
     margin-left: 160px;
 }
+@media (max-width: 540px){
+  .imagens{
+    width: 90%;
+    height: 90%;
+  }
+  .titulo{
+    display: none;
+  }
+  .visao-normal{
+    display: none;
+  }
+}
+@media (min-width: 600px){
+  .imagens{
+    width: 100%;
+    height: 100%;
+  }
+  .esconde{
+    display: none;
+  }
+}
+
+.titulo{
+  font-size: small;
+}
+
+.teste{
+  padding: left 0;
+}
+
+@media (max-width:991px) and (min-width:759px){
+  .ajusta{
+    display: none;
+  }
+}
