@@ -8,12 +8,10 @@ import {
     Button
 } from 'reactstrap'
 
-
 import * as ProdutoActions from "../../redux/actions/action.product";
 import {CartActions} from "../../redux/actions/action.cart";
 import CalculaFrete from '../CalculaFrete/CalculaFrete';
 import ControlaQtd from "../ControlaQtd/ControlaQtd";
-
 
 class ExibeProduto extends Component {
   render() {

@@ -1,32 +1,20 @@
 import React, { Component } from 'react';
 import './ListaDeProdutos.css';
-
-// import { bindActionCreators } from 'redux';
-
+import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import {
     Col, Row, Container, Card, CardImg, CardTitle, CardText,
     CardSubtitle, CardBody, Button,
 } from 'reactstrap';
 
-
-import { Link } from "react-router-dom";
-
-import { connect } from 'react-redux';
-
 import { listaDeProdutoActions } from '../../redux/actions/action.lista-de-produtos'
-// import { ListaDeProdutosActionsType } from '../../redux/actions/actions-type';
 import * as ProductAction from '../../redux/actions/action.product'
 
-
-
 class ListaDeProdutos extends Component {
-
     componentDidMount() {
         const { getAll } = this.props;
         getAll();
     }
-
-
     render() {
         const { produtos, produtoAtivo, changeDisplayedProduct, } = this.props    
         return (
@@ -34,7 +22,6 @@ class ListaDeProdutos extends Component {
                 <Container>
                     <Row>
                         {produtos.map(produto => (
-
                             <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
                                 <Link to="" onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)} className=""  >
                                 <Card>
@@ -46,28 +33,20 @@ class ListaDeProdutos extends Component {
                                         <Button color="success" onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)}>Visualizar Produto</Button>
                                     </CardBody>
                                 </Card>
-
                                 </Link>
-
                             </Col>
-
                         ))}
-
                     </Row>
                 </Container>
-
             </>
         );
     }
-
 }
-
 
 const mapStateToProps = state => ({
     produtos: state.listaDeProdutosReducer.produtos,
     produtoAtivo: state.produtoReducer.produtoAtivo
 })
-
 
 const mapDispatchToProps = dispatch => ({
     getAll: () => dispatch(listaDeProdutoActions.requestGetAll()),

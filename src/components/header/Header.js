@@ -19,9 +19,6 @@ import {
     Input,
     InputGroupAddon,
     InputGroupText,
-
-
-
 } from 'reactstrap';
 import { MdAccountCircle, MdSearch } from 'react-icons/md';
 
@@ -90,4 +87,5 @@ const Header = () => {
         </>
     );
 }
+
 export default Header;
