@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./Carrinho.css";
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 import {
     Container,
 	Row,
@@ -91,7 +92,9 @@ class Carrinho extends Component {
 								Valor total:<br/>{(total+diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 						</ListGroup>
-						<Button  href="/checkout"className="btnFinalizar"color="danger">Finalizar Compra</Button>
+						<Link to="/checkout">
+							<Button className="btnFinalizar"color="danger">Finalizar Compra</Button>
+						</Link>
 					</Col>		
 				</Row>
 			</Container>
