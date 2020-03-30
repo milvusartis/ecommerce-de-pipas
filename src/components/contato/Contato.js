@@ -46,34 +46,25 @@ class Contato extends Component {
     render() {
         return (
             <>
-                <Container>                 
-                    <AvForm
-                    id="contato"
-                    className="d-flex justify-content-center p-2">  
+                <Container className="container">                 
+                    <AvForm className="content">  
                         <Col lg="6" md="9" sm="12">
                             <FormGroup>
-                                <Navbar className="bg-success text-light">
+                                <h1 id="title">
                                     Fale com a gente!
-                                </Navbar>
+                                </h1>
                             </FormGroup>
                             <AvGroup>
-                                <Label for="nomeCompleto">
-                                    Nome completo:
-                                </Label>
-                                <AvInput
+                                <AvInput className="Input"
                                 type="text"
-                                name="nomeCompleto"
-                                maxLength="50"
+                                name="nomeCompleto input"
                                 placeholder="Digite seu nome"
                                 required="required"
                                 //className="form-control"
                                 />
                             </AvGroup>
                             <AvGroup>
-                                <Label for="email">
-                                    Email:
-                                </Label>
-                                <AvInput
+                                <AvInput className="Input"
                                 type="email"
                                 name="email"
                                 placeholder="Digite seu email"
@@ -82,25 +73,19 @@ class Contato extends Component {
                                 />
                             </AvGroup>
                             <FormGroup>
-                                <Label for="telefone">
-                                    Telefone:
-                                </Label>
                                 <InputMask
                                     type="tel"
                                     name="telefone"
                                     placeholder="Digite seu telefone"
                                     required="required"
-                                    className="form-control"
+                                    className="Input"
                                     mask="+55 (99) 9999-9999"
                                     onChange={this.onChange}
                                     >
                                 </InputMask>
                             </FormGroup>
                             <AvGroup>
-                                <Label for="assunto">
-                                    Assunto:
-                                </Label>
-                                <AvInput
+                                <AvInput className="Input"
                                 type="select"
                                 name="assunto"
                                 required="required"
@@ -123,10 +108,8 @@ class Contato extends Component {
 
                             </AvGroup>
                             <AvGroup>
-                                <Label for="mensagem">
-                                    Mensagem:
-                                </Label>
-                                <AvInput
+                             
+                                <AvInput className="textArea"
                                 type="textarea"
                                 name="mensagem"
                                 rows="3"
@@ -140,7 +123,7 @@ class Contato extends Component {
                                 <Button
                                 type="submit"
                                 name="botao"        
-                                color="success"
+                                className="button"
                                 required="required"
                                 onClick={this.onClick}
                                 //className="form-control"
