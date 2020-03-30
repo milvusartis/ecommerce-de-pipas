@@ -1,5 +1,4 @@
 import  React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import InputMask from "react-input-mask";
 import {
@@ -11,7 +10,6 @@ import {
 import * as CartActions from "../../redux/actions/action.cart";
 
 const dias = "dias";
-const rs = "R$";
 
 class CalculaFrete extends Component{
     state={
@@ -39,21 +37,20 @@ class CalculaFrete extends Component{
                 maskPlaceholder={null}
                 onChange={this.handleCepValue}
             />
-    {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
+        {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
             <Button
                 color="success"
                 onClick={()=>{changeCepValue(this.state.cep);getCep(this.state.cep)}}
-            //nesse onClick:usar o change para guardar o valor do cep e subtistuir o console.log pela função de busca do cep
                 >
                 Calcular Frete
             </Button>
          </InputGroup>
                 <p className="mt-2 mb-2"
                     title="Valor do Frete">
-                    Valor do Frete: {valorFrete!==''?rs:''}{valorFrete}
+                    Valor do Frete: {valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </p>
                 <p className="mt-2 mb-2">
-                    Prazo de Entrega:{diasEntrega}{diasEntrega!==''?dias:''}
+                    Prazo de Entrega: {diasEntrega} {diasEntrega!==''?dias:''}
                 </p>
             </FormGroup>
          </>

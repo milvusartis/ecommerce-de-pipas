@@ -15,10 +15,10 @@ export function changeCepValue(cep){
   };
 }
 
-export function changeFreteInfo(valorFrete,diasEntrega){
+export function changeFreteInfo(json){
   return{
     type:CartActionsType.CHANCE_FRETE_INFO,
-    valorFrete,diasEntrega
+    payload:json
   };
 }
 

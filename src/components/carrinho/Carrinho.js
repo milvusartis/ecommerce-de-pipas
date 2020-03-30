@@ -9,10 +9,9 @@ import {
 	ListGroup,
 	Button,
 } from 'reactstrap';
-var frete = 4;
 class Carrinho extends Component {
 	render() {
-		const { addedItems, quantityItems, total } = this.props
+		const { addedItems, quantityItems, total,valorFrete,diasEntrega} = this.props
 		return(
 		<>
 			<Container>
@@ -83,13 +82,13 @@ class Carrinho extends Component {
 							
 							<ListGroupItem className="listaResumo">Valor:<br/>{total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Frete:<br/>{frete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Frete:<br/>{valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Prazo de Entrega:<br/>{frete*(3/4)} Dias
+								Prazo de Entrega:<br/>{diasEntrega} Dias
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Valor total:<br/>{(total+frete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Valor total:<br/>{(total+diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 						</ListGroup>
 						<Button  href="/checkout"className="btnFinalizar"color="danger">Finalizar Compra</Button>
@@ -104,15 +103,15 @@ class Carrinho extends Component {
 const mapStateToProps = state => ({
     addedItems: state.carrinhoReducer.addedItems,
     total: state.carrinhoReducer.total,
-    quantityItems: state.carrinhoReducer.quantityItems,
+	quantityItems: state.carrinhoReducer.quantityItems,
+	valorFrete:state.carrinhoReducer.valorFrete,
+	diasEntrega:state.carrinhoReducer.diasEntrega,
 });
 
 const mapDispatchToProps = dispatch => ({
 
 })
-// export default connect(state => ({
-//     novoproduto: state.carrinho.novoproduto,
-// }))(Carrinho) ;
+
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
