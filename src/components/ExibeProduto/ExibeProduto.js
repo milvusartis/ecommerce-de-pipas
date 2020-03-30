@@ -19,7 +19,6 @@ class ExibeProduto extends Component {
   render() {
     const {produto, number, addToCart} = this.props;
     return (
-
         <>
         <Container>
             <Row>
@@ -51,13 +50,11 @@ class ExibeProduto extends Component {
             </Row>
         </Container>
     </>
-
     );
   }
 }
 
 const mapStateToProps = state => ({
-
     produto: state.produtoReducer.produto,
     number: state.produtoReducer.number,
  
@@ -67,43 +64,9 @@ const mapDispatchToProps = dispatch =>({
     addToCart: (produto, number) => dispatch(CartActions.addToCart(produto,number)),
     incrementQuantity: (number)=> dispatch(ProdutoActions.incrementQuantity(number)),
     decrementQuantity: (number) => dispatch(ProdutoActions.decrementQuantity(number)),
-
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ExibeProduto);
-// const Frete = (cep, deliveryCost, date, day) => (
-//     <>
-//         <FormGroup className="mt-5 mb-2 p-2 border border-dark">
-//             <Label>
-//                 Informe seu CEP para calcular o frete
-//             </Label>
-//         <InputGroup>
-//         {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
-//             <InputMask
-//                 placeholder="00000-000"
-//                 mask="99999-999"
-//                 className="col-7 col-md-4"
-//                 value={cep}
-//                 // onChange={this.handleCepValeu}
-//                 maskplaceholder={null}
-//                 />
-//     {/*------------------------------aqui esta o InputMask*-----------------------------------------------*/}
-//             <Button
-//                 color="success"
-//                 >{/*onClick={this.sendCep}*/}
-//                 Calcular Frete
-//             </Button>
-//          </InputGroup>
-//                 <p className="mt-2 mb-2"
-//                     title="Valor do Frete">
-//                     Valor do Frete: R$ {deliveryCost}
-//                 </p>
-//                 <p className="mt-2 mb-2">
-//                     Prazo de Entrega: {date} {day}
-//                 </p>
-//             </FormGroup>
-//     </>
-// );

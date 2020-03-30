@@ -5,12 +5,12 @@ const INITIAL_STATE = {
     total: 0,
     quantityItems: 0,
     cep: 0,
-    valorFrete: 0,
-    diasEntrega: 0,
+    valorFrete:'',
+    diasEntrega:'',
 };
 
 export default function pedido(state = INITIAL_STATE, action) {
-    const { addedItems, quantityItems } = state;
+    const { addedItems } = state;
     switch (action.type) {
         case CartActionsType.ADD_TO_CART: {
             let addedItem = action.item;
@@ -18,7 +18,6 @@ export default function pedido(state = INITIAL_STATE, action) {
             let existed_item = addedItems.find(item => action.item.idProduto === item.idProduto);
             if (existed_item) {
                 addedItem.quantity += action.number
-
                 return {
                     ...state,
                     total: state.total + addedItem.valorUnitario * action.number,
@@ -34,14 +33,11 @@ export default function pedido(state = INITIAL_STATE, action) {
                     total: newTotal,
                     quantityItems: state.quantityItems + addedItem.quantity,
                 }
-
             }
-
         }
 
         //Removendo Todos Os Ítems
         case CartActionsType.REMOVE_ITEM: {
-
             let itemToRemove = state.addedItems.find(item => action.id === item.idProduto)
             let new_items = state.addedItems.filter(item => action.id !== item.idProduto)
             //calculating the total
@@ -55,10 +51,8 @@ export default function pedido(state = INITIAL_STATE, action) {
             }
         }
 
-
         //Somando Quantidade
         case CartActionsType.ADD_QUANTITY: {
-
             let addedItem = state.addedItems.find(item=> item.idProduto === action.id)
             addedItem.quantity += 1 
             let newTotal = state.total + addedItem.valorUnitario
@@ -67,20 +61,10 @@ export default function pedido(state = INITIAL_STATE, action) {
                 total: newTotal,
                 quantityItems: state.quantityItems + 1,
             }
-
-           
-
         }
-
-
-
-
 
         //Reduzindo quantidade 
         case CartActionsType.SUB_QUANTITY: {
-
-
-
             let addedItem = state.addedItems.find(item => item.idProduto === action.id)
             //if the qt == 0 then it should be removed
             if (addedItem.quantity === 1) {
@@ -106,9 +90,18 @@ export default function pedido(state = INITIAL_STATE, action) {
         }
         case CartActionsType.CHANGE_CEP_VALUE:
             return {...state,cep:action.cep}
+
+        case CartActionsType.CHANCE_FRETE_INFO:
+            if(action.payload.data.erro===true){
+                return{...state,valorFrete:'',diasEntrega:''}
+            }else{
+                if(action.payload.data.uf==="SP"){
+                    return{...state,valorFrete:4,diasEntrega:3}
+                }else{
+                    return{...state,valorFrete:8,diasEntrega:6}
+                }
+            }
         default:
             return state;
     }
-
-
 }
