@@ -11,7 +11,11 @@ function* getListRequested(){
         // const produtos = yield call(todoApis.getAll);
          // yield put (listaDeProdutoActions.getALL(produtos.data));
         const response = yield call (api.get, '/produtos');
+<<<<<<< HEAD
+        yield put (listaDeProdutoActions.getALL(response.data));
+=======
         yield put (listaDeProdutoActions.getALL(response.data.content));
+>>>>>>> dev-react
     }
     
     function* whatchRequestGetList(){
