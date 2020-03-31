@@ -1,84 +1,72 @@
-import React, { Component } from 'react'
-import './styles.css';
-import{
-    Button,
-    Input,
-    Form,
-    Alert,
-    Col,
-}
-from 'reactstrap'
+import React , {useState
+} from 'react';
+import './styles.css'
+import { Link, useHistory } from 'react-router-dom'
 
+import milvus_logo from '../header/image/milvus_logo.svg'
 
- class login extends Component {
-     constructor (props){
-         super(props)
-         console.log(this.props)
-         this.state ={
-             message : this.props.location.state? this.props.location.state.message: '',
-         };
-     }
+import api from '../../services/api'
 
-     sigIn = () => {
-         const data ={email: this.email, password: this.password};
-         const requestInfo = {
-             method: 'POST',
-             body: JSON.stringify(data),
-             headers: new Headers({
-                 'Content-type': 'application/json'
-             })
-         }
-     
-     fetch('http://localhost:8080/api/ecommerce/cliente', requestInfo)
-     .then(response =>{
-         if(response.ok){
-             return response.json()
-         }
-         throw new Error("Login invalido...");
-     })
-     .then(token => {
-        localStorage.setItem('token', token);
-        this.props.history.push("/checkout");
-        return;
-     })
-     .catch(e =>{
-         this.setState({message: e.message})
-     });
+export default function Login() {
+    const [email, setEmail ] = useState('');
+    const [senha, setSenha] = useState('');
+    const history = useHistory();
+
+    const data ={
+        email,
+        senha,
     }
-    render() {
-        return (
-            <Col className="container d-flex justify-content-center entrar">
-                <Form className="form" >
-                    {
-                        this.state.message !== ''?(
-                        <Alert color="danger">{this.state.message}</Alert>
-                        ) : ''
-                    }
-                    <hr className="my-3"/>
-                    <h5 className="grey-text text-darken-3">Login</h5>
-                        <Col className="input-field">
-                            <label htmlForm="email">Email</label>
-                            <Input  placeholder="Email" type="email" id="email" onChange={e => this.email = e.target.value}/>
-                        </Col>
-                        <Col className="input-field">
-                            <label htmlForm="password">Password</label>
-                            <Input  placeholder="Senha" type="password" id="password" onChange={e => this.password = e.target.value}/>   
-                        </Col>
-                        <Col className="input-field">
-                            <Button className="btn btn-danger mt-3 mb-3 " onClick={this.sigIn}>Login</Button>
-                            <a href ="/cadastro"className="btn btn-danger mt-3 mb-3 ml-5">Cadastro</a>
-                            <Col>
-                                <Button to='/logout' color="success">Sair</Button>
-                            </Col>
-                            
-                            
-                        </Col>
-                 </Form>
-            </Col>
-        )
+
+    async function handleLogin(e){
+        e.preventDefault();
+
+        try{
+            const response = await api.post('session', { data });
+
+            localStorage.setItem('userEmail', email)
+            localStorage.setItem('userSenha', senha)
+
+            history.push('/');
+
+        }catch (err){
+            alert('Falha no login, tente novamente')
+        }
     }
+
+
+
+    return (
+        <div className="logon-container">
+             <div className="content">
+            <section className="form">
+                <img src={milvus_logo} title="Milvus Arts" />
+
+                <form onSubmit={handleLogin}>
+                    <h1>Faça seu login</h1>
+
+                    <input 
+                    placeholder="Email" 
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)} 
+                    />
+                    <input 
+                    placeholder="Senha" 
+                    type="password"
+                    value={senha, setSenha}
+                    onChange={e => setSenha(e.target.value)} 
+                    />
+                    
+                    
+
+                    <button className="button" type="submit">Entrar</button>
+
+                    <Link className="back-link" to="/cadastro">
+                        Não tenho cadastro
+                    </Link>
+                </form>
+            </section>
+            </div>
+        </div>
+    )
 }
-
-
-
-export default login
