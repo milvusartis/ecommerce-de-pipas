@@ -22,7 +22,7 @@ class Linhas extends Component {
               <Container>
                   <Row>
                       {produtos.map(produto => (
-                        (produto.categoria.descricao==="Linha"?
+                        (produto.categoria.nome==="Linha"?
                         <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
                               <Link to="" onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)} className=""  >
                               <Card>
