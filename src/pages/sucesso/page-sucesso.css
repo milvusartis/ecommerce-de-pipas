@@ -1,9 +1,58 @@
-h1{
-    text-align: center;
-    color: rgba(14, 212, 57, 0.849);  
-    font-family: fantasy; 
+.containerSucesso{
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
 }
-p{
-    padding: 10px;
-  
+
+.containerSucesso .contentSucesso {
+    width: 100%;
+    padding: 30px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0 ,0 , 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerSucesso .contentSucesso section{
+    width: 100%;
+    max-width: 380px;
+}
+.containerSucesso .contentSucesso section h1 {
+    font-size: 32px;
+    color: rgb(3, 204, 80);
+    font-weight: bolder;
+    text-align: center;
+
+}
+
+.containerSucesso .contentSucesso form{
+    width: 100%;
+    max-width: 450px;
+}
+
+.containerSucesso .contentSucesso form input{
+
+    margin-top: 8px;
+}
+
+
+
+.buttonSucesso {
+    width: 100%;
+    height: 60px;
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 18px;
+    transition: filter 0.2s;
+    padding: 18px;
+    margin-top: 50px;
+}
+
+.buttonSucesso:hover{
+    filter: brightness(90%);
 }
