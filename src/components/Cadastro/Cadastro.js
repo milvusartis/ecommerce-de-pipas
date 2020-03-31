@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 
+import InputMask from 'react-input-mask';
 
 import api from '../../services/api';
 
@@ -66,73 +67,106 @@ async function handleRegister(e){
                     <h1> Faça seu cadastro</h1>
             
                 <form onSubmit={handleRegister}>
-                <input type="text"
+                <input 
+                type="text"
                     placeholder="Nome"
+                    required
                     value={nome}
                     onChange={e => setName(e.target.value)}
                     />
                     <input type="email" 
                     placeholder="E-mail"
+                    required
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     />
                     <input 
                     placeholder="Senha"
                     type="password"
+                    required
                     value={senha}
                     onChange={e => setSenha(e.target.value)}
                     />
-                    <input type="text" 
+                    <InputMask 
+                    mask="999.999.999-99"
+                    type="text"
                     placeholder="Cpf"
+                    required
                     value={cpf}
                     onChange={e => setCpf(e.target.value)}
                     />
-                    <input type="text" 
+                    <InputMask 
+                    type="text" 
                     placeholder="Rg"
+                    mask="99.999.999-9"
+                    required
                     value={rg}
                     onChange={e => setRg(e.target.value)}
                     />
-                    <input 
+                    <InputMask
+                    mask="(99) 99999-9999" 
                     placeholder="Telefone"
                     type="tel"
+                    required
+
                     value={telefone}
                     onChange={e => setTelefone(e.target.value)}
                     />
+                    <div className="input-group">
                     <input 
+                    style={{width : 290}}
                     placeholder="Rua"
                     value={rua}
+                    required
                     onChange={e => setRua(e.target.value)}
                     />
-                    <input type="number"
-                    placeholder="Numero"
+                    <input 
+                    style={{ width: 80}}
+                    type="number"
+                    placeholder="Nº"
+                    required
                     value={numero}
                     onChange={e => setNumero(e.target.value)}
                     />
+                    </div>
+                    <div className="input-group">
                     <input 
+                    style={{width : 190}}
                     placeholder="Complemento"
                     value={complemento}
+                    required
                     onChange={e => setComplemento(e.target.value)}
                     />
-                    <div>
                     <input 
+                    style={{width : 180}}
                     placeholder="Bairro"
                     value={bairro}
                     onChange={e => setBairro(e.target.value)}
                     required
                     /> 
+                    </div>
+                    <div className="input-group">
                     <input 
+                    style={{width : 290}}
                     placeholder="cidade"
+                    required
                     value={cidade}
                     onChange={e => setCidade(e.target.value)}
                     />
                     <input 
+                    style={{ width: 80}}
                     placeholder="UF"
+                    required
+                    maxLength="2"
                     value={uf}
                     onChange={e => setUf(e.target.value)}
                     />
                     </div>  
-                    <input 
+                    <InputMask
+                    mask="99-999-999"
                     placeholder="Cep"
+                    required
+                    
                     value={cep}
                     onChange={e => setCep(e.target.value)}
                     />
