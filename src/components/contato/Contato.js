@@ -4,8 +4,6 @@ import {
     Container,
     Col,
     FormGroup,
-    Navbar,
-    Label,
     Button
  } from 'reactstrap'
  import {
@@ -89,7 +87,6 @@ class Contato extends Component {
                                 type="select"
                                 name="assunto"
                                 required="required"
-                                //className="form-control"
                                 >
                                     <option value=""
                                     disabled selected>
