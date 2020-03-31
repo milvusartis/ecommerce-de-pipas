@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './Footer.css';
 
 import {
     Container,
@@ -10,8 +10,6 @@ import {
     BreadcrumbItem,
 
 } from 'reactstrap';
-
-import './Footer.css';
 
 const Footer = () => {
 
@@ -23,9 +21,8 @@ const Footer = () => {
                     <Row sm="12" md="12" lg="12">
                         <Col>
                             <Breadcrumb>
-                                <BreadcrumbItem active><a href="http://localhost:3000/">Home</a></BreadcrumbItem>
-                                <BreadcrumbItem active><a href="http://localhost:3000/login">Login</a></BreadcrumbItem>
-                                
+                                <BreadcrumbItem active><Link to="/">Home</Link></BreadcrumbItem>
+                                <BreadcrumbItem active><Link to="/login">Login</Link></BreadcrumbItem>
                             </Breadcrumb>
                         </Col>
                     </Row>
@@ -46,7 +43,6 @@ const Footer = () => {
                              </p>
                         </Col>
                     </Row>
-
                     <Row className="info" sm="12" md="12" lg="12">
                         <Col sm="12" md="6" lg="6">
                             <h4 className="title">Central de atendimento:</h4>
@@ -56,7 +52,6 @@ const Footer = () => {
                             <h4 className="title" >Email comercial:</h4>
                             <h6><Link to="mailto: milvusartis@gmail.com">milvusartis@gmail.com</Link></h6>
                         </Col>
-                        
                     </Row>
                 </Container>
             </footer>

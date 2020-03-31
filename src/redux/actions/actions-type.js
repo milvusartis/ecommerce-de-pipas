@@ -5,7 +5,6 @@ export const ProductActionsTypes = {
     REQUEST_PRODUCT_LISt: 'REQUEST_TODO_LIST',
     SUCCESS_PRODUCT_LIST: 'SUCCESS_TODO_LIST',
     FAILURE_PRODUCT_LIST: 'FAILURE_TODO_LIST',
-    
 }
 
 export const CartActionsType = {

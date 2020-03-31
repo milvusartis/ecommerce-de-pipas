@@ -1,7 +1,6 @@
 import { ProductActionsTypes } from "../actions/actions-type";
 
 const INITIAL_STATE = {
-
     produtos: [
         {
             "codigo": 1,
@@ -145,14 +144,9 @@ const INITIAL_STATE = {
     cidade: {},
     estado: {},
     produtoAtivo: true,
-
 };
 
-
-
 export default function produto(state = INITIAL_STATE, action) {
-    
-
     switch (action.type) {
         case ProductActionsTypes.CHANGE_DISPLAYED_PRODUCT:
             return { ...state, produto: action.produto, produtoAtivo: false }

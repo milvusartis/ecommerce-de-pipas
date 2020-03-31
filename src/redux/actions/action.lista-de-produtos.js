@@ -8,7 +8,6 @@ const listaDeProdutoActions = {
   requestGetAll: () => ({
       payload: null,
       type: ListaDeProdutosActionsType.PRODUTOS_REQUEST_GET_ALL
-  })
+  }),
 }
-
 export {listaDeProdutoActions}
