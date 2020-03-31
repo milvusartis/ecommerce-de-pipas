@@ -21,8 +21,8 @@ class Latas extends Component {
           <>
               <Container>
                   <Row>
-                      {produtos.map(produto => (
-                        (produto.categoria.descricao==="Lata"?
+                      {produtos.content.map(produto => (
+                        (produto.categoria.nome==="Lata"?
                         <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
                               <Link to="" onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)} className=""  >
                               <Card>

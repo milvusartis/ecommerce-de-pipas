@@ -21,7 +21,8 @@ class ListaDeProdutos extends Component {
             <>
                 <Container>
                     <Row>
-                        {produtos.map(produto => (
+                        {console.log(produtos.content)}
+                        {typeof produtos.content !== "undefined"?produtos.content.map(produto => (
                             <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
                                 <Link to="" onClick={() =>  changeDisplayedProduct(produto, produtoAtivo)} className=""  >
                                 <Card>
@@ -35,7 +36,7 @@ class ListaDeProdutos extends Component {
                                 </Card>
                                 </Link>
                             </Col>
-                        ))}
+                        )):''}
                     </Row>
                 </Container>
             </>

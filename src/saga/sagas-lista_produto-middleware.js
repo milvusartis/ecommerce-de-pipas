@@ -10,7 +10,7 @@ import api from "../services/api-service-econ";
 function* getListRequested(){
         // const produtos = yield call(todoApis.getAll);
          // yield put (listaDeProdutoActions.getALL(produtos.data));
-        const response = yield call (api.get, '/produto');
+        const response = yield call (api.get, '/produtos');
         yield put (listaDeProdutoActions.getALL(response.data));
     }
     
