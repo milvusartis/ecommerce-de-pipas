@@ -24,6 +24,7 @@ import { MdAccountCircle, MdSearch } from 'react-icons/md';
 
 import Badge from 'react-bootstrap/Badge'
 import CarrinhoBadge from "../CarrinhoBadge/CarrinhoBadge";
+import LoginBadge from "../LoginBadge/LoginBadge";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,9 +52,9 @@ const Header = () => {
                             </InputGroup>
                         </Col>
                         <Col className="target" sm={6} md={3} lg={4}>
-                            <Link title="Olá, faça o seu login" to="/login"><Badge pill variant="" className="badge login"><MdAccountCircle /></Badge>{' '}</Link><span className="user">Olá, faça o seu login</span>
-                             <CarrinhoBadge/>
-                        </Col>                      
+                            <LoginBadge />
+                            <CarrinhoBadge />
+                        </Col>
                     </Row>
                     <Row>
                         <Navbar id="navHome" className="mb-3 navHome" light expand="md">
