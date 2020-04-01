@@ -8,6 +8,18 @@ export function addToCart(item, number) {
   };
 }
 
+// export function startStorage(){
+//   return{
+//     type:CartActionsType.START_STORAGE
+//   }
+// }
+
+// export function updateStorage(){
+//   return{
+//     type:CartActionsType.UPDATE_STORAGE
+//   }
+// }
+
 export function changeCepValue(cep){
   return{
     type:CartActionsType.CHANGE_CEP_VALUE,

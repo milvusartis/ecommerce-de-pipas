@@ -14,7 +14,10 @@ import CalculaFrete from '../CalculaFrete/CalculaFrete';
 import ControlaQtd from "../ControlaQtd/ControlaQtd";
 
 class ExibeProduto extends Component {
-  render() {
+    guardaStorage=(produto,number)=>{
+        
+    }
+    render() {
     const {produto, number, addToCart} = this.props;
     return (
         <>
