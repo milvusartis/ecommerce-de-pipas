@@ -21,7 +21,7 @@ export default function Login() {
         e.preventDefault();
 
         try{
-            const response = await api.post('session', { data });
+            const response = await api.post('session',  data );
 
             localStorage.setItem('userEmail', email)
             localStorage.setItem('userSenha', senha)
@@ -53,7 +53,7 @@ export default function Login() {
                     <input 
                     placeholder="Senha" 
                     type="password"
-                    value={senha, setSenha}
+                    value={senha}
                     onChange={e => setSenha(e.target.value)} 
                     />
                     
