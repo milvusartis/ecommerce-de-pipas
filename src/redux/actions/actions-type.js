@@ -22,3 +22,8 @@ export const ListaDeProdutosActionsType = {
     PRODUTOS_GET_ALL:'PRODUTOS_GET_ALL',
     PRODUTOS_REQUEST_GET_ALL:'PRODUTOS_REQUEST_GET_ALL',
 }
+
+export const UserLoginActionsType = {
+    CHANGE_USER: 'CHANGE_USER',
+    
+}

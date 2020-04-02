@@ -58,6 +58,9 @@ async function handleRegister(e){
     }
     
 }
+ 
+
+
 
 
     return (
@@ -83,9 +86,16 @@ async function handleRegister(e){
                     <input 
                     placeholder="Senha"
                     type="password"
+                    id="senha"
                     required
                     value={senha}
                     onChange={e => setSenha(e.target.value)}
+                    />
+                    <input 
+                    placeholder="Confirme a senha"
+                    type="password"
+                    id="senha1"
+                    required
                     />
                     <InputMask 
                     mask="999.999.999-99"
@@ -111,6 +121,13 @@ async function handleRegister(e){
 
                     value={telefone}
                     onChange={e => setTelefone(e.target.value)}
+                    />
+                    <InputMask
+                    mask="99-999-999"
+                    placeholder="Cep"
+                    required 
+                    value={cep}
+                    onChange={e => setCep(e.target.value)}
                     />
                     <div className="input-group">
                     <input 
@@ -148,7 +165,7 @@ async function handleRegister(e){
                     <div className="input-group">
                     <input 
                     style={{width : 290}}
-                    placeholder="cidade"
+                    placeholder="Cidade"
                     required
                     value={cidade}
                     onChange={e => setCidade(e.target.value)}
@@ -162,14 +179,7 @@ async function handleRegister(e){
                     onChange={e => setUf(e.target.value)}
                     />
                     </div>  
-                    <InputMask
-                    mask="99-999-999"
-                    placeholder="Cep"
-                    required
-                    
-                    value={cep}
-                    onChange={e => setCep(e.target.value)}
-                    />
+                 
 
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
