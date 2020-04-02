@@ -1,12 +1,13 @@
 .register-container{
     width: 100%;
     max-width: 1120px;
-    height: 100vh;
     margin: 0 auto;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+
 }
 
 .register-container .content {
@@ -15,7 +16,7 @@
     background: #f0f0f5;
     box-shadow: 0 0 100px rgba(0, 0 ,0 , 0.1);
     border-radius: 8px;
-
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,10 +25,10 @@
 .register-container .content section{
     width: 100%;
     max-width: 380px;
-}
+} 
 
 .register-container .content section h1 {
-    margin: 64px 0 32px;
+    /* margin: 64px 0 32px; */
     font-size: 32px;
     color: #6C6C6C;
     text-align: center;
@@ -41,4 +42,8 @@
 .register-container .content form input{
 
     margin-top: 8px;
+}
+
+.register-container .content form .input-group input + input {
+    margin-left: 8px;
 }

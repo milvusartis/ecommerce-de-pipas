@@ -19,18 +19,36 @@ export default function Login() {
 
     async function handleLogin(e){
         e.preventDefault();
+        sessionStorage.setItem("credenciais", JSON.stringify({"username":email, "password":senha}))
+        console.log(JSON.stringify({"email":email, "senha":senha}))
 
-        try{
-            const response = await api.post('session', { data });
+        // try{
+        //     const response = await api.post('perfil', { data });
+            
 
-            localStorage.setItem('userEmail', email)
-            localStorage.setItem('userSenha', senha)
+        //     localStorage.setItem('userEmail', email)
+        //     localStorage.setItem('userSenha', senha)
 
-            history.push('/');
+        //     history.push('/');
 
-        }catch (err){
-            alert('Falha no login, tente novamente')
-        }
+        // }catch (err){
+        //     alert('Falha no login, tente novamente')
+        // }
+
+
+        api.get('/auth/token', {
+           
+        }).then((response => {
+          sessionStorage.setItem("usuario", JSON.stringify(response.data))
+          history.push("/")
+
+        
+        })).catch((error) => {
+           if (401 === error.response.status){
+                return alert("Usuário ou senha não conferem");
+           }
+           alert("Erro não esperado");
+        });
     }
 
 
@@ -53,7 +71,7 @@ export default function Login() {
                     <input 
                     placeholder="Senha" 
                     type="password"
-                    value={senha, setSenha}
+                    value={senha}
                     onChange={e => setSenha(e.target.value)} 
                     />
                     

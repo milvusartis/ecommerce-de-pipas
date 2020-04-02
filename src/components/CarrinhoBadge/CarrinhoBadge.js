@@ -47,7 +47,7 @@ class CarrinhoBadge extends Component {
             <>
                 <span className="info">
                     {(quantityItems > 0) && (
-                        <span class="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
+                        <span className="badge badge-pill badge-light qtd-cart">{quantityItems}</span>
                     )}
                     {/* <Link to=""><Badge pill variant="" className="badge cart" onClick={this.toggleVisibilityCart}><MdShoppingCart /></Badge>{' '}</Link> */}
                     <Link to="/carrinho"><Badge pill variant="" className="badge cart" onMouseOver={(event) => this.onHover(event)} ><MdShoppingCart /></Badge>{' '}</Link>

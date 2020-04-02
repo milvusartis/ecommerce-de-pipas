@@ -4,7 +4,7 @@ import { ListaDeProdutosActionsType  } from "../redux/actions/actions-type";
 
 import { listaDeProdutoActions } from "../redux/actions/action.lista-de-produtos";
 
-import api from "../services/api-service-econ";
+import api from "../services/api";
 
 
 function* getListRequested(){
