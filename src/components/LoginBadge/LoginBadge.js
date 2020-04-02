@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import {changeUser} from '../../redux/actions/action.user';
+
+import {connect} from 'react-redux';
+
 import { Link } from "react-router-dom";
 
 
@@ -9,31 +13,21 @@ import Badge from 'react-bootstrap/Badge'
 
 
 
-export default class LoginBadge extends Component {
+class LoginBadge extends Component {
 
-
-    state = {
-        usuario: null,
-    }
-
-    componentDidMount(){
-       const usuario =  sessionStorage.getItem("usuario");
-       console.log(usuario)
-       this.setState({usuario:usuario})
-    }
-
-
+    
     render() {
+        console.log(this.props)
         return (
             <>
 
-                {this.state.usuario != null ? (
+                {this.props.usuario != null ? (
 
                     <>
                         <Link title="Fazer logout" to="/logout">
                             <Badge pill variant="" className="badge login logado"><MdAccountCircle /></Badge>{' '}
                         </Link>
-                        <span className="user">Olá, {this.state.usuario.nome}</span>
+                        <span className="user">Olá, {this.props.usuario.email}</span>
 
                     </>
 
@@ -56,3 +50,4 @@ export default class LoginBadge extends Component {
         );
     }
 }
+export default connect(state => ({usuario: state.userReducer.user}))(LoginBadge)
