@@ -16,6 +16,8 @@ export const CartActionsType = {
     GET_CEP:'GET_CEP',
     CHANGE_CEP_VALUE:'CHANGE_CEP_VALUE',
     CHANCE_FRETE_INFO:'CHANCE_FRETE_INFO',
+    // START_STORAGE:"START_STORAGE",
+    // UPDATE_STORAGE:"UPDATE_STORAGE",
 }
 
 export const ListaDeProdutosActionsType = {
