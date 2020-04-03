@@ -36,7 +36,7 @@ class Carrinho extends Component {
 						</div>
 						</Row>
 						{addedItems.map(item => (
-						<Row className="mt-2">
+						<Row key={item.idProduto} className="mt-2">
 						<div className="col-md-3 col-sm-6 esconde mt-2">
 							<img className="imagens img-fluid" src={item.imagem} alt="item1"/>
 						</div>
