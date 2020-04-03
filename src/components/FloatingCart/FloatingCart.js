@@ -22,7 +22,7 @@ class FloatingCart extends Component {
                 </div>
                 <ul className="shopping-cart-items">
                     {addedItems.map(item => (
-                        <li className="clearfix">
+                        <li key={item.idProduto} className="clearfix">
                             <img className="item-imagem" src={item.imagem} alt="item1" />
                             <span className="item-name">{item.nome}</span>
                             <span className="item-price">{item.valorUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
