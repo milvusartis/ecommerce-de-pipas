@@ -62,7 +62,7 @@ async function handleRegister(e){
 function validarSenha(){
     let senha1 = document.getElementById('senha').value;
     let senha2 = document.getElementById('rep_senha').value;
-
+    if (senha1 !== '' && senha2 !== ''){
     if(senha1 == senha2) {
         document.getElementById('confirmacao').style.color = '#008B45'
         document.getElementById('confirmacao').innerHTML = "Senhas conferem"
@@ -70,6 +70,10 @@ function validarSenha(){
         document.getElementById('confirmacao').style.color = '#FF6347'
         document.getElementById('confirmacao').innerHTML = "Senhas não conferem"
     }
+}else{
+    document.getElementById('confirmacao').style.color = ''
+        document.getElementById('confirmacao').innerHTML = ''
+}
 }
 
 
@@ -97,7 +101,7 @@ function validarSenha(){
                     <input 
                     placeholder="Senha"
                     type="password"
-                    
+                    onKeyUp={validarSenha}
                     id="senha"
                     required
                     value={senha}
@@ -201,7 +205,7 @@ function validarSenha(){
                     </div>  
                 
 
-                    <button className="button" type="submit">Cadastrar</button>
+                    <button className="button"  type="submit">Cadastrar</button>
                 </form>
                 </section>
             </div>
