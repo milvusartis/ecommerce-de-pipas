@@ -4,6 +4,8 @@ import InputMask from 'react-input-mask';
 
 import api from '../../services/api';
 
+import { useHistory } from 'react-router-dom';
+
 import './style.css';
 
 
@@ -21,6 +23,8 @@ export default function Cadastro() {
     const[uf, setUf] = useState('');
     const [cep, setCep] = useState('');
     const [bairro, setBairro] = useState('')
+
+    const history = useHistory();
 
 async function handleRegister(e){
     window.location.reload();
@@ -53,6 +57,9 @@ async function handleRegister(e){
     try{
         const response = await  api.post('clientes', cliente)
         alert("Cadastro realizado com sucesso");
+        
+        history.push("/login")
+
     }catch (err){
         alert('Erro no cadastro, tente novamente.')
     }

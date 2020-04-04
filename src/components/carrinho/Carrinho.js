@@ -93,7 +93,7 @@ class Carrinho extends Component {
 							</ListGroupItem>
 						</ListGroup>
 						<Link to="/checkout">
-							<Button className="btnFinalizar"color="danger">Finalizar Compra</Button>
+							<Button id="button">Finalizar Compra</Button>
 						</Link>
 					</Col>		
 				</Row>

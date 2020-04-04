@@ -14,8 +14,8 @@ import Footer from './components/Footer/Footer';
 import Checkout from './components/Checkout/checkout';
 import Carrinho from './components/carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
-import PrivateRoute from './auth';
 import Logout from './components/Logout/logout';
+import HistoricoPedidos from './pages/historicoPedidos/index';
 
 
 
@@ -34,7 +34,6 @@ export default class Routes extends Component {
           <Route path="/login"  component={Login}/>
           <Route path="/cadastro" component={Cadastro} />
           <Route path="/produto"  component={ExibeProduto}/>
-          {/* <Route path="/produto"  component={ProdCompleto}/> */}
           <Route path="/pipas" component ={Pipas}/>
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
@@ -42,6 +41,7 @@ export default class Routes extends Component {
           <Route path="/checkout" component={Checkout}/>
           <Route path="/sucesso" component={Sucesso}/>
           <Route exact path="/logout" component={Logout} />
+          <Route path="/historico" component={HistoricoPedidos} />
         </Switch>
         <Footer/>
         

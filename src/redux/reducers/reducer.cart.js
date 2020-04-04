@@ -12,7 +12,7 @@ function iniciar() {
     if(localStorage.getItem("carrinho")!==null){
         return JSON.parse(localStorage.getItem("carrinho"))
     }else{
-       return INITIAL_STATE
+        return INITIAL_STATE
     }
 }
 function pedido(state = iniciar(), action) {
@@ -40,7 +40,7 @@ function pedido(state = iniciar(), action) {
                             addedItems: [...addedItems, addedItem],
                             total: newTotal,
                             quantityItems: state.quantityItems + addedItem.quantity,
-                           
+                        
                         }
                     }
                     break;
@@ -53,7 +53,7 @@ function pedido(state = iniciar(), action) {
                     //calculating the total
                     let newTotal = state.total - (itemToRemove.valorUnitario * itemToRemove.quantity)
         
-                   newState = {
+                    newState = {
                         ...newState,
                         addedItems: new_items,
                         total: newTotal,
@@ -106,7 +106,7 @@ function pedido(state = iniciar(), action) {
                 }
                 case CartActionsType.CHANCE_FRETE_INFO:{
                     if(action.payload.data.erro===true){
-                       newState={...newState,valorFrete:'',diasEntrega:''}
+                        newState={...newState,valorFrete:'',diasEntrega:''}
                     }else{
                         if(action.payload.data.uf==="SP"){
                             newState={...newState,valorFrete:4,diasEntrega:3}
