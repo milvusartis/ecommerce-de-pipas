@@ -12,42 +12,25 @@ export default function Login() {
     const [senha, setSenha] = useState('');
     const history = useHistory();
 
-    const data ={
-        email,
-        senha,
-    }
 
     async function handleLogin(e){
         e.preventDefault();
         sessionStorage.setItem("credenciais", JSON.stringify({"username":email, "password":senha}))
-        console.log(JSON.stringify({"email":email, "senha":senha}))
-
-        // try{
-        //     const response = await api.post('perfil', { data });
-            
-
-        //     localStorage.setItem('userEmail', email)
-        //     localStorage.setItem('userSenha', senha)
-
-        //     history.push('/');
-
-        // }catch (err){
-        //     alert('Falha no login, tente novamente')
-        // }
 
 
         api.get('/auth/token', {
-           
+        
         }).then((response => {
-          sessionStorage.setItem("usuario", JSON.stringify(response.data))
-          history.push("/")
+            sessionStorage.setItem("usuario", JSON.stringify(response.data))
+            window.location.reload();
+            history.push("/")
 
         
         })).catch((error) => {
-           if (401 === error.response.status){
+            if (401 === error.response.status){
                 return alert("Usuário ou senha não conferem");
-           }
-           alert("Erro não esperado");
+        }
+            alert("Erro não esperado");
         });
     }
 
@@ -55,7 +38,7 @@ export default function Login() {
 
     return (
         <div className="logon-container">
-             <div className="content">
+            <div className="content">
             <section className="form">
                 <img src={milvus_logo} title="Milvus Arts" />
 

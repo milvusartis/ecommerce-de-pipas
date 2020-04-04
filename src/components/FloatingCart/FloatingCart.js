@@ -33,7 +33,7 @@ class FloatingCart extends Component {
                         </li>
                     ))}
                 </ul>
-                <Link to="" className="button">Checkout</Link>
+                <Link to="/checkout" className="button">Checkout</Link>
                 </div>
                 {/* <div className="shopping-cart" style={this.state.visible}> */}
             </>

@@ -4,6 +4,8 @@ import InputMask from 'react-input-mask';
 
 import api from '../../services/api';
 
+import { useHistory } from 'react-router-dom';
+
 import './style.css';
 
 
@@ -22,8 +24,10 @@ export default function Cadastro() {
     const [cep, setCep] = useState('');
     const [bairro, setBairro] = useState('')
 
+    const history = useHistory();
 
 async function handleRegister(e){
+    window.location.reload();
     e.preventDefault();
 
     const cliente = {
@@ -31,13 +35,13 @@ async function handleRegister(e){
         rg,
         telefone,
 
-     usuario: {
+        usuario: {
             nome,
             email,
             senha
         },
-         endereco :{
-          
+        endereco :{
+        
             cidade,
             complemento,
             numero,
@@ -48,18 +52,36 @@ async function handleRegister(e){
         }
         
     }
-  
+
 
     try{
         const response = await  api.post('clientes', cliente)
         alert("Cadastro realizado com sucesso");
+        
+        history.push("/login")
+
     }catch (err){
         alert('Erro no cadastro, tente novamente.')
     }
     
-}
- 
+} 
 
+function validarSenha(){
+    let senha1 = document.getElementById('senha').value;
+    let senha2 = document.getElementById('rep_senha').value;
+    if (senha1 !== '' && senha2 !== ''){
+    if(senha1 == senha2) {
+        document.getElementById('confirmacao').style.color = '#008B45'
+        document.getElementById('confirmacao').innerHTML = "Senhas conferem"
+    }else{
+        document.getElementById('confirmacao').style.color = '#FF6347'
+        document.getElementById('confirmacao').innerHTML = "Senhas não conferem"
+    }
+}else{
+    document.getElementById('confirmacao').style.color = ''
+        document.getElementById('confirmacao').innerHTML = ''
+}
+}
 
 
 
@@ -69,7 +91,7 @@ async function handleRegister(e){
                 <section>
                     <h1> Faça seu cadastro</h1>
             
-                <form onSubmit={handleRegister}>
+                <form name="formCadastro"  onSubmit={handleRegister}>
                 <input 
                 type="text"
                     placeholder="Nome"
@@ -86,6 +108,7 @@ async function handleRegister(e){
                     <input 
                     placeholder="Senha"
                     type="password"
+                    onKeyUp={validarSenha}
                     id="senha"
                     required
                     value={senha}
@@ -94,9 +117,17 @@ async function handleRegister(e){
                     <input 
                     placeholder="Confirme a senha"
                     type="password"
-                    id="senha1"
+                    onKeyUp={validarSenha}
+                    id="rep_senha"
                     required
                     />
+                    <tr>
+                        <td colSpan="2">
+                            <p id="confirmacao">
+
+                            </p>
+                        </td>
+                    </tr>
                     <InputMask 
                     mask="999.999.999-99"
                     type="text"
@@ -179,9 +210,9 @@ async function handleRegister(e){
                     onChange={e => setUf(e.target.value)}
                     />
                     </div>  
-                 
+                
 
-                    <button className="button" type="submit">Cadastrar</button>
+                    <button className="button"  type="submit">Cadastrar</button>
                 </form>
                 </section>
             </div>
