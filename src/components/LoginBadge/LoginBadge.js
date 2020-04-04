@@ -1,26 +1,28 @@
 import React from 'react';
-
-
 import { Link } from "react-router-dom";
-
-
 import { MdAccountCircle } from 'react-icons/md';
-
 import Badge from 'react-bootstrap/Badge'
 import { connect } from 'react-redux';
 
 
 
+function handleLogout(){
+    sessionStorage.clear();
+    window.location.reload();
+    
+}
+
 const LoginBadge = ({usuario}) => (
 
-    <>
+    
 
+    <>
 
     {usuario !== null ? (
 
         <>
-            <Link title="Fazer logout" to="/logout">
-                <Badge pill variant="" className="badge login logado"><MdAccountCircle /></Badge>{' '}
+            <Link title="Fazer logout" onClick={handleLogout}  to="#">
+                <Badge pill variant=""  className="badge login logado"><MdAccountCircle /></Badge>{' '}
             </Link>
             <span className="user">Olá, {usuario.nome}</span>
 
@@ -43,7 +45,6 @@ const LoginBadge = ({usuario}) => (
 );
 
 const mapStateToProps = state => ({
-    ...state,
     usuario: state.userReducer.user, 
 
 });

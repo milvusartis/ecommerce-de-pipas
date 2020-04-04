@@ -3,6 +3,7 @@ import React , {useState
 import './styles.css'
 import { Link, useHistory } from 'react-router-dom'
 
+
 import milvus_logo from '../header/image/milvus_logo.svg'
 
 import api from '../../services/api'
@@ -22,8 +23,8 @@ export default function Login() {
         
         }).then((response => {
             sessionStorage.setItem("usuario", JSON.stringify(response.data))
-            window.location.reload();
             history.push("/")
+            window.location.reload();
 
         
         })).catch((error) => {
