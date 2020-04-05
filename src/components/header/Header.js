@@ -14,17 +14,14 @@ import {
     NavbarToggler,
     Nav,
     NavItem,
-    NavLink,
-    InputGroup,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
+    NavLink
 } from 'reactstrap';
-import { MdAccountCircle, MdSearch } from 'react-icons/md';
+import { MdAccountCircle } from 'react-icons/md';
 
 import Badge from 'react-bootstrap/Badge'
 import CarrinhoBadge from "../CarrinhoBadge/CarrinhoBadge";
 import LoginBadge from "../LoginBadge/LoginBadge";
+import BarraDePesquisa from "../BarraDePesquisa/BarraDePesquisa";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -42,14 +39,7 @@ const Header = () => {
                             </Link>
                         </Col>
                         <Col className="search ml-5 " sm={8} md={3} lg={4}>
-                            <InputGroup>
-                                <Input placeholder="Busque por produtos" />
-                                <InputGroupAddon addonType="append">
-                                    <InputGroupText>
-                                        <MdSearch />
-                                    </InputGroupText>
-                                </InputGroupAddon>
-                            </InputGroup>
+                            <BarraDePesquisa />
                         </Col>
                         <Col className="target" sm={6} md={3} lg={4}>
                             <LoginBadge />
