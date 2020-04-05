@@ -5,15 +5,86 @@ import './Checkout.css';
 import InputMask from 'react-input-mask';
 
 import { connect } from 'react-redux';
-import { Col, Row, Button, Form, FormGroup, Label,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
+import { Col, Row, Button, Form, FormGroup,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
 class Checkout extends Component {
+    teste=(pedido)=>{
+        console.log(pedido)
+    }
+    enviarPedido=(event,state)=>{
+        event.preventDefault()
+        
+        let nomeCartao=event.target.nomeCartao.value
+        let telefoneTitular=event.target.telefoneTitular.value
+        let cpfTitular=event.target.cpfTitular.value
+        let cartao = event.target.cartao.value
+        cartao=cartao.replace(/\s+/g, '')
+        let dataValiade=event.target.dataValiade.value
+        let separa=dataValiade.split("/")
+        let data = new Date("01/"+separa[0]+"/"+separa[1]);
+        dataValiade = data.toLocaleDateString()
+        let ccv=event.target.ccv.value
+        
+        let nomeEntrega=event.target.nomeEntrega.value
+        let cep=state.cep
+        let enderecoEntrega=event.target.enderecoEntrega.value
+        let numero=event.target.numero.value
+        let bairro=event.target.bairro.value
+        let cidadeEntrega=event.target.cidadeEntrega.value
+        let ufEntrega=event.target.ufEntrega.value
+
+        //falta a data do cartão
+        //let idUser = JSON.parse(localStorage.getItem("usuario"))
+        //let data = new Date("01/"+event.target.dataValiade.value)
+        //console.log(data.toLocaleDateString())
+        let idUser = {idUsuario:1}
+        let usuario={
+            idUsuario:idUser.idUsuario
+        }
+        
+        let pagamento={
+            titularPagamento:nomeCartao,
+            telefoneTitular:telefoneTitular,
+            cpfTitular:cpfTitular,
+            formaPagamento:"cartão",
+            numeroCartao:cartao,
+            dataValiade:dataValiade,
+            ccv:ccv,
+        }
+        
+        let pedidoItens = state.addedItems.map((state) =>(
+            [{quantidade:state.quantity,
+            precoVendido:state.valorUnitario,
+            produto:{
+                idProduto:state.idProduto
+            }}]
+        ))
+        
+        let pedido ={
+            valorFrete:state.valorFrete,
+            diasParaEntrega:state.diasEntrega,
+            pedidoItens:pedidoItens,
+            usuario:usuario,
+            pagamento:pagamento,
+            entrega:{
+                nomeEntrega:nomeEntrega,
+                enderecoEntrega:enderecoEntrega,
+                numeroEntrega:numero,
+                bairroEntrega:bairro,
+                cidadeEntrega:cidadeEntrega,
+                ufEntrega:ufEntrega,
+                cepEntrega:cep,
+            }
+        }
+        return pedido
+    }
     render() {
-        const { quantityItems, total,valorFrete,diasEntrega} = this.props
+        const {state} = this.props
         return (
             <>
             <Container id="checkout">
-                <Form>  
+                <Form onSubmit={e=>{this.teste(this.enviarPedido(e,state))}
+                    }>  
                     <Row> 
                     <Col xs="12" md="4">
                         <h3 className="titulos">Dados de pagamento</h3>
@@ -24,7 +95,8 @@ class Checkout extends Component {
                             className="Input" 
                             name="cartao" 
                             id="cartao" 
-                            placeholder="Numero do cartão" 
+                            placeholder="Numero do cartão"
+                            defaultValue="1111111111111111"
                             />
                         </FormGroup>
                             <FormGroup>
@@ -32,9 +104,10 @@ class Checkout extends Component {
                                 required
                                 className="Input" 
                                 type="text" 
-                                name="nomeCarto" 
-                                id="nomeCarto" 
-                                placeholder="Nome impresso no cartão" 
+                                name="nomeCartao" 
+                                id="nomeCartao" 
+                                placeholder="Nome impresso no cartão"
+                                defaultValue="Josenildo"
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -46,6 +119,8 @@ class Checkout extends Component {
                                 name="ccv" 
                                 id="ccv"
                                 placeholder="CCV"
+                                maxLength="3"
+                                defaultValue="432"
                                 />
                             </FormGroup>  
                             <FormGroup >
@@ -56,8 +131,31 @@ class Checkout extends Component {
                                 name="dataValiade" 
                                 id="dataValidade"
                                 placeholder="Data de validade"
+                                defaultValue="122028"
                                 />
-                            </FormGroup>    
+                            </FormGroup>
+                            <FormGroup >
+                                <InputMask 
+                                required
+                                className="Input" 
+                                mask="999.999.999-99"   
+                                name="cpfTitular" 
+                                id="cpfTitular"
+                                placeholder="CPF do Titular"
+                                defaultValue="12332112312"
+                                />
+                            </FormGroup>
+                            <FormGroup >
+                                <InputMask 
+                                required
+                                className="Input" 
+                                mask="(99)9-9999-9999"   
+                                name="telefoneTitular" 
+                                id="telefoneTitular" 
+                                placeholder="Telefone do Titular"
+                                defaultValue="11987654321"
+                                />
+                            </FormGroup>      
                     </Col>
                     <Col xs="12" md="4">
                         <h3 className="titulos">Dados da entrega</h3>
@@ -68,58 +166,97 @@ class Checkout extends Component {
                             type="text" 
                             name="nomeEntrega" 
                             id="nomeEntrega" 
-                            placeholder="Nome" 
+                            placeholder="Nome"
+                            defaultValue="Josenildo"
                             />
                         </FormGroup>
-                            <FormGroup>
-                                <Input 
-                                required
-                                className="Input"  
-                                type="text" 
-                                name="enderecoEntrega" 
-                                id="enderecoEntrega" 
-                                placeholder="Endereço" 
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input 
-                                required
-                                className="Input"  
-                                type="number" 
-                                name="numero" 
-                                id="ccv"
-                                placeholder="numero"
-                                />
-                            </FormGroup>  
-                            <FormGroup >
-                                <Input 
-                                required
-                                className="Input"  
-                                type="text" 
-                                name="bairro" 
-                                id="bairro"
-                                placeholder="Bairro"
-                                />
-                            </FormGroup>   
-
+                        <FormGroup >
+                            <InputMask 
+                            required
+                            className="Input" 
+                            mask="99999-999"   
+                            name="cepEntrega" 
+                            id="cepEntrega" 
+                            placeholder="CEP"
+                            defaultValue={state.cep}
+                            />
+                        </FormGroup>  
+                        <FormGroup>
+                            <Input 
+                            required
+                            className="Input"  
+                            type="text" 
+                            name="enderecoEntrega" 
+                            id="enderecoEntrega" 
+                            placeholder="Endereço"
+                            defaultValue="Rua qualquer"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input 
+                            required
+                            className="Input"  
+                            type="number" 
+                            name="numero" 
+                            id="numero"
+                            placeholder="numero"
+                            maxLength="3"
+                            defaultValue="123"
+                            />
+                        </FormGroup>  
+                        <FormGroup >
+                            <Input 
+                            required
+                            className="Input"  
+                            type="text" 
+                            name="bairro" 
+                            id="bairro"
+                            placeholder="Bairro"
+                            defaultValue="Santa Maria"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input 
+                            required
+                            className="Input"  
+                            type="text" 
+                            name="cidadeEntrega" 
+                            id="cidadeEntrega"
+                            placeholder="Cidade"
+                            defaultValue="Osasco"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input 
+                            required
+                            className="Input"  
+                            type="text" 
+                            name="ufEntrega" 
+                            id="ufEntrega"
+                            placeholder="UF"
+                            defaultValue="SP"
+                            maxLength="2"
+                            />
+                        </FormGroup>
+                           
                     </Col>
                     <Col xs="12" md="4">
                     <ListGroup>
 							<h3 className="titulos">Resumo da compra</h3>
-							<ListGroupItem  className="listaResumo">Quantidade de Produto:<br className="ajusta"/>{quantityItems}</ListGroupItem>
+							<ListGroupItem  className="listaResumo">Quantidade de Produto:<br className="ajusta"/>{state.quantityItems}</ListGroupItem>
 							
-							<ListGroupItem className="listaResumo">Valor:<br/>{total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+							<ListGroupItem className="listaResumo">Valor:<br/>{state.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Frete:<br/>{valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Frete:<br/>{state.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Prazo de Entrega:<br/>{diasEntrega} Dias
+								Prazo de Entrega:<br/>{state.diasEntrega} Dias
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Valor total:<br/>{(total+diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Valor total:<br/>{(state.total+state.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 						</ListGroup>
-                      <Button href="/sucesso" color="success" className="buttonCheckout">Finalizar Compra</Button>
+                      <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
                     </Col>
                     </Row>
                 </Form>
@@ -132,11 +269,7 @@ class Checkout extends Component {
 
 
 const mapStateToProps = state => ({
-    addedItems: state.carrinhoReducer.addedItems,
-    total: state.carrinhoReducer.total,
-	quantityItems: state.carrinhoReducer.quantityItems,
-	valorFrete:state.carrinhoReducer.valorFrete,
-	diasEntrega:state.carrinhoReducer.diasEntrega,
+    state:state.carrinhoReducer,
 });
 
 const mapDispatchToProps = dispatch => ({

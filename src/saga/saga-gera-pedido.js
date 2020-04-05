@@ -2,12 +2,13 @@ import { CartActionsType } from "../redux/actions/actions-type";
 import {all, put, call, takeLatest} from 'redux-saga/effects';
 import api from "../services/api";
 
-function geraJSON(pedido){
-    json = {
+async function geraJSON(pedido){
+    let res = await api.post
+    let json = {
         valorFrete:pedido.valorFrete,
         diasParaEntrega:pedido.diasEntrega,
         pedidoItens:pedido.addedItems,
-        
+        cliente:{idCliente:user.idCliente}
     }
     return json;
 }
