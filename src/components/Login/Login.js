@@ -16,8 +16,10 @@ export default function Login() {
 
     async function handleLogin(e){
         e.preventDefault();
-        sessionStorage.setItem("credenciais", JSON.stringify({"username":email, "password":senha}))
+        const credenciais = btoa(JSON.stringify({"username":email, "password":senha}))
+        sessionStorage.setItem("credenciais", credenciais)
 
+       
 
         api.get('/auth/token', {
         

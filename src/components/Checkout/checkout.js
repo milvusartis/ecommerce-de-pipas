@@ -51,10 +51,10 @@ class Checkout extends Component {
                             <FormGroup >
                                 <InputMask 
                                 required
-                                className="Input" 
+                                className="date" 
                                 mask="99/9999"   
                                 name="dataValiade" 
-                                id="dataValidade"
+                                id="dataVagit lidade"
                                 placeholder="Data de validade"
                                 />
                             </FormGroup>    
