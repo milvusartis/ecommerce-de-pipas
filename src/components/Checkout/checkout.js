@@ -107,7 +107,6 @@ class Checkout extends Component {
                             name="cartao" 
                             id="cartao" 
                             placeholder="Numero do cartão"
-                            defaultValue="1111111111111111"
                             />
                         </FormGroup>
                             <FormGroup>
@@ -118,7 +117,6 @@ class Checkout extends Component {
                                 name="nomeCartao" 
                                 id="nomeCartao" 
                                 placeholder="Nome impresso no cartão"
-                                defaultValue="Josenildo"
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -130,8 +128,6 @@ class Checkout extends Component {
                                 name="ccv" 
                                 id="ccv"
                                 placeholder="CCV"
-                                maxLength="3"
-                                defaultValue="432"
                                 />
                             </FormGroup>  
                             <FormGroup >
@@ -142,7 +138,6 @@ class Checkout extends Component {
                                 name="dataValiade" 
                                 id="dataVagit lidade"
                                 placeholder="Data de validade"
-                                defaultValue="122028"
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -153,7 +148,6 @@ class Checkout extends Component {
                                 name="cpfTitular" 
                                 id="cpfTitular"
                                 placeholder="CPF do Titular"
-                                defaultValue="12332112312"
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -164,7 +158,6 @@ class Checkout extends Component {
                                 name="telefoneTitular" 
                                 id="telefoneTitular" 
                                 placeholder="Telefone do Titular"
-                                defaultValue="11987654321"
                                 />
                             </FormGroup>      
                     </Col>
@@ -178,7 +171,6 @@ class Checkout extends Component {
                             name="nomeEntrega" 
                             id="nomeEntrega" 
                             placeholder="Nome"
-                            defaultValue="Josenildo"
                             />
                         </FormGroup>
                         <FormGroup >
@@ -189,7 +181,6 @@ class Checkout extends Component {
                             name="cepEntrega" 
                             id="cepEntrega" 
                             placeholder="CEP"
-                            defaultValue={state.cep}
                             />
                         </FormGroup>  
                         <FormGroup>
@@ -200,7 +191,6 @@ class Checkout extends Component {
                             name="enderecoEntrega" 
                             id="enderecoEntrega" 
                             placeholder="Endereço"
-                            defaultValue="Rua qualquer"
                             />
                         </FormGroup>
                         <FormGroup>
@@ -212,7 +202,6 @@ class Checkout extends Component {
                             id="numero"
                             placeholder="numero"
                             maxLength="3"
-                            defaultValue="123"
                             />
                         </FormGroup>
                         <FormGroup>
@@ -223,7 +212,6 @@ class Checkout extends Component {
                             name="complementoEntrega" 
                             id="complementoEntrega"
                             placeholder="Complemento"
-                            defaultValue="Complemento"
                             />
                         </FormGroup>  
                         <FormGroup >
@@ -234,7 +222,6 @@ class Checkout extends Component {
                             name="bairro" 
                             id="bairro"
                             placeholder="Bairro"
-                            defaultValue="Santa Maria"
                             />
                         </FormGroup>
                         <FormGroup>
@@ -245,7 +232,6 @@ class Checkout extends Component {
                             name="cidadeEntrega" 
                             id="cidadeEntrega"
                             placeholder="Cidade"
-                            defaultValue="Osasco"
                             />
                         </FormGroup>
                         <FormGroup>
@@ -256,7 +242,6 @@ class Checkout extends Component {
                             name="ufEntrega" 
                             id="ufEntrega"
                             placeholder="UF"
-                            defaultValue="SP"
                             maxLength="2"
                             />
                         </FormGroup>
