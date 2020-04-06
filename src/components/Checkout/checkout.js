@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Col, Row, Button, Form, FormGroup,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
 import * as CartActions from "../../redux/actions/action.cart";
+import { Link } from 'react-router-dom';
 
 class Checkout extends Component {
     enviarPedido=(event,state)=>{
@@ -41,11 +42,10 @@ class Checkout extends Component {
         let ufEntrega=event.target.ufEntrega.value
 
         let idUser = JSON.parse(sessionStorage.getItem("usuario"))
-        //console.log(data.toLocaleDateString())
-        //let idUser = {idUsuario:1}
         let usuario={
             idUsuario:idUser.idUsuario
         }
+
         let pagamento={
             titularPagamento:nomeCartao,
             telefoneTitular:telefoneTitular,
@@ -86,7 +86,6 @@ class Checkout extends Component {
                 cep:cep,
             }
         }
-        console.log(json)
         return json
     }
     render() {

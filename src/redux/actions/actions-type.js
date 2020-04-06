@@ -17,6 +17,7 @@ export const CartActionsType = {
     CHANGE_CEP_VALUE:'CHANGE_CEP_VALUE',
     CHANCE_FRETE_INFO:'CHANCE_FRETE_INFO',
     GERA_PEDIDO:'GERA_PEDIDO',
+    GRAVA_PEDIDO:'GRAVA_PEDIDO',
 }
 
 export const ListaDeProdutosActionsType = {
