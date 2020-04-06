@@ -1,5 +1,12 @@
 import { CartActionsType} from "./actions-type";
 
+export function geraPedido(pedido){
+  return{
+    type:CartActionsType.GERA_PEDIDO,
+    pedido
+  }  
+}
+
 export function addToCart(item, number) {
   return {
     type: CartActionsType.ADD_TO_CART,
@@ -7,18 +14,6 @@ export function addToCart(item, number) {
     number,
   };
 }
-
-// export function startStorage(){
-//   return{
-//     type:CartActionsType.START_STORAGE
-//   }
-// }
-
-// export function updateStorage(){
-//   return{
-//     type:CartActionsType.UPDATE_STORAGE
-//   }
-// }
 
 export function changeCepValue(cep){
   return{
