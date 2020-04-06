@@ -86,6 +86,7 @@ class Checkout extends Component {
                 cep:cep,
             }
         }
+        console.log(json)
         return json
     }
     render() {
