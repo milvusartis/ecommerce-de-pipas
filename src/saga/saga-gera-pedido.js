@@ -5,10 +5,9 @@ import api from "../services/api";
 
 function* geraPedidoRequested(pedido){
     const response = yield call(api.post,'/pedidos',pedido.pedido);
-    //sessionStorage.removeItem("carrinho")
+    
     if(response.status===200){
         let teste = response.data.split(" ")
-        //console.log(teste[2].replace(',',''))
         yield put(gravaPedido(teste[2].replace(',','')))
     }else{
         yield put(gravaPedido(response.data.idPedido))

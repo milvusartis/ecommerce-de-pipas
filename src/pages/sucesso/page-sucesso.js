@@ -18,7 +18,7 @@ render(){
           <input className="Input" disabled="disabled" placeholder={"Prazo de entrega: "+state.diasEntrega+" dias"}></input>
           <input className="Input" disabled="disabled" placeholder={"Valor total da compra: "+(state.total+state.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}></input>
         </form>
-        <Button href="/" className="buttonSucesso" color="danger">Finalizar</Button> 
+        <Button href="/" className="buttonSucesso" color="danger" onClick={()=>localStorage.clear()}>Finalizar</Button> 
         </section>
       </div>
     </div>
