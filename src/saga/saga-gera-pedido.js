@@ -1,31 +1,31 @@
 import { CartActionsType } from "../redux/actions/actions-type";
-import {all, put, call, takeLatest} from 'redux-saga/effects';
+import {all, call, takeLatest} from 'redux-saga/effects';
 import api from "../services/api";
-
-async function geraJSON(pedido){
-    let res = await api.post
-    let json = {
-        valorFrete:pedido.valorFrete,
-        diasParaEntrega:pedido.diasEntrega,
-        pedidoItens:pedido.addedItems,
-        cliente:{idCliente:user.idCliente}
+function removeType(pedido){
+    let teste ={
+        pedido:pedido.pedido,
+        usuario:pedido.usuario,
+        pagamento:pedido.pagamento,
+        cartao:pedido.cartao,
+        nomeEntrega:pedido.nomeEntrega,
+        enderecoEntrega:pedido.enderecoEntrega
     }
-    return json;
+    return teste
 }
-
 function* geraPedidoRequested(pedido){
-    const response = yield call (api.post,geraJSON(pedido));
+    const response = yield call (api.post,'/pedidos',removeType(pedido));
+    //sessionStorage.removeItem("carrinho")
 }
 
 function* whatchRequestGeraPedido(){
-    yield takeLatest(  CartActionsType.GERA_PEDIDO, geraPedidoRequested)
+    yield takeLatest(CartActionsType.GERA_PEDIDO, geraPedidoRequested)
 }
 
-function* realizaPedido(){
+function* realizaPedidoSaga(){
     yield all([
          whatchRequestGeraPedido(),
      ])
 
  }
 
-export{realizaPedido} 
+export{realizaPedidoSaga} 

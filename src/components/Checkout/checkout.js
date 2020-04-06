@@ -7,84 +7,95 @@ import InputMask from 'react-input-mask';
 import { connect } from 'react-redux';
 import { Col, Row, Button, Form, FormGroup,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
+import * as CartActions from "../../redux/actions/action.cart";
+
 class Checkout extends Component {
-    teste=(pedido)=>{
-        console.log(pedido)
-    }
     enviarPedido=(event,state)=>{
         event.preventDefault()
         
         let nomeCartao=event.target.nomeCartao.value
         let telefoneTitular=event.target.telefoneTitular.value
+        telefoneTitular=telefoneTitular.replace('(','')
+        telefoneTitular=telefoneTitular.replace(')','')
+        telefoneTitular=telefoneTitular.replace('-','')
+        telefoneTitular=telefoneTitular.replace('-','')
         let cpfTitular=event.target.cpfTitular.value
-        let cartao = event.target.cartao.value
-        cartao=cartao.replace(/\s+/g, '')
+        cpfTitular=cpfTitular.replace('.','')
+        cpfTitular=cpfTitular.replace('.','')
+        cpfTitular=cpfTitular.replace('-','')
+        let nCartao = event.target.cartao.value
+        nCartao=nCartao.replace(/\s+/g, '')
         let dataValiade=event.target.dataValiade.value
         let separa=dataValiade.split("/")
         let data = new Date("01/"+separa[0]+"/"+separa[1]);
         dataValiade = data.toLocaleDateString()
         let ccv=event.target.ccv.value
-        
+
         let nomeEntrega=event.target.nomeEntrega.value
         let cep=state.cep
         let enderecoEntrega=event.target.enderecoEntrega.value
         let numero=event.target.numero.value
+        let complemento = event.target.complementoEntrega.value
         let bairro=event.target.bairro.value
         let cidadeEntrega=event.target.cidadeEntrega.value
         let ufEntrega=event.target.ufEntrega.value
 
-        //falta a data do cartão
-        //let idUser = JSON.parse(localStorage.getItem("usuario"))
-        //let data = new Date("01/"+event.target.dataValiade.value)
+        let idUser = JSON.parse(sessionStorage.getItem("usuario"))
         //console.log(data.toLocaleDateString())
-        let idUser = {idUsuario:1}
+        //let idUser = {idUsuario:1}
         let usuario={
             idUsuario:idUser.idUsuario
         }
-        
         let pagamento={
             titularPagamento:nomeCartao,
             telefoneTitular:telefoneTitular,
             cpfTitular:cpfTitular,
             formaPagamento:"cartão",
-            numeroCartao:cartao,
-            dataValiade:dataValiade,
-            ccv:ccv,
         }
         
+        let cartao={
+            numeroCartao:nCartao,
+            dataValidade:dataValiade,
+            ccv:ccv,
+        }
         let pedidoItens = state.addedItems.map((state) =>(
-            [{quantidade:state.quantity,
+            {quantidade:state.quantity,
             precoVendido:state.valorUnitario,
             produto:{
                 idProduto:state.idProduto
-            }}]
+            }}
         ))
-        
-        let pedido ={
+        let pedido={
             valorFrete:state.valorFrete,
             diasParaEntrega:state.diasEntrega,
             pedidoItens:pedidoItens,
+        }
+        let json ={
+            pedido:pedido,
             usuario:usuario,
             pagamento:pagamento,
-            entrega:{
-                nomeEntrega:nomeEntrega,
-                enderecoEntrega:enderecoEntrega,
-                numeroEntrega:numero,
-                bairroEntrega:bairro,
-                cidadeEntrega:cidadeEntrega,
-                ufEntrega:ufEntrega,
-                cepEntrega:cep,
+            cartao:cartao,
+            nomeEntrega:nomeEntrega,
+            enderecoEntrega:{
+                rua:enderecoEntrega,
+                numero:numero,
+                complemento:complemento,
+                bairro:bairro,
+                cidade:cidadeEntrega,
+                uf:ufEntrega,
+                cep:cep,
             }
         }
-        return pedido
+        return json
     }
     render() {
-        const {state} = this.props
+        const {state,geraPedido} = this.props
         return (
             <>
             <Container id="checkout">
-                <Form onSubmit={e=>{this.teste(this.enviarPedido(e,state))}
-                    }>  
+                <Form 
+                onSubmit={e=>{geraPedido(this.enviarPedido(e,state))}}
+                >  
                     <Row> 
                     <Col xs="12" md="4">
                         <h3 className="titulos">Dados de pagamento</h3>
@@ -203,6 +214,17 @@ class Checkout extends Component {
                             maxLength="3"
                             defaultValue="123"
                             />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input 
+                            required
+                            className="Input"  
+                            type="text" 
+                            name="complementoEntrega" 
+                            id="complementoEntrega"
+                            placeholder="Complemento"
+                            defaultValue="Complemento"
+                            />
                         </FormGroup>  
                         <FormGroup >
                             <Input 
@@ -273,7 +295,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+    geraPedido:(pedido)=>dispatch(CartActions.geraPedido(pedido))
 })
 
 export default connect(
