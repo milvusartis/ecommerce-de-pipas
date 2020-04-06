@@ -41,11 +41,10 @@ class Checkout extends Component {
         let ufEntrega=event.target.ufEntrega.value
 
         let idUser = JSON.parse(sessionStorage.getItem("usuario"))
-        //console.log(data.toLocaleDateString())
-        //let idUser = {idUsuario:1}
         let usuario={
             idUsuario:idUser.idUsuario
         }
+
         let pagamento={
             titularPagamento:nomeCartao,
             telefoneTitular:telefoneTitular,
@@ -86,7 +85,6 @@ class Checkout extends Component {
                 cep:cep,
             }
         }
-        console.log(json)
         return json
     }
     render() {

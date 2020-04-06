@@ -1,10 +1,17 @@
 import { CartActionsType} from "./actions-type";
 
+export function gravaPedido(pedido){
+  return{
+    type:CartActionsType.GRAVA_PEDIDO,
+    pedido
+  };
+}
+
 export function geraPedido(pedido){
   return{
     type:CartActionsType.GERA_PEDIDO,
     pedido
-  }  
+  };  
 }
 
 export function addToCart(item, number) {

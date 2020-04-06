@@ -7,6 +7,7 @@ const INITIAL_STATE ={
         cep: 0,
         valorFrete:'',
         diasEntrega:'',
+        idPedido:''
 };
 function iniciar() {
     if(localStorage.getItem("carrinho")!==null){
@@ -114,6 +115,10 @@ function pedido(state = iniciar(), action) {
                             newState={...newState,valorFrete:8,diasEntrega:6}
                         }
                     }
+                    break;
+                }
+                case CartActionsType.GRAVA_PEDIDO:{
+                    newState={...newState,idPedido:action.pedido}
                     break;
                 }
             }
