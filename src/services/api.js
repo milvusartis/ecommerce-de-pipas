@@ -4,7 +4,8 @@ const api = axios.create({baseURL:'http://localhost:8080/api/ecommerce'});
 
 
 api.interceptors.request.use(function(config) {
-    config.auth = JSON.parse(sessionStorage.getItem("credenciais"))
+    const decodificar = sessionStorage.getItem("credenciais");
+    config.auth = JSON.parse(atob(decodificar))
 return config;
 });
 
