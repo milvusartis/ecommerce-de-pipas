@@ -13,6 +13,7 @@ function* geraPedidoRequested(pedido){
     }else{
         yield put(gravaPedido(response.data.idPedido))
     }
+    document.location.href = "http://localhost:3000/sucesso"
 }
 
 function* whatchRequestGeraPedido(){

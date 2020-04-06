@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { Col, Row, Button, Form, FormGroup,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
 import * as CartActions from "../../redux/actions/action.cart";
+import { Link } from 'react-router-dom';
 
 class Checkout extends Component {
     enviarPedido=(event,state)=>{
