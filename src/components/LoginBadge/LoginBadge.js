@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 function handleLogout(){
     sessionStorage.clear();
+    localStorage.clear();
     window.location.reload();
     
 }
