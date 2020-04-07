@@ -13,7 +13,7 @@
     "create-react-context": "^0.3.0",
     "mdbootstrap": "^4.14.0",
     "react": "^16.13.0",
-    "react-bootstrap": "^1.0.0-beta.17",
+    "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.0",
     "react-dropdown": "^1.6.4",
     "react-firebase": "^2.2.8",
