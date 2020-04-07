@@ -15,6 +15,7 @@ import Checkout from './components/Checkout/checkout';
 import Carrinho from './components/carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
 import HistoricoPedidos from './pages/historicoPedidos/index';
+import PrivateRoute from './PrivateRoutes/privateRoutes';
 
 
 
@@ -38,9 +39,9 @@ export default class Routes extends Component {
           <Route path="/linhas" component={Linhas}/>
           <Route path="/latas" component={Latas}/>
           <Route path="/carrinho" component={Carrinho}/>
-          <Route path="/checkout" component={Checkout}/>
-          <Route path="/sucesso" component={Sucesso}/>
-          <Route path="/historico" component={HistoricoPedidos} />
+          <PrivateRoute path="/checkout" component={Checkout}/>
+          <PrivateRoute path="/sucesso" component={Sucesso}/>
+          <PrivateRoute path="/historico" component={HistoricoPedidos} />
         </Switch>
         <Footer/>
         
