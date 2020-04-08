@@ -4,56 +4,57 @@ import { MdAccountCircle } from 'react-icons/md';
 import Badge from 'react-bootstrap/Badge'
 import { connect } from 'react-redux';
 
+import './LoginBadge.css';
 
 
-function handleLogout(){
+function handleLogout() {
     sessionStorage.clear();
     localStorage.clear();
     window.location.reload();
-    
+
 }
 
-const LoginBadge = ({usuario}) => (
+const LoginBadge = ({ usuario }) => (
 
-    
+
 
     <>
 
-    {usuario !== null ? (
+        {usuario !== null ? (
 
-        <>
-            <Link title="Fazer logout" onClick={handleLogout}  to="#">
-                <Badge pill variant=""  className="badge login logado"><MdAccountCircle /></Badge>{' '}
-            </Link>
-            <span className="user">Olá, {usuario.nome}</span>
+                <div className="badge-login">
+                    <Link title="Fazer logout" onClick={handleLogout} to="#">
+                        <Badge pill variant="" className="badge login logado"><MdAccountCircle /></Badge>{' '}
+                    </Link>
+                    <span className="user">Olá, {usuario.nome}</span>
 
-        </>
+                </div>
 
-    ) : (
-            <>
-                <Link title="Olá, faça o seu login" to="/login">
-                    <Badge pill variant="" className="badge login "><MdAccountCircle /></Badge>{' '}
-                </Link>
-                <span className="user">Olá, faça o seu login</span>
+        ) : (
+             
+                <div className="badge-login">
+                    <Link title="Olá, faça o seu login" to="/login">
+                        <Badge pill variant="" className="badge login "><MdAccountCircle /></Badge>{' '}
+                    </Link>
+                    <span className="user">Olá, faça o seu login</span>
+                    </div>
+               
+            )}
 
-            </>
-        )}
-
-
-</>
+    </>
 
 
 );
 
 const mapStateToProps = state => ({
-    usuario: state.userReducer.user, 
+    usuario: state.userReducer.user,
 
 });
 
 const mapDispatchToProps = dispatch =>
-({
+    ({
 
-})
+    })
 
 export default connect(
     mapStateToProps,
