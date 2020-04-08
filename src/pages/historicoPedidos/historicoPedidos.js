@@ -63,34 +63,19 @@ export default function HistoricoPedidosl() {
 
     return (
         <>
+
+
             <div className="pedido-container">
                 <div className="content">
+
+
 
                     <h1>Pedidos realizados</h1>
 
 
-                    <ol class="progress" data-steps="4">
-                        <li class="done">
-                            <span class="name">Foo</span>
-                            <span class="step"><span>1</span></span>
-                        </li>
-                        <li class="done">
-                            <span class="name">Bar</span>
-                            <span class="step"><span>2</span></span>
-                        </li>
-                        <li class="active">
-                            <span class="name">Baz</span>
-                            <span class="step"><span>3</span></span>
-                        </li>
-                        <li >
-                            <span class="name">Quux</span>
-                            <span class="step"><span>4</span></span>
-                        </li>
-                    </ol>
+
 
                     <div className={classes.root}>
-
-
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
@@ -103,6 +88,29 @@ export default function HistoricoPedidosl() {
                                     <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
                                 </div>
                             </ExpansionPanelSummary>
+                            <ExpansionPanelDetails className={classes.details}>
+
+                                <ol className="progress-track" data-steps="4">
+                                    <li className="done">
+                                        <span className="name">Pedido realizado</span>
+                                        <span className="step"><span>1</span></span>
+                                    </li>
+                                    <li className="done">
+                                        <span className="name">Pagamento confirmado</span>
+                                        <span className="step"><span>2</span></span>
+                                    </li>
+                                    <li className="active">
+                                        <span className="name">Pedido enviado</span>
+                                        <span className="step"><span>3</span></span>
+                                    </li>
+                                    <li>
+                                        <span className="name">Pedido entregue</span>
+                                        <span className="step"><span>4</span></span>
+                                    </li>
+                                </ol>
+
+
+                            </ExpansionPanelDetails>
 
                             <ExpansionPanelDetails className={classes.details}>
                                 {/* <div className={classes.column} /> */}
@@ -118,6 +126,11 @@ export default function HistoricoPedidosl() {
                                     </Typography>
                                 </div>
                             </ExpansionPanelDetails>
+
+
+
+
+
 
                             <ExpansionPanelDetails className={classes.details}>
                                 <div className={classes.column}>
