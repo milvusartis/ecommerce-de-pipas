@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import FloatingCart from '../FloatingCart/FloatingCart';
 
-import './LoginBadge.css';
+import './LoginBadge.scss';
 import FloatingUserMenu from '../FloatingUserMenu/FloatingUserMenu';
 
 

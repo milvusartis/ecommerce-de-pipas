@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import { useHistory } from 'react-router-dom';
 
-import './style.css';
+import './style.scss';
 
 
 export default function Cadastro() {

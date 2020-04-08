@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Produto.css';
+import './Produto.scss';
 
 import {
     Card, Button, CardImg, CardTitle, CardText,

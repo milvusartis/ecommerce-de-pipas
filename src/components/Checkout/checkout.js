@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../css/global.css'
-import './Checkout.css';
+import '../../css/global.scss'
+import './Checkout.scss';
 
 import InputMask from 'react-input-mask';
 

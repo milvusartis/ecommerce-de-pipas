@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ListaDeProdutos.css';
+import './ListaDeProdutos.scss';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import {

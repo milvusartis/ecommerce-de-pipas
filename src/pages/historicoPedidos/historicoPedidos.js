@@ -13,7 +13,7 @@ import Divider from '@material-ui/core/Divider';
 
 import { MdExpandMore } from 'react-icons/md';
 
-import './historicoPedidos.css'
+import './historicoPedidos.scss'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,6 +69,24 @@ export default function HistoricoPedidosl() {
                     <h1>Pedidos realizados</h1>
 
 
+                    <ol class="progress" data-steps="4">
+                        <li class="done">
+                            <span class="name">Foo</span>
+                            <span class="step"><span>1</span></span>
+                        </li>
+                        <li class="done">
+                            <span class="name">Bar</span>
+                            <span class="step"><span>2</span></span>
+                        </li>
+                        <li class="active">
+                            <span class="name">Baz</span>
+                            <span class="step"><span>3</span></span>
+                        </li>
+                        <li >
+                            <span class="name">Quux</span>
+                            <span class="step"><span>4</span></span>
+                        </li>
+                    </ol>
 
                     <div className={classes.root}>
 
