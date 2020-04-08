@@ -88,8 +88,8 @@ export default function HistoricoPedidosl() {
                                     <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
                                 </div>
                             </ExpansionPanelSummary>
-                            <ExpansionPanelDetails className={classes.details}>
 
+                            <ExpansionPanelDetails className={classes.details}>
                                 <ol className="progress-track" data-steps="4">
                                     <li className="done">
                                         <span className="name">Pedido realizado</span>
@@ -108,8 +108,6 @@ export default function HistoricoPedidosl() {
                                         <span className="step"><span>4</span></span>
                                     </li>
                                 </ol>
-
-
                             </ExpansionPanelDetails>
 
                             <ExpansionPanelDetails className={classes.details}>
@@ -162,8 +160,8 @@ export default function HistoricoPedidosl() {
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
-                                aria-controls="panel1c-content"
-                                id="panel1c-header">
+                                aria-controls="panel2c-content"
+                                id="panel2c-header">
                                 <div className={classes.column}>
                                     <Typography className={classes.heading}>Pedido: #1234</Typography>
                                 </div>
@@ -171,6 +169,27 @@ export default function HistoricoPedidosl() {
                                     <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
                                 </div>
                             </ExpansionPanelSummary>
+                            
+                            <ExpansionPanelDetails className={classes.details}>
+                                <ol className="progress-track" data-steps="4">
+                                    <li className="done">
+                                        <span className="name">Pedido realizado</span>
+                                        <span className="step"><span>1</span></span>
+                                    </li>
+                                    <li className="done">
+                                        <span className="name">Pagamento confirmado</span>
+                                        <span className="step"><span>2</span></span>
+                                    </li>
+                                    <li className="active">
+                                        <span className="name">Pedido enviado</span>
+                                        <span className="step"><span>3</span></span>
+                                    </li>
+                                    <li>
+                                        <span className="name">Pedido entregue</span>
+                                        <span className="step"><span>4</span></span>
+                                    </li>
+                                </ol>
+                            </ExpansionPanelDetails>
 
                             <ExpansionPanelDetails className={classes.details}>
                                 {/* <div className={classes.column} /> */}
@@ -186,6 +205,11 @@ export default function HistoricoPedidosl() {
                                     </Typography>
                                 </div>
                             </ExpansionPanelDetails>
+
+
+
+
+
 
                             <ExpansionPanelDetails className={classes.details}>
                                 <div className={classes.column}>
@@ -211,6 +235,7 @@ export default function HistoricoPedidosl() {
                                  </Button>
                             </ExpansionPanelActions>
                         </ExpansionPanel>
+
 
 
 
