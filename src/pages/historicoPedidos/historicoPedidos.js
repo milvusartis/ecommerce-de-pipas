@@ -76,6 +76,8 @@ export default function HistoricoPedidosl() {
 
 
                     <div className={classes.root}>
+
+                        {/* Primeiro Panel */}
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
@@ -155,7 +157,7 @@ export default function HistoricoPedidosl() {
                             </ExpansionPanelActions>
                         </ExpansionPanel>
 
-
+                        {/* Segundo Panel */}
 
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                             <ExpansionPanelSummary
@@ -169,7 +171,7 @@ export default function HistoricoPedidosl() {
                                     <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
                                 </div>
                             </ExpansionPanelSummary>
-                            
+
                             <ExpansionPanelDetails className={classes.details}>
                                 <ol className="progress-track" data-steps="4">
                                     <li className="done">
