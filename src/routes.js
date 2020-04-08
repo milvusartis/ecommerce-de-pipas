@@ -14,7 +14,7 @@ import Footer from './components/Footer/Footer';
 import Checkout from './components/Checkout/checkout';
 import Carrinho from './components/carrinho/Carrinho';
 import Sucesso from './pages/sucesso/page-sucesso';
-import HistoricoPedidos from './pages/historicoPedidos/index';
+import HistoricoPedidos from './pages/historicoPedidos/historicoPedidos';
 import PrivateRoute from './PrivateRoutes/privateRoutes';
 
 
