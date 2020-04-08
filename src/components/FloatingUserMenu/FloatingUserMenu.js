@@ -5,7 +5,7 @@ import { MdArrowDropUp, MdArrowDropDown, MdClose } from "react-icons/md";
 import { CartActions } from "../../redux/actions/action.cart";
 import { connect } from 'react-redux';
 
-import "./FloatingUserMenu.css";
+import "./FloatingUserMenu.scss";
 
 class FloatingUserMenu extends Component {
     render() {

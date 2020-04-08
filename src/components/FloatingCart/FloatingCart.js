@@ -5,7 +5,7 @@ import { MdArrowDropUp, MdArrowDropDown , MdClose} from "react-icons/md";
 import { CartActions } from "../../redux/actions/action.cart";
 import { connect } from 'react-redux';
 
-import "./FloatingCart.css";
+import "./FloatingCart.scss";
 
 class FloatingCart extends Component {
     render() {

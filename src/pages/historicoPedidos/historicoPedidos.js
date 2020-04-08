@@ -13,7 +13,7 @@ import Divider from '@material-ui/core/Divider';
 
 import { MdExpandMore } from 'react-icons/md';
 
-import './historicoPedidos.css'
+import './historicoPedidos.scss'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -63,16 +63,21 @@ export default function HistoricoPedidosl() {
 
     return (
         <>
+
+
             <div className="pedido-container">
                 <div className="content">
+
+
 
                     <h1>Pedidos realizados</h1>
 
 
 
+
                     <div className={classes.root}>
 
-
+                        {/* Primeiro Panel */}
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
@@ -87,6 +92,27 @@ export default function HistoricoPedidosl() {
                             </ExpansionPanelSummary>
 
                             <ExpansionPanelDetails className={classes.details}>
+                                <ol className="progress-track" data-steps="4">
+                                    <li className="done">
+                                        <span className="name">Pedido realizado</span>
+                                        <span className="step"><span>1</span></span>
+                                    </li>
+                                    <li className="done">
+                                        <span className="name">Pagamento confirmado</span>
+                                        <span className="step"><span>2</span></span>
+                                    </li>
+                                    <li className="active">
+                                        <span className="name">Pedido enviado</span>
+                                        <span className="step"><span>3</span></span>
+                                    </li>
+                                    <li>
+                                        <span className="name">Pedido entregue</span>
+                                        <span className="step"><span>4</span></span>
+                                    </li>
+                                </ol>
+                            </ExpansionPanelDetails>
+
+                            <ExpansionPanelDetails className={classes.details}>
                                 {/* <div className={classes.column} /> */}
                                 <div className={classes.column}>
                                     {/* <Chip label="Barbados" onDelete={() => {}} /> */}
@@ -100,6 +126,11 @@ export default function HistoricoPedidosl() {
                                     </Typography>
                                 </div>
                             </ExpansionPanelDetails>
+
+
+
+
+
 
                             <ExpansionPanelDetails className={classes.details}>
                                 <div className={classes.column}>
@@ -126,13 +157,13 @@ export default function HistoricoPedidosl() {
                             </ExpansionPanelActions>
                         </ExpansionPanel>
 
-
+                        {/* Segundo Panel */}
 
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
-                                aria-controls="panel1c-content"
-                                id="panel1c-header">
+                                aria-controls="panel2c-content"
+                                id="panel2c-header">
                                 <div className={classes.column}>
                                     <Typography className={classes.heading}>Pedido: #1234</Typography>
                                 </div>
@@ -142,6 +173,27 @@ export default function HistoricoPedidosl() {
                             </ExpansionPanelSummary>
 
                             <ExpansionPanelDetails className={classes.details}>
+                                <ol className="progress-track" data-steps="4">
+                                    <li className="done">
+                                        <span className="name">Pedido realizado</span>
+                                        <span className="step"><span>1</span></span>
+                                    </li>
+                                    <li className="done">
+                                        <span className="name">Pagamento confirmado</span>
+                                        <span className="step"><span>2</span></span>
+                                    </li>
+                                    <li className="active">
+                                        <span className="name">Pedido enviado</span>
+                                        <span className="step"><span>3</span></span>
+                                    </li>
+                                    <li>
+                                        <span className="name">Pedido entregue</span>
+                                        <span className="step"><span>4</span></span>
+                                    </li>
+                                </ol>
+                            </ExpansionPanelDetails>
+
+                            <ExpansionPanelDetails className={classes.details}>
                                 {/* <div className={classes.column} /> */}
                                 <div className={classes.column}>
                                     {/* <Chip label="Barbados" onDelete={() => {}} /> */}
@@ -155,6 +207,11 @@ export default function HistoricoPedidosl() {
                                     </Typography>
                                 </div>
                             </ExpansionPanelDetails>
+
+
+
+
+
 
                             <ExpansionPanelDetails className={classes.details}>
                                 <div className={classes.column}>
@@ -180,6 +237,7 @@ export default function HistoricoPedidosl() {
                                  </Button>
                             </ExpansionPanelActions>
                         </ExpansionPanel>
+
 
 
 

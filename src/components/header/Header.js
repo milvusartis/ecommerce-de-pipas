@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ReactComponent as Logo } from "./image/milvus_logo.svg"
 import { Link } from "react-router-dom";
 
-import './Header.css';
+import './Header.scss';
 
 import {
     Container,

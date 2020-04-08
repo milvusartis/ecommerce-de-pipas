@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import "./ExibeProduto.css";
+import "./ExibeProduto.scss";
 import {
     Container,
     Row,
