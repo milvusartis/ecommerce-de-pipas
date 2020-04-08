@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { Link } from "react-router-dom";
 import { MdAccountCircle } from 'react-icons/md';
 import Badge from 'react-bootstrap/Badge'
 import { connect } from 'react-redux';
+
+import FloatingCart from '../FloatingCart/FloatingCart';
 
 import './LoginBadge.css';
 
@@ -14,7 +16,22 @@ function handleLogout() {
 
 }
 
-const LoginBadge = ({ usuario }) => (
+const LoginBadge = ({ usuario }) => {
+   
+
+    const [isOpen, setIsOpen] = useState(false);
+
+   const onHover = () => {
+        setIsOpen(true);
+    }
+
+    const onLeave = (event) => {       
+        setTimeout(() => {
+            setIsOpen(false);
+        }, 2000); 
+    }
+    
+   return (
 
 
 
@@ -24,7 +41,17 @@ const LoginBadge = ({ usuario }) => (
 
                 <div className="badge-login">
                     <Link title="Fazer logout" onClick={handleLogout} to="#">
-                        <Badge pill variant="" className="badge login logado"><MdAccountCircle /></Badge>{' '}
+                        <Badge pill variant="" className="badge login logado" onMouseOver={(event) => onHover(event)}><MdAccountCircle /></Badge>{' '}
+
+                        {isOpen && (
+                    <span  onMouseLeave={(event) => onLeave(event)}>
+                        {/* Codigo Flutuante aqui */}
+                      
+                    </span>
+
+                )}
+
+
                     </Link>
                     <span className="user">Olá, {usuario.nome}</span>
 
@@ -45,6 +72,7 @@ const LoginBadge = ({ usuario }) => (
 
 
 );
+        }
 
 const mapStateToProps = state => ({
     usuario: state.userReducer.user,
