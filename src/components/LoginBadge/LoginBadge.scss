@@ -1,0 +1,35 @@
+
+  .topo a, .badge-login span {
+    color: #FFF;
+  }
+  .topo a, svg:hover{
+    
+    text-decoration: none;
+  }
+  
+  .badge{
+    font-size: x-large;
+  }
+   
+ .target {
+    display: flex;
+    justify-content: flex-end;  
+    align-items: center;      
+}
+
+.target a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login{
+  background-color: #6c757d;
+}
+
+.login.logado{
+  background: #9ACA4C;
+}
+
+.login.logado:hover{
+  background: #EA4A6F;
+}

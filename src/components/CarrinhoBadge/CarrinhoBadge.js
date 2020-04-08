@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { MdShoppingCart } from 'react-icons/md';
 import Badge from 'react-bootstrap/Badge'
 
-import "./CarrinhoBadge.css";
+import "./CarrinhoBadge.scss";
 import FloatingCart from '../FloatingCart/FloatingCart';
 
 

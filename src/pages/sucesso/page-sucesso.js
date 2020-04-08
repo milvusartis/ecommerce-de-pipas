@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './page-sucesso.css';
+import './page-sucesso.scss';
 import { Button } from 'reactstrap'
 import { connect } from 'react-redux';
 

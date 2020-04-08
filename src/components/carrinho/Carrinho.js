@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./Carrinho.css";
+import "./Carrinho.scss";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import {
