@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HistoricoPedidosl() {
     const classes = useStyles();
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     return (
         <>
@@ -63,29 +68,12 @@ export default function HistoricoPedidosl() {
 
                     <h1>Pedidos realizados</h1>
 
-                    {/* <ul>
-
-                        <li>
-                            <strong>NUMERO DO PEDIDO:</strong>
-                            <p>{}</p>
-
-                            <strong>DESCRIÇÂO:</strong>
-                            <p>{}</p>
-
-                            <strong>VALOR:</strong>
-                            <p></p>
-                        </li>
-                        
-                    </ul> */}
-
-
-
 
 
                     <div className={classes.root}>
-                        {/* <ExpansionPanel defaultExpanded> */}
-                        <ExpansionPanel TransitionProps={{ unmountOnExit: true }}>
 
+
+                        <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
                                 aria-controls="panel1c-content"
@@ -95,9 +83,8 @@ export default function HistoricoPedidosl() {
                                 </div>
                                 <div className={classes.column}>
                                     <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
-                                </div>                               
+                                </div>
                             </ExpansionPanelSummary>
-
 
                             <ExpansionPanelDetails className={classes.details}>
                                 {/* <div className={classes.column} /> */}
@@ -109,11 +96,10 @@ export default function HistoricoPedidosl() {
                                     <Typography variant="caption">
                                         <p>Pipa Grande Colorida</p>
                                         <strong>2 und - R$ 50,00</strong>
-                                        <p>Subtotal: R$ 100</p>                              
+                                        <p>Subtotal: R$ 100</p>
                                     </Typography>
                                 </div>
                             </ExpansionPanelDetails>
-
 
                             <ExpansionPanelDetails className={classes.details}>
                                 <div className={classes.column}>
@@ -124,13 +110,13 @@ export default function HistoricoPedidosl() {
                                     <Typography variant="caption">
                                         <p>Pipa Grande Colorida</p>
                                         <strong>2 und - R$ 50,00</strong>
-                                        <p>Subtotal: R$ 100</p>                              
+                                        <p>Subtotal: R$ 100</p>
                                     </Typography>
                                 </div>
                             </ExpansionPanelDetails>
 
-
                             <Divider />
+
                             <ExpansionPanelActions>
                                 {/* <Button size="small">Cancel</Button> */}
                                 <strong >Total - R$ 200,00</strong>
@@ -139,8 +125,68 @@ export default function HistoricoPedidosl() {
                                  </Button>
                             </ExpansionPanelActions>
                         </ExpansionPanel>
-                    </div>
 
+
+
+                        <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                            <ExpansionPanelSummary
+                                expandIcon={<MdExpandMore />}
+                                aria-controls="panel1c-content"
+                                id="panel1c-header">
+                                <div className={classes.column}>
+                                    <Typography className={classes.heading}>Pedido: #1234</Typography>
+                                </div>
+                                <div className={classes.column}>
+                                    <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
+                                </div>
+                            </ExpansionPanelSummary>
+
+                            <ExpansionPanelDetails className={classes.details}>
+                                {/* <div className={classes.column} /> */}
+                                <div className={classes.column}>
+                                    {/* <Chip label="Barbados" onDelete={() => {}} /> */}
+                                    <img width="80" src="https://i.ibb.co/SvxNRNy/pipa-box.png" alt="" />
+                                </div>
+                                <div className={clsx(classes.column, classes.helper)}>
+                                    <Typography variant="caption">
+                                        <p>Pipa Grande Colorida</p>
+                                        <strong>2 und - R$ 50,00</strong>
+                                        <p>Subtotal: R$ 100</p>
+                                    </Typography>
+                                </div>
+                            </ExpansionPanelDetails>
+
+                            <ExpansionPanelDetails className={classes.details}>
+                                <div className={classes.column}>
+                                    {/* <Chip label="Barbados" onDelete={() => {}} /> */}
+                                    <img width="80" src="https://i.ibb.co/SvxNRNy/pipa-box.png" alt="" />
+                                </div>
+                                <div className={clsx(classes.column, classes.helper)}>
+                                    <Typography variant="caption">
+                                        <p>Pipa Grande Colorida</p>
+                                        <strong>2 und - R$ 50,00</strong>
+                                        <p>Subtotal: R$ 100</p>
+                                    </Typography>
+                                </div>
+                            </ExpansionPanelDetails>
+
+                            <Divider />
+
+                            <ExpansionPanelActions>
+                                {/* <Button size="small">Cancel</Button> */}
+                                <strong >Total - R$ 200,00</strong>
+                                <Button size="small" color="primary">
+                                    Refazer pedido
+                                 </Button>
+                            </ExpansionPanelActions>
+                        </ExpansionPanel>
+
+
+
+
+
+
+                    </div>
 
 
                 </div>
