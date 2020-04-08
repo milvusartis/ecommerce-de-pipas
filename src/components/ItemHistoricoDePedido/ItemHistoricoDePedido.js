@@ -63,10 +63,9 @@ export default function ItemHistoricoDePedido() {
 
     return (
         <>
-
                     <div className={classes.root}>
 
-                        {/* Primeiro Panel */}
+                    
                         <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <ExpansionPanelSummary
                                 expandIcon={<MdExpandMore />}
@@ -117,10 +116,6 @@ export default function ItemHistoricoDePedido() {
                             </ExpansionPanelDetails>
 
 
-
-
-
-
                             <ExpansionPanelDetails className={classes.details}>
                                 <div className={classes.column}>
                                     {/* <Chip label="Barbados" onDelete={() => {}} /> */}
@@ -146,93 +141,7 @@ export default function ItemHistoricoDePedido() {
                             </ExpansionPanelActions>
                         </ExpansionPanel>
 
-                        {/* Segundo Panel */}
-
-                        <ExpansionPanel TransitionProps={{ unmountOnExit: true }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-                            <ExpansionPanelSummary
-                                expandIcon={<MdExpandMore />}
-                                aria-controls="panel2c-content"
-                                id="panel2c-header">
-                                <div className={classes.column}>
-                                    <Typography className={classes.heading}>Pedido: #1234</Typography>
-                                </div>
-                                <div className={classes.column}>
-                                    <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
-                                </div>
-                            </ExpansionPanelSummary>
-
-                            <ExpansionPanelDetails className={classes.details}>
-                                <ol className="progress-track" data-steps="4">
-                                    <li className="done">
-                                        <span className="name">Pedido realizado</span>
-                                        <span className="step"><span>1</span></span>
-                                    </li>
-                                    <li className="done">
-                                        <span className="name">Pagamento confirmado</span>
-                                        <span className="step"><span>2</span></span>
-                                    </li>
-                                    <li className="active">
-                                        <span className="name">Pedido enviado</span>
-                                        <span className="step"><span>3</span></span>
-                                    </li>
-                                    <li>
-                                        <span className="name">Pedido entregue</span>
-                                        <span className="step"><span>4</span></span>
-                                    </li>
-                                </ol>
-                            </ExpansionPanelDetails>
-
-                            <ExpansionPanelDetails className={classes.details}>
-                                {/* <div className={classes.column} /> */}
-                                <div className={classes.column}>
-                                    {/* <Chip label="Barbados" onDelete={() => {}} /> */}
-                                    <img width="80" src="https://i.ibb.co/SvxNRNy/pipa-box.png" alt="" />
-                                </div>
-                                <div className={clsx(classes.column, classes.helper)}>
-                                    <Typography variant="caption">
-                                        <p>Pipa Grande Colorida</p>
-                                        <strong>2 und - R$ 50,00</strong>
-                                        <p>Subtotal: R$ 100</p>
-                                    </Typography>
-                                </div>
-                            </ExpansionPanelDetails>
-
-
-
-
-
-
-                            <ExpansionPanelDetails className={classes.details}>
-                                <div className={classes.column}>
-                                    {/* <Chip label="Barbados" onDelete={() => {}} /> */}
-                                    <img width="80" src="https://i.ibb.co/SvxNRNy/pipa-box.png" alt="" />
-                                </div>
-                                <div className={clsx(classes.column, classes.helper)}>
-                                    <Typography variant="caption">
-                                        <p>Pipa Grande Colorida</p>
-                                        <strong>2 und - R$ 50,00</strong>
-                                        <p>Subtotal: R$ 100</p>
-                                    </Typography>
-                                </div>
-                            </ExpansionPanelDetails>
-
-                            <Divider />
-
-                            <ExpansionPanelActions>
-                                {/* <Button size="small">Cancel</Button> */}
-                                <strong >Total - R$ 200,00</strong>
-                                <Button size="small" color="primary">
-                                    Refazer pedido
-                                 </Button>
-                            </ExpansionPanelActions>
-                        </ExpansionPanel>
-
-
-
-
-
-
-
+                       
                     </div>
 
 
