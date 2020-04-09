@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Required
+// @import "../../node_modules/bootstrap/scss/functions";
+// @import "../../node_modules/bootstrap/scss/variables";
+// @import "../../node_modules/bootstrap/scss/mixins";
+
+// Optional
+// @import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+// @import "../../node_modules/bootstrap/scss/grid";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font: 400 14px Roboto, sans-serif;
+    background: #f0f0f5;
+    -webkit-font-smoothing: antialiased;
+}
+imput, button, textarea{
+    font: 400 18px Roboto, sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+.button{
+    width: 100%;
+    height: 60px;
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 18px;
+    transition: filter 0.2s;
+    align-items: center;
+}
+
+.button:hover{
+    filter: brightness(90%);
+}
+
+Form Input{
+    width: 100%;
+    height: 60px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
+    padding: 0 24px;
+}

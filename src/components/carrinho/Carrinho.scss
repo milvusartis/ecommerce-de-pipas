@@ -1,0 +1,63 @@
+/* 
+Quebra componentes de tabela
+p{
+  text-indent: 100px;
+  
+} */
+
+.qnt{
+    justify-content: center;
+    width: 300px;
+    margin-left: 160px;
+}
+@media (max-width: 540px){
+  .imagens{
+    width: 90%;
+    height: 90%;
+  }
+  .titulo{
+    display: none;
+  }
+  .visao-normal{
+    display: none;
+  }
+}
+@media (min-width: 600px){
+  .imagens{
+    width: 100%;
+    height: 100%;
+  }
+  .esconde{
+    display: none;
+  }
+}
+
+.titulo{
+  font-size: small;
+}
+
+.teste{
+  padding: left 0;
+}
+
+@media (max-width:991px) and (min-width:759px){
+  .ajusta{
+    display: none;
+  }
+}
+
+#button{
+  margin-top: 20px;
+  margin-bottom: 10px;
+    width: 100%;
+    background: red ;
+    height: 60px;
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: 700;
+    display: inline-block;
+    font-size: 18px;
+    transition: filter 0.2s;
+    align-items: center;
+}

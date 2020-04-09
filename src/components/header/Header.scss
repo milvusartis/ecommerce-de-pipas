@@ -1,0 +1,90 @@
+/* INICIO HEADER */
+.topo {
+    background: #36393A;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+
+  .logo{
+    width: 25vw;
+  } 
+
+  .search *{
+    flex-flow: row nowrap;      
+  }
+  
+  .search div {
+    cursor: pointer;
+  }
+  
+
+ 
+ #navHome{
+    background-color: white;
+    width: 100vw;
+    margin-top: 5px;
+  }
+ 
+  .icons{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .navHome{
+      display: flex;
+      width: 100vw;
+      background-color: white;   
+  }
+  
+  .nav-link{
+    width: 10vw;
+    flex-direction: row;
+  }
+  
+  .nav-link:hover{
+    opacity: 0.7;
+    font-weight: bolder;
+  }
+  
+  
+  
+  /* RESPONSIVO */
+  
+  @media (max-width: 768px) {
+  
+   
+    .logo{
+      width: 70vw;
+      display: flex;
+      justify-content: center;
+     
+    } 
+  
+    .badges {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+             
+       
+    }
+  
+    .search {
+        order: +2;
+        margin-top: 20px;   
+    }
+  
+    .nav-link{
+      width: 85vw;
+      margin-top: 10px;
+    } 
+  
+  
+  }
+
+
+
+
+
