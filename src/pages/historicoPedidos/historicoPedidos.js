@@ -85,6 +85,21 @@ export default function HistoricoPedidosl() {
         return handler(value);
     };
 
+    const handlePedidoMensage = {
+        PEDIDO_REALIZADO: value => "parabéns pela compra",
+        PAGAMENTO_CONFIRMADO: value => "pagamento confirmado, oh yeah!",
+        PEDIDO_ENVIADO: value => "uhuuu, seu pedido está a caminho",
+        PEDIDO_ENTREGUE: value => "ooba, seu pedido foi entregue",
+        // default: value => value,
+    };
+    
+
+    const showMenssage = (statusPedido, value) => {
+        const handler = handlePedidoMensage[statusPedido]
+        return handler(value);
+    };
+
+    
 
     useEffect(() => {
         api.get(`historico-pedidos/${idUsuario}`, {
@@ -134,7 +149,7 @@ export default function HistoricoPedidosl() {
                                         <Typography className={classes.heading}>Pedido: #{pedido.idPedido}</Typography>
                                     </div>
                                     <div className={classes.column}>
-                                        <Typography className={classes.secondaryHeading}>ooba, pedido entregue</Typography>
+                                        <Typography className={classes.secondaryHeading}>{showMenssage(pedido.statusPedido)}</Typography>
                                     </div>
                                 </ExpansionPanelSummary>
 
