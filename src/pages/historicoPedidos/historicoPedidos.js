@@ -89,7 +89,7 @@ export default function HistoricoPedidosl() {
         PEDIDO_REALIZADO: value => "parabéns pela compra",
         PAGAMENTO_CONFIRMADO: value => "pagamento confirmado, oh yeah!",
         PEDIDO_ENVIADO: value => "uhuuu, seu pedido está a caminho",
-        PEDIDO_ENTREGUE: value => "ooba, seu pedido foi entregue",
+        PEDIDO_ENTREGUE: value => "oba, seu pedido foi entregue",
         // default: value => value,
     };
     
