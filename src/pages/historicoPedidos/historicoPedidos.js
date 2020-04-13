@@ -90,7 +90,6 @@ export default function HistoricoPedidosl() {
         PAGAMENTO_CONFIRMADO: value => "pagamento confirmado, oh yeah!",
         PEDIDO_ENVIADO: value => "uhuuu, seu pedido está a caminho",
         PEDIDO_ENTREGUE: value => "oba, seu pedido foi entregue",
-        // default: value => value,
     };
     
 
@@ -99,10 +98,10 @@ export default function HistoricoPedidosl() {
         return handler(value);
     };
 
-    
+
 
     useEffect(() => {
-        api.get(`historico-pedidos/${idUsuario}`, {
+        api.get(`historico-pedidos`, {
 
         }).then(response => {
             // setPedidos(response.data)
@@ -112,24 +111,6 @@ export default function HistoricoPedidosl() {
     }, [idUsuario]);
 
 
-
-    // api.get('/auth/token', {
-
-    // }).then((response => {
-    //     sessionStorage.setItem("usuario", JSON.stringify(response.data))
-    //     history.push("/")
-    //     window.location.reload();
-
-
-    // })).catch((error) => {
-    //     if (401 === error.response.status){
-    //         return alert("Usuário ou senha não conferem");
-    // }
-    //     alert("Erro não esperado");
-    // });
-
-
-
     return (
         <>
             <div className="pedido-container">
@@ -137,7 +118,6 @@ export default function HistoricoPedidosl() {
                     <h1>Pedidos realizados</h1>
                     <div className={classes.root}>
                         {pedidos.map(pedido => (
-
 
 
                             <ExpansionPanel key={pedido.idPedido} TransitionProps={{ unmountOnExit: true }} expanded={expanded === `panel${pedido.idPedido}`} onChange={handleChange(`panel${pedido.idPedido}`)}>
@@ -197,9 +177,6 @@ export default function HistoricoPedidosl() {
                                     </div>
 
 
-
-
-
                                 ))}
 
 
@@ -213,13 +190,6 @@ export default function HistoricoPedidosl() {
                                                  </Button>
                                 </ExpansionPanelActions>
                             </ExpansionPanel>
-
-
-
-
-
-
-
 
 
 
