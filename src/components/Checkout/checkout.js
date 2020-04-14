@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 // import '../../css/global.scss'
 import './Checkout.scss';
 
@@ -93,293 +93,240 @@ const enviarPedido = (event, state) => {
 
 
 
+const handdler = {
+
+    col1: (usuario, endereco) => (
+        <>
+            <FormGroup>
+                <Input
+                    required
+                    className="Input"
+                    type="text"
+                    name="nomeEntrega"
+                    id="nomeEntrega"
+                    value={usuario.nome}
+                    placeholder="Nome"
+                />
+            </FormGroup>
+            <FormGroup >
+                <InputMask
+                    required
+                    className="Input"
+                    mask="99999-999"
+                    name="cepEntrega"
+                    id="cepEntrega"
+                    value={endereco.cep}
+                    placeholder="CEP"
+                />
+            </FormGroup>
+            <FormGroup>
+                <Input
+                    required
+                    className="Input"
+                    type="text"
+                    name="enderecoEntrega"
+                    id="enderecoEntrega"
+                    value={endereco.rua}
+                    placeholder="Endereço"
+                />
+            </FormGroup>
+            <FormGroup>
+                <Input
+                    required
+                    className="Input"
+                    type="number"
+                    name="numero"
+                    id="numero"
+                    value={endereco.numero}
+                    placeholder="numero"
+                    maxLength="3"
+                />
+            </FormGroup>
+            <FormGroup>
+                <Input
+                    required
+                    className="Input"
+                    type="text"
+                    name="complementoEntrega"
+                    id="complementoEntrega"
+                    value={endereco.complemento}
+                    placeholder="Complemento"
+                />
+            </FormGroup>
+            <FormGroup >
+                <Input
+                    required
+                    className="Input"
+                    type="text"
+                    name="bairro"
+                    value={endereco.bairro}
+                    id="bairro"
+                    placeholder="Bairro"
+                />
+            </FormGroup>
+            <FormGroup>
+                <Input
+                    required
+                    className="Input"
+                    type="text"
+                    name="cidadeEntrega"
+                    id="cidadeEntrega"
+                    value={endereco.cidade}
+                    placeholder="Cidade"
+                />
+            </FormGroup>
+            <FormGroup>
+                <Input
+                    required
+                    className="Input"
+                    type="text"
+                    name="ufEntrega"
+                    id="ufEntrega"
+                    value={endereco.uf}
+                    placeholder="UF"
+                    maxLength="2"
+                />
+            </FormGroup>
+
+        </>
+    )
+};
+
+const showHanddler = (group, usuario, endereco) => {
+    const handler = handdler[group]
+    return handler(usuario, endereco);
+};
+
+
+const Checkout = ({reducerState, geraPedido}) => {
+    const [showCol2, setShowCol2] = React.useState(false);
+    const [cliente, setCliente] = React.useState({});
+    const [usuario, setUsuario] = React.useState({});
+    const [endereco, setEndereco] = React.useState({})
 
 
 
-const Checkout = (state, geraPedido) => {
-    const [cliente, setCliente] = useState({});
-    const [showCol1, setShowCol1] = React.useState(true);
-    const [showCol2, setShowCol2] = React.useState(true);
+    const toggleComponent = () => {
+        setShowCol2(!showCol2)   
+    }
 
 
 
+    return (
+        <>
 
-    const handdler = {
+            <Container id="checkout">
+                <Form
+                    onSubmit={e => { geraPedido(this.enviarPedido(e, reducerState)) }}
+                >
 
-        col1: cliente => (
-            <>
-            {console.log(cliente)}
-                <h3 className="titulos">Dados de pagamento</h3>
-                <FormGroup>
-                    <InputMask
-                        required
-                        mask="9999 9999 9999 9999"
-                        className="Input"
-                        name="cartao"
-                        id="cartao"
-                        placeholder="Numero do cartão"
-                    />
-                </FormGroup>
-      
-                <FormGroup>
-                    <Input
-                        required
-                        className="Input"
-                        type="text"
-                        name="nomeCartao"
-                        id="nomeCartao"
-                        placeholder="Nome impresso no cartão"
-                        
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Input
-                        maxLength="3"
-                        required
-                        className="Input"
-                        type="number"
-                        name="ccv"
-                        id="ccv"
-                        placeholder="CCV"
-                    />
-                </FormGroup>
-                <FormGroup >
-                    <InputMask
-                        required
-                        className="date"
-                        mask="99/9999"
-                        name="dataValiade"
-                        id="dataVagit lidade"
-                        placeholder="Data de validade"
-                    />
-                </FormGroup>
-                <FormGroup >
-                    <InputMask
-                        required
-                        className="Input"
-                        mask="999.999.999-99"
-                        name="cpfTitular"
-                        id="cpfTitular"
-                        placeholder="CPF do Titular"
-                        value={cliente.cpf}
-                        
-                
-                    />
-                </FormGroup>
-                <FormGroup >
-                    <InputMask
-                        required
-                        className="Input"
-                        mask="(99)9-9999-9999"
-                        name="telefoneTitular"
-                        id="telefoneTitular"
-                        placeholder="Telefone do Titular"
-                        value={cliente.telefone}
-                    />
-                </FormGroup>
-            </>
-        ),
-        col2: cliente => (
-            <>
-            {console.log(cliente)}
-             <h3 className="titulos">Dados da entrega</h3>
+                    <Row>
+                        <Col xs="12" md="4">
+                            <h3 className="titulos">Dados de pagamento</h3>
+                            <FormGroup>
+                                <InputMask
+                                    required
+                                    mask="9999 9999 9999 9999"
+                                    className="Input"
+                                    name="cartao"
+                                    id="cartao"
+                                    placeholder="Numero do cartão"
+                                />
+                            </FormGroup>
                             <FormGroup>
                                 <Input
                                     required
                                     className="Input"
                                     type="text"
-                                    name="nomeEntrega"
-                                    id="nomeEntrega"
-                                    placeholder="Nome"
-                           
+                                    name="nomeCartao"
+                                    id="nomeCartao"
+
+                                    placeholder="Nome impresso no cartão"
+                                >
+
+                                </Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input
+                                    maxLength="3"
+                                    required
+                                    className="Input"
+                                    type="number"
+                                    name="ccv"
+                                    id="ccv"
+                                    placeholder="CCV"
+                                />
+                            </FormGroup>
+                            <FormGroup >
+                                <InputMask
+                                    required
+                                    className="date"
+                                    mask="99/9999"
+                                    name="dataValiade"
+                                    id="dataVagit lidade"
+                                    placeholder="Data de validade"
                                 />
                             </FormGroup>
                             <FormGroup >
                                 <InputMask
                                     required
                                     className="Input"
-                                    mask="99999-999"
-                                    name="cepEntrega"
-                                    id="cepEntrega"
-                                    placeholder="CEP"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input
-                                    required
-                                    className="Input"
-                                    type="text"
-                                    name="enderecoEntrega"
-                                    id="enderecoEntrega"
-                                    placeholder="Endereço"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input
-                                    required
-                                    className="Input"
-                                    type="number"
-                                    name="numero"
-                                    id="numero"
-                                    placeholder="numero"
-                                    maxLength="3"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input
-                                    required
-                                    className="Input"
-                                    type="text"
-                                    name="complementoEntrega"
-                                    id="complementoEntrega"
-                                    placeholder="Complemento"
+                                    mask="999.999.999-99"
+                                    name="cpfTitular"
+                                    id="cpfTitular"
+                                    placeholder="CPF do Titular"
                                 />
                             </FormGroup>
                             <FormGroup >
-                                <Input
+                                <InputMask
                                     required
                                     className="Input"
-                                    type="text"
-                                    name="bairro"
-                                    id="bairro"
-                                    placeholder="Bairro"
+                                    mask="(99)9-9999-9999"
+                                    name="telefoneTitular"
+                                    id="telefoneTitular"
+                                    placeholder="Telefone do Titular"
                                 />
                             </FormGroup>
-                            <FormGroup>
-                                <Input
-                                    required
-                                    className="Input"
-                                    type="text"
-                                    name="cidadeEntrega"
-                                    id="cidadeEntrega"
-                                    placeholder="Cidade"
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Input
-                                    required
-                                    className="Input"
-                                    type="text"
-                                    name="ufEntrega"
-                                    id="ufEntrega"
-                                    placeholder="UF"
-                                    maxLength="2"
-                                />
-                            </FormGroup>
-            </>
-        ),
-    };
-    
-    const showHanddler = (group, cliente) => {
-        const handler = handdler[group]
-        return handler(cliente);
-    };
-
-    useEffect(() => {
-
-        setCliente(
-            {
-                "idCliente": 1,
-                "cpf": "04205595310",
-                "rg": "2003034096537",
-                "telefone": "11964367824",
-                "usuario": {
-                  "idUsuario": 1,
-                  "nome": "Diógenes Bezerra Pereira",
-                  "email": "ads.diogenes@gmail.com",
-                  "perfis": [
-                    "ADMIN",
-                    "CLIENTE"
-                  ]
-                },
-                "endereco": {
-                  "idEndereco": 2,
-                  "rua": "Rua Eugênia de Carvalho",
-                  "numero": 525,
-                  "complemento": "Casa A",
-                  "bairro": "Vila Matilde",
-                  "cidade": "São Paulo",
-                  "uf": "SP",
-                  "cep": "03516000"
-                }
-              }
-        )
-
-    
-    }, []);
-    
-    return (
-        
-        <>
-
-            <Container id="checkout">
-                <Form
-                    onSubmit={e => { geraPedido(this.enviarPedido(e, cliente)) }}
-                >
-                    <Row>
-                        <Col xs="12" md="4">
-
-
-                            {showCol1 ?
-                                (
-
-                                    <>
-                                  
-                                    <Button color="secondary" className="buttonCheckout">Utilizar dados cadastrados</Button>
-                                    <Button color="secondary" className="buttonCheckout">Atualizar dados</Button>
-                                      
-                                    
-                                    </>
-
-                                )
-
-                                :
-                                (
-                                    <>
-                                        {(showHanddler("col1",cliente))}
-                                       
-                                 
-                                    </>
-                                )
-                            }
-
 
                         </Col>
                         <Col xs="12" md="4">
-                        {showCol2 ?
+                            {/* <button onClick={this.buscar()}>Usar dados cadastrados</button>
+                            <button>Cadastrar novos dados</button> */}
+                            <h3 className="titulos">Dados da entrega</h3>
+
+                            {showCol2 ?
                                 (
-
                                     <>
-                                        {(showHanddler("col2", cliente.usuario))}
-                                        <Button color="secondary" className="buttonCheckout">Atualizar dados</Button>
+                                           {(showHanddler("col1", usuario, endereco))}
                                     </>
-
                                 )
-
                                 :
                                 (
                                     <>
-                                        {(showHanddler("col2", cliente.usuario))}
-                                        <Button color="secondary" className="buttonCheckout">Utilizar dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout" onClick={toggleComponent}>Utilizar dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout" onClick={toggleComponent}>Atualizar dados</Button>
                                     </>
                                 )
                             }
+
+
+
 
                         </Col>
                         <Col xs="12" md="4">
                             <ListGroup>
                                 <h3 className="titulos">Resumo da compra</h3>
-                                <ListGroupItem className="listaResumo">Quantidade de Produto:<br className="ajusta" />{state.quantityItems}</ListGroupItem>
+                                <ListGroupItem className="listaResumo">Quantidade de Produto:<br className="ajusta" />{reducerState.quantityItems}</ListGroupItem>
 
-                                {/* <ListGroupItem className="listaResumo">Valor:<br/>{state.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem> */}
+                                <ListGroupItem className="listaResumo">Valor:<br />{reducerState.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
                                 <ListGroupItem className="listaResumo">
-                                    {/* Frete:<br/>{state.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} */}
+                                    Frete:<br />{reducerState.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                                 </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
-                                    Prazo de Entrega:<br />{state.diasEntrega} Dias
+                                    Prazo de Entrega:<br />{reducerState.diasEntrega} Dias
                         </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
-                                    {/* Valor total:<br/>{(state.total+state.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} */}
+                                    Valor total:<br />{(reducerState.total + reducerState.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                                 </ListGroupItem>
                             </ListGroup>
                             <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
@@ -392,8 +339,9 @@ const Checkout = (state, geraPedido) => {
     );
 }
 
+
 const mapStateToProps = state => ({
-    state: state.carrinhoReducer,
+    reducerState: state.carrinhoReducer,
 });
 
 const mapDispatchToProps = dispatch => ({
