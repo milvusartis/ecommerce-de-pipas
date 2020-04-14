@@ -99,6 +99,7 @@ const enviarPedido = (event, state) => {
 const Checkout = (state, geraPedido) => {
     const [cliente, setCliente] = useState({});
     const [showCol1, setShowCol1] = React.useState(false);
+    const [showCol2, setShowCol2] = React.useState(false);
 
 
 
@@ -323,8 +324,9 @@ const Checkout = (state, geraPedido) => {
                                 (
 
                                     <>
-                                        {(showHanddler("col1", {}))}
-                                        <Button color="secondary" className="buttonCheckout">Atualizar dados</Button>
+                            
+                                        {(showHanddler("col1",cliente))}
+                                        <Button color="secondary" className="buttonCheckout">Utilizar dados cadastrados</Button>
                                     </>
 
                                 )
@@ -332,8 +334,8 @@ const Checkout = (state, geraPedido) => {
                                 :
                                 (
                                     <>
-                                        {(showHanddler("col1",cliente))}
-                                        <Button color="secondary" className="buttonCheckout">Utilizar dados cadastrados</Button>
+                                         {(showHanddler("col1", {}))}
+                                        <Button color="secondary" className="buttonCheckout">Atualizar dados</Button>
                                     </>
                                 )
                             }
@@ -341,7 +343,7 @@ const Checkout = (state, geraPedido) => {
 
                         </Col>
                         <Col xs="12" md="4">
-                        {showCol1 ?
+                        {showCol2 ?
                                 (
 
                                     <>
