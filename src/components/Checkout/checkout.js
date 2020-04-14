@@ -207,6 +207,7 @@ class Checkout extends Component {
                     </Col>
                     <Col xs="12" md="4">
                         <button onClick={this.buscar()}>Usar dados cadastrados</button>
+                        <button>Cadastrar novos dados</button>
                         <h3 className="titulos">Dados da entrega</h3>
                         <FormGroup>
                             <Input 
@@ -214,7 +215,7 @@ class Checkout extends Component {
                             className="Input" 
                             type="text" 
                             name="nomeEntrega" 
-                            id="nomeEntrega" 
+                            id="nomeEntrega"
                             defaultValue={usuario.nome}
                             placeholder="Nome"
                             />
