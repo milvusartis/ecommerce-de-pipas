@@ -1,6 +1,6 @@
-const credenciais = 'credenciais'
+const token = 'token'
 
-const isLogged = () => !!sessionStorage.getItem(credenciais)
+const isLogged = () => !!sessionStorage.getItem(token)
 
 
-export { credenciais, isLogged}
+export { token, isLogged}

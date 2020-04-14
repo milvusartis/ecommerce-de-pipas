@@ -18,6 +18,7 @@ function handleLogout() {
 }
 
 const LoginBadge = ({ usuario }) => {
+    console.log(usuario)
 
 
     const [isOpen, setIsOpen] = useState(false);
