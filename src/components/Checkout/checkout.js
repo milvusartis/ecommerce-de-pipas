@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import '../../css/global.scss'
+import '../../scss/global.scss'
 import './Checkout.scss';
 
 import InputMask from 'react-input-mask';
@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { Col, Row, Button, Form, FormGroup,Container,Input, ListGroup, ListGroupItem} from 'reactstrap';
 
 import * as CartActions from "../../redux/actions/action.cart";
-import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 class Checkout extends Component {
     enviarPedido=(event,state)=>{
@@ -88,14 +88,54 @@ class Checkout extends Component {
         }
         return json
     }
+
+    state ={
+        cliente: {
+            usuario: {
+
+            
+            },
+            endereco: {
+
+            }
+        } 
+        
+    }
+
+    async buscar() {
+        const {idUsuario} = JSON.parse(sessionStorage.getItem("usuario"));
+        const response = await api.get(`/perfilusuario/${idUsuario}`)
+        this.setState({ cliente: response.data })       
+        
+        
+    }
+
+    componentDidMount(){
+        this.buscar()
+        
+    } 
+
+
+
     render() {
-        const {state,geraPedido} = this.props
+        
+        const {reducerState,geraPedido,} = this.props
+        
+        const {cliente} = this.state
+        const {usuario,endereco} = cliente
+        
+        
+        
+        
+        
         return (
             <>
+            
             <Container id="checkout">
                 <Form 
-                onSubmit={e=>{geraPedido(this.enviarPedido(e,state))}}
+                onSubmit={e=>{geraPedido(this.enviarPedido(e,reducerState))}}
                 >  
+                
                     <Row> 
                     <Col xs="12" md="4">
                         <h3 className="titulos">Dados de pagamento</h3>
@@ -115,9 +155,12 @@ class Checkout extends Component {
                                 className="Input" 
                                 type="text" 
                                 name="nomeCartao" 
-                                id="nomeCartao" 
+                                id="nomeCartao"
+                                
                                 placeholder="Nome impresso no cartão"
-                                />
+                                >
+                                
+                                </Input>
                             </FormGroup>
                             <FormGroup>
                                 <Input
@@ -159,9 +202,12 @@ class Checkout extends Component {
                                 id="telefoneTitular" 
                                 placeholder="Telefone do Titular"
                                 />
-                            </FormGroup>      
+                            </FormGroup>
+                    
                     </Col>
                     <Col xs="12" md="4">
+                        <button onClick={this.buscar()}>Usar dados cadastrados</button>
+                        <button>Cadastrar novos dados</button>
                         <h3 className="titulos">Dados da entrega</h3>
                         <FormGroup>
                             <Input 
@@ -169,7 +215,8 @@ class Checkout extends Component {
                             className="Input" 
                             type="text" 
                             name="nomeEntrega" 
-                            id="nomeEntrega" 
+                            id="nomeEntrega"
+                            defaultValue={usuario.nome}
                             placeholder="Nome"
                             />
                         </FormGroup>
@@ -177,9 +224,10 @@ class Checkout extends Component {
                             <InputMask 
                             required
                             className="Input" 
-                            mask="99999-999"   
+                            // mask="99999-999"   
                             name="cepEntrega" 
                             id="cepEntrega" 
+                            defaultValue={endereco.cep}
                             placeholder="CEP"
                             />
                         </FormGroup>  
@@ -190,6 +238,7 @@ class Checkout extends Component {
                             type="text" 
                             name="enderecoEntrega" 
                             id="enderecoEntrega" 
+                            defaultValue={endereco.rua}
                             placeholder="Endereço"
                             />
                         </FormGroup>
@@ -200,6 +249,7 @@ class Checkout extends Component {
                             type="number" 
                             name="numero" 
                             id="numero"
+                            defaultValue={endereco.numero}
                             placeholder="numero"
                             maxLength="3"
                             />
@@ -211,6 +261,7 @@ class Checkout extends Component {
                             type="text" 
                             name="complementoEntrega" 
                             id="complementoEntrega"
+                            defaultValue={endereco.complemento}
                             placeholder="Complemento"
                             />
                         </FormGroup>  
@@ -219,7 +270,8 @@ class Checkout extends Component {
                             required
                             className="Input"  
                             type="text" 
-                            name="bairro" 
+                            name="bairro"
+                            defaultValue={endereco.bairro} 
                             id="bairro"
                             placeholder="Bairro"
                             />
@@ -231,6 +283,7 @@ class Checkout extends Component {
                             type="text" 
                             name="cidadeEntrega" 
                             id="cidadeEntrega"
+                            defaultValue={endereco.cidade}
                             placeholder="Cidade"
                             />
                         </FormGroup>
@@ -241,29 +294,30 @@ class Checkout extends Component {
                             type="text" 
                             name="ufEntrega" 
                             id="ufEntrega"
+                            defaultValue={endereco.uf}
                             placeholder="UF"
                             maxLength="2"
                             />
                         </FormGroup>
-                           
+                    
                     </Col>
                     <Col xs="12" md="4">
                     <ListGroup>
 							<h3 className="titulos">Resumo da compra</h3>
-							<ListGroupItem  className="listaResumo">Quantidade de Produto:<br className="ajusta"/>{state.quantityItems}</ListGroupItem>
+							<ListGroupItem  className="listaResumo">Quantidade de Produto:<br className="ajusta"/>{reducerState.quantityItems}</ListGroupItem>
 							
-							<ListGroupItem className="listaResumo">Valor:<br/>{state.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+							<ListGroupItem className="listaResumo">Valor:<br/>{reducerState.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Frete:<br/>{state.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Frete:<br/>{reducerState.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Prazo de Entrega:<br/>{state.diasEntrega} Dias
+								Prazo de Entrega:<br/>{reducerState.diasEntrega} Dias
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Valor total:<br/>{(state.total+state.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Valor total:<br/>{(reducerState.total+reducerState.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 						</ListGroup>
-                      <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
+                        <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
                     </Col>
                     </Row>
                 </Form>
@@ -276,7 +330,8 @@ class Checkout extends Component {
 
 
 const mapStateToProps = state => ({
-    state:state.carrinhoReducer,
+    reducerState:state.carrinhoReducer,
+    
 });
 
 const mapDispatchToProps = dispatch => ({
