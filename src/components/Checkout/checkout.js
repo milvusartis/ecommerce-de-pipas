@@ -10,6 +10,8 @@ import { Col, Row, Button, Form, FormGroup, Container, Input, ListGroup, ListGro
 import * as CartActions from "../../redux/actions/action.cart";
 import { Link } from 'react-router-dom';
 
+import api from '../../services/api';
+
 
 const enviarPedido = (event, state) => {
     event.preventDefault()
@@ -198,17 +200,29 @@ const showHanddler = (group, usuario, endereco) => {
 };
 
 
-const Checkout = ({reducerState, geraPedido}) => {
+
+
+
+
+const Checkout = ({ state, geraPedido }) => {
     const [showCol2, setShowCol2] = React.useState(false);
-    const [cliente, setCliente] = React.useState({});
-    const [usuario, setUsuario] = React.useState({});
-    const [endereco, setEndereco] = React.useState({})
-
-
+    const [cliente, setCliente] = React.useState({
+        usuario: {},
+        endereco: {}
+    });
 
     const toggleComponent = () => {
-        setShowCol2(!showCol2)   
+        setShowCol2(!showCol2)
     }
+
+
+    async function buscar() {
+        const response = await api.get(`/perfilusuario`);
+        setCliente(response.data);
+        toggleComponent();
+    }
+
+
 
 
 
@@ -217,7 +231,7 @@ const Checkout = ({reducerState, geraPedido}) => {
 
             <Container id="checkout">
                 <Form
-                    onSubmit={e => { geraPedido(this.enviarPedido(e, reducerState)) }}
+                    onSubmit={e => { geraPedido(enviarPedido(e, state)) }}
                 >
 
                     <Row>
@@ -297,13 +311,13 @@ const Checkout = ({reducerState, geraPedido}) => {
                             {showCol2 ?
                                 (
                                     <>
-                                           {(showHanddler("col1", usuario, endereco))}
+                                        {(showHanddler("col1", cliente.usuario, cliente.endereco))}
                                     </>
                                 )
                                 :
                                 (
                                     <>
-                                        <Button color="secondary" className="buttonCheckout" onClick={toggleComponent}>Utilizar dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout" onClick={buscar}>Utilizar dados cadastrados</Button>
                                         <Button color="secondary" className="buttonCheckout" onClick={toggleComponent}>Atualizar dados</Button>
                                     </>
                                 )
@@ -316,17 +330,18 @@ const Checkout = ({reducerState, geraPedido}) => {
                         <Col xs="12" md="4">
                             <ListGroup>
                                 <h3 className="titulos">Resumo da compra</h3>
-                                <ListGroupItem className="listaResumo">Quantidade de Produto:<br className="ajusta" />{reducerState.quantityItems}</ListGroupItem>
+                                <ListGroupItem className="listaResumo">Quantidade de Produto:<br className="ajusta" />{state.quantityItems}</ListGroupItem>
 
-                                <ListGroupItem className="listaResumo">Valor:<br />{reducerState.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
+                                <ListGroupItem className="listaResumo">Valor:<br />{state.total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</ListGroupItem>
                                 <ListGroupItem className="listaResumo">
-                                    Frete:<br />{reducerState.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    Frete:<br />{state.valorFrete.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                                 </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
-                                    Prazo de Entrega:<br />{reducerState.diasEntrega} Dias
-                        </ListGroupItem>
+                                    Prazo de Entrega:<br />{state.diasEntrega} Dias
+                             </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
-                                    Valor total:<br />{(reducerState.total + reducerState.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    Valor total:<br />{(state.total + state.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                                    {console.log(state.valorFrete)}
                                 </ListGroupItem>
                             </ListGroup>
                             <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
@@ -341,7 +356,7 @@ const Checkout = ({reducerState, geraPedido}) => {
 
 
 const mapStateToProps = state => ({
-    reducerState: state.carrinhoReducer,
+    state: state.carrinhoReducer,
 });
 
 const mapDispatchToProps = dispatch => ({
