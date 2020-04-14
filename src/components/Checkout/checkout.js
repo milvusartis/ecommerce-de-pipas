@@ -314,7 +314,7 @@ class Checkout extends Component {
 								Prazo de Entrega:<br/>{reducerState.diasEntrega} Dias
 							</ListGroupItem>
 							<ListGroupItem className="listaResumo">
-								Valor total:<br/>{(reducerState.total+reducerState.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+								Valor total:<br/>{(reducerState.total+reducerState.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 						</ListGroup>
                       <Button color="success" className="buttonCheckout">Finalizar Compra</Button>

@@ -3,43 +3,50 @@ import React , {useState
 import './styles.scss'
 import { Link, useHistory } from 'react-router-dom'
 
-
 import milvus_logo from '../header/image/milvus_logo.svg'
 
 import api from '../../services/api'
+import { connect } from 'react-redux';
 
-export default function Login() {
+import {userAcions} from '../../redux/actions/action.user'
+
+
+const Login = ({changeUser}) => {
     const [email, setEmail ] = useState('');
     const [senha, setSenha] = useState('');
     const history = useHistory();
 
+  
+  
+      async function handleLogin(e){
+          e.preventDefault();
+  
+          api.post('/login', {
+              email:email,
+              senha:senha
+              
+          
+          }).then((response => {
+              // const credenciais = btoa({"authorization":response.headers.authorization})
+              // sessionStorage.setItem("credenciais", JSON.stringify(credenciais))
+          
+              sessionStorage.setItem("token", JSON.stringify(response.headers.authorization));
+              changeUser();
+  
+              history.push("/")
+              // window.location.reload();
+  
+          
+          })).catch((error) => {
+              if (401 === error.response.status){
+                  return alert("Usuário ou senha não conferem");
+          }
+          console.log(error)
+              // alert("Erro não esperado");
+          });
+      }
 
-    async function handleLogin(e){
-        e.preventDefault();
-        const credenciais = btoa(JSON.stringify({"username":email, "password":senha}))
-        sessionStorage.setItem("credenciais", credenciais)
-
-
-
-        api.get('/auth/token', {
-        
-        }).then((response => {
-            sessionStorage.setItem("usuario", JSON.stringify(response.data))
-            history.push("/")
-            window.location.reload();
-
-        
-        })).catch((error) => {
-            if (401 === error.response.status){
-                return alert("Usuário ou senha não conferem");
-        }
-            alert("Erro não esperado");
-        });
-    }
-
-
-
-    return (
+      return (
         <div className="logon-container">
             <div className="content">
             <section className="form">
@@ -73,4 +80,16 @@ export default function Login() {
             </div>
         </div>
     )
-}
+
+};
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch =>({
+    changeUser: () => dispatch(userAcions.requestChangerUser()),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
