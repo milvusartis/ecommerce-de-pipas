@@ -317,7 +317,7 @@ class Checkout extends Component {
 								Valor total:<br/>{(reducerState.total+reducerState.diasEntrega).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
 							</ListGroupItem>
 						</ListGroup>
-                      <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
+                        <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
                     </Col>
                     </Row>
                 </Form>
