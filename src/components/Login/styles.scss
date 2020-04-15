@@ -51,10 +51,20 @@
     align-items: center;
     color: #41414d;
     font-size: 18px;
-    text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.2s;
-    
+    transition: opacity 0.2s;    
+}
+
+a.back-link {
+    text-decoration: none!important;
+}
+a.back-link:hover {
+    color: #41414d;
+    opacity: 0.8;
+}
+
+span.back-link {
+       cursor: pointer;
 }
 
 .back-link:hover{

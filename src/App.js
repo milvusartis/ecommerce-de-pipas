@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { } from "module";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,6 +14,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Routes />
+        <ToastContainer autoClose={2000} />
       </Provider>
     );
   }
