@@ -10,9 +10,6 @@ import { Col, Row, Button, Form, FormGroup, Container, Input, ListGroup, ListGro
 import * as CartActions from "../../redux/actions/action.cart";
 import api from '../../services/api';
 
-
-
-
 const enviarPedido = (event, state) => {
     event.preventDefault()
 
