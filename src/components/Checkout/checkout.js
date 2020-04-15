@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../scss/global.scss'
 import './Checkout.scss';
 
@@ -259,11 +259,10 @@ const Checkout = ({ state, geraPedido }) => {
                                 </Input>
                             </FormGroup>
                             <FormGroup>
-                                <Input
-                                    maxLength="3"
+                                <InputMask
+                                    mask="999"
                                     required
                                     className="Input"
-                                    type="number"
                                     name="ccv"
                                     id="ccv"
                                     placeholder="CCV"

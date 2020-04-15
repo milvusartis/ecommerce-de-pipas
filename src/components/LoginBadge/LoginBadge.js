@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import { MdAccountCircle } from 'react-icons/md';
 import Badge from 'react-bootstrap/Badge'
 import { connect } from 'react-redux';
-
-import FloatingCart from '../FloatingCart/FloatingCart';
-
 import './LoginBadge.scss';
 import FloatingUserMenu from '../FloatingUserMenu/FloatingUserMenu';
 

@@ -4,16 +4,16 @@ import ListaDeProdutos from '../ListaDeProdutos/ListaDeProdutos';
 
 
 class Produtos extends Component {
-  
+
     render() {
         return (
             <>
-            <ListaDeProdutos/>
+                <ListaDeProdutos />
             </>
-        
+
         );
-      };
-    }   
+    };
+}
 
 
 export default Produtos;
