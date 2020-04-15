@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as Logo } from "./image/milvus_logo.svg"
 import { Link } from "react-router-dom";
-
+import { connect } from 'react-redux';
 import './Header.scss';
 
 import {
@@ -17,7 +17,7 @@ import {
     NavLink
 } from 'reactstrap';
 import { MdAccountCircle } from 'react-icons/md';
-
+import * as ProductAction from '../../redux/actions/action.product'
 import Badge from 'react-bootstrap/Badge'
 import CarrinhoBadge from "../CarrinhoBadge/CarrinhoBadge";
 import LoginBadge from "../LoginBadge/LoginBadge";
@@ -26,6 +26,7 @@ import BarraDePesquisa from "../BarraDePesquisa/BarraDePesquisa";
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
+    //const { activeCarrousel } = this.props
     return (
         <>
             <header>
@@ -51,7 +52,7 @@ const Header = () => {
                             <NavbarToggler onClick={toggle} />
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="container mr-auto " navbar>
-                                    <NavItem active >
+                                    <NavItem active > {/*onClick={()=>{activeCarrousel()}} */}
                                         <Link to="/"><NavLink className="btn bg-yellow" href="/">Home</NavLink></Link>
                                     </NavItem>
                                     <NavItem>
@@ -78,5 +79,10 @@ const Header = () => {
         </>
     );
 }
+const mapDispatchToProps = dispatch => ({
+    activeCarrousel: ()=>dispatch(ProductAction.activeCarrousel())
+})
 
-export default Header;
+export default connect(
+    mapDispatchToProps
+)( Header);
