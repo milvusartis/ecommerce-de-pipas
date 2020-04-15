@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import './styles.scss'
 import { Link, useHistory } from 'react-router-dom'
+// import { FiLogIn, FiArrowLeft} from 'react-icons/fi';
 
 import milvus_logo from '../header/image/milvus_logo.svg'
 
@@ -11,12 +12,19 @@ import { connect } from 'react-redux';
 
 import { userAcions } from '../../redux/actions/action.user'
 
+import { toast } from "react-toastify";
+
+
 
 const Login = ({ changeUser }) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [isForgot, setIsForgot] = useState(false);
     const history = useHistory();
 
+   const handleContainer = ()=>{
+       setIsForgot(!isForgot);
+   }
 
 
     async function handleLogin(e) {
@@ -26,57 +34,91 @@ const Login = ({ changeUser }) => {
             email: email,
             senha: senha
 
-
         }).then((response => {
-            // const credenciais = btoa({"authorization":response.headers.authorization})
-            // sessionStorage.setItem("credenciais", JSON.stringify(credenciais))
+            console.log(response)
 
             sessionStorage.setItem("token", JSON.stringify(response.headers.authorization));
             changeUser();
 
             history.push("/")
-            // window.location.reload();
 
-
-        })).catch((error) => {
-            if (401 === error.response.status) {
-                return alert("Usuário ou senha não conferem");
-            }
-            console.log(error)
-            // alert("Erro não esperado");
-        });
+        }))
     }
 
+
+    async function generateNewPassword(e) {
+        e.preventDefault();
+
+        api.post('/auth/forgot', {
+            email: email,
+
+        }).then((response => {
+            sessionStorage.clear();
+            toast.success("Nova senha enviada para o email");
+           handleContainer();
+        }))
+    }
     return (
         <div className="logon-container">
+
             <div className="content">
                 <section className="form">
                     <img src={milvus_logo} title="Milvus Arts" />
 
-                    <form onSubmit={handleLogin}>
-                        <h1>Faça seu login</h1>
+                    {isForgot ? (
+                        <>
+                            <form onSubmit={generateNewPassword}>
+                                <h1>Me envie uma nova senha</h1>
 
-                        <input
-                            placeholder="Email"
-                            type="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                        <input
-                            placeholder="Senha"
-                            type="password"
-                            value={senha}
-                            onChange={e => setSenha(e.target.value)}
-                        />
+                                <input
+                                    placeholder="Email"
+                                    type="email"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                />
 
 
+                                <button className="button" type="submit">Gerar nova senha</button>
 
-                        <button className="button" type="submit">Entrar</button>
+                                <span className="back-link" onClick={handleContainer}>
+                                    {/* <FiArrowLeft size={16}/> */}
+                                    lembrei a senha
+                                 </span>
 
-                        <Link className="back-link" to="/cadastro">
-                            Não tenho cadastro
-                    </Link>
-                    </form>
+                            </form>
+                        </>) : (
+                            <>
+                                <form onSubmit={handleLogin}>
+                                    <h1>Faça seu login</h1>
+
+                                    <input
+                                        placeholder="Email"
+                                        type="email"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                    />
+                                    <input
+                                        placeholder="Senha"
+                                        type="password"
+                                        value={senha}
+                                        onChange={e => setSenha(e.target.value)}
+                                    />
+
+
+
+                                    <button className="button" type="submit">Entrar</button>
+
+                                    <Link className="back-link" to="/cadastro">
+                                        Não tenho cadastro
+                                     </Link>
+                                    {sessionStorage.getItem("msg") && (
+                                        <span className="back-link" onClick={handleContainer}>
+                                            Esqueci a senha
+                                        </span>
+                                    )}
+                                </form>
+                            </>
+                        )}
                 </section>
             </div>
         </div>
