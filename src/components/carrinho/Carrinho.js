@@ -10,6 +10,7 @@ import {
 	ListGroup,
 	Button,
 } from 'reactstrap';
+import CalculaFrete from '../CalculaFrete/CalculaFrete';
 class Carrinho extends Component {
 	render() {
 		const { addedItems, quantityItems, total,valorFrete,diasEntrega} = this.props
@@ -78,6 +79,7 @@ class Carrinho extends Component {
 					</div>
 					<Col xs="12" md="4">
 						<ListGroup>
+						<CalculaFrete/>
 							<h3 className="titulos">Resumo da compra</h3>
 							<ListGroupItem className="listaResumo">Quantidade de Produto:<br className="ajusta"/>{quantityItems}</ListGroupItem>
 							
@@ -95,6 +97,7 @@ class Carrinho extends Component {
 						<Link to="/checkout">
 							<Button id="button">Finalizar Compra</Button>
 						</Link>
+						
 					</Col>		
 				</Row>
 			</Container>

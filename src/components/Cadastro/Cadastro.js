@@ -27,7 +27,7 @@ export default function Cadastro() {
     const history = useHistory();
 
 async function handleRegister(e){
-    window.location.reload();
+    
     e.preventDefault();
 
     const cliente = {
@@ -182,7 +182,6 @@ function validarSenha(){
                     style={{width : 190}}
                     placeholder="Complemento"
                     value={complemento}
-                    required
                     onChange={e => setComplemento(e.target.value)}
                     />
                     <input 
