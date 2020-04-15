@@ -38,7 +38,7 @@ async function handleRegister(e){
         usuario: {
             nome,
             email,
-            senha
+            senhai
         },
         endereco :{
         
