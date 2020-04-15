@@ -314,8 +314,8 @@ const Checkout = ({ state, geraPedido }) => {
                                 :
                                 (
                                     <>
-                                        <Button color="secondary" className="buttonCheckout" onClick={buscar}>Utilizar dados cadastrados</Button>
-                                        <Button color="secondary" className="buttonCheckout" onClick={toggleComponent}>Atualizar dados</Button>
+                                        <Button color="secondary" className="buttonCheckout2 "  onClick={buscar}>Dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout2 " onClick={toggleComponent}>Novos dados</Button>
                                     </>
                                 )
                             }
