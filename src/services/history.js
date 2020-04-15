@@ -1,5 +1,13 @@
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
-const history = useHistory();
 
-export default history;
+
+
+//   const Location = {
+//     history: () => {
+//        return useHistory()
+//     }
+  
+//   }
+  
+//   export { Location }

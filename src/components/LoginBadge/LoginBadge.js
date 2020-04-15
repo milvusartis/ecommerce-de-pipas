@@ -8,14 +8,7 @@ import FloatingCart from '../FloatingCart/FloatingCart';
 
 import './LoginBadge.scss';
 import FloatingUserMenu from '../FloatingUserMenu/FloatingUserMenu';
-
-
-function handleLogout() {
-    sessionStorage.clear();
-    localStorage.clear();
-    window.location.reload();
-
-}
+import handleLogout from "../../services/logout";
 
 const LoginBadge = ({ usuario }) => {
     console.log(usuario)
