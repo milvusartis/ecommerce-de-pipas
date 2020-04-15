@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../scss/global.scss'
 import './Checkout.scss';
 
@@ -9,6 +9,8 @@ import { Col, Row, Button, Form, FormGroup, Container, Input, ListGroup, ListGro
 
 import * as CartActions from "../../redux/actions/action.cart";
 import api from '../../services/api';
+
+
 
 const enviarPedido = (event, state) => {
     event.preventDefault()
@@ -91,6 +93,7 @@ const enviarPedido = (event, state) => {
 }
 
 
+// const {changeCepValue,getCep} = this.props
 
 const handdler = {
 
@@ -113,6 +116,7 @@ const handdler = {
                     className="Input"
                     mask="99999-999"
                     name="cepEntrega"
+                    // onClick={()=>{getCep()}}
                     id="cepEntrega"
                     value={endereco.cep}
                     placeholder="CEP"
@@ -197,10 +201,6 @@ const showHanddler = (group, usuario, endereco) => {
 };
 
 
-
-
-
-
 const Checkout = ({ state, geraPedido }) => {
     const [showCol2, setShowCol2] = React.useState(false);
     const [cliente, setCliente] = React.useState({
@@ -225,6 +225,7 @@ const Checkout = ({ state, geraPedido }) => {
 
     return (
         <>
+        
 
             <Container id="checkout">
                 <Form
@@ -258,11 +259,10 @@ const Checkout = ({ state, geraPedido }) => {
                                 </Input>
                             </FormGroup>
                             <FormGroup>
-                                <Input
-                                    maxLength="3"
+                                <InputMask
+                                    mask="999"
                                     required
                                     className="Input"
-                                    type="number"
                                     name="ccv"
                                     id="ccv"
                                     placeholder="CCV"
@@ -357,7 +357,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    geraPedido: (pedido) => dispatch(CartActions.geraPedido(pedido))
+    geraPedido: (pedido) => dispatch(CartActions.geraPedido(pedido)),
+    getCep:(cep)=>dispatch(CartActions.getCep(cep))
 })
 
 export default connect(

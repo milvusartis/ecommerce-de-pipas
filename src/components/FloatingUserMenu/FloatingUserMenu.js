@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { MdArrowDropUp, MdArrowDropDown, MdClose } from "react-icons/md";
 
-import { CartActions } from "../../redux/actions/action.cart";
 import { connect } from 'react-redux';
 
 import "./FloatingUserMenu.scss";

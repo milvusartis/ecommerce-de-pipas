@@ -16,9 +16,7 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
-import { MdAccountCircle } from 'react-icons/md';
 
-import Badge from 'react-bootstrap/Badge'
 import CarrinhoBadge from "../CarrinhoBadge/CarrinhoBadge";
 import LoginBadge from "../LoginBadge/LoginBadge";
 import BarraDePesquisa from "../BarraDePesquisa/BarraDePesquisa";
