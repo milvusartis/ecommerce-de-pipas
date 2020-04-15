@@ -32,18 +32,16 @@ api.interceptors.response.use((response) => {
 
     const { status, data, config } = error.response;
 
-    if (status === 401) {      
+    if (status === 401) {
         handleLogout();
-        history.push("/login")        
-        sessionStorage.setItem("msg", btoa("pssInvalid"));       
+        history.push("/login")
+        sessionStorage.setItem("msg", btoa("pssInvalid"));
         toast.error('Falha no Login, tente novamente');
-     
-    
     }
 
     if (status === 403) {
         handleLogout();
-        toast.error('Acesso não autorizado');
+
     }
 
     if (status === 404) {
@@ -62,5 +60,10 @@ api.interceptors.response.use((response) => {
 });
 
 export default api;
+
+// toast.success('Sucesso')
+// toast.error('Erro');
+// toast.warn("Aviso")
+// toast.info("Info")
 
 

@@ -118,7 +118,7 @@ function pedido(state = INITIAL_STATE, action) {
             break;
         }
     }
-    localStorage.setItem("carrinho", JSON.stringify(newState))
+    sessionStorage.setItem("carrinho", JSON.stringify(newState))
     return newState;
 }
 export default pedido;
