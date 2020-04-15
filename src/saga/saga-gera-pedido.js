@@ -2,6 +2,7 @@ import { CartActionsType } from "../redux/actions/actions-type";
 import { gravaPedido } from "../redux/actions/action.cart";
 import { all, put, call, takeLatest } from 'redux-saga/effects';
 import api from "../services/api";
+import { history } from "../index";
 
 function* geraPedidoRequested(pedido) {
     const response = yield call(api.post, '/pedidos', pedido.pedido);
@@ -12,7 +13,13 @@ function* geraPedidoRequested(pedido) {
     } else {
         yield put(gravaPedido(response.data.idPedido))
     }
-    document.location.href = "http://localhost:3000/sucesso"
+    // const urlAtual = window.location.href.toString();
+    // const url = urlAtual.substring(0,22);
+    // const urlSucesso = url.concat("sucesso");
+    // document.location.href = urlSucesso;
+    //ou window.location.hostname
+    history.push("/sucesso")
+    window.location.reload();
 }
 
 function* whatchRequestGeraPedido() {

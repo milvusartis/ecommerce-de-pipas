@@ -6,6 +6,8 @@ import api from '../../services/api';
 
 import { useHistory } from 'react-router-dom';
 
+import { toast } from "react-toastify";
+
 import './style.scss';
 
 
@@ -56,12 +58,11 @@ async function handleRegister(e){
 
     try{
         const response = await  api.post('clientes', cliente)
-        alert("Cadastro realizado com sucesso");
-        
+        toast.success("Cadastro realizado com sucesso");
         history.push("/login")
 
     }catch (err){
-        alert('Erro no cadastro, tente novamente.')
+        toast.error('Erro no cadastro, tente novamente')         
     }
     
 } 

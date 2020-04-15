@@ -37,7 +37,7 @@ const Header = () => {
                             </Link>
                         </Col>
                         <Col className="search ml-5 " sm={8} md={3} lg={4}>
-                            {/* <BarraDePesquisa /> */}
+                            <BarraDePesquisa />
                         </Col>
                         <Col className="target" sm={6} md={3} lg={4}>
                             <LoginBadge />
