@@ -28,23 +28,17 @@ const Login = ({ changeUser }) => {
 
 
         }).then((response => {
-            // const credenciais = btoa({"authorization":response.headers.authorization})
-            // sessionStorage.setItem("credenciais", JSON.stringify(credenciais))
+            console.log(response)
+
 
             sessionStorage.setItem("token", JSON.stringify(response.headers.authorization));
             changeUser();
 
             history.push("/")
-            // window.location.reload();
 
 
-        })).catch((error) => {
-            if (401 === error.response.status) {
-                return alert("Usuário ou senha não conferem");
-            }
-            console.log(error)
-            // alert("Erro não esperado");
-        });
+
+        }))
     }
 
     return (
@@ -75,7 +69,7 @@ const Login = ({ changeUser }) => {
 
                         <Link className="back-link" to="/cadastro">
                             Não tenho cadastro
-                    </Link>
+                         </Link>
                     </form>
                 </section>
             </div>
