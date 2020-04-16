@@ -133,16 +133,8 @@ const INITIAL_STATE = {
         "valor": 40.5,
         "disponibilidade": false,
     },
-
-    date: {},
-    day: {},
     maxNumber: 5,//->quantidade de itens disponivel
     number: 1,//////////////////////////
-    cep: 1,////////////////////////////
-    deliveryCost: {},//////////////////
-    total: {},
-    cidade: {},
-    estado: {},
     produtoAtivo: true,
 };
 
@@ -162,6 +154,8 @@ export default function produto(state = INITIAL_STATE, action) {
             } else {
                 return { ...state, number: action.number - 1 }
             }
+        case ProductActionsTypes.ACTIVE_CARROUSEL:
+            return{...state,produtoAtivo:true}
         default:
             return state;
     }
