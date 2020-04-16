@@ -5,39 +5,54 @@ import {
     Col,
     FormGroup,
     Button
- } from 'reactstrap'
- import {
+} from 'reactstrap'
+import {
     AvForm,
     AvGroup,
     AvInput
- } from 'availity-reactstrap-validation';
- import InputMask from "react-input-mask";
+} from 'availity-reactstrap-validation';
+import InputMask from "react-input-mask";
 
 class Contato extends Component {
+    state={
+        contador: 0
+    }
 
-    onChange = e => {
+    onBlur = e => {
         const telefone = e.target;
-        const label = telefone.parentElement.children[0];
+        // const label = telefone.parentElement.children[0];
 
         if(telefone.value.match(/_/) || telefone.value.length === 0) {
-            telefone.setAttribute('class', 'form-control is-invalid');
-            label.setAttribute('class', 'invalida');
+            telefone.setAttribute('class', 'form-control is-invalid Input');
+            // label.setAttribute('class', 'invalida');
         } else {
-            telefone.setAttribute('class', 'form-control');
-            label.setAttribute('class', 'valida');
+            telefone.setAttribute('class', 'form-control Input');
+            // label.setAttribute('class', 'valida');
         }
     }
 
     onClick = e => {
-        const telefone = e.target.parentElement.parentElement.children[3].children[1];
-        const label = telefone.parentElement.children[0];
+        const telefone = e.target;
+        // const label = telefone.parentElement.children[0];
+        const contador = this.state.contador;
+        
+        if(contador == 0) {
+            telefone.setAttribute('class', 'form-control valid Input');
+            // label.setAttribute('class', 'valida');
+            this.setState({contador: contador+1})
+        }
+    }
+
+    onSubmit = e => {
+        const telefone = e.target.parentElement.parentElement.children[3].children[0];
+        // const label = telefone.parentElement.children[0];
  
         if(telefone.value.match(/_/) || telefone.value.length === 0) {
             telefone.setAttribute('class', 'form-control is-invalid');
-            label.setAttribute('class', 'invalida');
+            // label.setAttribute('class', 'invalida');
         } else {
             telefone.setAttribute('class', 'form-control');
-            label.setAttribute('class', 'valida');  
+            // label.setAttribute('class', 'valida');  
         }
     }
 
@@ -71,14 +86,14 @@ class Contato extends Component {
                                 />
                             </AvGroup>
                             <FormGroup>
-                                <InputMask
+                                <InputMask className="Input"
                                     type="tel"
                                     name="telefone"
                                     placeholder="Digite seu telefone"
                                     required="required"
-                                    className="Input"
                                     mask="+55 (99) 9999-9999"
-                                    onChange={this.onChange}
+                                    onBlur={this.onBlur}
+                                    onClick={this.onClick}
                                     >
                                 </InputMask>
                             </FormGroup>
@@ -89,7 +104,7 @@ class Contato extends Component {
                                 required="required"
                                 >
                                     <option value=""
-                                    disabled selected>
+                                    disabled selected className="placehoder">
                                         Selecione um assunto
                                     </option>
                                     <option value="elogios">
@@ -104,8 +119,7 @@ class Contato extends Component {
                                 </AvInput>
 
                             </AvGroup>
-                            <AvGroup>
-                             
+                            <AvGroup>  
                                 <AvInput className="textArea"
                                 type="textarea"
                                 name="mensagem"
@@ -122,7 +136,7 @@ class Contato extends Component {
                                 name="botao"        
                                 className="button"
                                 required="required"
-                                onClick={this.onClick}
+                                onSubmit={this.onSubmit}
                                 //className="form-control"
                                 >
                                     Enviar
