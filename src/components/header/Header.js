@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as Logo } from "./image/milvus_logo.svg"
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect,useDispatch } from 'react-redux';
 import './Header.scss';
 
 import {
@@ -19,19 +19,18 @@ import {
 import CarrinhoBadge from "../CarrinhoBadge/CarrinhoBadge";
 import LoginBadge from "../LoginBadge/LoginBadge";
 import BarraDePesquisa from "../BarraDePesquisa/BarraDePesquisa";
-import * as ProductAction from '../../redux/actions/action.product'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    //const { activeCarrousel } = this.props
+    const dispatch = useDispatch()
     return (
         <>
             <header>
                 <Container fluid={true} id="container">
                     <Row className="topo">
                         <Col className="logo" sm={12} md={3} lg={3}>
-                            <Link to="/">
+                            <Link to="/" onClick={()=>{dispatch({ type:'ACTIVE_CARROUSEL'})}}>
                                 <NavbarBrand>
                                     <Logo className="logo" title="Milvus Artis" />
                                 </NavbarBrand>
@@ -50,8 +49,8 @@ const Header = () => {
                             <NavbarToggler onClick={toggle} />
                             <Collapse isOpen={isOpen} navbar>
                                 <Nav className="container mr-auto " navbar>
-                                    <NavItem active > {/*onClick={()=>{activeCarrousel()}} */}
-                                        <Link to="/"><NavLink className="btn bg-yellow" href="/">Home</NavLink></Link>
+                                    <NavItem active >
+                                        <Link to="/" onClick={()=>{dispatch({ type:'ACTIVE_CARROUSEL'})}}><NavLink className="btn bg-yellow" href="/">Home</NavLink></Link>
                                     </NavItem>
                                     <NavItem>
                                         <Link to="/produtos"><NavLink className="btn bg-green" href="/produtos">Produtos</NavLink></Link>
@@ -77,10 +76,5 @@ const Header = () => {
         </>
     );
 }
-const mapDispatchToProps = dispatch => ({
-    activeCarrousel: ()=>dispatch(ProductAction.activeCarrousel())
-})
 
-export default connect(
-    mapDispatchToProps
-)( Header);
+export default connect()( Header);
