@@ -1,5 +1,11 @@
 import {ProductActionsTypes} from './actions-type';
 
+export function activeCarrousel(){
+  return{
+    type:ProductActionsTypes.ACTIVE_CARROUSEL
+  };
+}
+
 export function decrementQuantity(number) {
   return {
     type: ProductActionsTypes.DECREMENT_QUANTITY,

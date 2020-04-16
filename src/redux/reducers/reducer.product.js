@@ -162,6 +162,8 @@ export default function produto(state = INITIAL_STATE, action) {
             } else {
                 return { ...state, number: action.number - 1 }
             }
+        case ProductActionsTypes.ACTIVE_CARROUSEL:
+            return{...state,produtoAtivo:true}
         default:
             return state;
     }
