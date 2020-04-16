@@ -6,6 +6,8 @@ import api from '../../services/api';
 
 import { useHistory } from 'react-router-dom';
 
+import { toast } from "react-toastify";
+
 import './style.scss';
 
 
@@ -27,7 +29,7 @@ export default function Cadastro() {
     const history = useHistory();
 
 async function handleRegister(e){
-    window.location.reload();
+    
     e.preventDefault();
 
     const cliente = {
@@ -56,12 +58,11 @@ async function handleRegister(e){
 
     try{
         const response = await  api.post('clientes', cliente)
-        alert("Cadastro realizado com sucesso");
-        
+        toast.success("Cadastro realizado com sucesso");
         history.push("/login")
 
     }catch (err){
-        alert('Erro no cadastro, tente novamente.')
+        toast.error('Erro no cadastro, tente novamente')         
     }
     
 } 
@@ -182,7 +183,6 @@ function validarSenha(){
                     style={{width : 190}}
                     placeholder="Complemento"
                     value={complemento}
-                    required
                     onChange={e => setComplemento(e.target.value)}
                     />
                     <input 

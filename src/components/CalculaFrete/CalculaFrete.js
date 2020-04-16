@@ -22,7 +22,7 @@ class CalculaFrete extends Component{
         const {changeCepValue,valorFrete,diasEntrega,getCep} = this.props
         return(
             <>
-        <FormGroup className="mt-5 mb-2 p-2 border border-dark">
+        <FormGroup className="mt-1 mb-2 p-2 border border-dark">
             <Label>
                 Informe seu CEP para calcular o frete
             </Label>
@@ -42,7 +42,7 @@ class CalculaFrete extends Component{
                 color="success"
                 onClick={()=>{changeCepValue(this.state.cep);getCep(this.state.cep)}}
                 >
-                Calcular Frete
+                Simular frete
             </Button>
          </InputGroup>
                 <p className="mt-2 mb-2"

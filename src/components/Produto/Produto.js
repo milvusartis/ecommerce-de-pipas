@@ -7,8 +7,6 @@ import {
     CardSubtitle, CardBody,
 } from 'reactstrap';
 
-// import { Container } from './styles';
-
 export default class Produto extends Component {
     render() {
         return (

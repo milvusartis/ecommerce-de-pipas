@@ -28,5 +28,7 @@ export const ListaDeProdutosActionsType = {
 
 export const UserLoginActionsType = {
     CHANGE_USER: 'CHANGE_USER',
+    REQUEST_CHANGE_USER: 'REQUEST_CHANGE_USER',
     
 }
+
