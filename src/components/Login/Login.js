@@ -35,13 +35,9 @@ const Login = ({ changeUser }) => {
             senha: senha
 
         }).then((response => {
-            console.log(response)
-
             sessionStorage.setItem("token", JSON.stringify(response.headers.authorization));
             changeUser();
-
             history.push("/")
-
         }))
     }
 
