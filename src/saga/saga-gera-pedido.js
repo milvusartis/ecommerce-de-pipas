@@ -22,9 +22,11 @@ function* geraPedidoRequested(pedido) {
     window.location.reload();
 }
 
+
 function* whatchRequestGeraPedido() {
     yield takeLatest(CartActionsType.GERA_PEDIDO, geraPedidoRequested)
 }
+
 
 function* realizaPedidoSaga() {
     yield all([

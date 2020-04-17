@@ -21,7 +21,7 @@ function pedido(state = INITIAL_STATE, action) {
             //Verificando se existem ocorrencia no addItems
             let existed_item = addedItems.find(item => action.item.idProduto === item.idProduto);
             if (existed_item) {
-                addedItem.quantity += action.number
+                existed_item.quantity += action.number
                 newState = {
                     ...newState,
                     total: state.total + addedItem.valorUnitario * action.number,
