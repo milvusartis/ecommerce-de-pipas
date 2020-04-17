@@ -13,7 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import { MdExpandMore } from 'react-icons/md';
 import api from '../../services/api';
 
-import {CartActions, addToCart} from "../../redux/actions/action.cart";
+import { CartActions, addToCart } from "../../redux/actions/action.cart";
 
 import './historicoPedidos.scss'
 import pedido from '../../redux/reducers/reducer.cart';
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const HistoricoPedidos = ({requestRefazerPedido, addToCart}) => {
+const HistoricoPedidos = ({ requestRefazerPedido, addToCart }) => {
     const classes = useStyles();
 
     const [pedidos, setPedidos] = useState([]);
@@ -97,13 +97,10 @@ const HistoricoPedidos = ({requestRefazerPedido, addToCart}) => {
     };
 
     const montaPedido = (pedido, addToCart) => {
-
-     
-        pedido.pedidoItens.map(item=>(
+        pedido.pedidoItens.map(item => (
             addToCart(item.produto, item.quantidade)
         ));
         toast.success("Pedido adicionado ao carrinho")
-
     }
 
 
@@ -190,7 +187,7 @@ const HistoricoPedidos = ({requestRefazerPedido, addToCart}) => {
                                 <ExpansionPanelActions>
                                     {/* <Button size="small">Cancel</Button> */}
                                     <strong >Total - {pedido.valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                                    <Button size="small" color="primary" onClick={()=>montaPedido(pedido, addToCart)}>
+                                    <Button size="small" color="primary" onClick={() => montaPedido(pedido, addToCart)}>
                                         Refazer pedido
                                                  </Button>
                                 </ExpansionPanelActions>
@@ -211,7 +208,7 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
     requestRefazerPedido: (pedido) => dispatch(CartActions.requestRefazerPedido(pedido)),
-    addToCart: (produto, number) => dispatch(CartActions.addToCart(produto,number)),
+    addToCart: (produto, number) => dispatch(CartActions.addToCart(produto, number)),
 
 })
 
