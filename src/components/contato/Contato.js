@@ -3,6 +3,7 @@ import './Contato.scss';
 import {
     Container,
     Col,
+    Form,
     FormGroup,
     Button
 } from 'reactstrap'
@@ -12,6 +13,7 @@ import {
     AvInput
 } from 'availity-reactstrap-validation';
 import InputMask from "react-input-mask";
+import api from '../../services/api'
 
 class Contato extends Component {
     state={
@@ -44,7 +46,8 @@ class Contato extends Component {
     }
 
     onSubmit = e => {
-        const telefone = e.target.parentElement.parentElement.children[3].children[0];
+        const formulario = e.target.parentElement.parentElement
+        const telefone = formulario.children[3].children[0];
         // const label = telefone.parentElement.children[0];
  
         if(telefone.value.match(/_/) || telefone.value.length === 0) {
@@ -56,92 +59,118 @@ class Contato extends Component {
         }
     }
 
+    submeterContato = async (event) => {
+        event.preventDefault();
+
+        let nome = event.target.nomeCompleto.value
+        let email = event.target.email.value
+        let telefone = event.target.telefone.value
+        let assunto = event.target.assunto.value
+        let mensagem = event.target.mensagem.value
+
+        api.post("/enviarcontato", {
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            assunto: assunto,
+            mensagem: mensagem
+        })
+        .then(resposta => console.log(resposta.data))
+        .catch(erro => console.log(erro.data))
+    }
+
     render() {
         return (
             <>
                 <Container className="container">                 
                     <AvForm className="content">  
                         <Col lg="6" md="9" sm="12">
-                            <FormGroup>
-                                <h1 id="title">
-                                    Fale com a gente!
-                                </h1>
-                            </FormGroup>
-                            <AvGroup>
-                                <AvInput className="Input"
-                                type="text"
-                                name="nomeCompleto input"
-                                placeholder="Digite seu nome"
-                                required="required"
-                                //className="form-control"
-                                />
-                            </AvGroup>
-                            <AvGroup>
-                                <AvInput className="Input"
-                                type="email"
-                                name="email"
-                                placeholder="Digite seu email"
-                                required="required"
-                                //className="form-control"
-                                />
-                            </AvGroup>
-                            <FormGroup>
-                                <InputMask className="Input"
-                                    type="tel"
-                                    name="telefone"
-                                    placeholder="Digite seu telefone"
+                            <Form onSubmit={this.submeterContato}>
+                                <FormGroup>
+                                    <h1 id="title">
+                                        Fale com a gente!
+                                    </h1>
+                                </FormGroup>
+                                <AvGroup>
+                                    <AvInput className="Input"
+                                    type="text"
+                                    name="nomeCompleto"
+                                    id="nomeCompleto"
+                                    placeholder="Digite seu nome"
                                     required="required"
-                                    mask="+55 (99) 9999-9999"
-                                    onBlur={this.onBlur}
-                                    onClick={this.onClick}
+                                    //className="form-control"
+                                    />
+                                </AvGroup>
+                                <AvGroup>
+                                    <AvInput className="Input"
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Digite seu email"
+                                    required="required"
+                                    //className="form-control"
+                                    />
+                                </AvGroup>
+                                <FormGroup>
+                                    <InputMask className="Input"
+                                        type="tel"
+                                        name="telefone"
+                                        id="telefone"
+                                        placeholder="Digite seu telefone"
+                                        required="required"
+                                        mask="+55 (99) 9999-9999"
+                                        onBlur={this.onBlur}
+                                        onClick={this.onClick}
+                                        >
+                                    </InputMask>
+                                </FormGroup>
+                                <AvGroup>
+                                    <AvInput className="Input"
+                                    type="select"
+                                    name="assunto"
+                                    id="assunto"
+                                    required="required"
                                     >
-                                </InputMask>
-                            </FormGroup>
-                            <AvGroup>
-                                <AvInput className="Input"
-                                type="select"
-                                name="assunto"
-                                required="required"
-                                >
-                                    <option value=""
-                                    disabled selected className="placehoder">
-                                        Selecione um assunto
-                                    </option>
-                                    <option value="elogios">
-                                        Elogios
-                                    </option>
-                                    <option value="sugestoes">
-                                        Sugestões
-                                    </option>
-                                    <option value="reclamacoes">
-                                        Reclamações
-                                    </option>
-                                </AvInput>
-
-                            </AvGroup>
-                            <AvGroup>  
-                                <AvInput className="textArea"
-                                type="textarea"
-                                name="mensagem"
-                                rows="3"
-                                maxLength="200"
-                                placeholder="Escreva sua mensagem aqui"
-                                required="required"
-                                //className="form-control"
-                                />
-                            </AvGroup>
-                            <FormGroup className="d-flex justify-content-end">
-                                <Button
-                                type="submit"
-                                name="botao"        
-                                className="button"
-                                required="required"
-                                onSubmit={this.onSubmit}
-                                //className="form-control"
-                                >
-                                    Enviar
-                                </Button>
-                            </FormGroup>
+                                        <option value=""
+                                        disabled selected className="placehoder">
+                                            Selecione um assunto
+                                        </option>
+                                        <option value="elogios">
+                                            Elogios
+                                        </option>
+                                        <option value="sugestoes">
+                                            Sugestões
+                                        </option>
+                                        <option value="reclamacoes">
+                                            Reclamações
+                                        </option>
+                                    </AvInput>
+                                </AvGroup>
+                                <AvGroup>  
+                                    <AvInput className="textArea"
+                                    type="textarea"
+                                    name="mensagem"
+                                    id="mensagem"
+                                    rows="3"
+                                    maxLength="200"
+                                    placeholder="Escreva sua mensagem aqui"
+                                    required="required"
+                                    //className="form-control"
+                                    />
+                                </AvGroup>
+                                <FormGroup className="d-flex justify-content-end">
+                                    <Button
+                                    type="submit"
+                                    name="botao"
+                                    id="botao"        
+                                    className="button"
+                                    required="required"
+                                    onClick={this.onSubmit}
+                                    >
+                                        Enviar
+                                    </Button>
+                                </FormGroup>
+                            </Form>
                         </Col>
                     </AvForm>
                 </Container>    
