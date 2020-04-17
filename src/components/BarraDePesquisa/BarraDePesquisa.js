@@ -12,7 +12,7 @@ import './BarraDePesquisa.scss'
 import * as ProductAction from '../../redux/actions/action.product'
 import { listaDeProdutoActions } from '../../redux/actions/action.lista-de-produtos'
 import { connect } from 'react-redux';
-
+import {history} from '../../index'
 class BarraDePesquisa extends Component {
     state = {
         resultado: '',
