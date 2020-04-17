@@ -144,8 +144,8 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                 let novoEndereco = {
 
                     rua: response.data.logradouro,
-                    numero: "",
-                    complemento: response.data.complemento,
+                    // numero: "",
+                    // complemento: response.data.complemento,
                     bairro: response.data.bairro,
                     cidade: response.data.localidade,
                     uf: response.data.uf,
@@ -213,7 +213,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                         id="numero"
                         value={endereco.numero}
                         placeholder="numero"
-                        maxLength="3"
+                        // maxLength="3"
                     />
                 </FormGroup>
                 <FormGroup>
@@ -355,7 +355,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
     }
     const verificaTelefone = (e) => {
         const campo = e.target.value
-        if (!verificaCampos(campo, 10)) {
+        if (!verificaCampos(campo, 10) || !verificaCampos(campo, 11)) {
             e.target.focus()
             toast.warn("Digita um telefone válido")
         }
@@ -438,7 +438,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="telefoneTitular"
                                     id="telefoneTitular"
                                     placeholder="Telefone do Titular"
-                                    onBlur={e => { verificaTelefone (e) }}
+                                    // onBlur={e => { verificaTelefone (e) }}
                                 />
                             </FormGroup>
 
