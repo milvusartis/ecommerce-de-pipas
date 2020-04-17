@@ -6,7 +6,6 @@ const INITIAL_STATE = {
 
 const userLoginReducer = (state = INITIAL_STATE, action) => {
     const { payload, type } = action
-    console.log(action)
     switch (type) {       
         case UserLoginActionsType.CHANGE_USER:
             return { ...state, user: payload}  

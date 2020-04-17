@@ -399,7 +399,6 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                              </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
                                     Valor total:<br />{(state.total + state.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                                    {console.log(state.valorFrete)}
                                 </ListGroupItem>
                             </ListGroup>
                             <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
