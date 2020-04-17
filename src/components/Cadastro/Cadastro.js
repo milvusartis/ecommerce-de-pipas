@@ -64,7 +64,6 @@ export default function Cadastro() {
         //Valida se o cep tem 8 dígitos
         (cepSemMascara !== "" && cepSemMascara.length === 8) ? (handdleEndereco(cepSemMascara)) : toast.warn("Cep não preenchido completamente");
 
-
     }
 
     async function handleRegister(e) {

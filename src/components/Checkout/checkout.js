@@ -93,7 +93,15 @@ const enviarPedido = (event, state) => {
 }
 
 
-// const {changeCepValue,getCep} = this.props
+const handdleCep = (e, state) => {
+    //remove tudo que não for número
+    const cepSemMascara = state.cep.replace(/[^0-9]+/g, '');
+    console.log(cepSemMascara)
+    //Valida se o cep tem 8 dígitos
+    // (cepSemMascara !== "" && cepSemMascara.length === 8) ? (handdleEndereco(cepSemMascara)) : toast.warn("Cep não preenchido completamente");
+
+
+}
 
 const handdler = {
 
@@ -120,6 +128,7 @@ const handdler = {
                     id="cepEntrega"
                     value={endereco.cep}
                     placeholder="CEP"
+                    onBlur={e => handdleCep(e)}
                 />
             </FormGroup>
             <FormGroup>
@@ -219,7 +228,7 @@ const Checkout = ({ state, geraPedido }) => {
         toggleComponent();
     }
 
-
+    
 
 
 
