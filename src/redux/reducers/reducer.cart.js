@@ -102,10 +102,10 @@ function pedido(state = INITIAL_STATE, action) {
             break;
         }
         case CartActionsType.CHANCE_FRETE_INFO: {
-            if (action.payload.data.erro === true) {
+            if (action.payload.erro === true) {
                 newState = { ...newState, valorFrete: '', diasEntrega: '' }
             } else {
-                if (action.payload.data.uf === "SP") {
+                if (action.payload.uf === "SP") {
                     newState = { ...newState, valorFrete: 4, diasEntrega: 3 }
                 } else {
                     newState = { ...newState, valorFrete: 8, diasEntrega: 6 }
