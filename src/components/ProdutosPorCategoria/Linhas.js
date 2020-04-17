@@ -11,6 +11,12 @@ import * as ProductAction from '../../redux/actions/action.product'
 import { listaDeProdutoActions } from '../../redux/actions/action.lista-de-produtos'
 
 class Linhas extends Component {
+    scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
     componentDidMount() {
         const { getAll } = this.props;
         getAll();
@@ -24,7 +30,9 @@ class Linhas extends Component {
                         {produtos.map(produto => (
                             (produto.categoria.nome === "Linha" ?
                                 <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
-                                    <Link to="" onClick={() => changeDisplayedProduct(produto, produtoAtivo)} className=""  >
+                                    <Link to="" onClick={() => {changeDisplayedProduct(produto, produtoAtivo)
+                                    this.scrollToTop()
+                                    }} className=""  >
                                         <Card>
                                             <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
                                             <CardBody>
