@@ -333,13 +333,33 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                 e.target.focus()
                 toast.warn("Opa! Esse CPF não é válido")
             }
-
         }
-
-
 
     }
 
+    
+    const verificaCCV = (e) => {
+        const campo = e.target.value
+        if (!verificaCampos(campo, 3)) {
+            e.target.focus()
+            toast.warn("Por favor, digite um ccv com 3 dígitos")
+        }
+    }
+
+    const verificaData = (e) => {
+        const campo = e.target.value
+        if (!verificaCampos(campo, 6)) {
+            e.target.focus()
+            toast.warn("Digita uma data com mês e ano")
+        }
+    }
+    const verificaTelefone = (e) => {
+        const campo = e.target.value
+        if (!verificaCampos(campo, 10)) {
+            e.target.focus()
+            toast.warn("Digita um telefone válido")
+        }
+    }
 
     return (
         <>
@@ -384,6 +404,8 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="ccv"
                                     id="ccv"
                                     placeholder="CCV"
+                                    onBlur={e => { verificaCCV (e) }}
+                                    
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -394,6 +416,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="dataValiade"
                                     id="dataVagit lidade"
                                     placeholder="Data de validade"
+                                    onBlur={e => { verificaData (e) }}
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -415,6 +438,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="telefoneTitular"
                                     id="telefoneTitular"
                                     placeholder="Telefone do Titular"
+                                    onBlur={e => { verificaTelefone (e) }}
                                 />
                             </FormGroup>
 
