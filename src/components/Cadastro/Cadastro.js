@@ -264,7 +264,7 @@ export default function Cadastro() {
                             required
                             onBlur={e => { verificaTelefone(e) }}
                             value={telefone}
-                            onChange={e => setTelefone(e.target.value)}
+                            // onChange={e => setTelefone(e.target.value)}
                         />
                         <InputMask
                             mask="99999-999"

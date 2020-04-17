@@ -3,7 +3,11 @@ import { history } from "./../index";
 import handleLogout from "./logout";
 import { toast } from "react-toastify";
 
-const api = axios.create({ baseURL: 'http://localhost:8080/api/ecommerce' });
+// const api = axios.create({ baseURL: 'http://localhost:8080/api/ecommerce' });
+const api = axios.create({ baseURL: 'http://ffe680b2.ngrok.io/api/ecommerce' });
+
+
+
 
 
 api.interceptors.request.use(function (config) {
