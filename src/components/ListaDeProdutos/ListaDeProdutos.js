@@ -49,8 +49,9 @@ class ListaDeProdutos extends Component {
         this.setState({produtos:produtos})
     }
     render() {
-        const { produtoAtivo, changeDisplayedProduct} = this.props
-        const {produtos} = this.state
+        const { produtos, produtoAtivo, changeDisplayedProduct} = this.props
+        // Removido pois faz inicializar a página sem produtos.
+        // const {produtos} = this.state
         return (
             <>
                 <Container>
@@ -63,7 +64,7 @@ class ListaDeProdutos extends Component {
                                     Maior Preço
                                 </option>
                                 <option value='valorUnitario-desc'>
-                                    Menos Preço
+                                    Menor Preço
                                 </option>
                             </Input>
                         </Form>
