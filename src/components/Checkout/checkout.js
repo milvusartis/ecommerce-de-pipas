@@ -126,14 +126,6 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
 
 
 
-    // const handdleEndereco = (cep) => {
-
-    //     // .catch((error) => {
-
-
-
-    //     // });
-    // }
 
     const handdleCep = (e, endereco) => {
         const cep = e.target.value;
@@ -226,7 +218,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                 </FormGroup>
                 <FormGroup>
                     <Input
-                        
+
                         className="Input"
                         type="text"
                         name="complementoEntrega"
@@ -280,7 +272,94 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
     };
 
 
+    const validaCPF = (strCPF) => {
+        let soma;
+        let resto;
+        let cpf = ""
 
+        for (let i = 0; i < strCPF.toString().length; i++) {
+            let char = strCPF.substring(i, i + 1);
+            if (char !== "." && char !== "-")
+                cpf += char;
+        }
+        soma = 0;
+        if (cpf === "00000000000" || cpf === "11111111111" || cpf === "22222222222" || cpf === "33333333333" || cpf === "44444444444" || cpf === "55555555555" || cpf === "66666666666" || cpf === "77777777777" || cpf === "88888888888" || cpf === "99999999999")
+            return false;
+
+        for (let i = 1; i <= 9; i++)
+            soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+        resto = (soma * 10) % 11;
+
+
+
+        if ((resto === 10) || (resto === 11))
+            resto = 0;
+        if (resto !== parseInt(cpf.substring(9, 10)))
+            return false;
+
+
+
+        soma = 0;
+        for (let i = 1; i <= 10; i++)
+            soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+        resto = (soma * 10) % 11;
+
+        if ((resto === 10) || (resto === 11))
+            resto = 0;
+        if (resto !== parseInt(cpf.substring(10, 11)))
+            return false;
+
+        return true;
+
+
+    }
+
+
+    const verificaCampos = (campo, qtd) => {
+        const validador = campo.replace(/[^0-9]+/g, '');
+        return (validador !== "" && validador.length === qtd)
+    }
+
+    const verificaCPF = (e) => {
+        const campo = e.target.value
+        const cpf = campo.replace(/[^0-9]+/g, '');
+
+
+        if (!verificaCampos(campo, 11)) {
+            e.target.focus()
+            toast.warn("Por favor, digite um cpf com 11 dígitos")
+        } else {
+            if (!validaCPF(cpf)) {
+                e.target.focus()
+                toast.warn("Opa! Esse CPF não é válido")
+            }
+        }
+
+    }
+
+    
+    const verificaCCV = (e) => {
+        const campo = e.target.value
+        if (!verificaCampos(campo, 3)) {
+            e.target.focus()
+            toast.warn("Por favor, digite um ccv com 3 dígitos")
+        }
+    }
+
+    const verificaData = (e) => {
+        const campo = e.target.value
+        if (!verificaCampos(campo, 6)) {
+            e.target.focus()
+            toast.warn("Digita uma data com mês e ano")
+        }
+    }
+    const verificaTelefone = (e) => {
+        const campo = e.target.value
+        if (!verificaCampos(campo, 10)) {
+            e.target.focus()
+            toast.warn("Digita um telefone válido")
+        }
+    }
 
     return (
         <>
@@ -325,6 +404,8 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="ccv"
                                     id="ccv"
                                     placeholder="CCV"
+                                    onBlur={e => { verificaCCV (e) }}
+                                    
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -335,6 +416,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="dataValiade"
                                     id="dataVagit lidade"
                                     placeholder="Data de validade"
+                                    onBlur={e => { verificaData (e) }}
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -345,6 +427,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="cpfTitular"
                                     id="cpfTitular"
                                     placeholder="CPF do Titular"
+                                    onBlur={e => { verificaCPF(e) }}
                                 />
                             </FormGroup>
                             <FormGroup >
@@ -355,6 +438,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                     name="telefoneTitular"
                                     id="telefoneTitular"
                                     placeholder="Telefone do Titular"
+                                    onBlur={e => { verificaTelefone (e) }}
                                 />
                             </FormGroup>
 
