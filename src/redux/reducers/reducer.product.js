@@ -141,7 +141,7 @@ const INITIAL_STATE = {
 export default function produto(state = INITIAL_STATE, action) {
     switch (action.type) {
         case ProductActionsTypes.CHANGE_DISPLAYED_PRODUCT:
-            return { ...state, produto: action.produto, produtoAtivo: false }
+            return { ...state, produto: action.produto, produtoAtivo: false, number:1 }
         case ProductActionsTypes.INCREMENT_QUANTITY:
             if (action.number > state.maxNumber - 1) {
                 return { ...state, number: state.maxNumber }
