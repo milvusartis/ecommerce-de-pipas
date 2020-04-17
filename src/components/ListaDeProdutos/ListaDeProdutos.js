@@ -43,6 +43,12 @@ class ListaDeProdutos extends Component {
             }
         }
     }
+    scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
     componentDidMount() {
         const { getAll,produtos } = this.props;
         getAll();
@@ -72,7 +78,10 @@ class ListaDeProdutos extends Component {
                     <Row>
                         {typeof produtos !== "undefined" ? produtos.map(produto => (
                             <Col key={produto.idProduto} className="cardPipas mb-3 mt-3" xs="12" md="4">
-                                <Link to="" onClick={() => changeDisplayedProduct(produto, produtoAtivo)} className=""  >
+                                <Link to="" onClick={() => {
+                                    changeDisplayedProduct(produto, produtoAtivo)
+                                    this.scrollToTop()
+                                    }} className=""  >
                                     <Card>
                                         <CardImg top width="100%" src={produto.imagem} alt="Card image cap" />
                                         <CardBody>
