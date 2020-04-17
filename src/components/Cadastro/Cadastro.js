@@ -95,7 +95,7 @@ export default function Cadastro() {
 
 
         try {
-            const response = await api.post('clientes', cliente)
+            await api.post('clientes', cliente)
             toast.success("Cadastro realizado com sucesso");
             history.push("/login")
 
@@ -109,7 +109,7 @@ export default function Cadastro() {
         let senha1 = document.getElementById('senha').value;
         let senha2 = document.getElementById('rep_senha').value;
         if (senha1 !== '' && senha2 !== '') {
-            if (senha1 == senha2) {
+            if (senha1 === senha2) {
                 document.getElementById('confirmacao').style.color = '#008B45'
                 document.getElementById('confirmacao').innerHTML = "Senhas conferem"
             } else {

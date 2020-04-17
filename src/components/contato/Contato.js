@@ -39,7 +39,7 @@ class Contato extends Component {
         // const label = telefone.parentElement.children[0];
         const contador = this.state.contador;
         
-        if(contador == 0) {
+        if(contador === 0) {
             telefone.setAttribute('class', 'form-control valid Input');
             // label.setAttribute('class', 'valida');
             this.setState({contador: contador+1})
