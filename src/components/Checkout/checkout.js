@@ -226,7 +226,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                 </FormGroup>
                 <FormGroup>
                     <Input
-                        required
+                        
                         className="Input"
                         type="text"
                         name="complementoEntrega"
