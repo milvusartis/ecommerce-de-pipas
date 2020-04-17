@@ -53,7 +53,6 @@ class BarraDePesquisa extends Component {
                 </ListGroup>
             )
             this.setState({ resultado: exibir })
-            console.log(exibir)
         }
     }
     render() {

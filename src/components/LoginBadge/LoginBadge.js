@@ -8,8 +8,6 @@ import FloatingUserMenu from '../FloatingUserMenu/FloatingUserMenu';
 import handleLogout from "../../services/logout";
 
 const LoginBadge = ({ usuario }) => {
-    console.log(usuario)
-
 
     const [isOpen, setIsOpen] = useState(false);
 

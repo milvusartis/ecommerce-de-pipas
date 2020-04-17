@@ -5,7 +5,7 @@ const carrinho = {
     total: 0,
     quantityItems: 0,
     cep: 0,
-    valorFrete: '',
+    valorFrete: 0,
     diasEntrega: '',
     idPedido: ''
 }

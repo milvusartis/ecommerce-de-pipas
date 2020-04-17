@@ -139,8 +139,6 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
         const cep = e.target.value;
         // remove tudo que não for número
         const cepSemMascara = cep.replace(/[^0-9]+/g, '');
-
-        console.log(cepSemMascara)
         //Valida se o cep tem 8 dígitos
         if (cepSemMascara !== "" && cepSemMascara.length === 8) {
 
@@ -399,7 +397,6 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                              </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
                                     Valor total:<br />{(state.total + state.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                                    {console.log(state.valorFrete)}
                                 </ListGroupItem>
                             </ListGroup>
                             <Button color="success" className="buttonCheckout">Finalizar Compra</Button>

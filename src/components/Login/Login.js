@@ -59,7 +59,7 @@ const Login = ({ changeUser }) => {
 
             <div className="content">
                 <section className="form">
-                    <img src={milvus_logo} title="Milvus Arts" />
+                    <img src={milvus_logo} title="Milvus Artis Logo" alt="Milvus Artis Logo"/>
 
                     {isForgot ? (
                         <>

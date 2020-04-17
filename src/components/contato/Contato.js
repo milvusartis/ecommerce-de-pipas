@@ -14,6 +14,7 @@ import {
 } from 'availity-reactstrap-validation';
 import InputMask from "react-input-mask";
 import api from '../../services/api'
+import { toast } from 'react-toastify';
 
 class Contato extends Component {
     state={
@@ -38,7 +39,7 @@ class Contato extends Component {
         // const label = telefone.parentElement.children[0];
         const contador = this.state.contador;
         
-        if(contador == 0) {
+        if(contador === 0) {
             telefone.setAttribute('class', 'form-control valid Input');
             // label.setAttribute('class', 'valida');
             this.setState({contador: contador+1})
@@ -75,8 +76,8 @@ class Contato extends Component {
             assunto: assunto,
             mensagem: mensagem
         })
-        .then(resposta => console.log(resposta.data))
-        .catch(erro => console.log(erro.data))
+        .then(resposta => toast.success("Contato encaminhado"))
+        .catch(erro => toast.error("Ops! algo inexperado"))
     }
 
     render() {
