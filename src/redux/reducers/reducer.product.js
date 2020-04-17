@@ -133,16 +133,8 @@ const INITIAL_STATE = {
         "valor": 40.5,
         "disponibilidade": false,
     },
-
-    date: {},
-    day: {},
     maxNumber: 5,//->quantidade de itens disponivel
     number: 1,//////////////////////////
-    cep: 1,////////////////////////////
-    deliveryCost: {},//////////////////
-    total: {},
-    cidade: {},
-    estado: {},
     produtoAtivo: true,
 };
 

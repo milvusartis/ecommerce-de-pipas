@@ -14,15 +14,15 @@
 }
 .container .content{
     
-        width: 100%;
-        padding: 30px;
-        background: #f0f0f5;
-        box-shadow: 0 0 100px rgba(0, 0 ,0 , 0.1);
-        border-radius: 8px;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    width: 100%;
+    padding: 30px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0 ,0 , 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 #title{
@@ -37,6 +37,7 @@
     border: 1px solid #dcdce6;
     border-radius: 8px;
     padding: 0 24px;
+    font-size: 16px;
 }
 .textArea{
     width: 100%;

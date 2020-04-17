@@ -9,6 +9,9 @@ import { Col, Row, Button, Form, FormGroup, Container, Input, ListGroup, ListGro
 
 import * as CartActions from "../../redux/actions/action.cart";
 import api from '../../services/api';
+import { toast } from 'react-toastify';
+
+import apiViacep from '../../services/api-cep';
 
 
 
@@ -93,120 +96,21 @@ const enviarPedido = (event, state) => {
 }
 
 
-// const {changeCepValue,getCep} = this.props
-
-const handdler = {
-
-    col1: (usuario, endereco) => (
-        <>
-            <FormGroup>
-                <Input
-                    required
-                    className="Input"
-                    type="text"
-                    name="nomeEntrega"
-                    id="nomeEntrega"
-                    value={usuario.nome}
-                    placeholder="Nome"
-                />
-            </FormGroup>
-            <FormGroup >
-                <InputMask
-                    required
-                    className="Input"
-                    mask="99999-999"
-                    name="cepEntrega"
-                    // onClick={()=>{getCep()}}
-                    id="cepEntrega"
-                    value={endereco.cep}
-                    placeholder="CEP"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Input
-                    required
-                    className="Input"
-                    type="text"
-                    name="enderecoEntrega"
-                    id="enderecoEntrega"
-                    value={endereco.rua}
-                    placeholder="Endereço"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Input
-                    required
-                    className="Input"
-                    type="number"
-                    name="numero"
-                    id="numero"
-                    value={endereco.numero}
-                    placeholder="numero"
-                    maxLength="3"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Input
-                    required
-                    className="Input"
-                    type="text"
-                    name="complementoEntrega"
-                    id="complementoEntrega"
-                    value={endereco.complemento}
-                    placeholder="Complemento"
-                />
-            </FormGroup>
-            <FormGroup >
-                <Input
-                    required
-                    className="Input"
-                    type="text"
-                    name="bairro"
-                    value={endereco.bairro}
-                    id="bairro"
-                    placeholder="Bairro"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Input
-                    required
-                    className="Input"
-                    type="text"
-                    name="cidadeEntrega"
-                    id="cidadeEntrega"
-                    value={endereco.cidade}
-                    placeholder="Cidade"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Input
-                    required
-                    className="Input"
-                    type="text"
-                    name="ufEntrega"
-                    id="ufEntrega"
-                    value={endereco.uf}
-                    placeholder="UF"
-                    maxLength="2"
-                />
-            </FormGroup>
-
-        </>
-    )
-};
-
-const showHanddler = (group, usuario, endereco) => {
-    const handler = handdler[group]
-    return handler(usuario, endereco);
-};
 
 
-const Checkout = ({ state, geraPedido }) => {
+
+
+
+const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
     const [showCol2, setShowCol2] = React.useState(false);
     const [cliente, setCliente] = React.useState({
         usuario: {},
-        endereco: {}
+        // endereco: {
+        // }
     });
+    const [endereco, setEndereco] = React.useState({});
+
+
 
     const toggleComponent = () => {
         setShowCol2(!showCol2)
@@ -216,16 +120,171 @@ const Checkout = ({ state, geraPedido }) => {
     async function buscar() {
         const response = await api.get(`/perfilusuario`);
         setCliente(response.data);
+        setEndereco(response.data.endereco)
         toggleComponent();
     }
 
+
+
+    // const handdleEndereco = (cep) => {
+
+    //     // .catch((error) => {
+
+
+
+    //     // });
+    // }
+
+    const handdleCep = (e, endereco) => {
+        const cep = e.target.value;
+        // remove tudo que não for número
+        const cepSemMascara = cep.replace(/[^0-9]+/g, '');
+        //Valida se o cep tem 8 dígitos
+        if (cepSemMascara !== "" && cepSemMascara.length === 8) {
+
+            apiViacep.get(cepSemMascara + '/json', {
+
+            }).then((response => {
+                if (response.data.erro) {
+                    toast.error("Digite um cep válido")
+                }
+
+                let novoEndereco = {
+
+                    rua: response.data.logradouro,
+                    numero: "",
+                    complemento: response.data.complemento,
+                    bairro: response.data.bairro,
+                    cidade: response.data.localidade,
+                    uf: response.data.uf,
+
+                }
+                setEndereco(novoEndereco);
+      
+            }))
+
+        }
+        else {
+
+            toast.warn("Cep não preenchido completamente");
+        }
+
+    }
+
+
+    const handdler = {
+
+        col1: (usuario, endereco) => (
+            <>
+                <FormGroup>
+                    <Input
+                        required
+                        className="Input"
+                        type="text"
+                        name="nomeEntrega"
+                        id="nomeEntrega"
+                        value={usuario.nome}
+                        placeholder="Nome"
+                    />
+                </FormGroup>
+                <FormGroup >
+                    <InputMask
+                        required
+                        className="Input"
+                        mask="99999-999"
+                        name="cepEntrega"
+                        // onClick={()=>{getCep()}}
+                        id="cepEntrega"
+                        value={endereco.cep}
+                        placeholder="CEP"
+                        onBlur={e => {handdleCep(e, endereco); changeFreteInfo(endereco)}}
+                      
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        required
+                        className="Input"
+                        type="text"
+                        name="enderecoEntrega"
+                        id="enderecoEntrega"
+                        value={endereco.rua}
+                        placeholder="Endereço"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        required
+                        className="Input"
+                        type="number"
+                        name="numero"
+                        id="numero"
+                        value={endereco.numero}
+                        placeholder="numero"
+                        maxLength="3"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        required
+                        className="Input"
+                        type="text"
+                        name="complementoEntrega"
+                        id="complementoEntrega"
+                        value={endereco.complemento}
+                        placeholder="Complemento"
+                    />
+                </FormGroup>
+                <FormGroup >
+                    <Input
+                        required
+                        className="Input"
+                        type="text"
+                        name="bairro"
+                        value={endereco.bairro}
+                        id="bairro"
+                        placeholder="Bairro"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        required
+                        className="Input"
+                        type="text"
+                        name="cidadeEntrega"
+                        id="cidadeEntrega"
+                        value={endereco.cidade}
+                        placeholder="Cidade"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        required
+                        className="Input"
+                        type="text"
+                        name="ufEntrega"
+                        id="ufEntrega"
+                        value={endereco.uf}
+                        placeholder="UF"
+                        maxLength="2"
+                    />
+                </FormGroup>
+
+            </>
+        )
+    };
+
+    const showHanddler = (group, usuario, endereco) => {
+        const handler = handdler[group]
+        return handler(usuario, endereco);
+    };
 
 
 
 
     return (
         <>
-        
+
 
             <Container id="checkout">
                 <Form
@@ -308,13 +367,13 @@ const Checkout = ({ state, geraPedido }) => {
                             {showCol2 ?
                                 (
                                     <>
-                                        {(showHanddler("col1", cliente.usuario, cliente.endereco))}
+                                        {(showHanddler("col1", cliente.usuario, endereco))}
                                     </>
                                 )
                                 :
                                 (
                                     <>
-                                        <Button color="secondary" className="buttonCheckout2 "  onClick={buscar}>Dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout2 " onClick={()=>{buscar(); changeFreteInfo(endereco)}}>Dados cadastrados</Button>
                                         <Button color="secondary" className="buttonCheckout2 " onClick={toggleComponent}>Novos dados</Button>
                                     </>
                                 )
@@ -338,7 +397,6 @@ const Checkout = ({ state, geraPedido }) => {
                              </ListGroupItem>
                                 <ListGroupItem className="listaResumo">
                                     Valor total:<br />{(state.total + state.valorFrete).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                                    {console.log(state.valorFrete)}
                                 </ListGroupItem>
                             </ListGroup>
                             <Button color="success" className="buttonCheckout">Finalizar Compra</Button>
@@ -358,7 +416,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     geraPedido: (pedido) => dispatch(CartActions.geraPedido(pedido)),
-    getCep:(cep)=>dispatch(CartActions.getCep(cep))
+    changeFreteInfo: (json) => dispatch(CartActions.changeFreteInfo(json))
 })
 
 export default connect(

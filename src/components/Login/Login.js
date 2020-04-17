@@ -35,13 +35,9 @@ const Login = ({ changeUser }) => {
             senha: senha
 
         }).then((response => {
-            console.log(response)
-
             sessionStorage.setItem("token", JSON.stringify(response.headers.authorization));
             changeUser();
-
             history.push("/")
-
         }))
     }
 
@@ -63,7 +59,7 @@ const Login = ({ changeUser }) => {
 
             <div className="content">
                 <section className="form">
-                    <img src={milvus_logo} title="Milvus Arts" />
+                    <img src={milvus_logo} title="Milvus Artis Logo" alt="Milvus Artis Logo"/>
 
                     {isForgot ? (
                         <>

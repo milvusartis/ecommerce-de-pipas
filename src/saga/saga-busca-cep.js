@@ -5,7 +5,7 @@ import { takeLatest, call, all, put } from 'redux-saga/effects';
 
 function* getCepRequested(cep) {
     const response = yield call(api.get, '/' + cep.cep + '/json');
-    yield put(changeFreteInfo(response))
+    yield put(changeFreteInfo(response.data))
 }
 
 function* whatchRequestGetCep() {
