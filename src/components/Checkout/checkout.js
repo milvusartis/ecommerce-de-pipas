@@ -139,8 +139,6 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
         const cep = e.target.value;
         // remove tudo que não for número
         const cepSemMascara = cep.replace(/[^0-9]+/g, '');
-
-        console.log(cepSemMascara)
         //Valida se o cep tem 8 dígitos
         if (cepSemMascara !== "" && cepSemMascara.length === 8) {
 
