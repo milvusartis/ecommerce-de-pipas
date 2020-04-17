@@ -101,7 +101,7 @@ const enviarPedido = (event, state) => {
 
 
 
-const Checkout = ({ state, geraPedido }) => {
+const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
     const [showCol2, setShowCol2] = React.useState(false);
     const [cliente, setCliente] = React.useState({
         usuario: {},
@@ -199,7 +199,8 @@ const Checkout = ({ state, geraPedido }) => {
                         id="cepEntrega"
                         value={endereco.cep}
                         placeholder="CEP"
-                        onBlur={e => handdleCep(e, endereco)}
+                        onBlur={e => {handdleCep(e, endereco); changeFreteInfo(endereco)}}
+                      
                     />
                 </FormGroup>
                 <FormGroup>
@@ -374,7 +375,7 @@ const Checkout = ({ state, geraPedido }) => {
                                 :
                                 (
                                     <>
-                                        <Button color="secondary" className="buttonCheckout2 " onClick={buscar}>Dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout2 " onClick={()=>{buscar(); changeFreteInfo(endereco)}}>Dados cadastrados</Button>
                                         <Button color="secondary" className="buttonCheckout2 " onClick={toggleComponent}>Novos dados</Button>
                                     </>
                                 )
@@ -418,7 +419,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     geraPedido: (pedido) => dispatch(CartActions.geraPedido(pedido)),
-    getCep: (cep) => dispatch(CartActions.getCep(cep))
+    changeFreteInfo: (json) => dispatch(CartActions.changeFreteInfo(json))
 })
 
 export default connect(
