@@ -160,7 +160,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
 
                 }
                 setEndereco(novoEndereco);
-      
+
             }))
 
         }
@@ -197,8 +197,8 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                         id="cepEntrega"
                         value={endereco.cep}
                         placeholder="CEP"
-                        onBlur={e => {handdleCep(e, endereco); changeFreteInfo(endereco)}}
-                      
+                        onBlur={e => { handdleCep(e, endereco); changeFreteInfo(endereco) }}
+
                     />
                 </FormGroup>
                 <FormGroup>
@@ -288,7 +288,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
 
             <Container id="checkout">
                 <Form
-                    onSubmit={e => { geraPedido(enviarPedido(e, state)) }}
+                    onSubmit={e => { toast.info("Pedido sendo processado, por favor aguarde"); geraPedido(enviarPedido(e, state)) }}
                 >
 
                     <Row>
@@ -373,7 +373,7 @@ const Checkout = ({ state, geraPedido, changeFreteInfo }) => {
                                 :
                                 (
                                     <>
-                                        <Button color="secondary" className="buttonCheckout2 " onClick={()=>{buscar(); changeFreteInfo(endereco)}}>Dados cadastrados</Button>
+                                        <Button color="secondary" className="buttonCheckout2 " onClick={() => { buscar(); changeFreteInfo(endereco) }}>Dados cadastrados</Button>
                                         <Button color="secondary" className="buttonCheckout2 " onClick={toggleComponent}>Novos dados</Button>
                                     </>
                                 )

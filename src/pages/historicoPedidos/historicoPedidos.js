@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -12,11 +13,11 @@ import Divider from '@material-ui/core/Divider';
 import { MdExpandMore } from 'react-icons/md';
 import api from '../../services/api';
 
+import { CartActions, addToCart } from "../../redux/actions/action.cart";
+
 import './historicoPedidos.scss'
-
-
-
-
+import pedido from '../../redux/reducers/reducer.cart';
+import { toast } from "react-toastify";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,11 +54,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
-export default function HistoricoPedidosl() {
-
+const HistoricoPedidos = ({ requestRefazerPedido, addToCart }) => {
     const classes = useStyles();
+
     const [pedidos, setPedidos] = useState([]);
 
     const usuario = sessionStorage.getItem('usuario');
@@ -90,13 +89,19 @@ export default function HistoricoPedidosl() {
         PEDIDO_ENVIADO: value => "uhuuu, seu pedido está a caminho",
         PEDIDO_ENTREGUE: value => "oba, seu pedido foi entregue",
     };
-    
+
 
     const showMenssage = (statusPedido, value) => {
         const handler = handlePedidoMensage[statusPedido]
         return handler(value);
     };
 
+    const montaPedido = (pedido, addToCart) => {
+        pedido.pedidoItens.map(item => (
+            addToCart(item.produto, item.quantidade)
+        ));
+        toast.success("Pedido adicionado ao carrinho")
+    }
 
 
     useEffect(() => {
@@ -108,8 +113,6 @@ export default function HistoricoPedidosl() {
 
         })
     }, [idUsuario]);
-
-
     return (
         <>
             <div className="pedido-container">
@@ -132,21 +135,21 @@ export default function HistoricoPedidosl() {
                                     </div>
                                 </ExpansionPanelSummary>
 
-                                <ExpansionPanelDetails className={classes.details}>                    
+                                <ExpansionPanelDetails className={classes.details}>
                                     <ol className="progress-track" data-steps="4">
-                                        <li className={changeTrackerStep(pedido.statusPedido)>=1?"done":""}>
+                                        <li className={changeTrackerStep(pedido.statusPedido) >= 1 ? "done" : ""}>
                                             <span className="name">Pedido realizado</span>
                                             <span className="step"><span>1</span></span>
                                         </li>
-                                        <li className={changeTrackerStep(pedido.statusPedido)>=2?"done":""}>
+                                        <li className={changeTrackerStep(pedido.statusPedido) >= 2 ? "done" : ""}>
                                             <span className="name">Pagamento confirmado</span>
                                             <span className="step"><span>2</span></span>
                                         </li>
-                                        <li className={changeTrackerStep(pedido.statusPedido)>=3?"done":""}>
+                                        <li className={changeTrackerStep(pedido.statusPedido) >= 3 ? "done" : ""}>
                                             <span className="name">Pedido enviado</span>
                                             <span className="step"><span>3</span></span>
                                         </li>
-                                        <li className={changeTrackerStep(pedido.statusPedido)>=4?"done":""}>
+                                        <li className={changeTrackerStep(pedido.statusPedido) >= 4 ? "done" : ""}>
                                             <span className="name">Pedido entregue</span>
                                             <span className="step"><span>4</span></span>
                                         </li>
@@ -184,7 +187,7 @@ export default function HistoricoPedidosl() {
                                 <ExpansionPanelActions>
                                     {/* <Button size="small">Cancel</Button> */}
                                     <strong >Total - {pedido.valorTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                                    <Button size="small" color="primary">
+                                    <Button size="small" color="primary" onClick={() => montaPedido(pedido, addToCart)}>
                                         Refazer pedido
                                                  </Button>
                                 </ExpansionPanelActions>
@@ -198,6 +201,18 @@ export default function HistoricoPedidosl() {
                 </div>
             </div>
         </>
-    );
+    )
+};
 
-}
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+    requestRefazerPedido: (pedido) => dispatch(CartActions.requestRefazerPedido(pedido)),
+    addToCart: (produto, number) => dispatch(CartActions.addToCart(produto, number)),
+
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HistoricoPedidos);

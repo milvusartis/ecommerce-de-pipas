@@ -67,6 +67,7 @@ const CartActions = {
     type: CartActionsType.SUB_QUANTITY,
     id
   }),
+
 }
 
 export { CartActions }

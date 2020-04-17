@@ -13,6 +13,7 @@ import {CartActions} from "../../redux/actions/action.cart";
 import CalculaFrete from '../CalculaFrete/CalculaFrete';
 import ControlaQtd from "../ControlaQtd/ControlaQtd";
 
+
 class ExibeProduto extends Component {
     guardaStorage=(produto,number)=>{
         

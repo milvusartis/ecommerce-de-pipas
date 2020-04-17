@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Routes />
-        <ToastContainer autoClose={2000} />
+        <ToastContainer autoClose={3000} />
       </Provider>
     );
   }
